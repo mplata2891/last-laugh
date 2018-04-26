@@ -1,0 +1,5 @@
+Inventory Menu - Type a number from 1 to 4
+	1. Equip
+	2. Inspect
+	3. Combine
+	4. Use

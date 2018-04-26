@@ -1,0 +1,33 @@
+Main Menu
+	1. New Game
+	2. Continue Saved Game
+	3. Exit
+
+Player Menu - Type a number from 1 to 6
+	1. Move
+	2. Sense
+	3. Examine
+	4. Action
+	4. Inventory
+	5. Save Game
+	6. Exit
+
+Move Menu - Type a number from 1 to 4
+	1. North
+	2. South
+	3. East
+	4. West
+
+Action Menu - Type a number from 1 to 6
+	1. Press
+	2. Pull
+	3. Turn
+	4. Slide
+	5. Push
+	6. Type
+
+Inventory Menu - Type a number from 1 to 4
+	1. Equip
+	2. Inspect
+	3. Combine
+	4. Use

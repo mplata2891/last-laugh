@@ -1,9 +1,9 @@
 /*
-  Francisco Leon
-  Co Sci 290
-
-  This program runs a text based rpg that puts to use
-  lessons learned in class.
+  
+  Group Last Laugh
+  
+  Our game starring you, try to escape.  
+  
 */
 
 import java.util.*;
@@ -12,7 +12,6 @@ public class GameDriver{
   public static void main(String[] args){
 
     String name = "";
-
     String catName = "";
     String direction = "";
     double clownLikeLevel = 0.0;
@@ -20,7 +19,7 @@ public class GameDriver{
 
 
    tool.splashPage("title");
-   tool.readFile("Text.txt");
+   tool.readFile("TextFiles/Story/Prologue.txt");
     //tool.splashPage("intro");
 
     //User info/set up
@@ -54,80 +53,11 @@ public class GameDriver{
       System.out.println("\nIn the distance you hear a low whisper say... bless you.");
     }
 
-    //Lab 10 The human parts done with ArrayList
-
-    //Making humans
-    Human Npc1 = new Human("Jack","Lok", tool.chance(1,100));
-    Human Npc2 = new Human("Hang","Mang", tool.chance(1,100));
-    Human Npc3 = new Human("Leaf","Jones", tool.chance(1,100));
-
-    ArrayList<Human> NonImportantPlayers = new ArrayList<Human>();
-
-    NonImportantPlayers.add(Npc1);
-    NonImportantPlayers.add(Npc2);
-    NonImportantPlayers.add(Npc3);
-
-    //printing human names
-    for(Human Npc: NonImportantPlayers){
-      Npc.printHuman();
-    }
-
-    /* Thinking about a find human function that searches and returns
-        an object in my array
-    System.out.println("Who do you choose to aid you?\nCall their first name: " );
-    String helper1 = input.next();
-    findHuman(helper1,NonImportantPlayers).printHuman();
-    System.out.println("has joined your party.");
-    */
-
-    //Things thinking about using, not really sure on direction of game
-
-    /* Might use this when Player object is finsihed
-    for(int index = 0; index < NonImportantPlayers.length; index++){
-       NonImportantPlayers[index].setHitPoints(1 + (int)(Math.random() * (20 - 1)));
-       System.out.println("Hit points: " + NonImportantPlayers[index].getHitPoints());
-    }
-    */
-    //Default weapons
-    /*
-    Weapon noWeapon = new Weapon("none",0);
-    Armor noArmor = new Armor("none",0);
-    Item noItem = new Item("none",0,0,0);
-    */
-    //NPC set up
-
-    /*
-    Npc1.setStrength(1 + (int)(Math.random() * (20 - 1)));
-    System.out.println("Strength: " + Npc1.getStrength());
-    System.out.println("attack: " + Npc1.getTotalAttack());
-
-    for(Player Npc: NonImportantPlayers){
-      Npc.setHitPoints(1 + (int)(Math.random() * (20 - 1)));
-      Npc.setStrength(1 + (int)(Math.random() * (20 - 1)));
-      Npc.setToughness(1 + (int)(Math.random() * (20 - 1)));
-      Npc.setIntelligence(1 + (int)(Math.random() * (20 - 1)));
-    }
-
-    int i = 1;
-    for(Player Npc: NonImportantPlayers){
-      System.out.println(Npc.getFirstName() + " " + Npc.getLastName() + " attributes:");
-      System.out.println("Hit points: " + Npc.getHitPoints());
-      //System.out.println("Strength: " + Npc.getStrength());
-      System.out.println("getToughness: " + Npc.getToughness());
-      System.out.println("Intelligence: " + Npc.getIntelligence());
-    }
-    */
+    
+    
 
     tool.splashPage("gameover");
 
-  }
-  
-  //not sure if going to use this
-  public static Human findHuman(String firstName, Human[] people){
-    for(Human x : people){
-      if(x.getFirstName() == firstName) return x;
-    }
-    return null;
-  }
+  } //end of main
 
-}
+} //end of class

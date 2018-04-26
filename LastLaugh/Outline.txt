@@ -1,0 +1,20 @@
+Program opens up with splash screen
+
+Prologue displayed
+
+into 1 displayed
+
+Asks user for name and takes input
+
+saves name into a save file
+
+intro 2 displayed
+
+give user the opportunity to explore initial room
+
+scenario 1 (sneeze scenario) happens
+
+scenario 2 (unknown happens)
+____________________________________________
+
+mike to create table array to act as map

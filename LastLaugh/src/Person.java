@@ -7,10 +7,9 @@
 
 public class Person extends GamePiece{
 
-	//the Person class has 3 class members/properties
+	//the Person class has 2 class members
 	private String firstName;
 	private String lastName;
-	private int age;
 
 
 	//default constructor
@@ -24,16 +23,13 @@ public class Person extends GamePiece{
 	}
 
 	//implicit constructor
-	public Person(String first, String last, int someAge) {
+	public Person(String first, String last) {
 
 		//assigns the value of first to the firstName property
 		this.firstName = first;
 
 		//assigns the value of last to the lastName property
 		this.lastName = last;
-
-		//assigns the value of someAge to the age property
-		this.age = someAge;
 	}
 
 	//method to return the full name of the Person object
@@ -72,27 +68,12 @@ public class Person extends GamePiece{
 		return this.lastName;
 	}
 
-	//method to assign a value to the age property
-	public void setAge(int years){
-
-		//assigns the value of years to age
-		this.age = years;
-	}
-
-	//method to return the value of the age property
-	public int getAge(){
-
-		//retrurns the value of the age property
-		return this.age;
-	}
-
 	//method to return object properties as string
 	public String toString() {
 
 		//returns object properties as string
 		return "PERSON - \n"
 						+ "First Name: " + this.firstName + "\n"
-						+ " Last Name: " + this.lastName + "\n"
-						+ "       Age: " + this.age + "\n\n";
+						+ " Last Name: " + this.lastName + "\n\n";
 	}
 }

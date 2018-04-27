@@ -1,9 +1,19 @@
 /*
-  
+  CoSci 290
   Group Last Laugh
-  
-  Our game starring you, try to escape.  
-  
+    - Lynn
+    - Frank
+    - Mike
+
+  Our game starring you, try to escape.
+
+  A simple text adventure where the player must
+  solve puzzles in order to get through various rooms
+  of the game. Different actions taken during gameplay
+  can, and will effect the outcome of the game.
+
+  Contains multiple endings. Good Luck!
+
 */
 
 import java.util.*;
@@ -18,9 +28,12 @@ public class GameDriver{
     Utility tool = new Utility();
 
 
-   tool.splashPage("title");
    tool.readFile("TextFiles/Story/Prologue.txt");
-    //tool.splashPage("intro");
+   //tool.splashPage("intro");
+
+   tool.splashPage("title");
+
+   tool.readFile("TextFiles/Story/Intro1.txt");
 
     //User info/set up
     System.out.print("You've been passed out for 3 days.\n" + "What's your name? ");
@@ -53,8 +66,8 @@ public class GameDriver{
       System.out.println("\nIn the distance you hear a low whisper say... bless you.");
     }
 
-    
-    
+
+
 
     tool.splashPage("gameover");
 

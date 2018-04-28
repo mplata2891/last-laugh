@@ -7,13 +7,15 @@
   To be used by the Player class
 */
 
+//begining of new class
 public class Item{
 
 	//the Item class has 4 properties
 	private String name;
-	private int strMod;
-	private int tufMod;
-	private int sklMod;
+	private String type;
+	private String location;
+	private boolean combines;
+
 
 	//the Item class has 1 defualt constructor
 	public Item(){
@@ -22,14 +24,11 @@ public class Item{
 		this.name = "None";
 
 		//assigns the value of zero (0) to the strMod property
-		this.strMod = 0;
+		this.type = "None";
 
 		//assigns the value of zero (0) to the tufMod property
-		this.tufMod = 0;
-
-		//assigns the value of zero (0) to the sklMod property
-		this.sklMod = 0;
-	}
+		this.combines = false;
+	}	//end constructor
 
 	//method to set the name property
 	public void setName(String name){
@@ -45,56 +44,70 @@ public class Item{
 		return this.name;
 	}
 
-	//method to set the strMod property
-	public void setStrMod(int newValue){
+	//method to set the type property
+	public void setType(String newType){
 
-		//assigns the value of newValue to strMod property
-		this.strMod = newValue;
+		//assigns the value of newType to the type property
+		this.type = newType;
 	}
 
-	//method to return the value of the strMod property
-	public int getStrMod(){
+	//method to return the value of the type property
+	public int getType(){
 
-		//returns the value of the strMod property
-		return this.strMod;
+		//returns the value of the type property
+		return this.type;
 	}
 
-	//method to set the tufMod property
-	public void setTufMod(int newValue){
+	//method to set the location property
+	public void setLocation(String newLocation){
 
-		//assigns the value of newValue to tufMod property
-		this.tufMod = newValue;
+		//assigns the value of newLocation to the location property
+		this.location = newLocation;
 	}
 
-	//method to return the value of the tufMod property
-	public int getTufMod(){
+	//method to return the value of the location property
+	public String getLocation(){
 
-		//returns the value of the tufMod property
-		return this.tufMod;
+		//returns the value of the location property
+		return this.location;
 	}
 
-	//method to set the sklMod property
-	public void setSklMod(int newValue){
+	//method to set the combines property
+	public void setCombines(boolean newBool){
 
-		//assigns the value of newValue to sklMod property
-		this.sklMod = newValue;
+		//assigns the value of newBool to the combines property
+		this.combines = newBool;
 	}
 
-	//method to return the value of the sklMod property
-	public int getSklMod(){
+	//method to return the value of the combines property
+	public int getCombines(){
 
-		//returns the value of the defMod property
-		return this.sklMod;
+		//returns the value of the combines property
+		return this.combines;
 	}
+	
+/*
+	//method to return class members that are not hidden
+	//from the player, as a string with appropriate labels
+	//for each class member
+	public String knownInfo(){
 
-	//method to return class members as a string
+		//returns class members as a string
+		return "ITEM - \n"
+						+ "    Name: " + this.name "\n"
+						+ "    Type: " + this.type + "\n\n";
+	}//end knownInfo method
+*/
+
+	//method to return class members as a string with
+	//appropriate labels for each class member
 	public String toString() {
 
 		//returns class members as a string
 		return "ITEM - \n"
 						+ "    Name: " + this.name "\n"
-						+ " Str Mod: " + this.strMod + "\n"
-						+ " Tuf Mod: " + this.tufMod + "\n"
-						+ " Skl Mod: " + this.sklMod + "\n\n";
-	}
-}
+						+ "    Type: " + this.type + "\n"
+						+ "Location: " + this.location + "\n"
+						+ "Combines: " + this.combines + "\n\n";
+	}//end of toString
+}//end of class

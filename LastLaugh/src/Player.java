@@ -12,6 +12,12 @@ public class Player extends Person{
 	//default constructor
 	public Player(){
 
+		//assigns the value of the firstName field to the indicated string
+		super.firstName = "";
+
+		//assigns the value of the lastNae field to the indicated string
+		super.lastName = "";
+
 		//creates a new ArrayList and assigns it to the inventory field
 		this.inventory = new ArrayList<>[];
 
@@ -19,10 +25,28 @@ public class Player extends Person{
 		this.notebook = new ArrayList<>[];
 	}//end constructor
 
-	public getInventoryItem(){
+	public void addInventory(Item newItem){
 
-		return
+		//adds newItem as an element in the ArrayList
+		inventory.add(newItem);
 	}
+
+	//method to convert the manipulatedBy ArrayList to a string
+  public String getInventory(){
+
+    //declare and initialize variables
+    String inventoryList = "Inventory:\n";
+
+    //initiate for loop to iterate through the ArrayList
+    for(int i = 0; i < inventory.size(); i++){
+
+      //concatonates indicated String to manipulations
+      inventoryList = "   " + i + ". " + inventory.get(i) + "\n";
+    }
+
+    //returns the value of manipulations
+    return inventoryList;
+  }
 
 
 

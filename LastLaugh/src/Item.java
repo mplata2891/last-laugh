@@ -12,7 +12,7 @@
 //begining of new class
 public class Item extends GamePiece{
 
-	//the Item class has 4 properties
+	//the Item class has 4 class members/properties
 	private String name;
 	private String type;
 	public String description;

@@ -13,7 +13,6 @@
   can, and will effect the outcome of the game.
 
   Contains multiple endings. Good Luck!
-
 */
 
 import java.util.*;

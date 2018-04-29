@@ -2,12 +2,15 @@
 	Mike Plata
 	CoSci 290
 
-	Person class is an abstract class
+	Person class is an abstract class to be inherited by the concrete Player
+	class.
+
+	The Person class is a sub-class of the GamePiece class.
 */
 
 public class Person extends GamePiece{
 
-	//the Person class has 2 class members
+	//the Person class has 2 class members/fields
 	private String firstName;
 	private String lastName;
 

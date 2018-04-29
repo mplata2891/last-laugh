@@ -3,8 +3,9 @@
   CoSci 290
 
   The Clue class represents in-game items that help the user piece
-  together the game's mystery. The Clue class may have many different
-  subclasses, but the most prominent one is the Note subclass.
+  together the game's mystery, but don't necissarily help solve puzzles.
+  The Clue class may be many different 'types' of in-game objects, except
+  for 'Notes'.
 
   The Clue class is a sublass of the Item class.
 */
@@ -19,7 +20,7 @@ public class Clue extends Item{
     super.name = "None";
 
     //assigns the indicated string to the type property
-    super.type = "Clue";
+    super.type = "None";
 
     //assigns the indicated string to the type property
     super.description = "None";
@@ -32,13 +33,13 @@ public class Clue extends Item{
   }//end of constructor
 
   //implicit constructor
-  public Clue(String name, String description, String location){
+  public Clue(String name, String type, String description, String location){
 
     //assigns the indicated string to the name property
     super.name = name;
 
     //assigns the indicated string to the type property
-    super.type = "Clue";
+    super.type = type;
 
     //assigns the indicated string to the type property
     super.description = description;
@@ -55,7 +56,7 @@ public class Clue extends Item{
   public String toString(){
 
     //returns class members as a string
-		return "KEY - \n"
+		return "CLUE - \n"
 						+ "       Name: " + super.name "\n"
 						+ "       Type: " + super.type + "\n"
             + "Description: " + super.description + "\n"

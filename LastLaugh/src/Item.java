@@ -1,23 +1,26 @@
 /*
   Mike Plata
   CoSci 290
-	Item Class
 
-  Abstract class for to be inherited by other concrete Item subclasses
-  To be used by the Player class
+  The Item class is an abstract class to be inherited by other concrete
+	subclasses. The Item class is the super-class for the Key, Puzzle,
+	and PuzzlePiece subclasses.
+
+  The Item class is a sublass of the GamePiece class.
 */
 
 //begining of new class
-public class Item{
+public class Item extends GamePiece{
 
 	//the Item class has 4 properties
 	private String name;
 	private String type;
+	public String description;
 	private String location;
 	private boolean combines;
 
 
-	//the Item class has 1 defualt constructor
+	//defualt constructor
 	public Item(){
 
 		//assigns the indicated String to the name property
@@ -25,6 +28,12 @@ public class Item{
 
 		//assigns the value of zero (0) to the strMod property
 		this.type = "None";
+
+		//assigns the indicated string to the type property
+    this.description = "None";
+
+    //assigns the indicated string to the location property
+    this.location = "Unknown";
 
 		//assigns the value of zero (0) to the tufMod property
 		this.combines = false;
@@ -58,6 +67,20 @@ public class Item{
 		return this.type;
 	}
 
+	//method to return the value of the description property
+  public String getDescription(){
+
+    //returns the value of the description property
+    return this.description;
+  }
+
+  //method to assigns a value to the description proptery
+  public void setDescription(String newDescription){
+
+    //assigns the value of newDescription to the description property
+    this.description = newDescription;
+  }
+
 	//method to set the location property
 	public void setLocation(String newLocation){
 
@@ -85,8 +108,7 @@ public class Item{
 		//returns the value of the combines property
 		return this.combines;
 	}
-	
-/*
+
 	//method to return class members that are not hidden
 	//from the player, as a string with appropriate labels
 	//for each class member
@@ -97,7 +119,6 @@ public class Item{
 						+ "    Name: " + this.name "\n"
 						+ "    Type: " + this.type + "\n\n";
 	}//end knownInfo method
-*/
 
 	//method to return class members as a string with
 	//appropriate labels for each class member
@@ -105,9 +126,10 @@ public class Item{
 
 		//returns class members as a string
 		return "ITEM - \n"
-						+ "    Name: " + this.name "\n"
-						+ "    Type: " + this.type + "\n"
-						+ "Location: " + this.location + "\n"
-						+ "Combines: " + this.combines + "\n\n";
+						+ "       Name: " + this.name "\n"
+						+ "       Type: " + this.type + "\n"
+						+ "Description: " + this.description + "\n"
+						+ "   Location: " + this.location + "\n"
+						+ "   Combines: " + this.combines + "\n\n";
 	}//end of toString
 }//end of class

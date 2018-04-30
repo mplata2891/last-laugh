@@ -26,7 +26,7 @@ public class Utility{
       return start + (int)(Math.random() * (end - start));
     }
   //lab 14
-  public void TestWriteFile(String userInfo){
+  public void testWriteFile(String userInfo){
     String FILENAME = "testWriting.txt";
 		try(BufferedWriter bw = new BufferedWriter(new FileWriter(FILENAME))){
 			//String content = "This is the content to write into file\n";

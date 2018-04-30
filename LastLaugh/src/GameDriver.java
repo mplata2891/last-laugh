@@ -15,59 +15,117 @@
   Contains multiple endings. Good Luck!
 */
 
+//import declarations
 import java.util.*;
 
+//begining of new class
 public class GameDriver{
+
+  //entry point of main application
   public static void main(String[] args){
 
-    String name = "";
+    //object decclaration and instantiation
+    Scanner input = new Scanner(System.in);
+    Utility tool = new Utility();
+    //Room room1 = new Room();
+    //Player player1 = new Player();
+
+    //variable declaration and instantiation
+    String playerName = "";
     String catName = "";
     String direction = "";
+    int numberOfSpaces = 0;
     double clownLikeLevel = 0.0;
-    Utility tool = new Utility();
 
+    //access the readFile member of the tool object to display the story's Prologue
+    tool.readFile("TextFiles/Story/Prologue.txt");
 
-   tool.readFile("TextFiles/Story/Prologue.txt");
-   //tool.splashPage("intro");
+    //access the splashPage member of the tool object to display the game's title
+    tool.splashPage("title");
 
-   tool.splashPage("title");
+    //access the readFile member of the tool object to display the story's
+    //first part of the intro
+    tool.readFile("TextFiles/Story/Intro1.txt");
 
-   tool.readFile("TextFiles/Story/Intro1.txt");
+    //prompt user for input
+    System.out.print("You've been passed out for 3 days.\n"
+                    + "What's your name?: ");
 
-    //User info/set up
-    System.out.print("You've been passed out for 3 days.\n" + "What's your name? ");
-    Scanner input = new Scanner(System.in);
-    //name = input.next();
+    //take user's input
+    playerName = input.next();
 
-    tool.TestWriteFile(input.next());
+    //access the testWriteFile member of the tool object to write the value of
+    //playerName onto a file
+    tool.testWriteFile(playerName);
+
+    //access the readFile member of the tool object to ddisplay the story's
+    //second part of the intro
+    tool.readFile("TextFiles/Story/Intro2.txt");
+
+    //access the readFile member of the tool object to display the contents of
+    //the testWriting text file
     tool.readFile("testWriting.txt"); //cool works
+
+    //prompt user for input
     System.out.print( ", on a scale of 1 to 10, how much do you like clowns? ");
 
+    //take user input
     clownLikeLevel = input.nextDouble();
-    System.out.print(clownLikeLevel + " out of 10? Great! \nCause this place is full of them!\n \n"
+
+    //confirm user input, and display additional info
+    System.out.print(clownLikeLevel + " out of 10? Great!\n"
+                    + "Cause this place is full of them!\n\n"
                     + "Also, here's a cat.\n");
+
+    //access the splashPage member of the tool object to display a cat
     tool.splashPage("cat");
 
+    //prompt user for input
     System.out.print("What's it's name? ");
+
+    //take user input
     catName = input.next();
-    System.out.print("\nLooks like " + name + " and " + catName + " are ready!\n"
+
+    //display information for user and prompt input
+    System.out.print("\nLooks like " + playerName + " and " + catName + " are ready!\n"
                     + "Which direction do you head in? ");
+
+    //take user input
     direction = input.next();
-    System.out.print("Cool, " + direction + " it is! Good luck!\n \n");
 
-    //Random event
-    System.out.println("There's a lot of dust.\n" + "Oh, you feel a sneeze coming on.\n"
+    //prompt user for input
+    System.out.print("How many spaces would you like to move?: ");
+
+    //take user input
+    numberOfSpaces = input.nextInt();
+
+    //confirm user input
+    System.out.print("Cool, " + numberOfSpaces + " spaces" + direction
+                    + " it is! Good luck!\n\n");
+
+    //First Event - displays info for user
+    System.out.println("There's a lot of dust.\n"
+                      + "Oh, you feel a sneeze coming on.\n"
                       + "ahhh\nahhHHHHhh\nCHUUUUU!");
-    if(tool.chance(1,100) >30){
-      System.out.println("\nMEOW~\n" + catName + " got scared and ran out the room.");
-    }
+
+    //initiate if-else statement
+    if(tool.chance(1,100) >30){//access the chance member of the tool object
+
+      //display result of the first event
+      System.out.println("\nMEOW~\n" + catName
+                        + " got scared and ran out the room.");
+    }//end if
     else{
-      System.out.println("\nIn the distance you hear a low whisper say... bless you.");
-    }
+
+      //display result of the first event
+      System.out.println("\nIn the distance you hear a low whisper say..."
+                        + " bless you.");
+    }//end else
 
 
 
 
+      //access the splashPage member of the tool object to display 'gameover'
     tool.splashPage("gameover");
 
   } //end of main

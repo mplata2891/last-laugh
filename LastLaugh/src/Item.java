@@ -4,7 +4,7 @@
 
   The Item class is an abstract class to be inherited by other concrete
 	subclasses. The Item class is the super-class for the Key, Puzzle,
-	PuzzlePiece, and Clue subclasses.
+	PuzzlePiece, Clue, and Note subclasses.
 
   The Item class is a sublass of the GamePiece class.
 */

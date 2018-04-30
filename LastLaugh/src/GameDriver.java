@@ -27,7 +27,7 @@ public class GameDriver{
     //object decclaration and instantiation
     Scanner input = new Scanner(System.in);
     Utility tool = new Utility();
-    Room room1 = new Room(5, 5);
+    Room room1 = new Room(5, 5, 2, 2);
     //Player player1 = new Player();
 
     //variable declaration and instantiation
@@ -98,6 +98,13 @@ public class GameDriver{
 
     //take user input
     numberOfSpaces = input.nextInt();
+
+    /*working on moving in the map here - Mike
+    if(direction == "north"){
+
+      if((numberOfSpaces + room1.getExactRow()) !> (room1.getRows() - 1))
+    }
+    */
 
     //confirm user input
     System.out.print("Cool, " + numberOfSpaces + " spaces" + direction

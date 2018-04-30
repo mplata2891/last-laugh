@@ -2,7 +2,9 @@
   Mike Plata
   CoSci 290
 
-  Room
+  The Room class is a representation of a physical in-game
+  room that the player is inside of. Each room is comprised
+  of square spaces that form a grid
 */
 
 public class Room extends GamePiece{
@@ -11,7 +13,7 @@ public class Room extends GamePiece{
   private int maxRows;
   private int exactColumn;
   private int exactRow;
-  private int[][] position;
+  private boolean[][] position;
 
   //default constructor
   public Room(){
@@ -29,11 +31,11 @@ public class Room extends GamePiece{
     this.exactRow = 0;
 
     //creates a new array and assigns it to the position field
-    this.position = new int[this.maxColumns][this.maxRows];
+    this.position = new boolean[this.maxColumns][this.maxRows];
   }
 
   //implicit constructor
-  public Room(int rows, int columns){
+  public Room(int rows, int columns, int initialRow, int initialColumn){
 
     //assigns the indicated value to the maxRows field
     this.maxRows = rows;
@@ -42,14 +44,45 @@ public class Room extends GamePiece{
     this.maxColumns = columns;
 
     //assigns the indicated value to the exactRow field
-    this.exactRow = 0;
+    this.exactRow = initialRow;
 
     //assigns the indicated value to the exactColumn field
-    this.exactColumn = 0;
+    this.exactColumn = initialColumn;
 
     //creates a new array and assigns it to the position field
     this.position = new int[this.maxRows][this.maxColumns];
-  }
+
+    //initiate for loop to iterate through the multi-dimensional array
+    //located in the position field, in order to place a marker to represent
+    //the player's location inside the room
+    for(int i = 0; i < this.maxRows; i++){
+
+      //initiate if statement
+      if(i == this.exactRow){
+
+        //inititate for loop to iterate through columns
+        for(int j = 0; j < this.maxColumns; j++){
+
+          //initiatie if statement
+          if(j == this.exactColumn){
+
+            //assigns the value true to the indicated index
+            position[i][j] = true;
+          }//begin else
+          else{
+
+            //assigns the value false to the indicated index
+            position[i][j] = false;
+          }//end if-else
+        }//end for
+      }//begin else
+      else{
+
+        //assigns the value false to the indicated index
+        position[i][j] = false;
+      }//end else
+    }//end for
+  }//end constructor
 
   //method to return the value of the columns field
   public int getColumns(){

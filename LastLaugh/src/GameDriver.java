@@ -27,7 +27,7 @@ public class GameDriver{
     //object decclaration and instantiation
     Scanner input = new Scanner(System.in);
     Utility tool = new Utility();
-    //Room room1 = new Room();
+    Room room1 = new Room(5, 5);
     //Player player1 = new Player();
 
     //variable declaration and instantiation
@@ -106,7 +106,9 @@ public class GameDriver{
     //First Event - displays info for user
     System.out.println("There's a lot of dust.\n"
                       + "Oh, you feel a sneeze coming on.\n"
-                      + "ahhh\nahhHHHHhh\nCHUUUUU!");
+                      + "ahhh\n"
+                      + "ahhHHHHhh\n"
+                      + "CHUUUUU!");
 
     //initiate if-else statement
     if(tool.chance(1,100) >30){//access the chance member of the tool object
@@ -125,9 +127,9 @@ public class GameDriver{
 
 
 
-      //access the splashPage member of the tool object to display 'gameover'
+
+    //access the splashPage member of the tool object to display 'gameover'
     tool.splashPage("gameover");
 
   } //end of main
-
 } //end of class

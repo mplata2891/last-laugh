@@ -29,7 +29,26 @@ public class Room extends GamePiece{
     this.exactRow = 0;
 
     //creates a new array and assigns it to the position field
-    this.position = new int[columns][rows];
+    this.position = new int[this.maxColumns][this.maxRows];
+  }
+
+  //implicit constructor
+  public Room(int rows, int columns){
+
+    //assigns the indicated value to the maxRows field
+    this.maxRows = rows;
+
+    //assigns the indicated value to the maxColumns field
+    this.maxColumns = columns;
+
+    //assigns the indicated value to the exactRow field
+    this.exactRow = 0;
+
+    //assigns the indicated value to the exactColumn field
+    this.exactColumn = 0;
+
+    //creates a new array and assigns it to the position field
+    this.position = new int[this.maxRows][this.maxColumns];
   }
 
   //method to return the value of the columns field
@@ -82,16 +101,16 @@ public class Room extends GamePiece{
   }
 
   //method to set the value of the exactRow field
-  public void setExacctRow(int row){
+  public void setExactRow(int row){
 
     //assigns the value of row to the exacctRow field
     this.exactRow = row;
   }
 
   //method to return the value of the position field
-  public int[][] getPosition(){
+  public void getPosition(){
 
     //returns the value of the position field
-    return this.position[][];
+    //return this.position[][];
   }
 }

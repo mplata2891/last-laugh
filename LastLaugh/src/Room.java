@@ -50,7 +50,7 @@ public class Room extends GamePiece{
     this.exactColumn = initialColumn;
 
     //creates a new array and assigns it to the position field
-    this.position = new int[this.maxRows][this.maxColumns];
+    this.position = new boolean[this.maxRows][this.maxColumns];
 
     //initiate for loop to iterate through the multi-dimensional array
     //located in the position field, in order to place a marker to represent
@@ -78,8 +78,11 @@ public class Room extends GamePiece{
       }//begin else
       else{
 
-        //assigns the value false to the indicated index
-        position[i][j] = false;
+        //inititate for loop to iterate through columns
+        for(int j = 0; j < this.maxColumns; j++){
+
+            //assigns the value true to the indicated index
+            position[i][j] = false;
       }//end else
     }//end for
   }//end constructor

@@ -67,16 +67,13 @@ public class GameDriver{
     //the testWriting text file
     tool.readFile("testWriting.txt"); //cool works
 
-    //prompt user for input
-    System.out.print( ", on a scale of 1 to 10, how much do you like clowns? ");
-
-    //take user input
-    clownLikeLevel = input.nextDouble();
-
-    //confirm user input, and display additional info
-    System.out.print(clownLikeLevel + " out of 10? Great!\n"
-                    + "Cause this place is full of them!\n\n"
-                    + "Also, here's a cat.\n");
+    tool.readFile("TextFiles/Story/catIntro.txt");
+    
+    System.out.print("You decide to name them... ");
+    catName = input.next();
+    System.out.print("\nSo now it looks like it's you, " + "and " + catName + "\n"
+                    + "against wherever the heck you are. \n"
+                     +"You get unsteadily to your feet.");
 
     //access the splashPage member of the tool object to display a cat
     tool.splashPage("cat");

@@ -69,20 +69,14 @@ public class GameDriver{
 
     tool.readFile("TextFiles/Story/catIntro.txt");
     
+    //access the splashPage member of the tool object to display a cat
+    tool.splashPage("cat");
+    
     System.out.print("You decide to name them... ");
     catName = input.next();
     System.out.print("\nSo now it looks like it's you, " + "and " + catName + "\n"
                     + "against wherever the heck you are. \n"
                      +"You get unsteadily to your feet.");
-
-    //access the splashPage member of the tool object to display a cat
-    tool.splashPage("cat");
-
-    //prompt user for input
-    System.out.print("What's it's name? ");
-
-    //take user input
-    catName = input.next();
 
     //display information for user and prompt input
     System.out.print("\nLooks like " + playerName + " and " + catName + " are ready!\n"

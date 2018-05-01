@@ -27,10 +27,11 @@ public class GameDriver{
     //object decclaration and instantiation
     Scanner input = new Scanner(System.in);
     Utility tool = new Utility();
-    Room room1 = new Room(5, 5, 2, 2);
+    Room room1 = new Room("Room 1", 5, 5, 2, 2);
     //Player player1 = new Player();
 
     //variable declaration and instantiation
+    String advance = "";
     String playerName = "";
     String catName = "";
     String direction = "";

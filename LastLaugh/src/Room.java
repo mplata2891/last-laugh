@@ -9,6 +9,7 @@
 
 public class Room extends GamePiece{
 
+  private String name;
   private int maxColumns;
   private int maxRows;
   private int exactColumn;
@@ -17,6 +18,9 @@ public class Room extends GamePiece{
 
   //default constructor
   public Room(){
+
+    //assigns the indicated String to the name field
+    this.name = "";
 
     //assigns the indicated value to the maxColumns field
     this.maxColumns = 0;
@@ -31,11 +35,14 @@ public class Room extends GamePiece{
     this.exactRow = 0;
 
     //creates a new array and assigns it to the position field
-    this.position = new boolean[this.maxColumns][this.maxRows];
+    this.position = new boolean[this.maxRows][this.maxColumns];
   }
 
   //implicit constructor
-  public Room(int rows, int columns, int initialRow, int initialColumn){
+  public Room(String name, int rows, int columns, int startRow, int startColumn){
+
+    //assigns the value of name to the name field
+    this.name = name;
 
     //assigns the indicated value to the maxRows field
     this.maxRows = rows;
@@ -44,17 +51,17 @@ public class Room extends GamePiece{
     this.maxColumns = columns;
 
     //assigns the indicated value to the exactRow field
-    this.exactRow = initialRow;
+    this.exactRow = startRow;
 
     //assigns the indicated value to the exactColumn field
-    this.exactColumn = initialColumn;
+    this.exactColumn = startColumn;
 
     //creates a new array and assigns it to the position field
     this.position = new boolean[this.maxRows][this.maxColumns];
 
     //initiate for loop to iterate through the multi-dimensional array
     //located in the position field, in order to place a marker to represent
-    //the player's location inside the room
+    //the player's initial location inside the room
     for(int i = 0; i < this.maxRows; i++){
 
       //initiate if statement
@@ -83,9 +90,24 @@ public class Room extends GamePiece{
 
             //assigns the value true to the indicated index
             position[i][j] = false;
+        }//end for
       }//end else
     }//end for
   }//end constructor
+
+  //method to return the value of the name field
+  public String getName(){
+
+    //returns the value of the name field
+    return this.name;
+  }
+
+  //method to set the value of the name field
+  public void setName(String newName){
+
+    //assigns the value of newName to the name field
+    this.name = newName;
+  }
 
   //method to return the value of the columns field
   public int getColumns(){

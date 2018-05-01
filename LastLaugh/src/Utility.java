@@ -13,7 +13,7 @@ public class Utility{
     try(BufferedReader br = new BufferedReader(new FileReader(filename))){
       while( (currentLine = br.readLine()) != null){
         //can do some sort of check here for special characters
-        System.out.print(currentLine);
+        System.out.println(currentLine);
       }
 
     }catch(IOException e){

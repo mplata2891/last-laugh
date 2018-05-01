@@ -4,8 +4,12 @@
 
 
 */
+
+//declare package
 package Menus;
 
+//declare imports
+import java.util.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -15,7 +19,6 @@ public class Menu{
 
   //the Menu class has 2 member fields/properties
   private String name;
-  private int size;
   private ArrayList<String> options;
 
   //default constructor
@@ -24,11 +27,8 @@ public class Menu{
     //assigns the indicated string to the name field
     this.name = "";
 
-    //assigns the indicated value to the size field
-    this.size = 0;
-
     //instantiates a new array and assigns it to the option field
-    this.options = new ArrayList<>[];
+    this.options = new ArrayList<>();
   }//end constructor
 
   //implicit constructor
@@ -37,10 +37,8 @@ public class Menu{
     //assigns the value of name to the name field
     this.name = name;
 
-    this.size = size;
-
     //instantiates a new array and assigns it to the option field
-    this.options = new ArrayList<>[];
+    this.options = new ArrayList<>();
   }//end constructor
 
   //method to return the value of the name field
@@ -57,41 +55,28 @@ public class Menu{
     this.name = newName;
   }
 
-  //method to return the value of the size field
-  public int getSize(){
-
-    //returns the value of the size field
-    return this.size;
-  }
-
-  //method to assign a value to the size field
-  public void setSize(int newSize){
-
-    //assigns the value of newSize to the size field
-    this.size = newSize;
-  }
-
-  //method to assigns values to the array located in the options field
+  //method to assigns values to the ArrayList located in the options field
   public void setOptions(String filename){
 
-    String currentLine;
-    int i = 0;
+    //declare and initialize variables
+    String currentLine = "";
 
+    //instatntiate objects of type FileReader and type BufferedReader
+    //wrap BufferedReader around FileReader
+    //initiate try-catch statement in case file does not exist
     try(BufferedReader b_Reader = new BufferedReader(new FileReader(filename))){
 
-      //for(int i = 0; i < this.size; i++){
-
+      //initiate while loop to read lines from file, and store into currentLine
       while((currentLine = b_Reader.readLine()) != null){
 
-          this.options.add(currentLine);
-          //i++;
+        //adds the value of currentLine to a new index in the options ArrayList
+        this.options.add(currentLine);
       }//end while
-    //}
     }//end try
     catch(IOException e){
 
       e.printStackTrace();
-    }
+    }//end catch
   }
 
   //method to return all values stored in the array as a string
@@ -101,12 +86,13 @@ public class Menu{
     String allOptions = "";
 
     //initiate for loop to iterate through the array
-    for(int i = 0; i < this.options.length; i++){
+    for(int i = 0; i < this.options.size(); i++){
 
       //concatonate all values stored in array into one string
-      allOptions = "  " + this.options[i] + "\n";
+      allOptions = "  " + this.options.get(i) + "\n";
     }
 
+    //returns the value of allOptions
     return allOptions;
   }
 

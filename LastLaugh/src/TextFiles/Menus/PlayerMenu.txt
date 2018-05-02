@@ -1,8 +1,7 @@
-Player Menu - Type a number from 1 to 6
-	1. Move
-	2. Sense
-	3. Examine
-	4. Action
-	4. Inventory
-	5. Save Game
-	6. Exit
+1. Move
+2. Sense
+3. Examine
+4. Action
+5. Inventory
+6. Save Game
+7. Exit

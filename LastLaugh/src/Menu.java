@@ -5,9 +5,6 @@
 
 */
 
-//declare package
-package Menus;
-
 //declare imports
 import java.util.*;
 import java.io.BufferedReader;
@@ -32,7 +29,7 @@ public class Menu{
   }//end constructor
 
   //implicit constructor
-  public Menu(String name, int size){
+  public Menu(String name){
 
     //assigns the value of name to the name field
     this.name = name;

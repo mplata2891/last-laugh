@@ -1,7 +1,6 @@
-Action Menu - Type a number from 1 to 6
-	1. Press
-	2. Pull
-	3. Turn
-	4. Slide
-	5. Push
-	6. Type
+1. Press
+2. Pull
+3. Turn
+4. Slide
+5. Push
+6. Type

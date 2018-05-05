@@ -1,0 +1,5 @@
+INVALID NAME ~
+  Please enter a name that has at least
+  one character, and is comprised of only
+  letters and numbers.
+~ TRY AGAIN.

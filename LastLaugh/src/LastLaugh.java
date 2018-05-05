@@ -12,8 +12,9 @@ public class LastLaugh{
 	//entry point of application
 	public static void main(String[] args){
 
-		//instantiate and initialize Utility object
-		Utility tool = new Utility();
+		//instantiate and initialize Utility objects
+		FileUtility fileTool = new FileUtility();
+		InputUtility inputTool = new InputUtility();
 
 		//instantiate and initialize Menu objects
 		Menu mainMenu = new Menu();
@@ -28,23 +29,18 @@ public class LastLaugh{
 		//instantiate and initialize PositionTracker object
 		PositionTracker tracker = new PositionTracker();
 
-		//instantiate and initialize Room objects
-		Room room1 = new Room();
-
-		//instantiate and initializa Space object
-		Space emptySpace = new Space();
-
 		//declare and initialize variables
 		int selection;
-		int newGame = true;
 
 
 		do{//initiate do-while (1)
 
 			mainMenu.displayMenu();//displays game's main menu
 
+			fileTool.promptForSelection();//prompts user for selection
+
 			//takes user's menu selection, validates, and stores it
-			selection = tool.takeSelection(3);
+			selection = inputTool.takeSelection(3);
 
 			switch(selection){//initiate switch statement
 
@@ -63,8 +59,10 @@ public class LastLaugh{
 
 					playerMenu.displayMenu();//displays the player menu
 
+					fileTool.promptForSelection(3);//prompts user for selection
+
 					//takes user's menu selection, validates, and stores it
-					selection = tool.takeSelection(7);
+					selection = inputTool.takeSelection(7);
 
 					switch(selection){//initiate switch statement
 
@@ -73,8 +71,10 @@ public class LastLaugh{
 
 											moveMenu.displayMenu();//display move menu
 
+											fileTool.promptForSelection();//prompts user for selection
+
 											//takes user's menu selection, validates, and stores it
-											selection = tool.takeSelection(5)
+											selection = inputTool.takeSelection(5)
 
 											switch(selection){//initiate switch statement
 
@@ -112,8 +112,10 @@ public class LastLaugh{
 
 											actionMenu.displayMenu();//display action menu
 
+											fileTool.promptForSelection();//prompts user for selection
+
 											//takes user's menu selection, validates, and stores it
-											selection = tool.takeSelection(7);
+											selection = inputTool.takeSelection(7);
 
 											switch(selection){//initiate switch statement
 
@@ -151,8 +153,10 @@ public class LastLaugh{
 
 											inventoryMenu.displayMenu();//display inventory menu
 
+											fileTool.promptForSelection();//prompts user for selection
+
 											//takes user's menu selection, validates, and stores it
-											selection = tool.takeSelection(4);
+											selection = inputTool.takeSelection(4);
 
 											switch(selection){//initiate switch statement
 
@@ -178,7 +182,7 @@ public class LastLaugh{
 														break;//breaks out of switch
 
 						//enters case 7 and invokes confirmExit method
-						case 7:	selection = tool.confirmExit();
+						case 7:	selection = inputTool.confirmExit();
 														break;//breaks out of switch
 						}//end switch
 

@@ -37,6 +37,7 @@ public class FileUtility{
     }//end catch
   }//end readFile
 
+
   //method to write content into a file
   public void writeFile(String filename, String content) {
 
@@ -56,17 +57,24 @@ public class FileUtility{
   }//end writeFile
 
 
+  //method to display a splash page, read from a file
   public void splashPage(String scene){
-    switch(scene){
+
+    switch(scene){ //initiate switch statement
+
+      //enters case title and invokes the readFile method
       case "title" :  this.readFile("TextFiles/SplashScreens/Title.txt");
-                      break;
+                      break;//breaks out of switch
 
+      //enters case cat and invokes the readFile method
       case "cat" :    this.readFile("TextFiles/SplashScreens/CatImage.txt");
-                      break;
+                      break;//breaks out of switch
 
+      //enters case gameover and invokes readFile method
       case "gameover" : this.readFile("TextFiles/SplashScreens/GameOver.txt");
-                        break;
-    }
+                        break;//breaks out of switch
+    }//end switch
   }//end splashPage
+
 
 }//end class

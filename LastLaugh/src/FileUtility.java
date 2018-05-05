@@ -14,7 +14,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 //begin new class
-public class FileIoUtility{
+public class FileUtility{
 
   //This method opens a file and prints out each line
   public void readFile(String filename){
@@ -49,38 +49,24 @@ public class FileIoUtility{
       //prints done when file has been written to
       System.out.println("Done");
 
-  	} catch (IOException e) {
+  	} catch(IOException e){
 
   		e.printStackTrace();
   	}//end try-catch
   }//end writeFile
 
-  //ascii
+
   public void splashPage(String scene){
     switch(scene){
       case "title" :  this.readFile("TextFiles/SplashScreens/Title.txt");
                       break;
 
-      case "cat" :
-              System.out.print( "       ,     ,                   \n"+
-                                "       |\\.\"./|                 \n"+
-                                "      /       \\                 \n"+
-                                "     /  _   _  \\   ______       \n"+
-                                "     \\==  Y  ==/\"'`      `.    \n"+
-                                "     /`-._^_.-'\\     ,-  . \\   \n"+
-                                "    /     `     \\   /     \\ \\ \n"+
-                                "    \\  \\.___./  /_ _\\     / / \n"+
-                                "     `, \\   / ,'  (,-----' /   \n"+
-                                "       \"\"' '\"\"     '------'  \n");
-                                  break;
-      case "gameover" :
-              System.out.println(   " _____                        _____                \n"+
-                                    "|  __ \\                      |  _  |               \n"+
-                                    "| |  \\/ __ _ _ __ ___   ___  | | | |_   _____ _ __ \n"+
-                                    "| | __ / _` | '_ ` _ \\ / _ \\ | | | \\ \\ / / _ \\ '__|\n"+
-                                    "| |_\\ \\ (_| | | | | | |  __/ \\ \\_/ /\\ V /  __/ |   \n"+
-                                    " \\____/\\__,_|_| |_| |_|\\___|  \\___/  \\_/ \\___|_|");
-                                  break;
+      case "cat" :    this.readFile("TextFiles/SplashScreens/CatImage.txt");
+                      break;
+
+      case "gameover" : this.readFile("TextFiles/SplashScreens/GameOver.txt");
+                        break;
     }
-  }
+  }//end splashPage
+
 }//end class

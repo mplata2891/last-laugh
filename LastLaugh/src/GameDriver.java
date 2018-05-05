@@ -26,9 +26,9 @@ public class GameDriver{
 
     //object decclaration and instantiation
     Scanner input = new Scanner(System.in);
-    //FileIoUtility fileTool = new FileIoUtility(); *Im working on this - mike
+    FileUtility fileTool = new FileUtility();
     Utility tool = new Utility();
-    Room room1 = new Room("Room 1", 5, 5, 2, 2);
+    //Room room1 = new Room("Room 1", 5, 5, 2, 2);
     //Player player1 = new Player();
 
     //variable declaration and instantiation
@@ -40,14 +40,14 @@ public class GameDriver{
     double clownLikeLevel = 0.0;
 
     //access the readFile member of the tool object to display the story's Prologue
-    tool.readFile("TextFiles/Story/Prologue.txt");
+    fileTool.readFile("TextFiles/Story/Prologue.txt");
 
     //access the splashPage member of the tool object to display the game's title
-    Tool.splashPage("title");
+    fileTool.splashPage("title");
 
     //access the readFile member of the tool object to display the story's
     //first part of the intro
-    tool.readFile("TextFiles/Story/Intro1.txt");
+    fileTool.readFile("TextFiles/Story/Intro1.txt");
 
     //prompt user for input
     System.out.print("You've been passed out for 3 days.\n"
@@ -62,16 +62,16 @@ public class GameDriver{
 
     //access the readFile member of the tool object to ddisplay the story's
     //second part of the intro
-    tool.readFile("TextFiles/Story/Intro2.txt");
+    fileTool.readFile("TextFiles/Story/Intro2.txt");
 
     //access the readFile member of the tool object to display the contents of
     //the testWriting text file
-    tool.readFile("testWriting.txt"); //cool works
+    fileTool.readFile("testWriting.txt"); //cool works
 
-    tool.readFile("TextFiles/Story/catIntro.txt");
+    fileTool.readFile("TextFiles/Story/catIntro.txt");
 
     //access the splashPage member of the tool object to display a cat
-    tool.splashPage("cat");
+    fileTool.splashPage("cat");
 
     System.out.print("You decide to name them... ");
     catName = input.next();
@@ -129,7 +129,7 @@ public class GameDriver{
 
 
     //access the splashPage member of the tool object to display 'gameover'
-    tool.splashPage("gameover");
+    fileTool.splashPage("gameover");
 
   } //end of main
 } //end of class

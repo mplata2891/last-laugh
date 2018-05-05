@@ -26,6 +26,7 @@ public class GameDriver{
 
     //object decclaration and instantiation
     Scanner input = new Scanner(System.in);
+    //FileIoUtility fileTool = new FileIoUtility(); *Im working on this - mike
     Utility tool = new Utility();
     Room room1 = new Room("Room 1", 5, 5, 2, 2);
     //Player player1 = new Player();
@@ -42,7 +43,7 @@ public class GameDriver{
     tool.readFile("TextFiles/Story/Prologue.txt");
 
     //access the splashPage member of the tool object to display the game's title
-    tool.splashPage("title");
+    Tool.splashPage("title");
 
     //access the readFile member of the tool object to display the story's
     //first part of the intro
@@ -68,10 +69,10 @@ public class GameDriver{
     tool.readFile("testWriting.txt"); //cool works
 
     tool.readFile("TextFiles/Story/catIntro.txt");
-    
+
     //access the splashPage member of the tool object to display a cat
     tool.splashPage("cat");
-    
+
     System.out.print("You decide to name them... ");
     catName = input.next();
     System.out.print("\nSo now it looks like it's you, " + "and " + catName + "\n"

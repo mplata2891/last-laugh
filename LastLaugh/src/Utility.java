@@ -65,15 +65,7 @@ public class Utility{
                                 " :: ::::  ::   :::  ::::: ::   ::: ::::  ::   :::  \n"+
                                 ": :: : :   :   : :   : :  :    :: :: :    :   : :  \n");
                                 break;
-    /*case "intro" :
-            System.out.println("Bored out of your mind one night, you decided to go out on a stroll.\n" +
-                       "Feeling the need for fresh air, you continue to walk far into the forest.\n"+
-                       "The scent of cotton candy and popcorn hits your nose. Following the scent, \n"+
-                       "you stumble across an enormous red and white striped circus tent. You walk in.\n"+
-                       "Surrounded by amusing lights and joyous music, you begin to relax. In that\n"+
-                       "moment...HONK!!hAHahahahha..everything goes dark.\n \n");
-                                break;
-    */
+
     case "cat" :
             System.out.print( "       ,     ,                   \n"+
                               "       |\\.\"./|                 \n"+

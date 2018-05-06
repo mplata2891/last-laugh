@@ -28,6 +28,7 @@ public class Menu{
     this.options = new ArrayList<>();
   }//end constructor
 
+
   //implicit constructor
   public Menu(String name, String filename){
 
@@ -41,19 +42,22 @@ public class Menu{
     this.setOptions(filename);
   }//end constructor
 
+
   //method to return the value of the name field
   public String getName(){
 
     //returns the value of the name field
     return this.name;
-  }
+  }//end getName
+
 
   //method to set the value of the name field
   public void setName(String newName){
 
     //assigns the value of newName to the name field
     this.name = newName;
-  }
+  }//end setName
+
 
   //method to assigns values to the ArrayList located in the options field
   public void setOptions(String filename){
@@ -72,31 +76,24 @@ public class Menu{
         //adds the value of currentLine to a new index in the options ArrayList
         this.options.add(currentLine);
       }//end while
-    }//end try
-    catch(IOException e){
+    }catch(IOException e){
 
-      e.printStackTrace();
+      e.printStackTrace();//prints a stackTrace -_-
     }//end catch
-  }
+  }//end setOptions
 
-  //method to return all values stored in the array as a string
+
+  //method to print name member field and indexes of options ArrayList
   public void displayMenu(){
 
+    //invokes getName method and prints the return value
     System.out.println(this.getName());
 
-    for(int i = 0; i < this.options.size(); i++){
+    for(int i = 0; i < this.options.size(); i++){ //initiate for loop
 
+      //invokes get method and prints the return value
       System.out.println(this.options.get(i));
-    }
-  }
+    }//end for
+  }//end displayMenu
 
-/*
-  //returns a representation of the object as a String
-  //displaying all member fields with appropriate labels
-  public String toString(){
-
-    return this.name + ":\n"
-            + this.getOptions();
-  }
-*/
 }//end of class

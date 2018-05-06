@@ -17,11 +17,11 @@ public class LastLaugh{
 		InputUtility inputTool = new InputUtility();
 
 		//instantiate and initialize Menu objects
-		Menu mainMenu = new Menu();
-		Menu playerMenu = new Menu();
-		Menu moveMenu = new Menu();
-		Menu actionMenu = new Menu();
-		Menu inventoryMenu = new Menu();
+		Menu mainMenu = new Menu("Main Menu:", "TextFiles/Menus/MainMenu.txt");
+		Menu playerMenu = new Menu("Player Menu:", "TextFiles/Menus/PlayerMenu.txt");
+		Menu moveMenu = new Menu("Move Menu:", "TextFiles/Menus/MoveMenu.txt");
+		Menu actionMenu = new Menu("Action Menu:", "TextFiles/Menus/ActionMenu.txt");
+		Menu inventoryMenu = new Menu("Inventory Menu:", "TextFiles/Menus/InventoryMenu.txt");
 
 		//instantiate and initialize Player object
 		Player playerOne = new Player();

@@ -1,7 +1,7 @@
-1. Move
-2. Sense
-3. Examine
-4. Action
-5. Inventory
-6. Save Game
-7. Exit
+  1. Move
+  2. Sense
+  3. Examine
+  4. Action
+  5. Inventory
+  6. Save Game
+  7. Exit Game

@@ -4,10 +4,8 @@ public class TestDriver{
 
   public static void main(String[] args){
 
-    Menu mainMenu = new Menu("Main Menu");
+    Menu mainMenu = new Menu("Main Menu:", "TextFiles/Menus/MainMenu.txt");
 
-    mainMenu.setOptions("TextFiles/Menus/MainMenu.txt");
-
-    System.out.println(mainMenu.toString());
+    mainMenu.displayMenu();
   }
 }

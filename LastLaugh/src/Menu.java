@@ -29,13 +29,16 @@ public class Menu{
   }//end constructor
 
   //implicit constructor
-  public Menu(String name){
+  public Menu(String name, String filename){
 
     //assigns the value of name to the name field
     this.name = name;
 
     //instantiates a new array and assigns it to the option field
     this.options = new ArrayList<>();
+
+    //invokes the setOptions method
+    this.setOptions(filename);
   }//end constructor
 
   //method to return the value of the name field
@@ -58,8 +61,8 @@ public class Menu{
     //declare and initialize variables
     String currentLine = "";
 
-    //instatntiate objects of type FileReader and type BufferedReader
-    //wrap BufferedReader around FileReader
+    //instatntiate objects of type FileReader and type BufferedReader. Wraps
+    //BufferedReader around FileReader.
     //initiate try-catch statement in case file does not exist
     try(BufferedReader b_Reader = new BufferedReader(new FileReader(filename))){
 
@@ -77,22 +80,17 @@ public class Menu{
   }
 
   //method to return all values stored in the array as a string
-  public String getOptions(){
+  public void displayMenu(){
 
-    //declare variables
-    String allOptions = "";
+    System.out.println(this.getName());
 
-    //initiate for loop to iterate through the array
     for(int i = 0; i < this.options.size(); i++){
 
-      //concatonate all values stored in array into one string
-      allOptions = "  " + this.options.get(i) + "\n";
+      System.out.println(this.options.get(i));
     }
-
-    //returns the value of allOptions
-    return allOptions;
   }
 
+/*
   //returns a representation of the object as a String
   //displaying all member fields with appropriate labels
   public String toString(){
@@ -100,4 +98,5 @@ public class Menu{
     return this.name + ":\n"
             + this.getOptions();
   }
+*/
 }//end of class

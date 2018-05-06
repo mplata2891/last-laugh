@@ -19,7 +19,8 @@ public class FileUtility{
   //This method opens a file and prints out each line
   public void readFile(String filename){
 
-    String currentLine; //hold current line being read in File
+    //declare and initialize variables
+    String currentLine = "";
 
     //trying to open a file to read from
     try(BufferedReader br = new BufferedReader(new FileReader(filename))){

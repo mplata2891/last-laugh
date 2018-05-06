@@ -1,4 +1,5 @@
-1. Equip
-2. Inspect
-3. Combine
-4. Use
+  1. Equip
+  2. Inspect
+  3. Combine
+  4. Use
+  5. Exit Menu

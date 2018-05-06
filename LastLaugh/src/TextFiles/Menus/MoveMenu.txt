@@ -1,4 +1,5 @@
-1. North
-2. South
-3. East
-4. West
+  1. North
+  2. South
+  3. East
+  4. West
+  5. Exit Menu

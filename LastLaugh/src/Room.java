@@ -9,9 +9,10 @@
 
 public class Room extends GamePiece{
 
-  //the Room class
+  //the Room class has 3 member fields/properties
   private String name;
   private ArrayList<Item> contents;
+  private ArrayList<Door> entryExit;
 
   //default constructor
   public Room(){

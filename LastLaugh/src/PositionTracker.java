@@ -12,16 +12,14 @@
 //begining of new class
 public class PositionTracker extends GamePiece{
 
+  //the PositionTracher class has 4 member fields/properties
   private int maxRows;
   private int maxColumns;
   private Space[][] map;
   private boolean[][] position;
 
   //default constructor
-  public Room(){
-
-    //assigns the indicated String to the name field
-    this.name = "";
+  public PositionTracker(){
 
     //assigns the indicated value to the maxColumns field
     this.maxColumns = 0;
@@ -35,15 +33,16 @@ public class PositionTracker extends GamePiece{
     //assigns the indicated value to the exactRow field
     this.exactRow = 0;
 
+    //creates a new array and assigns it to the map field
+    this.map = new Space[this.maxRows][this.maxColumns];
+
     //creates a new array and assigns it to the position field
     this.position = new boolean[this.maxRows][this.maxColumns];
   }
 
-  //implicit constructor
-  public Room(String name, int rows, int columns, int startRow, int startColumn){
 
-    //assigns the value of name to the name field
-    this.name = name;
+  //implicit constructor
+  public PositionTracker(int rows, int columns, int startRow, int startColumn){
 
     //assigns the indicated value to the maxRows field
     this.maxRows = rows;
@@ -57,8 +56,36 @@ public class PositionTracker extends GamePiece{
     //assigns the indicated value to the exactColumn field
     this.exactColumn = startColumn;
 
+    //creates a new array and assigns it to the map field
+    this.map = new Space[this.maxRows][this.maxColumns];
+
+    //invokes the fillMap method to fill the map with Room objects
+    this.fillMap(this.maxRows, this.maxColumns);
+
     //creates a new array and assigns it to the position field
     this.position = new boolean[this.maxRows][this.maxColumns];
+
+    //invokes the setPosition method to set player's location inside of map
+    this.setPosition(this.maxRows, this.maxColumns, this.exactRow, this.exactColumn);
+  }//end constructor
+
+
+  //method to fill the map field with Room objects
+  public void fillMap(){
+
+    for(int i = 0; i < this.maxRows; i++){ //initiate for loop
+
+      for(int j = 0; j < this.maxColums; j++){ //initiate for loop
+
+        //instatiate a Room object in the given index of the table array
+        this.map[i][j] = new Room();
+      }//end for
+    }//end for
+  }//end fillMap
+
+
+  //method to fill the array located in the position field
+  public void setPosition(int maxRows, int maxColumns, int exactRow, int exactColumn){
 
     //initiate for loop to iterate through the multi-dimensional array
     //located in the position field, in order to place a marker to represent
@@ -94,5 +121,6 @@ public class PositionTracker extends GamePiece{
         }//end for
       }//end else
     }//end for
-  }//end constructor 
-}
+  }//end setPosition
+
+}//end class

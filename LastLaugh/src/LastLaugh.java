@@ -27,13 +27,13 @@ public class LastLaugh{
 		Player playerOne = new Player();
 
 		//instantiate and initialize PositionTracker object
-		PositionTracker tracker = new PositionTracker();
+		PositionTracker tracker = new PositionTracker(5, 5, 4, 1);
 
 		//declare and initialize variables
 		int selection;
 
 
-		do{//initiate do-while (1)
+		do{ //initiate do-while (1)
 
 			mainMenu.displayMenu();//displays game's main menu
 
@@ -42,7 +42,7 @@ public class LastLaugh{
 			//takes user's menu selection, validates, and stores it
 			selection = inputTool.takeSelection(3);
 
-			switch(selection){//initiate switch statement
+			switch(selection){ //initiate switch statement
 
 				//enter case 1 and invoke startNewGame method
 				case 1:	tool.startNewGame();
@@ -53,9 +53,9 @@ public class LastLaugh{
 								break;//break out of switch statement
 			}//end switch
 
-			if(selection != 3){//initiate if statement
+			if(selection != 3){ //initiate if statement
 
-				do{//initiate do-while (2)
+				do{ //initiate do-while (2)
 
 					playerMenu.displayMenu();//displays the player menu
 
@@ -64,7 +64,7 @@ public class LastLaugh{
 					//takes user's menu selection, validates, and stores it
 					selection = inputTool.takeSelection(7);
 
-					switch(selection){//initiate switch statement
+					switch(selection){ //initiate switch statement
 
 						//enters case 1
 						case 1:	do{//initiate do-while (3)

@@ -37,34 +37,44 @@ public class CommandUtility{
     //declare and initialize variables
     boolean validFlag = false;
   	boolean roomExists = false;
+    boolean doorExists = false;
   	boolean doorIsUnlocked = false;
 
-  	switch(direction){//initiate switch statement, checking the value of direction
+    //invoke the checkDirection method
+    roomExists = this.checkDirection(tracker, direction);
 
-      //enter case 1 and invoke the checkNorth method
-      case 1:	validFlag = this.checkNorth(tracker);
-  						break;//break from switch
+    if(roomExists == true)//initiate if statement
+      doorExists = this.checkDoor();//invoke the checkDoor method
 
-      //enter case 2 and invoke the checkSouth method
-      case 2:	validFlag = this.checkSouth(tracker)
-  						break;//break from switch
+    if(doorExists == true)//initiate if statement
+      doorIsUnlocked = this.checkLock();//invokd the checkLock method
 
-      //enter case 3 and invoke the checkEast method
-      case 3:	validFlag = this.checkEast(tracker);
-  						break;//break from switch
-
-      //enter case 4 and invoke the checkWest method
-      case 4:	validFlag = this.checkWest(tracker);
-  						break;//break from switch
-  	}//end switch
-
-  	doorIsUnlocked = this.checkDoor(tracker);//invoke the checkDoor method
-
-  	if(roomExists == true && doorIsUnlocked == true)//initiate if statement
+    //initiate if statement
+  	if(roomExists == true && doorExists == true && doorIsUnlocked == true)
   		validFlag = true;//assigns the value of true to validFlag
 
   	return validFlag;//returns the value of validFlag
   }//end checkMove
+
+
+  //method to check if a particular direction is a valid move
+  public boolean checkDirection(PositionTracker tracker, int direction){
+
+    switch(direction){//initiate switch statement, checking the value of direction
+
+      //enter case 1 and invoke the checkNorth method
+      case 1:	return this.checkNorth(tracker);
+
+      //enter case 2 and invoke the checkSouth method
+      case 2:	return this.checkSouth(tracker)
+
+      //enter case 3 and invoke the checkEast method
+      case 3:	return this.checkEast(tracker);
+
+      //enter case 4 and invoke the checkWest method
+      case 4:	return this.checkWest(tracker);
+  	}//end switch
+  }//end checkDirection
 
 
   //method to check if moving north in the map is a valid move
@@ -136,7 +146,12 @@ public class CommandUtility{
 
 
   //method to check if a door is unlocked
-  public boolean checkDoor(PositionTracker tracker){
+  public boolean checkDoor(PositionTracker tracker, int direction)
+
+    //declare and initialize variables
+    boolean doorExists = false;
+
+    if(tracker.getSpace())
 
 
   }//end checkDoor

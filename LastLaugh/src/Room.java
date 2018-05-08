@@ -12,7 +12,7 @@ public class Room extends GamePiece{
   //the Room class has 3 member fields/properties
   private String name;
   private ArrayList<Item> contents;
-  private ArrayList<Door> connections;
+  private ArrayList<boolean> connections;
 
   //default constructor
   public Room(){

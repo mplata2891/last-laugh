@@ -57,6 +57,9 @@ public class LastLaugh{
 			if(selection != 3){ //initiate if statement
 
 				do{ //initiate do-while (2)
+          
+          //sets the name of the player
+          player.setFirstName(tool.takeName());
 
 					playerMenu.displayMenu();//displays the player menu
 

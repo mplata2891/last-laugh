@@ -4,5 +4,5 @@ public class Utility{
   public int chance(int start, int end){
       return start + (int)(Math.random() * (end - start));
     }
-
+  
 }//end class

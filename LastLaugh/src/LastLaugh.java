@@ -15,6 +15,7 @@ public class LastLaugh{
 		//instantiate and initialize Utility objects
 		FileUtility fileTool = new FileUtility();
 		InputUtility inputTool = new InputUtility();
+		CommandUtility commandTool = new CommandUtility();
 
 		//instantiate and initialize Menu objects
 		Menu mainMenu = new Menu("Main Menu:", "TextFiles/Menus/MainMenu.txt");
@@ -76,25 +77,9 @@ public class LastLaugh{
 											//takes user's menu selection, validates, and stores it
 											selection = inputTool.takeSelection(5)
 
-											switch(selection){//initiate switch statement
-
-												//enters case 1 and invokes moveNorth method
-												case 1:	player.moveNorth();
-																break;//breaks out of switch
-
-												//enters case 2 and invokes moveSouth method
-												case 2:	player.moveSouth();
-																break;//breaks out of switch
-
-												//enter case 3 and invokes moveEast method
-												case 3:	player.moveEast();
-																break;//breaks out of switch
-
-												//enters case 4 and invokes moveWest method
-												case 4:	player.moveWest();
-																break;//breaks out of switch
-											}//end switch
-
+											if(selection != 5)
+													tracker = commandTool.movePlayer(tracker, selection);
+										
 										}while(selection != 5);//end do-while (3)
 
 										break;//breaks out of switch

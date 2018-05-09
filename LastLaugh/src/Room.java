@@ -12,7 +12,7 @@ public class Room extends GamePiece{
   //the Room class has 3 member fields/properties
   private String name;
   private ArrayList<Item> contents;
-  private ArrayList<boolean> connections;
+  private ArrayList<Door> connections;
 
   //default constructor
   public Room(){
@@ -56,5 +56,12 @@ public class Room extends GamePiece{
     this.contents.get(index, object);
   }//end getItem
 
+
+  //method to get the Door object in the ArrayList located in the connections field
+  public Door getDoor(int index){
+
+    //returns the Door object located in the given index
+    return this.connections.get(index);
+  }//end getDoor
 
 }//end class

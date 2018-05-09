@@ -37,8 +37,7 @@ public class CommandUtility{
     //declare and initialize variables
     boolean validFlag = false;
   	boolean roomExists = false;
-    boolean doorExists = false;
-  	boolean doorIsUnlocked = false;
+    boolean doorExistsAndUnlocked = false;
 
     //invoke the checkDirection method
     roomExists = this.checkDirection(tracker, direction);
@@ -47,7 +46,7 @@ public class CommandUtility{
       doorExists = this.checkDoor();//invoke the checkDoor method
 
     if(doorExists == true)//initiate if statement
-      doorIsUnlocked = this.checkLock();//invokd the checkLock method
+      doorIsUnlocked = this.checkLock();//invoke the checkLock method
 
     //initiate if statement
   	if(roomExists == true && doorExists == true && doorIsUnlocked == true)
@@ -149,12 +148,38 @@ public class CommandUtility{
   public boolean checkDoor(PositionTracker tracker, int direction)
 
     //declare and initialize variables
-    boolean doorExists = false;
+    double fromConnection = 0.0;
+    double toConnection = 0.0;
+    boolean connectionExistsAndOpen = false;
 
-    if(tracker.getSpace())
+    fromConnection = this.getFromConnection(tracker, direction);
 
+    toConnection = this.getToConnection(tracker, direction);
 
+    if(fromConnection == toConnection)
+      connectionExistsAndOpen = true;
+
+    return connectionExistsAndOpen;
   }//end checkDoor
+
+
+  //method to validate that there is a door to move to the desired room
+  public double getFromConnection(PositionTracker tracker, int direction){
+
+    //instantiate and initialize objects
+    Room tempRoom = new Room();
+    Door tempDoor = new Door();
+
+    //invoke the getSpace method and assign its return value to tempRoom
+    tempRoom = tracker.getSpace(tracker.getExactRow(), tracker.getExactColumn());
+
+    //invoke the getDoor method and assign its return value to tempDoor
+    tempDoor = tempRoom.getDoor(direction - 1);
+
+    //invoke the getConnectionId method and return its value
+    return tempDoor.getConnectionId();
+
+  }//end getFromConnection
 
 
   //method to move a player from one room to another adjacent room

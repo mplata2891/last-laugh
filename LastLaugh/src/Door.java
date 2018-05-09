@@ -15,7 +15,7 @@
 public class Door extends GamePiece{
 
   //the Door class has 4 member fields/properties
-  private int connectionId; //identifies which two Rooms it connects
+  private double connectionId; //identifies which two Rooms it connects
   private boolean lockStatus; //true means locked; false means unlocked
   private String keyName; //name of the key needed to unlock the door
   private String doorName;
@@ -26,7 +26,7 @@ public class Door extends GamePiece{
   public Door(){
 
     //assigns the indicated value to the connectionId field
-    this.connectionId = 0;
+    this.connectionId = 0.0;
 
     //assigns the indicated value to the lockStatus field
     this.lockStatus = true;
@@ -40,7 +40,7 @@ public class Door extends GamePiece{
 
 
   //implicit constructor
-  public Door(int id, boolean status, String name, String desc){
+  public Door(double id, boolean status, String name, String desc){
 
     //assigns the value of id to the connectionID field
     this.connectionId = id;
@@ -57,7 +57,7 @@ public class Door extends GamePiece{
 
 
   //method to get the value of the connectionId field
-  public int getConnectionId(){
+  public double getConnectionId(){
 
     //returns the value of the connectionId field
     return this.connectionId;
@@ -65,7 +65,7 @@ public class Door extends GamePiece{
 
 
   //method to set the value of the connectionId field
-  public void setConnectionId(int newId){
+  public void setConnectionId(double newId){
 
     //assigns the value of newId to the connectionId field
     this.connectionId = newId;

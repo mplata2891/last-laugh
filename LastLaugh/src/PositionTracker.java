@@ -17,7 +17,7 @@ public class PositionTracker extends GamePiece{
   private int maxColumns;
   private int exactRow;
   private int exactColumn;
-  private Space[][] map;
+  private Room[][] map;
   private boolean[][] position;
 
 
@@ -37,7 +37,7 @@ public class PositionTracker extends GamePiece{
     this.exactRow = 0;
 
     //creates a new array and assigns it to the map field
-    this.map = new Space[this.maxRows][this.maxColumns];
+    this.map = new Room[this.maxRows][this.maxColumns];
 
     //creates a new array and assigns it to the position field
     this.position = new boolean[this.maxRows][this.maxColumns];
@@ -60,7 +60,7 @@ public class PositionTracker extends GamePiece{
     this.exactColumn = startColumn;
 
     //creates a new array and assigns it to the map field
-    this.map = new Space[this.maxRows][this.maxColumns];
+    this.map = new Room[this.maxRows][this.maxColumns];
 
     //invokes the fillMap method to fill the map with Room objects
     this.fillMap(this.maxRows, this.maxColumns);
@@ -130,7 +130,7 @@ public class PositionTracker extends GamePiece{
 
 
   //method to return the object in the given index of the map field
-  public Space getSpace(int row, int column){
+  public Room getRoom(int row, int column){
 
     //returns the object in the given index of the map field
     return this.map[row][column];
@@ -138,10 +138,10 @@ public class PositionTracker extends GamePiece{
 
 
   //method to set an object in the given index of the map field
-  public void setSpace(Space spaceType, int row, int column){
+  public void setRoom(Room newRoom, int row, int column){
 
     //places spaceType in the given index of the map field
-    this.map[row][column] = spaceType;
+    this.map[row][column] = newRoom;
   }//end setSpace
 
 

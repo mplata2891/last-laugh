@@ -95,6 +95,7 @@ public class InputUtility{
     return input;//returns the value of input
   }//end getName
 
+
   public String getString(){
 
     String newString = "";
@@ -105,6 +106,7 @@ public class InputUtility{
 
     return newString;
   }//end getInput
+
 
   public boolean isNameValid(String value){
 
@@ -130,6 +132,7 @@ public class InputUtility{
 
     return validFlag;
   }//end isNameValid
+  
 
   public void nameErrorMsg(){
 

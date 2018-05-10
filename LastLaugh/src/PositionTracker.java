@@ -153,7 +153,7 @@ public class PositionTracker extends GamePiece{
       for(int j = 0; j < this.maxColums; j++){ //initiate for loop (2)
 
         //instatiate a Room object in the given index of the table array
-        this.map[i][j] = new Space();
+        this.map[i][j] = new Room();
       }//end for (2)
     }//end for (1)
   }//end fillMap

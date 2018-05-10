@@ -35,7 +35,6 @@ public class CommandUtility{
   public boolean checkMove(int direction, PositionTracker tracker){
 
     //declare and initialize variables
-    boolean validFlag = false;
   	boolean roomExists = false;
     boolean doorExistsAndUnlocked = false;
 
@@ -43,16 +42,12 @@ public class CommandUtility{
     roomExists = this.checkDirection(tracker, direction);
 
     if(roomExists == true)//initiate if statement
-      doorExists = this.checkDoor();//invoke the checkDoor method
+      doorExistsAndUnlocked = this.checkDoor();//invoke the checkDoor method
 
-    if(doorExists == true)//initiate if statement
-      doorIsUnlocked = this.checkLock();//invoke the checkLock method
+    if(doorExistsAndUnlocked == true)//initiate if statement
+      return true;//returns the value true
 
-    //initiate if statement
-  	if(roomExists == true && doorExists == true && doorIsUnlocked == true)
-  		validFlag = true;//assigns the value of true to validFlag
-
-  	return validFlag;//returns the value of validFlag
+  	return false;//returns the value false
   }//end checkMove
 
 
@@ -61,125 +56,147 @@ public class CommandUtility{
 
     switch(direction){//initiate switch statement, checking the value of direction
 
-      //enter case 1 and invoke the checkNorth method
-      case 1:	return this.checkNorth(tracker);
+      //enter case 1 and invoke the checkMoveNorth method
+      case 1:	return this.checkMoveNorth(tracker);
 
-      //enter case 2 and invoke the checkSouth method
-      case 2:	return this.checkSouth(tracker)
+      //enter case 2 and invoke the checkMoveSouth method
+      case 2:	return this.checkMoveSouth(tracker)
 
-      //enter case 3 and invoke the checkEast method
-      case 3:	return this.checkEast(tracker);
+      //enter case 3 and invoke the checkMoveEast method
+      case 3:	return this.checkMoveEast(tracker);
 
-      //enter case 4 and invoke the checkWest method
-      case 4:	return this.checkWest(tracker);
+      //enter case 4 and invoke the checkMoveWest method
+      case 4:	return this.checkMoveWest(tracker);
   	}//end switch
   }//end checkDirection
 
 
   //method to check if moving north in the map is a valid move
-  public boolean checkNorth(PositionTracker tracker){
+  public boolean checkMoveNorth(PositionTracker tracker){
 
     //instantiate and initialize objects
-    EmptySpace notRoom = new EmptySpace();
+    Room tempRoom = new Room();
 
-  	if(tracker.getExactRow() == 0){//initiate if statement
+    //invoke getSpace method and assigns return value to tempRoom
+    tempRoom = tracker.getSpace((tracker.getExactRow() - 1),
+                                  tracker.getExactColumn());
+
+  	if(tracker.getExactRow() == 0)//initiate if statement
       return false;//return a value of false
 
-    //initiate if statement
-    if(tracker.getSpace((tracker.getExactRow() - 1), tracker.getExactColumn()) == notRoom){
-  		return false;//return a value of false
-
-  	return true;//return a value of true
+    if(tempRoom.getRoomId() == 0)//initiate if-else statement
+      return false;//return a value of false
+    else
+      return true;//return a value of true
   }//end checkNorth
 
 
   //method to check if moving south in the map is a valid move
-  public boolean checkSouth(PositionTracker tracker){
+  public boolean checkMoveSouth(PositionTracker tracker){
 
-    //instnatiate and initialize objects
-    EmptySpace notRoom = new EmptySpace();
+    //instantiate and initialize objects
+    Room tempRoom = new Room();
+
+    //invoke getSpace method and assigns return value to tempRoom
+    tempRoom = tracker.getSpace((tracker.getExactRow() + 1),
+                                  tracker.getExactColumn());
 
   	if(tracker.getExactRow() == (tracker.getMaxRows() - 1))//initiate if statment
   		return false;//return a value of false
 
-    //initiate if statement
-    if(tracker.getSpace((tracker.getExactRow() + 1), tracker.getExactColumn() == notRoom)
-  		return false;//return a value of false
-
-  	return true;//return a value of true
+    if(tempRoom.getRoomId() == 0)//initiate if-else statement
+      return false;//return a value of false
+    else
+      return true;//return a value of true
   }//end checkSouth
 
 
   //method to check if moving east in the map is a valid move
-  public boolean checkEast(PositionTracker tracker){
+  public boolean checkMoveEast(PositionTracker tracker){
 
     //instantiate and initialize objects
-    EmptySpace notRoom = new EmptySpace();
+    Room tempRoom = new Room();
+
+    //invoke getSpace method and assigns return value to tempRoom
+    tempRoom = tracker.getSpace(tracker.getExactRow(), (tracker.getExactColumn() + 1));
 
   	if(tracker.getExactColumn() == (tracker.getMaxColumns() - 1))//initiate if statement
       return false;//return a value of false
 
-    //initiate if statement
-    if(tracker.getSpace(tracker.getExactRow(), (tracker.getExactColumn() + 1) == notRoom){
-  		return false;//return a value of false
-
-  	return true;//return a value of true
+    if(tempRoom.getRoomId() == 0)//initiate if-else statement
+      return false;//return a value of false
+    else
+      return true;//return a value of true
   }//end checkEast
 
 
   //method to check if moving west is the map is a valid move
-  public boolean checkWest(PositionTracker tracker){
+  public boolean checkMoveWest(PositionTracker tracker){
 
     //instantiate and initialize objects
-    EmptySpace notRoom = new EmptySpace();
+    Room tempRoom = new Room();
+
+    //invoke getSpace method and assigns return value to tempRoom
+    tempRoom = tracker.getSpace(tracker.getExactRow(), (tracker.getExactColumn() - 1));
 
   	if(tracker.getExactColumn() == 0)//initiate if statement
   		return false;//return a value of false
 
-    //initiate if statement
-    if(tracker.getSpace(tracker.getExactRow(), (tracker.getExactColumn() - 1) == notRoom)
-  		return false;//return a value of false
-
-  	return true;//return a value of true
+    if(tempRoom.getRoomId() == 0)//initiate if-else statement
+      return false;//return a value of false
+    else
+      return true;//return a value of true
   }//end checkWest
 
 
-  //method to check if a door is unlocked
-  public boolean checkDoor(PositionTracker tracker, int direction)
-
-    //declare and initialize variables
-    double fromConnection = 0.0;
-    double toConnection = 0.0;
-    boolean connectionExistsAndOpen = false;
-
-    fromConnection = this.getFromConnection(tracker, direction);
-
-    toConnection = this.getToConnection(tracker, direction);
-
-    if(fromConnection == toConnection)
-      connectionExistsAndOpen = true;
-
-    return connectionExistsAndOpen;
-  }//end checkDoor
-
-
-  //method to validate that there is a door to move to the desired room
-  public double getFromConnection(PositionTracker tracker, int direction){
+  //method that checks whether a door exists and is unlocked
+  public boolean checkDoor(PositionTracker tracker, int direction){
 
     //instantiate and initialize objects
     Room tempRoom = new Room();
-    Door tempDoor = new Door();
+  	Door tempDoor = new Door();
 
-    //invoke the getSpace method and assign its return value to tempRoom
+    //declare and initialize variables
+    boolean doorExists = false;
+  	boolean doorIsUnlocked = false;
+
+    //invoke getSpace method and assign its return value in tempRoom
     tempRoom = tracker.getSpace(tracker.getExactRow(), tracker.getExactColumn());
 
-    //invoke the getDoor method and assign its return value to tempDoor
+    //invoke getDoor method and assign its return value in tempDoor
     tempDoor = tempRoom.getDoor(direction - 1);
 
-    //invoke the getConnectionId method and return its value
-    return tempDoor.getConnectionId();
+    //invoke checkForPath method and assign its return value in doorExists
+    doorExists = this.checkForPath(tempDoor);
 
-  }//end getFromConnection
+    if(doorExists == true)//initiate if statement
+  		doorIsUnlocked = this.isPathClear(tempDoor);//invoke isPathClear method
+
+  	if(doorExists == true && doorIsUnlocked == true);//initiate if-else statement
+  		return true;//returns the value true
+    else
+  	 return false;//returns the value false
+  }//end checkDoor
+
+
+  //method to check if a door (in a certain direction) exists in a room
+  public boolean checkForPath(Door door){
+
+  	if(door.getConnectionId() != 0.0)//initiate if-else statement
+  		return true;//returns the value true
+  	else
+  		return false;//returns the value false
+  }//end checkForPath
+
+
+  //method to check if a door is unlocked
+  public boolean isPathClear(Door door){
+
+  	if(tempDoor.getLockStatus == false)//initiate if-else statement
+  		return true;//returns the value true
+  	else
+  		return false;//returns the value false
+  }//end isPathClear
 
 
   //method to move a player from one room to another adjacent room
@@ -240,10 +257,23 @@ public class CommandUtility{
 
 
   //method to move the player north 1 space
-  public int moveNorth(PositionTracker tracker){
+  public int moveWest(PositionTracker tracker){
 
     //invokes the getExactColumn method and returns the value of the calculation
     return tracker.getExactColumn() - 1;
   }//end moveNorth
+
+
+  public void senseSurroundings(Room currentRoom){
+
+  	identifyDoors(currentRoom.getContents());
+
+  	identifyContents(currentRoom);
+  }
+
+  public void identifyDoors(ArrayList<Item> list){
+
+
+  }
 
 }//end class

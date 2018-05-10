@@ -57,7 +57,7 @@ public class LastLaugh{
 			if(selection != 3){ //initiate if statement
 
 				do{ //initiate do-while (2)
-          
+
           //sets the name of the player
           player.setFirstName(tool.takeName());
 
@@ -82,7 +82,7 @@ public class LastLaugh{
 
 											if(selection != 5)
 													tracker = commandTool.movePlayer(tracker, selection);
-										
+
 										}while(selection != 5);//end do-while (3)
 
 										break;//breaks out of switch

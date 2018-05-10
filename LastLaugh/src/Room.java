@@ -4,13 +4,14 @@
 
   The Room class is a representation of a physical in-game
   room that the player is inside of. Each room has its own
-  name and contains a variety of items.
+  name, Id number, contains a variety of items and doors.
 */
 
 public class Room extends GamePiece{
 
-  //the Room class has 3 member fields/properties
+  //the Room class has 4 member fields/properties
   private String name;
+  private int roomId;
   private ArrayList<Item> contents;
   private ArrayList<Door> connections;
 
@@ -20,8 +21,14 @@ public class Room extends GamePiece{
     //assigns the value of the indicated string to the name field
     this.name = "";
 
-    //instantiates a new ArrayList of type Item, and stores it to the contents field
+    //assigns the given value to the roomId field
+    this.roomId = 0;//leaving this value a zero means the room is an empty space
+
+    //instantiates a new ArrayList of type Item and stores it to the contents field
     this.contents = new ArrayList<>();
+
+    //instantiates a new ArrayList of type Door and stores it to the connections field
+    this.connections = new ArrayList<>();
   }//end constructor
 
 
@@ -55,6 +62,22 @@ public class Room extends GamePiece{
     //returns Item located in specific indexe
     this.contents.get(index, object);
   }//end getItem
+
+
+  //method to get the value of the roomId field
+  public int getRoomId(){
+
+    //returns the value of the roomId field
+    return this.roomId;
+  }//end getRoomId
+
+
+  //method to set the value of the roomId field
+  public void setRoomId(int newId){
+
+    //assigns the value of newId to the roomId field
+    this.roomId = newId;
+  }//end setRoomId
 
 
   //method to get the Door object in the ArrayList located in the connections field

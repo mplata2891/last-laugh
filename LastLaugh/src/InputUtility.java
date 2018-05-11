@@ -24,12 +24,12 @@ public class InputUtility{
 
   	do{ //initiate do-while
 
-      //invoke takeInteger method and asigns its return value to selection
+      //invoke takeInteger method and assigns its return value to selection
       selection = this.takeInteger();
 
       //invoke validateSelection method and assign
       //its return value to selectionIsValid
-      //to-do make ---> selectionIsValid = this.validateSelection(selection, maxSelection);
+      selectionIsValid = this.validateSelection(selection, maxSelection);
 
   		if(selectionIsValid == false); //initiate if statement
   		//to-do: make-->	this.displayErrorMsg(); //invoke displayErrorMsg method
@@ -51,6 +51,8 @@ public class InputUtility{
 
     //invoke the nextInt method and assigns its return value to number
     number = input.nextInt();
+    
+    //input.close();
 
   	return number; //returns the value of number
   }//end takeInteger
@@ -58,7 +60,7 @@ public class InputUtility{
 
   //method to validate if a user's selection if it's an integer greater
   //than zero and within the constraints of the selection range
-  public boolean isSelectionValid(int input, int max){
+  public boolean validateSelection(int input, int max){
 
     //declare and initialize variables
     boolean validFlag = false;

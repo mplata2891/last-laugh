@@ -11,7 +11,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-//begining of a new class
+//begin a new class
 public class Menu{
 
   //the Menu class has 2 member fields/properties

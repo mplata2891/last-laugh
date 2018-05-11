@@ -17,7 +17,7 @@ public class LastLaugh{
 	public static void main(String[] args){
 
 		//instantiate and initialize Utility objects
-		FileUtility fileTool = new FileUtility();
+		//FileUtility fileTool = new FileUtility();
 		InputUtility inputTool = new InputUtility();
 		CommandUtility commandTool = new CommandUtility();
 
@@ -29,7 +29,7 @@ public class LastLaugh{
 		Menu inventoryMenu = new Menu("Inventory Menu:", "TextFiles/Menus/InventoryMenu.txt");
 
 		//instantiate and initialize Player object
-		Player playerOne = new Player();
+		//Player playerOne = new Player();
 
 		//instantiate and initialize PositionTracker object
 		PositionTracker tracker = new PositionTracker(5, 5, 4, 1);
@@ -47,6 +47,7 @@ public class LastLaugh{
 			//takes user's menu selection, validates, and stores it
 			selection = inputTool.takeSelection(3);
 
+			/*
 			switch(selection){ //initiate switch statement
 
 				//enter case 1 and invoke startNewGame method
@@ -57,6 +58,7 @@ public class LastLaugh{
 				case 2://	tool.continueGame();
 								break;//break out of switch statement
 			}//end switch
+			*/
 
 			if(selection != 3){ //initiate if statement
 

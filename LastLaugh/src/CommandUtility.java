@@ -6,6 +6,9 @@
   interpret and carry out the commands given by the player
   during game play.
 */
+//package LastLaugh.src;
+
+//import LastLaugh.src.Item.*;
 
 //begin new class
 public class CommandUtility{
@@ -25,7 +28,7 @@ public class CommandUtility{
   	moveIsValid = this.checkMove(direction, tracker);//invoke the checkMove method
 
   	if(moveIsValid == true)//initiate if statement
-  		tempTracker = this.makeMove(tracker);//invoke the makeMove method
+  		tempTracker = this.makeMove(tracker, direction);//invoke the makeMove method
 
   	return tempTracker;//return the value(s) of tempTraccker
   }//end movePlayer
@@ -42,7 +45,7 @@ public class CommandUtility{
     roomExists = this.checkDirection(tracker, direction);
 
     if(roomExists == true)//initiate if statement
-      doorExistsAndUnlocked = this.checkDoor();//invoke the checkDoor method
+      doorExistsAndUnlocked = this.checkDoor(tracker, direction);//invoke the checkDoor method
 
     if(doorExistsAndUnlocked == true)//initiate if statement
       return true;//returns the value true
@@ -54,20 +57,24 @@ public class CommandUtility{
   //method to check if a particular direction is a valid move
   public boolean checkDirection(PositionTracker tracker, int direction){
 
+    boolean validFlag = false;
+
     switch(direction){//initiate switch statement, checking the value of direction
 
       //enter case 1 and invoke the checkMoveNorth method
-      case 1:	return this.checkMoveNorth(tracker);
+      case 1:	validFlag = this.checkMoveNorth(tracker);
 
       //enter case 2 and invoke the checkMoveSouth method
-      case 2:	return this.checkMoveSouth(tracker)
+      case 2:	validFlag = this.checkMoveSouth(tracker);
 
       //enter case 3 and invoke the checkMoveEast method
-      case 3:	return this.checkMoveEast(tracker);
+      case 3:	validFlag = this.checkMoveEast(tracker);
 
       //enter case 4 and invoke the checkMoveWest method
-      case 4:	return this.checkMoveWest(tracker);
+      case 4:	validFlag = this.checkMoveWest(tracker);
   	}//end switch
+
+    return validFlag;
   }//end checkDirection
 
 
@@ -172,7 +179,7 @@ public class CommandUtility{
     if(doorExists == true)//initiate if statement
   		doorIsUnlocked = this.isPathClear(tempDoor);//invoke isPathClear method
 
-  	if(doorExists == true && doorIsUnlocked == true);//initiate if-else statement
+  	if(doorExists == true && doorIsUnlocked == true)//initiate if-else statement
   		return true;//returns the value true
     else
   	 return false;//returns the value false
@@ -192,7 +199,7 @@ public class CommandUtility{
   //method to check if a door is unlocked
   public boolean isPathClear(Door door){
 
-  	if(tempDoor.getLockStatus == false)//initiate if-else statement
+  	if(door.getLockStatus() == false)//initiate if-else statement
   		return true;//returns the value true
   	else
   		return false;//returns the value false
@@ -229,6 +236,8 @@ public class CommandUtility{
       case 4:	tempTracker.setExactColumn(this.moveWest(tracker));
   						return tempTracker;//return the value(s) of tempTracker
   	}//end switch
+
+    return tempTracker;
   }//end makeMove
 
 
@@ -263,7 +272,7 @@ public class CommandUtility{
     return tracker.getExactColumn() - 1;
   }//end moveNorth
 
-
+/*
   public void senseSurroundings(Room currentRoom){
 
   	identifyDoors(currentRoom.getContents());
@@ -271,9 +280,10 @@ public class CommandUtility{
   	identifyContents(currentRoom);
   }
 
+
   public void identifyDoors(ArrayList<Item> list){
 
 
   }
-
+*/
 }//end class

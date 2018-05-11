@@ -61,7 +61,7 @@ public class Item extends GamePiece{
 	}
 
 	//method to return the value of the type property
-	public int getType(){
+	public String getType(){
 
 		//returns the value of the type property
 		return this.type;
@@ -103,7 +103,7 @@ public class Item extends GamePiece{
 	}
 
 	//method to return the value of the combines property
-	public int getCombines(){
+	public boolean getCombines(){
 
 		//returns the value of the combines property
 		return this.combines;
@@ -116,7 +116,7 @@ public class Item extends GamePiece{
 
 		//returns class members as a string
 		return "ITEM - \n"
-						+ "    Name: " + this.name "\n"
+						+ "    Name: " + this.name + "\n"
 						+ "    Type: " + this.type + "\n\n";
 	}//end knownInfo method
 
@@ -126,10 +126,10 @@ public class Item extends GamePiece{
 
 		//returns class members as a string
 		return "ITEM - \n"
-						+ "       Name: " + this.name "\n"
+						+ "       Name: " + this.name + "\n"
 						+ "       Type: " + this.type + "\n"
 						+ "Description: " + this.description + "\n"
-						+ "   Location: " + this.location + "\n"
-						+ "   Combines: " + this.combines + "\n\n";
+						+ "   Location: " + this.location + "\n";
+						//+ "   Combines: " + this.combines + "\n\n";
 	}//end of toString
 }//end of class

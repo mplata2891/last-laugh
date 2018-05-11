@@ -11,6 +11,7 @@
   reprompt for input.
 */
 
+import java.util.*;
 //begin new class
 public class InputUtility{
 
@@ -28,10 +29,10 @@ public class InputUtility{
 
       //invoke validateSelection method and assign
       //its return value to selectionIsValid
-      selectionIsValid = this.validateSelection(selection, maxSelection);
+      //to-do make ---> selectionIsValid = this.validateSelection(selection, maxSelection);
 
-  		if(selectionIsValid == false) //initiate if statement
-  			this.displayErrorMsg(); //invoke displayErrorMsg method
+  		if(selectionIsValid == false); //initiate if statement
+  		//to-do: make-->	this.displayErrorMsg(); //invoke displayErrorMsg method
 
   	}while(selectionIsValid == false); //end do-while
 
@@ -132,7 +133,7 @@ public class InputUtility{
 
     return validFlag;
   }//end isNameValid
-  
+
 
   public void nameErrorMsg(){
 

@@ -24,5 +24,8 @@
 //begining of a new class
 public class Note extends Item{
 
+  public Note(){
 
+  }
+  
 }//end of class

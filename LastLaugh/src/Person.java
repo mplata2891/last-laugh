@@ -8,10 +8,13 @@
 	The Person class is a sub-class of the GamePiece class.
 */
 
+//package LastLaugh.src;
+
 public class Person extends GamePiece{
 
 	//the Person class has 1 class member/field
 	private String firstName;
+
 
 
 	//default constructor
@@ -30,7 +33,7 @@ public class Person extends GamePiece{
 		this.firstName = first;
 
 		//assigns the value of last to the lastName property
-		this.lastName = last;
+	//	this.lastName = last;
 	}//end constructor
 
 

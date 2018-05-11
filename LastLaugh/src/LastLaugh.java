@@ -6,7 +6,11 @@
 	::: DO NOT TRY TO COMPILE, CUZ IT WON'T COMPILE :::
 */
 
-//begining of new class
+//package LastLaugh.src;
+
+//import src.Items.*;
+
+//begin new class
 public class LastLaugh{
 
 	//entry point of application
@@ -31,14 +35,14 @@ public class LastLaugh{
 		PositionTracker tracker = new PositionTracker(5, 5, 4, 1);
 
 		//declare and initialize variables
-		int selection;
+		int selection = 0;
 
 
 		do{ //initiate do-while (1)
 
 			mainMenu.displayMenu();//displays game's main menu
 
-			fileTool.promptForSelection();//prompts user for selection
+			//fileTool.promptForSelection();//prompts user for selection
 
 			//takes user's menu selection, validates, and stores it
 			selection = inputTool.takeSelection(3);
@@ -46,11 +50,11 @@ public class LastLaugh{
 			switch(selection){ //initiate switch statement
 
 				//enter case 1 and invoke startNewGame method
-				case 1:	tool.startNewGame();
+				case 1://	tool.startNewGame();
 								break;//break out of switch statement
 
 				//enter case 2 and invoke continueGame method
-				case 2:	tool.continueGame();
+				case 2://	tool.continueGame();
 								break;//break out of switch statement
 			}//end switch
 
@@ -59,11 +63,11 @@ public class LastLaugh{
 				do{ //initiate do-while (2)
 
           //sets the name of the player
-          player.setFirstName(tool.takeName());
+          //player.setFirstName(tool.takeName());
 
 					playerMenu.displayMenu();//displays the player menu
 
-					fileTool.promptForSelection(3);//prompts user for selection
+					//fileTool.promptForSelection(3);//prompts user for selection
 
 					//takes user's menu selection, validates, and stores it
 					selection = inputTool.takeSelection(7);
@@ -75,10 +79,10 @@ public class LastLaugh{
 
 											moveMenu.displayMenu();//display move menu
 
-											fileTool.promptForSelection();//prompts user for selection
+											//fileTool.promptForSelection();//prompts user for selection
 
 											//takes user's menu selection, validates, and stores it
-											selection = inputTool.takeSelection(5)
+											selection = inputTool.takeSelection(5);
 
 											if(selection != 5)
 													tracker = commandTool.movePlayer(tracker, selection);
@@ -88,11 +92,11 @@ public class LastLaugh{
 										break;//breaks out of switch
 
 						//enters case 2 and invokes sense method
-						case 2:	player.sense();
+						case 2:	//player.sense();
 														break;//breaks out of switch
 
 						//enters case 3 and invokes examine method
-						case 3:	player.examine()
+						case 3://	player.examine();
 														break;//breaks out of switch
 
 						//enters case 4
@@ -100,7 +104,7 @@ public class LastLaugh{
 
 											actionMenu.displayMenu();//display action menu
 
-											fileTool.promptForSelection();//prompts user for selection
+											//fileTool.promptForSelection();//prompts user for selection
 
 											//takes user's menu selection, validates, and stores it
 											selection = inputTool.takeSelection(7);
@@ -108,27 +112,27 @@ public class LastLaugh{
 											switch(selection){//initiate switch statement
 
 												//enter case 1 and invoke press method
-												case 1:	player.press();
+												case 1:	//player.press();
 																break;//breaks out of switch statement
 
 												//enter case 2 and invoke pull method
-												case 2:	player.pull();
+												case 2:	//player.pull();
 																break;//breaks out of switch statement
 
 												//enter case 3 and invoke turn method
-												case 3:	player.turn();
+												case 3://	player.turn();
 																break;//breaks out of switch statement
 
 												//enter case 4 and invoke slide method
-												case 4:	player.slide();
+												case 4:	//player.slide();
 																break;//breaks out of switch statement
 
 												//enter case 5 and invoke push method
-												case 5:	player.push();
+												case 5://	player.push();
 																break;//breaks out of switch statement
 
 												//enter case 6 and invoke type method
-												case 6:	player.type();
+												case 6:	//player.type();
 																break;//breaks out of switch statement
 											}//end switch
 
@@ -141,7 +145,7 @@ public class LastLaugh{
 
 											inventoryMenu.displayMenu();//display inventory menu
 
-											fileTool.promptForSelection();//prompts user for selection
+											//to-do: make--> fileTool.promptForSelection();//prompts user for selection
 
 											//takes user's menu selection, validates, and stores it
 											selection = inputTool.takeSelection(4);
@@ -149,15 +153,15 @@ public class LastLaugh{
 											switch(selection){//initiate switch statement
 
 												//enter case 1 and invoke inspect method
-												case 1:	item.inspect();
+												case 1://	item.inspect();
 																break;//breaks out of switch
 
 												//enter case 2 and invoke combine method
-												case 2:	item.combine();
+												case 2://	item.combine();
 																break;//breaks out of switch
 
 												//enters case 3 and invokes use method
-												case 3:	item.use();
+												case 3:	//item.use();
 																break;//breaks out of switch
 											}//end switch
 
@@ -166,11 +170,11 @@ public class LastLaugh{
 										break;//breaks out of switch
 
 						//enters case 6 and invokes saveGame method
-						case 6:	tool.saveGame();
+						case 6:	//tool.saveGame(); to-do: need to create tool
 														break;//breaks out of switch
 
 						//enters case 7 and invokes confirmExit method
-						case 7:	selection = inputTool.confirmExit();
+						case 7:	//to-do: make --> selection = inputTool.confirmExit();
 														break;//breaks out of switch
 						}//end switch
 
@@ -180,7 +184,8 @@ public class LastLaugh{
 
 		}while(selection != 3);//end do-while (1)
 
-		tool.endGame();//invoke the endGame method
+		//to-do: need to create tool
+		//tool.endGame();//invoke the endGame method
 
 	}//end main
 

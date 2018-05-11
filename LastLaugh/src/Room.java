@@ -6,6 +6,7 @@
   room that the player is inside of. Each room has its own
   name, Id number, contains a variety of items and doors.
 */
+import java.util.*;
 
 public class Room extends GamePiece{
 
@@ -60,7 +61,7 @@ public class Room extends GamePiece{
   public Item getItem(int index, Item object){
 
     //returns Item located in specific indexe
-    this.contents.get(index, object);
+    return this.contents.get(index);
   }//end getItem
 
 

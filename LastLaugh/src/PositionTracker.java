@@ -9,6 +9,8 @@
   The PositionTracker class is a subclass of GamePiece
 */
 
+//package LastLaugh.src;
+
 //begining of new class
 public class PositionTracker extends GamePiece{
 
@@ -63,7 +65,7 @@ public class PositionTracker extends GamePiece{
     this.map = new Room[this.maxRows][this.maxColumns];
 
     //invokes the fillMap method to fill the map with Room objects
-    this.fillMap(this.maxRows, this.maxColumns);
+    this.fillMap();
 
     //creates a new array and assigns it to the position field
     this.position = new boolean[this.maxRows][this.maxColumns];
@@ -93,7 +95,7 @@ public class PositionTracker extends GamePiece{
   public int getMaxColumns(){
 
     //returns the value of the maxColumns field
-    return this.maxColums;
+    return this.maxColumns;
   }//end getMaxColumns
 
 
@@ -128,9 +130,11 @@ public class PositionTracker extends GamePiece{
     return this.exactColumn;
   }//end getExactColumn
 
-
+  public void setExactColumn(int i){
+    this.exactColumn = i;
+  }
   //method to return the object in the given index of the map field
-  public Room getRoom(int row, int column){
+  public Room getSpace(int row, int column){
 
     //returns the object in the given index of the map field
     return this.map[row][column];
@@ -150,7 +154,7 @@ public class PositionTracker extends GamePiece{
 
     for(int i = 0; i < this.maxRows; i++){ //initiate for loop (1)
 
-      for(int j = 0; j < this.maxColums; j++){ //initiate for loop (2)
+      for(int j = 0; j < this.maxColumns; j++){ //initiate for loop (2)
 
         //instatiate a Room object in the given index of the table array
         this.map[i][j] = new Room();

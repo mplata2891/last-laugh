@@ -12,6 +12,10 @@
 
 	The Player class is a sub-class of the Person class.
 */
+//package LastLaugh.src;
+
+import java.util.*;
+//import src.Items.*;
 
 public class Player extends Person{
 
@@ -23,32 +27,34 @@ public class Player extends Person{
 	public Player(){
 
 		//assigns the value of the firstName field to the indicated string
-		super.firstName = "";
+		//super.firstName = "";
 
 		//assigns the value of the lastNae field to the indicated string
-		super.lastName = "";
+		//super.lastName = "";
+		super();
 
 		//creates a new ArrayList and assigns it to the inventory field
-		this.inventory = new ArrayList<>[];
+		this.inventory = new ArrayList<>();
 
 		//creates a new ArrayList and assigns it to the notebook field
-		this.notebook = new ArrayList<>[];
+		this.notebook = new ArrayList<>();
 	}//end constructor
 
 	//implicit constructor
 	public Player(String first, String last){
 
 		//assigns the value of the firstName field to the indicated string
-		super.firstName = first;
+		//super.firstName = first;
 
 		//assigns the value of the lastNae field to the indicated string
-		super.lastName = last;
+		//super.lastName = last;
+		super(first, last);
 
 		//creates a new ArrayList and assigns it to the inventory field
-		this.inventory = new ArrayList<>[];
+		this.inventory = new ArrayList<>();
 
 		//creates a new ArrayList and assigns it to the notebook field
-		this.notebook = new ArrayList<>[];
+		this.notebook = new ArrayList<>();
 	}//end constructor
 
 	public void addItem(Item newItem){
@@ -58,10 +64,10 @@ public class Player extends Person{
 	}
 
 	//method to return an inventory item as a String
-  public String getItem(){
+  public String getItem(int i){
 
 		//returns the known information of the item as a String
-		return inventory.get(i.knownInfo());
+		return inventory.get(i).knownInfo();
   }
 
 	//method to remove an item from the inventory ArrayList member field
@@ -74,7 +80,7 @@ public class Player extends Person{
 			inventory.remove(item);
 
 			//initiate for loop to iterate through ArrayList
-			for(index; index < inventory.size(); index++){
+			for(index = 0; index < inventory.size(); index++){
 
 				//sets the current index of the inventory ArrayList equal to the index
 				//that follows it.
@@ -104,7 +110,7 @@ public class Player extends Person{
     for(int i = 0; i < inventory.size(); i++){
 
       //concatonates indicated String to inventoryList
-      inventoryList = "   " + i + ". " + inventory.get(i.toString()) + "\n";
+      inventoryList = "   " + i + ". " + inventory.get(i).toString() + "\n";
     }
 
     //returns the value of inventoryList
@@ -116,7 +122,8 @@ public class Player extends Person{
 
 		//returns object fields as a string
 		return "First Name: " + super.getFirstName() + "\n"
-						+ "Last Name: " + super.getLastName() + "\n"
-						+ this.getFullInventory();
+		+ this.getFullInventory();
+					//	+ "Last Name: " + super.getLastName() + "\n"
+
 	}//end toString
 }//end of class

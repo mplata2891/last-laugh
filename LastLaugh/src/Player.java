@@ -5,10 +5,10 @@
 	The Player class is the in-game representation of the real life
 	player. In other words, it acts as the user's avatar, in the game.
 
-	The Player class inherits the firstName and lastName member fields
-	from the Person class, but also adds two member fields of its own.
-	The member fields provide the real player, ways for it to collect
-	in-game items that will aid in completing the game.
+	The Player class inherits the firstName member field from the Person
+	class, but also adds two member fields of its own. The member fields
+	provide the real player, ways for it to collect in-game items that
+	will aid in completing the game.
 
 	The Player class is a sub-class of the Person class.
 */

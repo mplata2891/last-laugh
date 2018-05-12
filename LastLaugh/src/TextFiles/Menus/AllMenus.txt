@@ -12,11 +12,9 @@ Player Menu - Type a number from 1 to 6
 	5. Save Game
 	6. Exit
 
-Move Menu - Type a number from 1 to 4
-	1. North
-	2. South
-	3. East
-	4. West
+Move Menu - Type a number from 1 to 2
+	1. Next Room
+	2. Last Room
 
 Action Menu - Type a number from 1 to 6
 	1. Press

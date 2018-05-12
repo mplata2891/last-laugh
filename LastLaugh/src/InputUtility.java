@@ -63,12 +63,12 @@ public class InputUtility{
   public boolean validateSelection(int input, int max){
 
     //declare and initialize variables
-    boolean validFlag = false;
+    //boolean validFlag = false;
 
   	if(input > 0 && input <= max)//enter if statement
-  		validFlag = true;//assigns the value of true to validFlag
-
-  	return validFlag;//returns the value of validFlag
+  		return true;//assigns the value of true to validFlag
+  	else
+  		return false;//returns the value of validFlag
   }// isSelectionValid
 
 

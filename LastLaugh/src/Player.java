@@ -17,7 +17,7 @@
 import java.util.*;
 //import src.Items.*;
 
-public class Player extends Person{
+public class Player extends Person implements Sense, Inspect{
 
 	//the Player class has 2 class members/properties
 	private ArrayList<Item> inventory;

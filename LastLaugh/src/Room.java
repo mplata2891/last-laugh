@@ -71,7 +71,7 @@ public class Room extends GamePiece{
   public Door getDoor(){
 
     //returns the Door object located in the door field
-    return this.door.toString();
+    return this.door;
   }//end getDoor
 
 
@@ -84,14 +84,17 @@ public class Room extends GamePiece{
 
 
   //method to return an Item in the list
-  public Item getItem(int index){
+  public String getItem(int index){
 
     //returns Item located in specific indexe
     return this.contents.get(index).getName();
   }//end getItem
 
 
+  public int getNumberOfItems(){
 
+    return this.contents.size();
+  }
 
 
 

@@ -8,9 +8,10 @@ Player Menu - Type a number from 1 to 6
 	2. Sense
 	3. Examine
 	4. Action
-	4. Inventory
-	5. Save Game
-	6. Exit
+	5. Inventory
+	6. Notebook
+	7. Save
+	8. Exit
 
 Move Menu - Type a number from 1 to 2
 	1. Next Room

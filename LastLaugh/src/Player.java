@@ -26,11 +26,7 @@ public class Player extends Person{
 	//default constructor
 	public Player(){
 
-		//assigns the value of the firstName field to the indicated string
-		//super.firstName = "";
-
-		//assigns the value of the lastNae field to the indicated string
-		//super.lastName = "";
+		//invoke the Person class constructor
 		super();
 
 		//creates a new ArrayList and assigns it to the inventory field
@@ -40,22 +36,6 @@ public class Player extends Person{
 		this.notebook = new ArrayList<>();
 	}//end constructor
 
-	//implicit constructor
-	public Player(String first, String last){
-
-		//assigns the value of the firstName field to the indicated string
-		//super.firstName = first;
-
-		//assigns the value of the lastNae field to the indicated string
-		//super.lastName = last;
-		super(first, last);
-
-		//creates a new ArrayList and assigns it to the inventory field
-		this.inventory = new ArrayList<>();
-
-		//creates a new ArrayList and assigns it to the notebook field
-		this.notebook = new ArrayList<>();
-	}//end constructor
 
 	public void addItem(Item newItem){
 
@@ -64,10 +44,10 @@ public class Player extends Person{
 	}
 
 	//method to return an inventory item as a String
-  public String getItem(int i){
+  public String getItem(int index){
 
 		//returns the known information of the item as a String
-		return inventory.get(i).knownInfo();
+		return inventory.get(index).knownInfo();
   }
 
 	//method to remove an item from the inventory ArrayList member field
@@ -87,7 +67,7 @@ public class Player extends Person{
 				inventory.set(index, inventory.get(index + 1));
 			}//end of for loop
 
-			//removes the final inde of the inventory ArrayList
+			//removes the final index of the inventory ArrayList
 			inventory.remove(inventory.size() - 1);
 		}//end of if
 		else{

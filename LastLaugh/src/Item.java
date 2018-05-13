@@ -15,9 +15,8 @@ public class Item extends GamePiece{
 	//the Item class has 4 class members/properties
 	private String name;
 	private String type;
-	public String description;
-	private String location;
-	private boolean combines;
+	private String description;
+	private boolean combinesWithOtherItem;
 
 
 	//defualt constructor
@@ -26,25 +25,16 @@ public class Item extends GamePiece{
 		//assigns the indicated String to the name property
 		this.name = "None";
 
-		//assigns the value of zero (0) to the strMod property
+		//assigns the indicated string to the type property
 		this.type = "None";
 
-		//assigns the indicated string to the type property
+		//assigns the indicated string to the description property
     this.description = "None";
 
-    //assigns the indicated string to the location property
-    this.location = "Unknown";
-
-		//assigns the value of zero (0) to the tufMod property
-		this.combines = false;
+		//assigns the indicated value to the combinesWithOtherItem
+		this.combinesWithOtherItem = false;
 	}	//end constructor
 
-	//method to set the name property
-	public void setName(String name){
-
-		//assigns the indicated String to the name property
-		this.name = name;
-	}
 
 	//method to return the value of the name property
 	public String getName(){
@@ -53,12 +43,14 @@ public class Item extends GamePiece{
 		return this.name;
 	}
 
-	//method to set the type property
-	public void setType(String newType){
 
-		//assigns the value of newType to the type property
-		this.type = newType;
+	//method to set the name property
+	public void setName(String name){
+
+		//assigns the indicated String to the name property
+		this.name = name;
 	}
+
 
 	//method to return the value of the type property
 	public String getType(){
@@ -67,12 +59,22 @@ public class Item extends GamePiece{
 		return this.type;
 	}
 
+
+	//method to set the type property
+	public void setType(String newType){
+
+		//assigns the value of newType to the type property
+		this.type = newType;
+	}
+
+
 	//method to return the value of the description property
   public String getDescription(){
 
     //returns the value of the description property
     return this.description;
   }
+
 
   //method to assigns a value to the description proptery
   public void setDescription(String newDescription){
@@ -81,55 +83,31 @@ public class Item extends GamePiece{
     this.description = newDescription;
   }
 
-	//method to set the location property
-	public void setLocation(String newLocation){
 
-		//assigns the value of newLocation to the location property
-		this.location = newLocation;
+	//method to return the value of the combinesWithOtherItem property
+	public boolean getCombinesWithOtherItem(){
+
+		//returns the value of the combinesWithOtherItem property
+		return this.combinesWithOtherItem;
 	}
 
-	//method to return the value of the location property
-	public String getLocation(){
 
-		//returns the value of the location property
-		return this.location;
+	//method to set the combinesWithOtherItem property
+	public void setCombinesWithOtherItem(boolean newBool){
+
+		//assigns the value of newBool to the combinesWithOtherItem property
+		this.combinesWithOtherItem = newBool;
 	}
 
-	//method to set the combines property
-	public void setCombines(boolean newBool){
 
-		//assigns the value of newBool to the combines property
-		this.combines = newBool;
-	}
-
-	//method to return the value of the combines property
-	public boolean getCombines(){
-
-		//returns the value of the combines property
-		return this.combines;
-	}
-
-	//method to return class members that are not hidden
-	//from the player, as a string with appropriate labels
-	//for each class member
-	public String knownInfo(){
+	//method to return class members that are not hidden from the player
+	//as a string with appropriate labels for each class member
+	public String toString(){
 
 		//returns class members as a string
-		return "ITEM - \n"
-						+ "    Name: " + this.name + "\n"
-						+ "    Type: " + this.type + "\n\n";
-	}//end knownInfo method
+		return this.type + " - \n"
+						+ "Name: " + this.name + "\n"
+						+ "Description: " + this.descritption + "\n\n";
+	}//end toString
 
-	//method to return class members as a string with
-	//appropriate labels for each class member
-	public String toString() {
-
-		//returns class members as a string
-		return "ITEM - \n"
-						+ "       Name: " + this.name + "\n"
-						+ "       Type: " + this.type + "\n"
-						+ "Description: " + this.description + "\n"
-						+ "   Location: " + this.location + "\n";
-						//+ "   Combines: " + this.combines + "\n\n";
-	}//end of toString
 }//end of class

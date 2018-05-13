@@ -13,8 +13,9 @@ public class Room extends GamePiece{
   //the Room class has 4 member fields/properties
   private String name;
   private int roomId;
+  private Door door;
   private ArrayList<Item> contents;
-  private ArrayList<Door> connections;
+
 
   //default constructor
   public Room(){
@@ -22,14 +23,15 @@ public class Room extends GamePiece{
     //assigns the value of the indicated string to the name field
     this.name = "";
 
-    //assigns the given value to the roomId field
-    this.roomId = 0;//leaving this value a zero means the room is an empty space
+    //assigns the indicated value to the roomId field
+    this.roomId = 0;
 
-    //instantiates a new ArrayList of type Item and stores it to the contents field
+    //instantiates an object of type Door and stores it in the door field
+    this.door = new Door();
+
+    //instantiates an ArrayList of type Item and stores it in the contents field
     this.contents = new ArrayList<>();
 
-    //instantiates a new ArrayList of type Door and stores it to the connections field
-    this.connections = new ArrayList<>();
   }//end constructor
 
 
@@ -49,22 +51,6 @@ public class Room extends GamePiece{
   }//end setName
 
 
-  //method to add elements to the contents member field
-  public void addItem(Item item){
-
-    //adds item to an element in the ArrayList
-    this.contents.add(item);
-  }//end addItem
-
-
-  //method to return an Item in the list
-  public Item getItem(int index, Item object){
-
-    //returns Item located in specific indexe
-    return this.contents.get(index);
-  }//end getItem
-
-
   //method to get the value of the roomId field
   public int getRoomId(){
 
@@ -81,11 +67,33 @@ public class Room extends GamePiece{
   }//end setRoomId
 
 
-  //method to get the Door object in the ArrayList located in the connections field
-  public Door getDoor(int index){
+  //method to get the Door object located in the door field
+  public Door getDoor(){
 
-    //returns the Door object located in the given index
-    return this.connections.get(index);
+    //returns the Door object located in the door field
+    return this.door.toString();
   }//end getDoor
+
+
+  //method to add elements to the contents member field
+  public void addItem(Item item){
+
+    //adds item to an element in the ArrayList
+    this.contents.add(item);
+  }//end addItem
+
+
+  //method to return an Item in the list
+  public Item getItem(int index){
+
+    //returns Item located in specific indexe
+    return this.contents.get(index).getName();
+  }//end getItem
+
+
+
+
+
+
 
 }//end class

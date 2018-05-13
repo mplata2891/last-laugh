@@ -15,9 +15,9 @@
 public class Door extends GamePiece{
 
   //the Door class has 4 member fields/properties
-  private double connectionId; //identifies which two Rooms it connects
-  private boolean lockStatus; //true means locked; false means unlocked
-  private String keyName; //name of the key needed to unlock the door
+  private int doorId;
+  private String lockStatus;
+  private String keyName;
   private String doorName;
   private String description;
 
@@ -25,55 +25,39 @@ public class Door extends GamePiece{
   //default constructor
   public Door(){
 
-    //assigns the indicated value to the connectionId field
-    this.connectionId = 0.0;
+    //assigns the indicated value to the doorId field
+    this.doorId = 0;
 
-    //assigns the indicated value to the lockStatus field
-    this.lockStatus = true;
+    //assigns the indicated String to the lockStatus field
+    this.lockStatus = "Locked";
 
     //assigns the indicated string to the keyName field
     this.keyName = "";
 
     //assigns the indicated string to the description field
     this.description = "";
+
   }//end constructor
 
 
-  //implicit constructor
-  public Door(double id, boolean status, String name, String desc){
+  //method to get the value of the doorId field
+  public int getDoorId(){
 
-    //assigns the value of id to the connectionID field
-    this.connectionId = id;
-
-    //assigns the value of status to the lockStatus field
-    this.lockStatus = status;
-
-    //assigns the value of name to the keyName field
-    this.keyName = name;
-
-    //assigns the value of desc to the description field
-    this.description = desc;
-  }//end constructor
+    //returns the value of the doorId field
+    return this.doorId;
+  }//end getDoorId
 
 
-  //method to get the value of the connectionId field
-  public double getConnectionId(){
+  //method to set the value of the doorId field
+  public void setDoorId(double newId){
 
-    //returns the value of the connectionId field
-    return this.connectionId;
-  }//end getConnectionId
-
-
-  //method to set the value of the connectionId field
-  public void setConnectionId(double newId){
-
-    //assigns the value of newId to the connectionId field
+    //assigns the value of newId to the doorId field
     this.connectionId = newId;
   }//end setConnectionId
 
 
   //method to get the value of the lockStatus field
-  public boolean getLockStatus(){
+  public String getLockStatus(){
 
     //returns the value of the lockStatus field
     return this.lockStatus;
@@ -81,7 +65,7 @@ public class Door extends GamePiece{
 
 
   //method to set the value of the lockStatus field
-  public void setLockStatus(boolean newStatus){
+  public void setLockStatus(String newStatus){
 
     //assigns the value of newStatus to the lockStatus field
     this.lockStatus = newStatus;
@@ -137,11 +121,12 @@ public class Door extends GamePiece{
 
 
   //method to print a String representation of the in-game door
-  public void printDoor(){
+  public String toString(){
 
-    //prints the name of the door and a description of the door
-    System.out.println(this.doorName + ":\n"
-                        + this.description + "\n");
-  }//end printDoor
+    return this.doorName + " -\n"
+            + "Lock Status: " + this.lockStatus + "\n"
+            + "Description: " + this.description + "\n";
+
+  }//end toString
 
 }//end class

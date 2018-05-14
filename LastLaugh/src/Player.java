@@ -47,7 +47,7 @@ public class Player extends Person implements Sense, Inspect{
   public String getItem(int index){
 
 		//returns the known information of the item as a String
-		return inventory.get(index).knownInfo();
+		return inventory.get(index).toString();
   }
 
 	//method to remove an item from the inventory ArrayList member field

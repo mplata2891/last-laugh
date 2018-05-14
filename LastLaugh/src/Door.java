@@ -49,10 +49,10 @@ public class Door extends GamePiece{
 
 
   //method to set the value of the doorId field
-  public void setDoorId(double newId){
+  public void setDoorId(int newId){
 
     //assigns the value of newId to the doorId field
-    this.connectionId = newId;
+    this.doorId = newId;
   }//end setConnectionId
 
 
@@ -123,7 +123,7 @@ public class Door extends GamePiece{
   //method to print a String representation of the in-game door
   public String toString(){
 
-    return this.doorName + " -\n"
+    return this.name + " -\n"
             + "Lock Status: " + this.lockStatus + "\n"
             + "Description: " + this.description + "\n";
 

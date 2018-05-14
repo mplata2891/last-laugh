@@ -16,11 +16,11 @@ public class TestDriverMike{
 
       for(int i = 0; i < 4; i++){
         room1.addItem(new Item());
-        room1.getItem().setName("Item " + (i + 1));
-        room1.getItem().setDescription("This is Item number " + (i + 1) + ".");
+        room1.getItem(i).setName("Item " + (i + 1));
+        room1.getItem(i).setDescription("This is Item number " + (i + 1) + ".");
       }
 
-      playerOne.senseSurroundings(room1);
+      //playerOne.SenseSurroundings(room1);
 
 
   }//end main

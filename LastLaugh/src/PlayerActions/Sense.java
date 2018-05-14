@@ -9,7 +9,7 @@ public interface Sense{
 
   //method that prints the name of the door, and names of the Items
   //located in the room that the player is currently in
-  public void SenseSurroundings(Room currentRoom){
+  public static void SenseSurroundings(Room currentRoom){
 
     //prints message to the user
     System.out.println("In the room you're in, you notice. . .");
@@ -24,7 +24,7 @@ public interface Sense{
 
 
   //method to print the name of the Door, in the current Room
-  public void identifyDoor(Room currentRoom){
+  public static void identifyDoor(Room currentRoom){
 
     //prints the name of the Door with label by invoking getDoorName
     System.out.println("Door:" + currentRoom.getDoor().getDoorName());
@@ -33,7 +33,7 @@ public interface Sense{
 
 
   //method to print the name of every Item in the current Room
-  public void identifyContents(Room currentRoom){
+  public static void identifyContents(Room currentRoom){
 
     //prints Item label
     System.out.println("Items:\n");

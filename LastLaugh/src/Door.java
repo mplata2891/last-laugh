@@ -18,7 +18,7 @@ public class Door extends GamePiece{
   private int doorId;
   private String lockStatus;
   private String keyName;
-  private String doorName;
+  private String name;
   private String description;
 
 
@@ -88,20 +88,20 @@ public class Door extends GamePiece{
   }//end setKeyName
 
 
-  //method to get the value of the doorName field
-  public String getDoorName(){
+  //method to get the value of the name field
+  public String getName(){
 
-    //returns the value of the doorName field
-    return this.doorName;
-  }//end getKeyName
+    //returns the value of the name field
+    return this.name;
+  }//end getName
 
 
-  //method to set the value of the doorName field
-  public void setDoorName(String newName){
+  //method to set the value of the name field
+  public void setName(String newName){
 
-    //assigns the value newName to the doorName field
-    this.doorName = newName;
-  }//end setKeyName
+    //assigns the value newName to the name field
+    this.name = newName;
+  }//end setName
 
 
   //method to get the value of the description field

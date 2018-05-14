@@ -75,6 +75,13 @@ public class Room extends GamePiece{
   }//end getDoor
 
 
+  //method to assign a door object in the door field
+  public void setDoor(Door newDoor){
+
+    this.door = newDoor;
+  }
+
+
   //method to add elements to the contents member field
   public void addItem(Item item){
 
@@ -84,10 +91,10 @@ public class Room extends GamePiece{
 
 
   //method to return an Item in the list
-  public String getItem(int index){
+  public Item getItem(int index){
 
     //returns Item located in specific indexe
-    return this.contents.get(index).getName();
+    return this.contents.get(index);
   }//end getItem
 
 

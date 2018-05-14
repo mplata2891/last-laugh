@@ -24,7 +24,7 @@ public interface Sense{
 
 
   //method to print the name of the Door, in the current Room
-  private void identifyDoor(Room currentRoom){
+  public void identifyDoor(Room currentRoom){
 
     //prints the name of the Door with label by invoking getDoorName
     System.out.println("Door:" + currentRoom.getDoor().getDoorName());
@@ -33,7 +33,7 @@ public interface Sense{
 
 
   //method to print the name of every Item in the current Room
-  private void identifyContents(Room currentRoom){
+  public void identifyContents(Room currentRoom){
 
     //prints Item label
     System.out.println("Items:\n");
@@ -41,7 +41,7 @@ public interface Sense{
     //inititate for loop to iterate through ArrayList
     for(int i = 0; i < currentRoom.getNumberOfItems(); i++)
       //prints the name of the item located in the current index
-      System.out.println(currentRoom.getItem(i).getName();)
+      System.out.println(currentRoom.getItem(i).getName());
 
   }//end identifyContents
 

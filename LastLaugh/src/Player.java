@@ -17,11 +17,13 @@
 import java.util.*;
 //import src.Items.*;
 
-public class Player extends Person implements Sense, Inspect{
+public class Player extends Person{
 
 	//the Player class has 2 class members/properties
 	private ArrayList<Item> inventory;
 	private ArrayList<Note> notebook;
+	
+	
 
 	//default constructor
 	public Player(){
@@ -35,20 +37,26 @@ public class Player extends Person implements Sense, Inspect{
 		//creates a new ArrayList and assigns it to the notebook field
 		this.notebook = new ArrayList<>();
 	}//end constructor
+	
 
 
+	//method to get an Item object stored in the inventory field
+	  public Item getItem(int index){
+
+			//returns the Item stored in the inventory field, located at index
+			return inventory.get(index);
+	  }//end getItem
+	  
+	  
+	  
+	//method to store an Item in the inventory field
 	public void addItem(Item newItem){
 
-		//adds newItem as an element in the ArrayList
+		//adds newItem to the inventory field
 		inventory.add(newItem);
-	}
+	}//end addItem
 
-	//method to return an inventory item as a String
-  public String getItem(int index){
-
-		//returns the known information of the item as a String
-		return inventory.get(index).toString();
-  }
+	
 
 	//method to remove an item from the inventory ArrayList member field
 	public void removeItem(Item item, int index){
@@ -75,7 +83,7 @@ public class Player extends Person implements Sense, Inspect{
 			//removes a specific object from the inventory ArrayList
 			inventory.remove(item);
 
-			//removes the final inde of the inventory ArrayList
+			//removes the final index of the inventory ArrayList
 			inventory.remove(inventory.size() - 1);
 		}//end of else
 	}//end of method
@@ -84,17 +92,22 @@ public class Player extends Person implements Sense, Inspect{
   public String getFullInventory(){
 
     //declare and initialize variables
-    String inventoryList = "Inventory:\n";
+    String inventoryList = " Inventory:\n";
 
     //initiate for loop to iterate through the ArrayList
     for(int i = 0; i < inventory.size(); i++){
 
-      //concatonates indicated String to inventoryList
-      inventoryList = "   " + i + ". " + inventory.get(i).toString() + "\n";
+      //Concatenates indicated String to inventoryList
+      inventoryList += "   " + (i + 1) + ". " + inventory.get(i).toString() + "\n";
     }
 
     //returns the value of inventoryList
     return inventoryList;
+  }
+  
+  public int getNumberOfItems() {
+	  
+	  return this.inventory.size();
   }
 
 	//method to return object fields as a string
@@ -103,7 +116,7 @@ public class Player extends Person implements Sense, Inspect{
 		//returns object fields as a string
 		return "First Name: " + super.getFirstName() + "\n"
 		+ this.getFullInventory();
-					//	+ "Last Name: " + super.getLastName() + "\n"
+		
 
 	}//end toString
 }//end of class

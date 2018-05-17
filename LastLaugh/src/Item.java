@@ -6,10 +6,10 @@
 	subclasses. The Item class is the super-class for the Key, Puzzle,
 	PuzzlePiece, Clue, and Note subclasses.
 
-  The Item class is a sublass of the GamePiece class.
+  The Item class is a subclass of the GamePiece class.
 */
 
-//begining of new class
+//begin new class
 public class Item extends GamePiece{
 
 	//the Item class has 4 class members/properties
@@ -19,7 +19,7 @@ public class Item extends GamePiece{
 	private boolean combinesWithOtherItem;
 
 
-	//defualt constructor
+	//default constructor
 	public Item(){
 
 		//assigns the indicated String to the name property
@@ -29,7 +29,7 @@ public class Item extends GamePiece{
 		this.type = "None";
 
 		//assigns the indicated string to the description property
-    this.description = "None";
+		this.description = "None";
 
 		//assigns the indicated value to the combinesWithOtherItem
 		this.combinesWithOtherItem = false;
@@ -107,7 +107,7 @@ public class Item extends GamePiece{
 		//returns class members as a string
 		return this.type + " - \n"
 						+ "Name: " + this.name + "\n"
-						+ "Description: " + this.descritption + "\n\n";
+						+ "Description: " + this.description + "\n\n";
 	}//end toString
 
 }//end of class

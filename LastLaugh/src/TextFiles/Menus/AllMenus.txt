@@ -15,7 +15,7 @@ Player Menu - Type a number from 1 to 6
 
 Move Menu - Type a number from 1 to 2
 	1. Next Room
-	2. Last Room
+	2. Previous Room
 
 Action Menu - Type a number from 1 to 6
 	1. Press
@@ -25,8 +25,8 @@ Action Menu - Type a number from 1 to 6
 	5. Push
 	6. Type
 
-Inventory Menu - Type a number from 1 to 4
-	1. Equip
-	2. Inspect
-	3. Combine
-	4. Use
+Inventory Menu - Type a number from 1 to 3
+	1. Inspect
+	2. Combine
+	3. Use
+

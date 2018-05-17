@@ -19,14 +19,24 @@ public class LastLaugh{
 		//instantiate and initialize Utility objects
 		//FileUtility fileTool = new FileUtility();
 		InputUtility inputTool = new InputUtility();
-		CommandUtility commandTool = new CommandUtility();
+		//CommandUtility commandTool = new CommandUtility();
+		
+		//instantiate and initialize Action objects
+		//Move move = new Move();
+	    Sense sense = new Sense();
+	    Examine examine = new Examine();
+	    //Action action = new Action();
+	    Inventory inventory = new Inventory();
+	    //Notebook notebook = new Notebook();
 
 		//instantiate and initialize Menu objects
-		Menu mainMenu = new Menu("Main Menu:", "TextFiles/Menus/MainMenu.txt");
-		Menu playerMenu = new Menu("Player Menu:", "TextFiles/Menus/PlayerMenu.txt");
-		Menu moveMenu = new Menu("Move Menu:", "TextFiles/Menus/MoveMenu.txt");
-		Menu actionMenu = new Menu("Action Menu:", "TextFiles/Menus/ActionMenu.txt");
-		Menu inventoryMenu = new Menu("Inventory Menu:", "TextFiles/Menus/InventoryMenu.txt");
+		Menu mainMenu = new Menu("Main Menu:", "src/TextFiles/Menus/MainMenu.txt");
+		Menu playerMenu = new Menu("Player Menu:", "src/TextFiles/Menus/PlayerMenu.txt");
+		Menu moveMenu = new Menu("Move Menu:", "src/TextFiles/Menus/MoveMenu.txt");
+		Menu actionMenu = new Menu("Action Menu:", "src/TextFiles/Menus/ActionMenu.txt");
+		Menu inventoryMenu = new Menu("Inventory Menu:", "src/TextFiles/Menus/InventoryMenu.txt");
+		
+		Sense sense01 = new Sense();
 
 		//instantiate and initialize Player object
 		//Player playerOne = new Player();
@@ -52,6 +62,7 @@ public class LastLaugh{
 
 				//enter case 1 and invoke startNewGame method
 				case 1://	tool.startNewGame();
+							//wait for user to continue
 								break;//break out of switch statement
 
 				//enter case 2 and invoke continueGame method
@@ -64,8 +75,8 @@ public class LastLaugh{
 
 				do{ //initiate do-while (2)
 
-          //sets the name of the player
-          //player.setFirstName(tool.takeName());
+		          //sets the name of the player
+		          //player.setFirstName(tool.takeName());
 
 					playerMenu.displayMenu();//displays the player menu
 
@@ -78,15 +89,17 @@ public class LastLaugh{
 
 						//enters case 1
 						case 1:	do{//initiate do-while (3)
+							
+											//clearScreen
 
 											moveMenu.displayMenu();//display move menu
 
 											//fileTool.promptForSelection();//prompts user for selection
 
 											//takes user's menu selection, validates, and stores it
-											selection = inputTool.takeSelection(5);
+											selection = inputTool.takeSelection(3);
 
-											if(selection != 5)
+											if(selection != 3)
 													tracker = commandTool.movePlayer(tracker, selection);
 
 										}while(selection != 5);//end do-while (3)
@@ -179,6 +192,8 @@ public class LastLaugh{
 						case 7:	//to-do: make --> selection = inputTool.confirmExit();
 														break;//breaks out of switch
 						}//end switch
+					
+					System.out.print("\033[H\033[2J");
 
 				}while(selection != 7);//end do-while (2)
 

@@ -134,7 +134,7 @@ public class PositionTracker extends GamePiece{
     this.exactColumn = i;
   }
   //method to return the object in the given index of the map field
-  public Room getSpace(int row, int column){
+  public Room getRoom(int row, int column){
 
     //returns the object in the given index of the map field
     return this.map[row][column];

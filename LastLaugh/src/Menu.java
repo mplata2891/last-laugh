@@ -6,7 +6,7 @@
 */
 
 //declare imports
-import java.util.*;
+import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -65,7 +65,7 @@ public class Menu{
     //declare and initialize variables
     String currentLine = "";
 
-    //instatntiate objects of type FileReader and type BufferedReader. Wraps
+    //instantiate objects of type FileReader and type BufferedReader. Wraps
     //BufferedReader around FileReader.
     //initiate try-catch statement in case file does not exist
     try(BufferedReader b_Reader = new BufferedReader(new FileReader(filename))){

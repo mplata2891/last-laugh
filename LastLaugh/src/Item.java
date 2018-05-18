@@ -1,12 +1,12 @@
 /*
-  Mike Plata
-  CoSci 290
-
-  The Item class is an abstract class to be inherited by other concrete
+	Mike Plata
+	CoSci 290
+	
+	The Item class is an abstract class to be inherited by other concrete
 	subclasses. The Item class is the super-class for the Key, Terminal,
 	and PuzzlePiece classes.
-
-  The Item class is a subclass of the GamePiece class.
+	
+	The Item class is a subclass of the GamePiece class.
 */
 
 //begin new class

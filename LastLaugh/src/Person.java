@@ -7,39 +7,39 @@
 	The Person class is a sub-class of the GamePiece class.
 */
 
-//package LastLaugh.src;
-
+//begin new class
 public abstract class Person extends GamePiece{
 
-	//the Person class has 1 class member/field
-	private String firstName;
+	//the Person class has 1 class member/field/property
+	private String name;
 
 
+	
 	//default constructor
 	public Person(){
 
-		//assigns the value of the firstName field to the indicated string
-		this.firstName = "";
-
+		//assigns the indicated string to the name field
+		this.name = "";
 	}//end constructor
+	
+	
+	
+	//method to return the value of the name property
+	public String getName(){
+
+		//returns the value of the name property
+		return this.name;
+	}//end getName
+	
 
 
-	//method to assign a value to the firstName property
-	public void setFirstName(String newFirstName){
+	//method to assign a value to the name property
+	public void setName(String newName){
 
-		//assigns the value of newFirstName to firstName
-		this.firstName = newFirstName;
-
-	}//end setFirstName
-
-
-	//method to return the value of the firstName property
-	public String getFirstName(){
-
-		//retrurns the value of the firstName property
-		return this.firstName;
-
-	}//end getFirstName
+		//assigns the value of newName to name
+		this.name = newName;
+	}//end setName
+	
 
 
 	//method to return object represented as a string
@@ -48,8 +48,7 @@ public abstract class Person extends GamePiece{
 
 		//returns object properties as string
 		return "PERSON - \n"
-						+ "First Name: " + this.firstName + "\n\n";
-
+						+ "Name: " + this.name + "\n\n";
 	}//end toString
 
 }//end Person

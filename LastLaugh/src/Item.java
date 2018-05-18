@@ -3,8 +3,8 @@
   CoSci 290
 
   The Item class is an abstract class to be inherited by other concrete
-	subclasses. The Item class is the super-class for the Key, Puzzle,
-	PuzzlePiece, Clue, and Note subclasses.
+	subclasses. The Item class is the super-class for the Key, Terminal,
+	and PuzzlePiece classes.
 
   The Item class is a subclass of the GamePiece class.
 */
@@ -12,11 +12,11 @@
 //begin new class
 public class Item extends GamePiece{
 
-	//the Item class has 4 class members/properties
-	private String name;
+	//the Item class has  class members/fields/properties
 	private String type;
+	private String name;
 	private String description;
-	private boolean combinesWithOtherItem;
+
 
 
 	//default constructor
@@ -30,34 +30,17 @@ public class Item extends GamePiece{
 
 		//assigns the indicated string to the description property
 		this.description = "None";
-
-		//assigns the indicated value to the combinesWithOtherItem
-		this.combinesWithOtherItem = false;
-	}	//end constructor
-
-
-	//method to return the value of the name property
-	public String getName(){
-
-		//returns the value of the name property
-		return this.name;
-	}
-
-
-	//method to set the name property
-	public void setName(String name){
-
-		//assigns the indicated String to the name property
-		this.name = name;
-	}
-
-
+	}//end constructor
+	
+	
+	
 	//method to return the value of the type property
 	public String getType(){
 
 		//returns the value of the type property
 		return this.type;
-	}
+	}//end getType
+	
 
 
 	//method to set the type property
@@ -65,39 +48,44 @@ public class Item extends GamePiece{
 
 		//assigns the value of newType to the type property
 		this.type = newType;
-	}
+	}//end setType
+	
 
+
+	//method to return the value of the name property
+	public String getName(){
+
+		//returns the value of the name property
+		return this.name;
+	}//end getName
+	
+
+
+	//method to set the name property
+	public void setName(String name){
+
+		//assigns the indicated String to the name property
+		this.name = name;
+	}//end setName
+	
+	
 
 	//method to return the value of the description property
-  public String getDescription(){
-
-    //returns the value of the description property
-    return this.description;
-  }
-
-
-  //method to assigns a value to the description proptery
-  public void setDescription(String newDescription){
-
-    //assigns the value of newDescription to the description property
-    this.description = newDescription;
-  }
+	  public String getDescription(){
+	
+	    //returns the value of the description property
+	    return this.description;
+	  }//end getDescription
+	  
 
 
-	//method to return the value of the combinesWithOtherItem property
-	public boolean getCombinesWithOtherItem(){
+	  //method to assigns a value to the description proptery
+	  public void setDescription(String newDescription){
+	
+	    //assigns the value of newDescription to the description property
+	    this.description = newDescription;
+	  }//end setDescription
 
-		//returns the value of the combinesWithOtherItem property
-		return this.combinesWithOtherItem;
-	}
-
-
-	//method to set the combinesWithOtherItem property
-	public void setCombinesWithOtherItem(boolean newBool){
-
-		//assigns the value of newBool to the combinesWithOtherItem property
-		this.combinesWithOtherItem = newBool;
-	}
 
 
 	//method to return class members that are not hidden from the player

@@ -11,7 +11,7 @@
   The Key Class is a sub-class of the Item class.
 */
 
-//begining of new Class
+//begin new class
 public class Key extends Item{
 
   //default constructor
@@ -33,35 +33,12 @@ public class Key extends Item{
     super.combines = false;
   }//end of constructor
 
-  //implicit constructor
-  public Key(String name, String description, String location, boolean bool){
 
-    //assigns the indicated string to the name property
-    super.name = name;
-
-    //assigns the indicated string to the type property
-    super.type = "Key";
-
-    //assigns the indicated string to the type property
-    super.description = description;
-
-    //assigns the indicated string to the location property
-    super.location = location;
-
-    //assigns the indicated boolean value to the combines property
-    super.combines = bool;
-  }//end of constructor
 
 	//method to return class members as a string with
 	//appropriate labels for each class member
   public String toString(){
 
-    //returns class members as a string
-		return "KEY - \n"
-						+ "       Name: " + super.name "\n"
-						+ "       Type: " + super.type + "\n"
-            + "Description: " + super.description + "\n"
-						+ "   Location: " + super.location + "\n"
-						+ "   Combines: " + super.combines + "\n\n";
+    
   }//end toString method
 }//end of class

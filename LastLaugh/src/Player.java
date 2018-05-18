@@ -7,57 +7,118 @@
 
 	The Player class inherits the firstName member field from the Person
 	class, but also adds two member fields of its own. The member fields
-	provide the real player, ways for it to collect in-game items that
+	provide the real player, ways for it to collect in-game Keys that
 	will aid in completing the game.
 
 	The Player class is a sub-class of the Person class.
 */
-//package LastLaugh.src;
 
-import java.util.*;
-//import src.Items.*;
+//declare imports
+import java.util.ArrayList;
 
+//begin new class
 public class Player extends Person{
-
-	//the Player class has 2 class members/properties
-	private ArrayList<Item> inventory;
+	
+	//the Player class has 3 class members/fields/properties
+	private ArrayList<Key> inventory;
 	private ArrayList<Note> notebook;
+	private ArrayList<Command> command;
 	
 	
-
 	//default constructor
 	public Player(){
-
-		//invoke the Person class constructor
+		
+		//invokes the Person parent class constructor
 		super();
-
-		//creates a new ArrayList and assigns it to the inventory field
+		
+		//instantiates a new ArrayList and stores it in the inventory field
 		this.inventory = new ArrayList<>();
-
-		//creates a new ArrayList and assigns it to the notebook field
+		
+		//instantiates a new ArrayList and stores it in the notebook field
 		this.notebook = new ArrayList<>();
+		
+		//instantiates a newArrayList and stores it in the command field
+		this.command = new ArrayList<>();
 	}//end constructor
 	
-
-
-	//method to get an Item object stored in the inventory field
-	  public Item getItem(int index){
-
-			//returns the Item stored in the inventory field, located at index
-			return inventory.get(index);
-	  }//end getItem
-	  
-	  
-	  
-	//method to store an Item in the inventory field
-	public void addItem(Item newItem){
-
-		//adds newItem to the inventory field
-		inventory.add(newItem);
-	}//end addItem
-
 	
+	
+	//method to get an Key object stored in the inventory field
+	public Key getKey(int index){
+		
+		//returns the Key object in the indicated index of the inventory field
+		return this.inventory.get(index);
+	}//end getKey
+	
+	
+	
+	//method to add a Key object into the inventory field
+	public  void addKey(Key  newKey){
+		
+		//stores newKey in the inventory field
+		this.inventory.add(newKey);
+	}//end addKey
+	
+	
+	
+	//method to get the number of Key objects stored in the inventory field
+	public int getNumberOfKeys(){
+		
+		//returns the number of Keys stored in the inventory field
+		return this.inventory.size();
+	}//end getNumberOfKeys
 
+
+
+	//method to get a Note object stored in the notebook field
+	public Note getNote(int index){
+
+		//returns the Note object in the indicated index of the notebook field
+		return this.notebook.get(index);
+	}//end getNote
+
+
+
+	//method to add a Note object into the notebook field
+	public void addNote(Note newNote){
+
+		//stores newNote in the notebook field
+		this.notebook.add(newNote);
+	}//end addNote
+	
+	
+	
+	//method to get the number of Note objects stored in the notebook field
+	public int getNumberOfNotes(){
+		
+		//returns the number of Notes stored in the notebook field
+		return this.notebook.size();
+	}//end getNumberOfNotes
+
+
+
+	//method  to get a Command object stored in the command field
+	public Command getCommand(int index){
+		
+		//returns the Command object in the indicated index of the command field
+		return this.command.get(index);
+	}//end getCommand
+	
+	
+	
+	//method to return Player object represented as a String
+	public String toString(){
+		
+		//returns the following String
+		return "Player -\n"
+					+ "Name: " + super.getName() + "\n"
+					+ "Number of Keys : " + this.getNumberOfKeys() + "\n"
+					+ "Number of Notes: " + this.getNumberOfKeys() + "\n\n";
+	}//end toString
+	
+}//end class
+
+/*
 	//method to remove an item from the inventory ArrayList member field
 	public void removeItem(Item item, int index){
 
@@ -87,36 +148,4 @@ public class Player extends Person{
 			inventory.remove(inventory.size() - 1);
 		}//end of else
 	}//end of method
-
-	//method to convert the inventory ArrayList to a string
-  public String getFullInventory(){
-
-    //declare and initialize variables
-    String inventoryList = " Inventory:\n";
-
-    //initiate for loop to iterate through the ArrayList
-    for(int i = 0; i < inventory.size(); i++){
-
-      //Concatenates indicated String to inventoryList
-      inventoryList += "   " + (i + 1) + ". " + inventory.get(i).toString() + "\n";
-    }
-
-    //returns the value of inventoryList
-    return inventoryList;
-  }
-  
-  public int getNumberOfItems() {
-	  
-	  return this.inventory.size();
-  }
-
-	//method to return object fields as a string
-	public String toString() {
-
-		//returns object fields as a string
-		return "First Name: " + super.getFirstName() + "\n"
-		+ this.getFullInventory();
-		
-
-	}//end toString
-}//end of class
+*/

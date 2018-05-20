@@ -13,6 +13,8 @@
   */
 
 //declare imports
+
+
 import java.util.ArrayList;
 
 //beginning of new Class
@@ -29,6 +31,9 @@ public class PuzzlePiece extends Item{
 	
 		//invokes the parent class default constructor
 		super();
+		
+		//invokes the parent class setType method
+		super.setType("Puzzle Piece");
 		
 		//instantiates an ArrayList of type String and stores in manipulatedBy
 		this.manipulatedBy = new ArrayList<>();

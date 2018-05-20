@@ -18,7 +18,7 @@ public class Door extends GamePiece{
   private int doorId;
   private String name;
   private String description;
-  private String lockStatus;
+  private String status;
   private String keyName;
   
   
@@ -36,7 +36,7 @@ public class Door extends GamePiece{
     this.description = "";
 
     //assigns the indicated String to the lockStatus field
-    this.lockStatus = "Locked";
+    this.status = "Locked";
     
     //assigns the indicated string to the keyName field
     this.keyName = "";
@@ -98,21 +98,21 @@ public class Door extends GamePiece{
   
   
   
-  //method to get the value of the lockStatus field
-  public String getLockStatus(){
+  //method to get the value of the status field
+  public String getStatus(){
 
-    //returns the value of the lockStatus field
-    return this.lockStatus;
-  }//end getLockStatus
+    //returns the value of the status field
+    return this.status;
+  }//end getStatus
   
 
 
-  //method to set the value of the lockStatus field
-  public void setLockStatus(String newStatus){
+  //method to set the value of the status field
+  public void setSatus(String newStatus){
 
-    //assigns the value of newStatus to the lockStatus field
-    this.lockStatus = newStatus;
-  }//end setLockStatus
+    //assigns the value of newStatus to the status field
+    this.status = newStatus;
+  }//end setStatus
   
 
 
@@ -139,7 +139,7 @@ public class Door extends GamePiece{
 
     //returns the concatonated string
 	 return this.name + " -\n"
-            + "Lock Status: " + this.lockStatus + "\n"
+            + "Lock Status: " + this.status + "\n"
             + "Description: " + this.description + "\n";
 
   }//end toString

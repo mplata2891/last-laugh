@@ -16,6 +16,7 @@ public class Item extends GamePiece{
 	private String type;
 	private String name;
 	private String description;
+	private String status;
 
 
 
@@ -30,6 +31,9 @@ public class Item extends GamePiece{
 
 		//assigns the indicated string to the description property
 		this.description = "None";
+		
+		//assigns the indicated string to the status property
+		this.status = "Active";
 	}//end constructor
 	
 	
@@ -79,12 +83,30 @@ public class Item extends GamePiece{
 	  
 
 
-	  //method to assigns a value to the description proptery
+	  //method to assigns a value to the description property
 	  public void setDescription(String newDescription){
 	
 	    //assigns the value of newDescription to the description property
 	    this.description = newDescription;
 	  }//end setDescription
+	  
+	  
+	  
+	  //method to get the value of the status property
+	  public String getStatus() {
+		  
+		  //returns the value of the status property
+		  return this.status;
+	  }//end getStatus
+	  
+	  
+	  
+	  //method to assigns a value to the status property
+	  public void setStatus(String newStatus) {
+		  
+		  //assigns the value of newStatus to the status property
+		  this.status = newStatus;
+	  }//end setStatus
 
 
 

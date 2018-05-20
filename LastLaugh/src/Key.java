@@ -11,11 +11,12 @@
   The Key Class is a sub-class of the Item class.
 */
 
+
 //begin new class
 public class Key extends Item{
 
 	//the Key class has 2 class members/fields/properties
-	private boolean combines;
+	private String combines;
 	private String combinesWith;
 	
 	
@@ -26,8 +27,11 @@ public class Key extends Item{
 		//invokes the parent class default constructor
 		super();
 		
-		//assigns the given boolean value to the combines field
-		this.combines = false;
+		//invokes the parent class setType method
+		super.setType("Key");
+		
+		//assigns the indicated String to the combines field
+		this.combines = "";
 		
 		//assigns the indicated String to the combinesWith field
 		this.combinesWith = "";
@@ -36,7 +40,7 @@ public class Key extends Item{
 	
 	
 	//method to get the value of the combines field
-	public boolean getCombines() {
+	public String getCombines() {
 		
 		//returns the value of the combines field
 		return this.combines;
@@ -45,10 +49,10 @@ public class Key extends Item{
 	
 	
 	//method to set the value of the combines field
-	public void setCombines(boolean newBool) {
+	public void setCombines(String newString) {
 		
-		//assigns the value of newBool to the combines field
-		this.combines = newBool;
+		//assigns the value of newString to the combines field
+		this.combines = newString;
 	}//end setCombines
 	
 	

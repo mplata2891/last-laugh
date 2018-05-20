@@ -18,6 +18,8 @@
 */
 
 //declare imports
+
+
 import java.util.ArrayList;
 
 //beginning of a new Class
@@ -38,6 +40,9 @@ public class Terminal extends Item{
 	
 		//invokes parent class default constructor
 		super();
+		
+		//invokes the parent class setType method
+		super.setType("Terminal");
 		
 		//assigns the indicated boolean value to the activeStatus field
 		this.activeStatus = true;

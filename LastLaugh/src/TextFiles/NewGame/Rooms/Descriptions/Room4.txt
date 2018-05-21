@@ -1,0 +1,19 @@
+This Room fills you with hope and a renewed energy. You finally feel some
+respite in this damned maze. Oh, how you were hoping for this moment of reprieve.
+Although, you don't know how long it will last for. You guess it won't be for
+long.
+
+This room isn't so much a room, rather than a long hallway. It's rather narrow
+and quite long. You shout a "hello!", and it echoes. There are long glass tubes
+fixed to the ceiling which are flooding the room in yellow light.
+
+You slowly make your way across the room's wooden floor. As you advance, you're
+able to see a cubic object the size of a small desk, about halfway from you and
+the door at the end of the hallway. Sitting atop the cube is an (item).
+
+You move past the cube. On either side of the door is (more items). You turn
+around to face the cube again and you see the room's caretaker standing in front
+of it, on this side of the room. He's small, with reddish brown hair and sharp
+feral features.
+
+It's a mongoose. . . 

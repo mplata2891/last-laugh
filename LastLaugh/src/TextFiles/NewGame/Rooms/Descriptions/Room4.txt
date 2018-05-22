@@ -1,3 +1,5 @@
+(something with 4 elements)
+
 This Room fills you with hope and a renewed energy. You finally feel some
 respite in this damned maze. Oh, how you were hoping for this moment of reprieve.
 Although, you don't know how long it will last for. You guess it won't be for
@@ -16,4 +18,4 @@ around to face the cube again and you see the room's caretaker standing in front
 of it, on this side of the room. He's small, with reddish brown hair and sharp
 feral features.
 
-It's a mongoose. . . 
+It's a mongoose. . .

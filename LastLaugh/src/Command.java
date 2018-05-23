@@ -15,10 +15,10 @@ public class Command extends GamePiece{
 	
 	
 	
-	//defualt constructor
+	//default constructor
 	public Command(){
 		
-		//assigns the inidicated value to the commandId field
+		//assigns the given value to the commandId field
 		this.commandId  = 0;
 	}//end constructor
 	
@@ -33,8 +33,8 @@ public class Command extends GamePiece{
 	
 	
 	
-	//methhod to set the value of the commandId field
-	public void setCommandId field(int newId){
+	//method to set the value of the commandId field
+	public void setCommandId(int newId){
 		
 		//assigns the value of newId to the commandId field
 		this.commandId = newId;

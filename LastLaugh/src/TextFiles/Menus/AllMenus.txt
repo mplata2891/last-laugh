@@ -16,6 +16,11 @@ Player Menu - Type a number from 1 to 6
 Move Menu - Type a number from 1 to 2
 	1. Next Room
 	2. Previous Room
+	
+Examine Menu - 
+	1. Examine Door
+	2. Examine Caretaker
+	3. Examine Puzzle Piece
 
 Interact Menu - 
 	1. Hear Greeting

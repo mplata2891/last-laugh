@@ -39,6 +39,8 @@ public class Player extends Person{
 		
 		//instantiates a newArrayList and stores it in the command field
 		this.command = new ArrayList<>();
+		
+		//invokes the fillCommandList method
 	}//end constructor
 	
 	

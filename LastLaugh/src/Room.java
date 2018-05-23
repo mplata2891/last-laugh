@@ -17,8 +17,9 @@ public class Room extends GamePiece{
 	private int roomId;
 	private String name;
   private Door door;
-  private Terminal terminal;
+  private Caretaker caretaker;
   private ArrayList<PuzzlePiece> contents;
+  private String description;
   
 
 
@@ -34,11 +35,14 @@ public class Room extends GamePiece{
     //instantiates an object of type Door and stores it in the door field
     this.door = new Door();
     
-    //instantiates an object of type Terminal and stores it in the terminal field
-    this.terminal = new Terminal();
+    //instantiates an object of type caretaker and stores it in the caretaker field
+    this.caretaker = new Caretaker();
 
     //instantiates an ArrayList of type PuzzlePiece and stores it in the contents field
     this.contents = new ArrayList<>();
+    
+    //assigns the given string to the description field
+    this.description = "";
   }//end constructor
   
 
@@ -97,21 +101,21 @@ public class Room extends GamePiece{
   
   
   
-  //method to get the Terminal object in the terminal field
-  public Terminal getTerminal() {
+  //method to get the caretaker object in the caretaker field
+  public Caretaker getCaretaker() {
 	  
-	  //returns the Terminal object that is stored in the terminal field
-	  return this.terminal;
+	  //returns the Caretaker object that is stored in the caretaker field
+	  return this.caretaker;
   }
   
   
   
-  //method to set the Terminal object in to the terminal field
-  public void setTerminal(Terminal newTerminal) {
+  //method to set the Caretaker object in to the caretaker field
+  public void setCaretaker(Caretaker newCaretaker) {
 	  
-	  //assigns the newTerminal object into the terminal field
-	  this.terminal = newTerminal;
-  }//end setTerminal
+	  //assigns the newCaretaker object into the caretaker field
+	  this.caretaker = newCaretaker;
+  }//end setCaretaker
   
   
   
@@ -139,6 +143,24 @@ public class Room extends GamePiece{
 	//returns the number of puzzle pieces stored in the contents field
     return this.contents.size();
   }//end getNumberOfPuzzlePieces
+  
+  
+  
+  //method to get the value of the description field
+  public String getDescription() {
+	  
+	  //returns the value of the description field
+	  return this.description;
+  }//end getDescription
+  
+  
+  
+  //method to set the value of the description field
+  public void setDescription(String newDescription) {
+	  
+	  //assigns the value of newDescription to the description field
+	  this.description = newDescription;
+  }//end setDescription
 
 
 
@@ -149,7 +171,7 @@ public class Room extends GamePiece{
 	  return "Room " + this.roomId + "-\n"
 			  + "Room Name: " + this.name + "\n"
 			  + "Doors: 1\n"
-			  + "Terminals: 1\n"
+			  + "Caretaker: 1\n"
 			  + "Puzzle Pieces: " + this.getNumberOfPuzzlePieces() + "\n\n";
   }//end toString
   

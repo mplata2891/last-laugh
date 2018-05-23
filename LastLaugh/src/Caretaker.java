@@ -23,31 +23,28 @@
 import java.util.ArrayList;
 
 //beginning of a new Class
-public class Terminal extends Item{
+public class Caretaker extends Item{
 
 	//the Terminal class has 6 class members/fields/properties
+	private int layers;
+	private int currentLayer;	
 	private String greeting;
 	private ArrayList<String> puzzles;
 	private ArrayList<String> answers;
-	private String congratulations;
-	private String admonishments;
-	private int layers;
-	private int currentLayer;
+	private String felicitation;
+	private String admonishment;
 	private Key key;
 
 
 
 	//default constructor
-	public Terminal(){
+	public Caretaker(){
 
 		//invokes parent class default constructor
 		super();
 
 		//invokes the parent class setType method
-		super.setType("Terminal");
-
-		//assigns the indicated boolean value to the activeStatus field
-		this.activeStatus = true;
+		super.setType("Caretaker");
 
 		//instantiates a new ArrayList of type String and stores it to the puzzles field
 		this.puzzles = new ArrayList<>();
@@ -64,42 +61,6 @@ public class Terminal extends Item{
 		//instantiates a new object of type Key and assigns it to the key field
 		this.key = new Key();
 	}//end constructor
-
-
-
-	//method to get a String stored in the puzzles field
-	public String getPuzzle(int index) {
-
-		//returns a String stored in the specific index of the puzzles field
-		return this.puzzles.get(index);
-	}//end getPuzzle
-
-
-
-	//method to set a String into the ArrayList store in the puzzles field
-	public void addPuzzle(String newPuzzle) {
-
-		//adds a String to the puzzles field
-		this.puzzles.add(newPuzzle);
-	}//end addPuzzle
-
-
-
-	//method to get a String stored in the answers field
-	public String getAnswer(int index) {
-
-		//returns a String stored in the specific index of the answers field
-		return this.answers.get(index);
-	}//end getAnswer
-
-
-
-	//method to set a String into the ArrayList store in the answers field
-	public void addAnswer(String newAnswer) {
-
-		//adds a String to the answers field
-		this.answers.add(newAnswer);
-	}//end addAnswer
 
 
 
@@ -136,6 +97,96 @@ public class Terminal extends Item{
 		//assigns the value of newValue to the currentLayer field
 		this.currentLayer = newValue;
 	}//end setCurrentLayer
+	
+	
+	
+	//method to get the value of the greeting field
+	public String getGreeting() {
+		
+		//returns the value fo the greeting field
+		return this.greeting;
+	}//end getGreeting
+	
+	
+	
+	//method to set the value of the greeting field
+	public void setGreeting(String newGreeting) {
+		
+		//assigns the value of newGreeting to the greeting field
+		this.greeting = newGreeting;
+	}//end setGreeting
+		
+		
+		
+	//method to get a String stored in the puzzles field
+	public String getPuzzle(int index) {
+
+		//returns a String stored in the specific index of the puzzles field
+		return this.puzzles.get(index);
+	}//end getPuzzle
+
+
+
+	//method to set a String into the ArrayList store in the puzzles field
+	public void addPuzzle(String newPuzzle) {
+
+		//adds a String to the puzzles field
+		this.puzzles.add(newPuzzle);
+	}//end addPuzzle
+
+
+
+	//method to get a String stored in the answers field
+	public String getAnswer(int index) {
+
+		//returns a String stored in the specific index of the answers field
+		return this.answers.get(index);
+	}//end getAnswer
+
+
+
+	//method to set a String into the ArrayList store in the answers field
+	public void addAnswer(String newAnswer) {
+
+		//adds a String to the answers field
+		this.answers.add(newAnswer);
+	}//end addAnswer
+	
+	
+	
+	//method to get the value of the felicitation field
+	public String getFelicitation() {
+		
+		//returns the value of the felicitation field
+		return this.felicitation;
+	}//end getFelicitation
+	
+	
+	
+	//method to set the value of the felicitation field
+	public void setFelicitation(String newFelicitation) {
+		
+		//assigns the value of newFelicitation to the felicitation field
+		this.felicitation = newFelicitation;
+	}//end setFelicitation
+	
+	
+	
+	//method to get the value of the admonishment field
+	public String getAdmonishment() {
+		
+		//returns the value of the admonishment field
+		return this.admonishment;
+	}//end getAdmonishment
+	
+	
+	
+	//method to set the value of the admonishment field
+	public void setAdmonishment(String newAdmonishment) {
+		
+		//assigns the value of newAdmonishment to the admonishment field
+		this.admonishment = newAdmonishment;
+	}//end setAdmonishment
 
 
 
@@ -151,7 +202,7 @@ public class Terminal extends Item{
 	//method to set a Key object into the key field
 	public void setKey(Key newKey) {
 
-		//stores the newKey Key objec into the key field
+		//stores the newKey Key object into the key field
 		this.key = newKey;
 	}//end setKey
 

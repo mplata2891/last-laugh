@@ -6,19 +6,21 @@ Main Menu
 Player Menu - Type a number from 1 to 6
 	1. Move
 	2. Sense
-	3. Interact
-	4. Examine
+	3. Examine
+	4. Interact
 	5. Action
 	6. Inventory
 	7. Notebook
-	8. Save
-	9. Exit
+	8. Exit
 
 Move Menu - Type a number from 1 to 2
 	1. Next Room
 	2. Previous Room
 
 Interact Menu - 
+	1. Hear Greeting
+	2. Hear Riddle
+	3. Solve Riddle
 
 Action Menu - Type a number from 1 to 6
 	1. Press
@@ -29,6 +31,4 @@ Action Menu - Type a number from 1 to 6
 	6. Type
 
 Inventory Menu - Type a number from 1 to 3
-	1. Inspect
-	2. Combine
-	3. Use
+	1. Use

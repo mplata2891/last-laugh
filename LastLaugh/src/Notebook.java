@@ -9,49 +9,60 @@
 */
 
 //begin new class
-public class Notebook{
+public class Notebook extends Command{
 
-	//method to open the player's notebook
-	public void openNotebook(Player player, int activePage){
-		
-		System.out.println("Page " + (activePage + 1) + "\n");
+	public void openActivePage(Player player){
 
-		player.getNote(0).toString();
-	}
+		//display the most recently accessed page of the player's notebook
+		System.out.println(player.getNote(player.getCurrentPage()).toString());
+	}//end openActivePage
 
-	public int nextPage(Player player, int activePage){
+	
 
-		if((activePage + 1) <= player.getNotebookSize()){
-			activePage++;
+	//method to change the page of the notebook
+	public void changePage(Player player, int selection){
 
-			System.out.println("Page " + (activePage + 1) + "\n");
-
-			player.getNote(activePage).toString();
-
-			return activePage;
-		}
+		//initiate if-else statement
+		if(player.getNumberOfNotes() == 0)
+			/*display error message*/;
 		else{
-			displayErrorMsg();
+			
+			//initiate switch statement
+			switch(selection){
+				
+				//enter case 1
+				case 1:	this.moveToNextPage(player);//invokes moveToNextPage method
+					break;//breaks out of switch
 
-			return activePage;
-	}
+				//enter case 2
+				case 2:	this.moveToPreviousPage(player);//invokes moveToPreviousPage method
+					break;//breaks out of switch
+			}//end switch
+		}//end if-else
+	}//end changePage
 
-	public int previousPage(Playerr player, in activePage){
 
-		if((activePage - 1) >= 0){
-			activePage--;
 
-			System.out.println("Page " + (activePage - 1) + "\n");
+	//mehtod to move to the next page in the notebook
+	private void moveToNextPage(Player player){
 
-			player.getNote(activePage).toString();
+		//initiate if-else statement
+		if((player.getCurrentPage() + 1) == player.getNumberOfNotes())
+			/*display error message*/;
+		else
+			player.setCurrentPage(player.getCurrentPage() + 1);
+	}//end moveToNextPage
 
-			return activePage
-		}
-		else{
-			displayErrorMsg();
 
-			return activePage;
-		}
-	}
+
+	//method to move to the previous page in the notebook
+	private void moveToPreviousPage(Player player){
+
+		//initiate if-else statement
+		if(player.getCurrentPage() == 0)
+			/*display error message*/;
+		else
+			player.setCurrentPage(player.getCurrentPage() - 1);
+	}//end moveToPreviousPage	
 
 }//end class

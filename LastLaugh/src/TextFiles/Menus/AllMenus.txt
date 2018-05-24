@@ -3,7 +3,7 @@ Main Menu
 	2. Continue Saved Game
 	3. Exit
 
-Player Menu - Type a number from 1 to 6
+Player Menu
 	1. Move
 	2. Sense
 	3. Examine
@@ -13,27 +13,40 @@ Player Menu - Type a number from 1 to 6
 	7. Notebook
 	8. Exit
 
-Move Menu - Type a number from 1 to 2
+Move Menu
 	1. Next Room
 	2. Previous Room
+	3. Back
 	
-Examine Menu - 
+Examine Menu
 	1. Examine Door
 	2. Examine Caretaker
 	3. Examine Puzzle Piece
+	4. Back
 
-Interact Menu - 
+Interact Menu
 	1. Hear Greeting
 	2. Hear Riddle
 	3. Solve Riddle
+	4. Back
+	
+Action SubMenu (1)
+	1. Select
+	2. Back
 
-Action Menu - Type a number from 1 to 6
+Action SubMenu (2)
 	1. Press
 	2. Pull
 	3. Turn
 	4. Slide
 	5. Push
-	6. Type
+	6. Back
 
-Inventory Menu - Type a number from 1 to 3
+Inventory Menu
 	1. Use
+	2. Back
+	
+Notebook Menu
+	1. Next Page
+	2. Previous Page
+	3. Back

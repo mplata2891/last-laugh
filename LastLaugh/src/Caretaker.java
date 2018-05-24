@@ -100,6 +100,15 @@ public class Caretaker extends Item{
 	
 	
 	
+	//method to increment the value of currentLayer field by 1
+	public void incrementCurrentLayer() {
+		
+		//increments the value of the currentLayer field by 1
+		this.currentLayer++;
+	}//end incrementCurrentLayer
+	
+	
+	
 	//method to get the value of the greeting field
 	public String getGreeting() {
 		

@@ -142,6 +142,15 @@ public class PositionTracker extends GamePiece{
     return this.map[row][column];
   }//end getSpace
   
+  
+  
+  //method ot return the Room object the Player object is currently in
+  public Room getCurrentRoom() {
+	  
+	  //returns the object in the given index of the map field
+	  return this.map[this.exactRow][this.exactColumn];
+  }//end getCurrentRoom
+  
 
 
   //method to fill the map field with Space objects

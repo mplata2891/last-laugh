@@ -15,12 +15,6 @@
 //begin new class
 public class Key extends Item{
 
-	//the Key class has 2 class members/fields/properties
-	private String combines;
-	private String combinesWith;
-	
-	
-	
 	//default constructor
 	public Key(){
 	
@@ -29,49 +23,7 @@ public class Key extends Item{
 		
 		//invokes the parent class setType method
 		super.setType("Key");
-		
-		//assigns the indicated String to the combines field
-		this.combines = "";
-		
-		//assigns the indicated String to the combinesWith field
-		this.combinesWith = "";
 	}//end of constructor
-	
-	
-	
-	//method to get the value of the combines field
-	public String getCombines() {
-		
-		//returns the value of the combines field
-		return this.combines;
-	}//end getCombines
-	
-	
-	
-	//method to set the value of the combines field
-	public void setCombines(String newString) {
-		
-		//assigns the value of newString to the combines field
-		this.combines = newString;
-	}//end setCombines
-	
-	
-	
-	//method to get the value of the combinesWith field
-	public String getCombinesWith() {
-		
-		//returns the value of the combinesWith field
-		return this.combinesWith;
-	}//end getCombinesWith
-	
-	
-	
-	//method to set the value of the combinesWith field
-	public void setCombinesWith(String newName) {
-		
-		//assigns the value of newName to the combinesWith field
-		this.combinesWith = newName;
-	}//end setCombinesWith field
 	
 	
 	

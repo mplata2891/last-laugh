@@ -64,15 +64,15 @@ public class FileUtility{
     switch(scene){ //initiate switch statement
 
       //enters case title and invokes the readFile method
-      case "title" :  this.readFile("TextFiles/SplashScreens/Title.txt");
+      case "title" :  this.readFile("src/TextFiles/SplashScreens/Title.txt");
                       break;//breaks out of switch
 
       //enters case cat and invokes the readFile method
-      case "cat" :    this.readFile("TextFiles/SplashScreens/CatImage.txt");
+      case "cat" :    this.readFile("src/TextFiles/SplashScreens/CatImage.txt");
                       break;//breaks out of switch
 
       //enters case gameover and invokes readFile method
-      case "gameover" : this.readFile("TextFiles/SplashScreens/GameOver.txt");
+      case "gameover" : this.readFile("src/TextFiles/SplashScreens/GameOver.txt");
                         break;//breaks out of switch
     }//end switch
   }//end splashPage

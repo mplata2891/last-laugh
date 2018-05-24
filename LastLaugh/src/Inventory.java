@@ -9,69 +9,103 @@
 */
 
 //begin new class
-public class Inventory{
+public class Inventory extends Command{
 
-	//method to open a player's inventory
+	//method to display the player's inventory as a list
 	public void openInventory(Player player){
-		
-		//prints out header to identify inventory
-		System.out.println("Inventory:");
 
-		//initiate for loop to iterate through list of items
-		for(int i = 0; i < player.getNumberOfItems(); i++){
-
-				//print out the name of the item located in each index of the list
-				System.out.println(player.getItem(i).getName());//print out name of item
+		//initiate for loop to iterate through list
+		for(int i = 0; i < player.getNumberOfKeys(); i++){
+			
+			//print a string representation of each key in the List
+			System.out.println("Key " + (i + 1) + ": " + player.getKey(i).toString());
 		}//end for
 	}//end openInventory
-	
 
 
-	//method to select an item in the player's inventory
-	public void inspectItem(Player player, String itemName){
 
-		//initiate for loop to iterate through list of items
-		for(int i = 0; i < player.getNumberOfItems(); i++){
-
-			//initiate if statement
-			if(player.getItem(i).getName().equalsIgnoreCase(itemName) == true){
-
-				//print out details of selected item
-				System.out.println(player.getItem(i).toString());
-			}//end if
-		}//end for
-	}//end inspectItem
-	
-	
-	
-	//method to combine two Items
-	public void combineItems(Player player, Item item1, Item item2) {
+	//method to use an Key in the Player's inventory
+	public void useKey(Player player, Door door){
 		
-		//Instantiate and initialize objects
-		Item newItem = new Item();
-		
+		//instantiate and initialize objects
+		Key tempKey = new Key();
+
 		//declare and initialize variables
-		boolean itemsCombine = false;
-		
-		
-		itemsCombine = checkIfItemsCombine(item1, item2);
-		
-		if(itemsCombine = true) {
-			newItem = combine(item1, item2);
-			
-			addItemToInventory(newItem, item1, item2)
-		}
+		boolean correctKey = true;
+
+		//invoke selectKey method and assigns its return value to tempKey
+		tempKey = this.selectKey(player);
+
+		//invoke checkKey method and assign its return value to correctKey
+		correctKey = this.checkKey(tempKey, door);
+
+		//initiate if-else statement
+		if(correctKey == true)
+			this.unlockDoor(player, door);//invoke unlockDoor method
 		else
-			displayErrorMsg();
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-}//end class
+			/*display error message*/;
+	}//end useKey
+
+
+
+	//method to selectKey for use
+	private Key selectKey(Player player){
+
+		//declare and initialize variables
+		int selection = 0;
+
+		//take user's selection
+
+		//returns the Key object in the specific index
+		return player.getKey(selection - 1);
+	}//end selectKey
+
+
+
+	//method to check if selected key unlocks the current door
+	private	boolean checkKey(Key key, Door door){
+
+		//initiate if-else statement
+		if(key.getName() == door.getKeyName())
+			return true;//returns boolean value of true
+		else
+			return false;//returns boolean value of false
+	}//end checkKey
+
+
+
+	//method to unlock door with chosen key and give player a new note
+	private void unlockDoor(Player player, Door door){
+
+		//invokes unlock method
+		this.unlock(door);
+
+		//invokes givePlayerNote method
+		this.givePlayerNote(player, door);
+	}//end unlockDoor
+
+
+
+	//method to unlock the door
+	private void unlock(Door door){
+
+		//set the door's status field to unlocked
+		door.setStatus("Unlocked");
+
+		//alerts user that the door has been unlocked
+		System.out.println("The " + door.getName() + " has been successfully unlocked.\n");
+	}//end unlock
+
+
+
+	//method to add a note to the player's notebook
+	private void givePlayerNote(Player player, Door door){
+
+		//adds a note to the player's notebook
+		player.addNote(door.getNote());
+
+		//alert user to new note
+		System.out.println("A new Note has been added to your Notebook.\n");
+	}//end givePlayerNote
+
+}//end of class

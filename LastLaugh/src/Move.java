@@ -8,64 +8,82 @@
  */
 
 //begin new class
-public class Move {
+public class Move extends Command{
 
-	//method to move a player object from their current location in the map
-	//to a new location
-	  public /*PositionTracker*/ void movePlayer(PositionTracker tracker, int direction){
-
-	    //instantiate and initialize objects
-	    //PositionTracker tempTracker = new PositionTracker();
+	//method to move a player from their current room in the map to a new room
+	  public void movePlayer(PositionTracker tracker, int direction){
 
 	    //declare and initialize variables
-	    boolean moveIsValid = false;
+		boolean moveIsValid = false;
+	    boolean doorIsUnlocked = false;
+	    
+	    switch(direction){//initiate switch statement, checking the value of direction
 
-	    //tempTracker = tracker;//assign the value of tracker to tempTracker
+	      //enter case 1
+	      case 1:	//invoke the checkDoor method
+			    	doorIsUnlocked = this.checkDoor(tracker.getCurrentRoom().getDoor());
+			    	
+			    	//initiate if-else statement
+			    	if(doorIsUnlocked == true) {
+			    		
+			    		//initiate if-else statement
+			    		if(moveIsValid == true)
+				    		this.makeMove(tracker, direction);//invoke the makeMove method
+				    	else
+				    		/*display error message*/;
+			    		
+			    	}else
+			    		/*display error message*/;
+			    	
+	      			break;//break from switch
 
-	  	moveIsValid = checkMove(tracker, direction);//invoke the checkMove method
+	      //enter case 2
+	      case 2:	//invoke the checkMove method
+			    	moveIsValid = this.checkMove(tracker, direction);
+			    	
+			    	if(moveIsValid == true)//initiate if-else statement
+			    		this.makeMove(tracker, direction);//invoke the makeMove method
+			    	else
+			    		/*display error message*/;
+			    	
+	      			break;//break from switch
 
-	  	if(moveIsValid == true)//initiate if statement
-	  		tracker = makeMove(tracker, direction);//invoke the makeMove method
-
-	  	//return tempTracker;//return the value(s) of tempTraccker
+	  	}//end switch    
 	  }//end movePlayer
 	  
 	  
 	  
 	//method to check if the desired player move is a valid one
-	  public boolean checkMove(PositionTracker tracker, int direction){
+	  private boolean checkMove(PositionTracker tracker, int direction){
 
 	    //declare and initialize variables
 	  	boolean roomExists = false;
-	    boolean doorIsUnlocked = false;
 
 	    //invoke the checkDirection method
-	    roomExists = checkDirection(tracker, direction);
+	    roomExists = this.checkDirection(tracker, direction);
 
-	    if(roomExists == true)//initiate if statement
-	      doorIsUnlocked = checkDoor(tracker), direction);//invoke the checkDoor method
-
-	    if(doorIsUnlocked == true)//initiate if statement
-	      return true;//returns the value true
-
-	  	return false;//returns the value false
+	    //initiate if-else statement
+	    if(roomExists == true)
+	    	return true;//returns the boolean value true
+	    else
+	    	return false;//returns the boolean value false
 	  }//end checkMove
 	  
 	  
 	  
 	//method to check if a particular direction is a valid move
-	  public boolean checkDirection(PositionTracker tracker, int direction){
+	  private boolean checkDirection(PositionTracker tracker, int direction){
 
 	    boolean validFlag = false;
 
 	    switch(direction){//initiate switch statement, checking the value of direction
 
 	      //enter case 1 and invoke the checkMoveNext method
-	      case 1:	validFlag =  checkMoveNext(tracker);
+	      case 1:	validFlag =  this.checkMoveNext(tracker);
 	      			break;
 
 	      //enter case 2 and invoke the checkMovePrevious method
-	      case 2:	validFlag = checkMovePrevious(tracker);
+	      case 2:	validFlag = this.checkMovePrevious(tracker);
 	      			break;
 
 	  	}//end switch
@@ -76,56 +94,43 @@ public class Move {
 	  
 	  
 	  //method to check if moving to the next room is a valid move
-	  public boolean checkMoveNext(PositionTracker tracker) {
+	  private boolean checkMoveNext(PositionTracker tracker) {
 		  
 		  if((tracker.getExactRow() + 1) == tracker.getMaxRows()) { //initiate if statement
 			  if((tracker.getExactColumn() + 1) == tracker.getMaxColumns()) //initiate if statement
-				  return false; //returns the value false
+				  return false; //returns the boolean value false
 		  }
 		 
-		  return true; //returns the value true
-		
+		  return true; //returns the value true	
 	  }//end checkMoveNext
 	  
 	  
 	  
 	//method to check if moving to the previous room is a valid move
-	  public boolean checkMovePrevious(PositionTracker tracker) {
+	  private boolean checkMovePrevious(PositionTracker tracker) {
 		  
 		  if(tracker.getExactRow() == 0) { //initiate if statement
 			  if(tracker.getExactColumn() == 0) //initiate if statement
 				  return false; //returns the value false
 		  }
 		 
-		  return true; //returns the value true
-		
+		  return true; //returns the boolean value true
 	  }//end checkMoveNext
 	  
 	  
 	  
 	//method that checks whether a door exists and is unlocked
-	  public boolean checkDoor(PositionTracker tracker, int direction){
+	  private boolean checkDoor(Door door){
 
-	    //instantiate and initialize objects
-	  	Door tempDoor = new Door();
-
-	    //declare and initialize variables
-	  	boolean doorIsUnlocked = false;
-
-	    //invoke getSpace method and assign its return value in tempRoom
-	    tempDoor = tracker.getRoom(tracker.getExactRow(), tracker.getExactColumn())
-	    			.getDoor();
-
-	    doorIsUnlocked = checkLock(tempDoor);//invoke checkDoor method
-
-	  	if(doorIsUnlocked == true)//initiate if-else statement
+	  	if(door.getStatus() == "Unlocked")//initiate if-else statement
 	  		return true;//returns the value true
 	    else
 	  	 return false;//returns the value false
 	  }//end checkDoor
 	  
 	  
-	  
+	
+	 /* 
 	//method to check if a door is unlocked
 	  public boolean checkLock(Door door){
 
@@ -134,32 +139,66 @@ public class Move {
 	  	else
 	  		return false;//returns the value false
 	  }//end isPathClear
+	  */
 	  
 	  
 	  
 	//method to move a player from one room to another adjacent room
-	  public PositionTracker makeMove(PositionTracker tracker, int direction){
-
-	    //instantiate and initialize objects
-	    PositionTracker tempTracker = new PositionTracker();
-
-	    tempTracker = tracker;
+	  private void makeMove(PositionTracker tracker, int direction){
 
 	  	switch(direction){//initiate switch statement checking the value of direction
 
-	      //enter case 1 and invoke the setExactRow method,
-	      //wraped around the moveNorth method
-	      case 1:	tempTracker = moveNext();
+	      //enter case 1 and invoke the moveNext method
+	      case 1:	this.moveNext(tracker);
 	      			break;
 
-	      //enter case 2 and invoke the setExactRow method
-	      //wraped around the moveSout method
-	      case 2:	tempTracker = movePrevious();
+	      //enter case 2 and invoke the movePrevious method
+	      case 2:	this.movePrevious(tracker);
 	      			break;
 
 	  	}//end switch
-
-	    return tempTracker;
 	  }//end makeMove
+	  
+	  
+	  
+	  //method to move a player to the next room
+	  private void moveNext(PositionTracker tracker) {
+		  
+		  //initiate if-else statement
+		  if(tracker.getExactColumn() == (tracker.getMaxColumns() - 1)) {
+			  
+			  //invoke the setExactRow method
+			  tracker.setExactRow(tracker.getExactRow() + 1);
+			  
+			  //invoke the setExactColumn method
+			  tracker.setExactColumn(0);
+			  
+		  }else {
+			  
+			  //invoke the setExactColumn method
+			  tracker.setExactColumn(tracker.getExactColumn() + 1);
+		  }//end if-else
+	  }//end moveNext
+	  
+	  
+	  
+	  //method to move a player to the previous room
+	  private void movePrevious(PositionTracker tracker) {
+		  
+		  //initiate if-else statement
+		  if(tracker.getExactColumn() == 0) {
+			  
+			  //invoke the setExactRow method
+			  tracker.setExactRow(tracker.getExactRow() - 1);
+			  
+			  //invoke the setExactColumn method
+			  tracker.setExactColumn(tracker.getMaxColumns() - 1);
+			  
+		  }else {
+			  
+			  //invoke the setExactColumn method
+			  tracker.setExactColumn(tracker.getExactColumn() - 1);
+		  }//end if-else
+	  }//end moveNext
 
 }//end class

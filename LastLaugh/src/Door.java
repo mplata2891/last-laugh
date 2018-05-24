@@ -20,6 +20,7 @@ public class Door extends GamePiece{
   private String description;
   private String status;
   private String keyName;
+  private Note note;
   
   
   
@@ -40,6 +41,9 @@ public class Door extends GamePiece{
     
     //assigns the indicated string to the keyName field
     this.keyName = "";
+    
+    //instantiates and initializes an object of type Note
+    this.note = new Note();
   }//end constructor
 
   
@@ -108,7 +112,7 @@ public class Door extends GamePiece{
 
 
   //method to set the value of the status field
-  public void setSatus(String newStatus){
+  public void setStatus(String newStatus){
 
     //assigns the value of newStatus to the status field
     this.status = newStatus;
@@ -131,6 +135,24 @@ public class Door extends GamePiece{
     //assigns the value newName to the keyName field
     this.keyName = newName;
   }//end setKeyName
+  
+  
+  
+  //method to get the note object stored in the note field
+  public Note getNote() {
+	  
+	  //returns the objected stored in the note field
+	  return this.note;
+  }//end getNote
+  
+  
+  
+  //method to set the a note object in the note field
+  public void setNote(Note newNote) {
+	  
+	  //stores newNote in the note field
+	  this.note = newNote;
+  }//end setNote
 
   
 

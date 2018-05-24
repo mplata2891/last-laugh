@@ -23,6 +23,7 @@ public class Player extends Person{
 	private ArrayList<Key> inventory;
 	private ArrayList<Note> notebook;
 	private ArrayList<Command> command;
+	private int attempts;
 	
 	
 	//default constructor
@@ -39,6 +40,11 @@ public class Player extends Person{
 		
 		//instantiates a newArrayList and stores it in the command field
 		this.command = new ArrayList<>();
+		
+		//invokes the fillCommandList method
+		
+		//assigns the given value to the attempts field
+		this.attempts = 0;
 	}//end constructor
 	
 	
@@ -106,6 +112,33 @@ public class Player extends Person{
 	
 	
 	
+	//method to get the value of the attempts field
+	public int getAttempts() {
+		
+		//returns the value of the attempts field
+		return this.attempts;
+	}//end getAttempts
+	
+	
+	
+	//method to reset the value of the attempts field
+	public void resetAttempts() {
+		
+		//assigns a value of 0 to the attempts field
+		this.attempts = 0;
+	}//end resetAttmepts
+	
+	
+	
+	//method to increase the value of the attempts field by 1
+	public void incrementAttempts() {
+		
+		//increments the value of the attempts field by 1
+		this.attempts++;
+	}//end incrementAttempts
+	
+	
+	
 	//method to return Player object represented as a String
 	public String toString(){
 		
@@ -113,39 +146,8 @@ public class Player extends Person{
 		return "Player -\n"
 					+ "Name: " + super.getName() + "\n"
 					+ "Number of Keys : " + this.getNumberOfKeys() + "\n"
-					+ "Number of Notes: " + this.getNumberOfKeys() + "\n\n";
+					+ "Number of Notes: " + this.getNumberOfNotes() + "\n"
+					+ "Number of Attempts: " + this.attempts + "\n\n";
 	}//end toString
 	
 }//end class
-
-/*
-	//method to remove an item from the inventory ArrayList member field
-	public void removeItem(Item item, int index){
-
-		//initiate if-else statement
-		if(index < (inventory.size() - 1)){
-
-			//removes a specific object from the inventory ArrayList
-			inventory.remove(item);
-
-			//initiate for loop to iterate through ArrayList
-			for(index = 0; index < inventory.size(); index++){
-
-				//sets the current index of the inventory ArrayList equal to the index
-				//that follows it.
-				inventory.set(index, inventory.get(index + 1));
-			}//end of for loop
-
-			//removes the final index of the inventory ArrayList
-			inventory.remove(inventory.size() - 1);
-		}//end of if
-		else{
-
-			//removes a specific object from the inventory ArrayList
-			inventory.remove(item);
-
-			//removes the final index of the inventory ArrayList
-			inventory.remove(inventory.size() - 1);
-		}//end of else
-	}//end of method
-*/

@@ -1,18 +1,46 @@
-Program opens up with splash screen
+Class Hierarchy
 
-Prologue displayed
+*GamePiece (Highest Level Superclass)
 
-into 1 displayed
+	//haven't written this yet
+	@ Navigator [is a GamePiece]
+		- has Menu(s)
+		
+	@ Menu [is a GamePiece]
 
-Asks user for name and takes input
+	@ PositionTracker [is a GamePiece]
+		- has Room(s)
+		
+	@ Room
+		- has Door
+		- has Caretaker
+		- has PuzzlePiece(s)
+		
+	@ Door
+		- has Note
+		
+	@ Item [is a GamePiece]	
+		# Caretaker [is an Item]
+			- has Key
+		# PuzzlePiece [is an Item
+		# Key [is an Item]
+		
+	@ Person [is a GamePiece]
+		# Player [is a Person]
+			- has Command(s)
+		
+	@ Command [is a GamePiece]
+		# Move [is a Command]
+		# Sense [is a Command]
+		# Examine [is a Command]
+		# Interact [is a Command]
+		# Action [is a Command]
+		# Inventory [is a Command]
+		# Notebook [is a Command]
+		
 
-saves name into a save file
 
-intro 2 displayed
-
-give user the opportunity to explore initial room
-
-scenario 1 (sneeze scenario) happens
-
-scenario 2 (unknown happens)
-____________________________________________
+//UtilityFiles - not sure if they should be a GamePiece//
+GeneralUtility (currently Utility)
+FileUtility
+InputOutputUtility

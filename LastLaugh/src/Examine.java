@@ -18,15 +18,15 @@ public class Examine extends Command{
     switch(selection) {
     
     	//enter case 1
-	    case 1: this.inspectDoor(currentRoom.getDoor());//invoke inspectDoor method
+	    case 1: this.examineDoor(currentRoom.getDoor());//invoke inspectDoor method
 	    		break;//break out of switch
 	    
 	    //enter case 2
-	    case 2:	this.inspectCaretaker(currentRoom.getCaretaker());//invoke inspectCaretaker method
+	    case 2:	this.examineCaretaker(currentRoom.getCaretaker());//invoke inspectCaretaker method
 	    		break;//break out of switch
 	    
 	    //enter case 3
-	    case 3:	this.inspectPuzzlePiece(currentRoom);//invoke inspectPuzzlePiece method
+	    case 3:	this.examinePuzzlePiece(currentRoom);//invoke inspectPuzzlePiece method
 	    		break;//break out of switch
     		
     }//end switch 
@@ -35,7 +35,7 @@ public class Examine extends Command{
   
   
   //method to print out the description of the door in the current room
-  private void inspectDoor(Door door) {
+  private void examineDoor(Door door) {
 	  
 	  //prints out description of door
 	  System.out.println(door.toString());
@@ -44,7 +44,7 @@ public class Examine extends Command{
   
   
   //method to print out the description of the caretaker in the current room
-  private void inspectCaretaker(Caretaker caretaker) {
+  private void examineCaretaker(Caretaker caretaker) {
 	  
 	  //prints out description of caretaker
 	  System.out.println(caretaker.toString());
@@ -53,7 +53,7 @@ public class Examine extends Command{
   
   
   //method to print out the description of a puzzlepiece in the current room
-  private void inspectPuzzlePiece(Room currentRoom) {
+  private void examinePuzzlePiece(Room currentRoom) {
 	  
 	  //declare and initialize variables
 	  String choice = "";

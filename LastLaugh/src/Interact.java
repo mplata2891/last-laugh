@@ -63,100 +63,88 @@ public class Interact extends Command{
 		
 		//declare and initialize variables
 		String solution = "";
-		boolean solutionIsCorrect = false;
-		boolean thereAreMoreRiddles = false;
-		boolean playerIsDead = false;
 		
 		//prompt user to enter a their solution
 		
 		//take String from user
 		
-		//invokes checkSolution method
-		solutionIsCorrect = this.checkSolution(caretaker, solution);
-		
 		//initiate if-else statement (1)
-		if(solutionIsCorrect == true) {
+		if(this.solutionIsCorrect(caretaker, solution) == true) {
 			
-			//invokes checkForMoreRiddles method
-			thereAreMoreRiddles = this.checkForMoreRiddles(caretaker);
+			if(this.thereAreMoreRiddles(caretaker) == true)				
+				//invoke caretakerInformsOfMoreRiddles method
+				this.caretakerInformsOfMoreRiddles(player, caretaker);
 			
-			//initiate if-else statement (2)
-			if(thereAreMoreRiddles == false) {
-				
+			else 				
 				//invokes caretakerCongratulates method
 				this.caretakerCongratulates(player, caretaker);
-
-				//invokes the setStatus method
-				caretaker.setStatus("Inactive");
-			} else {
-				
-				//invokes caretakerInformsOfMoreRiddles method
-				this.caretakerInformsOfMoreRiddles(player, caretaker);
-				
-				//invokes setCurrentLayer method
-				caretaker.incrementCurrentLayer();
-			}//end if-else (2)
-				
+			
 		}else {
 			
 			//update attempts by invoking incrementAttempts method
 			player.incrementAttempts();
 			
-			//check for player's death
-			playerIsDead = tool.checkIfPlayerIsDead(player.getAttempts());
-			
 			//initiate if-else statement
-			if(playerIsDead == false)
-				this.caretakerAdmonishes(player, caretaker);//invokes method
+			if(tool.playerIsDead(player.getAttempts()) == true)
+				//invokes gameOver method	
+				tool.gameOver();
 			else
-				tool.gameOver();//invokes gameOver method			
-		}//end if-else (1)			
+				//invokes caretakerAdmonishes method	
+				this.caretakerAdmonishes(player, caretaker);
+			
+		}//end if-else (1)
 	}//end solveRiddle
 	
 	
 	
 	//method to check if player's solution is correct
-	private boolean checkSolution(Caretaker caretaker, String solution) {
+	private boolean solutionIsCorrect(Caretaker caretaker, String solution) {
 		
 		//initiate if-else statement
 		if(solution == caretaker.getAnswer(caretaker.getCurrentLayer()))
 			return true;//returns boolean value of true
 		else
 			return false;//returns boolean value of false
-	}//end checkSolution
+	}//end solutionIsCorrect
 	
 	
 	
 	//method to check if the caretaker has more riddles
-	private boolean checkForMoreRiddles(Caretaker caretaker) {
+	private boolean thereAreMoreRiddles(Caretaker caretaker) {
 		
 		//initiate if-else statement
 		if((caretaker.getCurrentLayer() + 1) == caretaker.getLayers())
 			return false;//return boolean value false
 		else
 			return true;//return boolean value true
-	}//end checkForMoreRiddles
+	}//end thereAreMoreRiddles
+	
+	
+	
+	//method to inform the player that there are more riddles to solve
+		private void caretakerInformsOfMoreRiddles(Player player, Caretaker caretaker) {
+			
+			//invokes setCurrentLayer method
+			caretaker.incrementCurrentLayer();
+			
+			//prints message to the user
+			System.out.println(caretaker.getName() + " informs you -\n"
+					+ "	" + player.getName() + ", good job, but not so fast.\n"
+					+ "There is still another riddle to answer.\n");
+		}//end caretakerInformsOfMoreRiddles
 	
 	
 	
 	//method to print a congratulation from the caretaker
 	private void caretakerCongratulates(Player player, Caretaker caretaker) {
 		
+		//invokes the setStatus method
+		caretaker.setStatus("Inactive");
+		
 		//prints congratulations from caretaker
 		System.out.println(caretaker.getName() + " congratulates you -\n"
 							+ "	" + player.getName() + caretaker.getFelicitation() + "\n");
 	}//end caretakerCongratulates
-
-	
-		
-	//method to inform the player that there are more riddles to solve
-	private void caretakerInformsOfMoreRiddles(Player player, Caretaker caretaker) {
-		
-		//prints message to the user
-		System.out.println(caretaker.getName() + " informs you -\n"
-				+ "	" + player.getName() + ", good job, but not so fast.\n"
-				+ "There is still another riddle to answer.\n");
-	}//end caretakerInformsOfMoreRiddles
 	
 	
 	

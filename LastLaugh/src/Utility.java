@@ -23,7 +23,7 @@ public class Utility{
     }
   
   //method to check if a player died
-  public boolean checkIfPlayerIsDead(int fromOneToTen) {
+  public boolean playerIsDead(int fromOneToTen) {
 	  
 	  //initiate if-else statement
 	  if(fromOneToTen >= this.chance(1, 10))

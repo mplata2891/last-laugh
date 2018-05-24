@@ -39,6 +39,9 @@ public class Action extends Command{
 	//method to manipulate a puzzlepiece
 	public void manipulatePuzzlePiece(Player player, PuzzlePiece piece, int selection){
 
+		//instantiate and initialize objects
+		Utility tool = new Utility();
+		
 		//declare and initialize variables
 		String manipulation = "";
 		boolean manipulationIsCorrect = false;
@@ -48,29 +51,30 @@ public class Action extends Command{
 		//invoke interpretSelection method
 		manipulation = this.interpretSelection(selection);
 		
-		//invoke checkManipulation method
-		manipulationIsCorrect = checkManipulation(piece, manipulation);
-		
-		//initiate if-else statement
-		if(manipulationIsCorrect == true){
+		//initiate if-else statement (1)
+		if(manipulationIsCorrect(piece, manipulation) == true){
 			
-			thereAreMoreManipulations = this.checkForMoreManipulations(piece);
-			
-			if(thereAreMoreManipulations == false)
-				this.revealClue(piece);
+			if(this.thereAreMoreManipulations(piece) == true)
+				//invoke informOfMoreManipulations method
+				this.informOfMoreManipulations();
 			else
-				//informed to keep manipulating;
+				//invoke revealClue method
+				this.revealClue(piece);
 				
 		} else {
 			
-			//update attempts
+			//update attempts by invoking incrementAttempts method
+			player.incrementAttempts();
 			
-			//check for death
+			//initiate if-else statement
+			if(tool.playerIsDead(player.getAttempts()) == true)
+				//invokes gameOver method
+				tool.gameOver();	
+			else
+				//invokes method
+				this.caretakerAdmonishes(player, caretaker);
 			
-			//if not dead, try again message
-			
-			//if dead, game over
-		}
+		}//end if-else (1)
 	}//end manipulatePuzzlePiece
 
 
@@ -111,7 +115,7 @@ public class Action extends Command{
 	
 	
 	//method to check if the selected manipulation is correct
-	private boolean checkManipulation(String manip) {
+	private boolean manipulationIsCorrect(String manip) {
 		
 		//initiate if-else statement
 		if(manip == )

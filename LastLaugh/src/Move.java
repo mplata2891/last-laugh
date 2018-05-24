@@ -21,14 +21,14 @@ public class Move extends Command{
 
 	      //enter case 1
 	      case 1:	//invoke the checkDoor method
-			    	doorIsUnlocked = checkDoor(tracker.getCurrentRoom().getDoor());
+			    	doorIsUnlocked = this.checkDoor(tracker.getCurrentRoom().getDoor());
 			    	
 			    	//initiate if-else statement
 			    	if(doorIsUnlocked == true) {
 			    		
 			    		//initiate if-else statement
 			    		if(moveIsValid == true)
-				    		makeMove(tracker, direction);//invoke the makeMove method
+				    		this.makeMove(tracker, direction);//invoke the makeMove method
 				    	else
 				    		/*display error message*/;
 			    		

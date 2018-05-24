@@ -56,10 +56,10 @@ public class Action extends Command{
 			
 			if(this.thereAreMoreManipulations(piece) == true)
 				//invoke informOfMoreManipulations method
-				this.informOfMoreManipulations();
+				this.informOfMoreManipulations(player, piece);
 			else
 				//invoke revealClue method
-				this.revealClue(piece);
+				this.unlockClue(piece);
 				
 		} else {
 			
@@ -115,10 +115,47 @@ public class Action extends Command{
 	
 	
 	//method to check if the selected manipulation is correct
-	private boolean manipulationIsCorrect(String manip) {
+	private boolean manipulationIsCorrect(PuzzlePiece piece, String manip) {
 		
 		//initiate if-else statement
-		if(manip == )
+		if(manip == piece.getManipulation(piece.getCurrentLayer()))
+			return true;//returns boolean value true
+		else
+			return false;//returns boolean value false
+	}//end manipulationIsCorrect
+	
+	
+	
+	//method to check if their are more manipulations needed before clue is given
+	private boolean thereAreMoreManipulations(PuzzlePiece piece) {
+		
+		//initiate if-else statement
+		if((piece.getCurrentLayer() + 1) == piece.getLayers())
+			return false;//return boolean value false
+		else
+			return true;//returns boolean value true
+	}//end thereAreMoreManipulations
+	
+	
+	
+	//method to inform the player that there are more manipulations needed
+	private void informOfMoreManipulations(Player player, PuzzlePiece piece) {
+		
+		//invokes setCurrentLayer method
+		piece.incrementCurrentLayer();
+		
+		//prints message to the user
+		System.out.println("The Architect informs you -\n"
+				+ "	" + player.getName() + ", good job, but not so fast.\n"
+				+ "Keep manipulating this Puzzle Piece to get the Clue.\n");
+	}//end infromOfMoreManipulations
+	
+	
+	
+	//method to reveal the hidden clue
+	private void revealClue() {
+		
+		//prints clue to 
 	}
 	
 }//end class

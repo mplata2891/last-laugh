@@ -17,7 +17,7 @@ public class InputUtility{
 
   //method to take selection from user and validate the selection
   public int takeSelection(int maxSelection){
-
+    
     //declare and initialize variables
     boolean selectionIsValid = false;
   	int selection = 0;
@@ -60,7 +60,7 @@ public class InputUtility{
 
   //method to validate if a user's selection if it's an integer greater
   //than zero and within the constraints of the selection range
-  public boolean validateSelection(int input, int max){
+  private boolean validateSelection(int input, int max){
 
     //declare and initialize variables
     //boolean validFlag = false;
@@ -74,6 +74,7 @@ public class InputUtility{
 
   //method to take a name from the user and confirm it is valid
   public String takeName(){
+        //takes numbers
 
     //declare and initialize variables
     boolean inputIsValid = false;
@@ -100,6 +101,7 @@ public class InputUtility{
 
 
   public String getString(){
+    //If there is a space between two words only takes the first word (but i feel like that's expected)
 
     String newString = "";
 

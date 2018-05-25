@@ -1,6 +1,8 @@
-public class Utility{
+public class GeneralUtility{
 
-  /*public String newGame{//will not compile
+  
+	
+	/*public String newGame{//will not compile
     FileUtility fileTool = new FileUtility();
     
     //access the splashPage member of the tool object to display the game's title

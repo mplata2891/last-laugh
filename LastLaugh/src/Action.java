@@ -13,7 +13,7 @@ public class Action extends Command{
 		//initiate for loop to iterate through list
 		for(int i = 0; i < room.getNumberOfPuzzlePieces(); i++){
 
-			//print out list of puzzlepieces
+			//print out list of puzzle pieces
 			System.out.println("Puzzle Piece " + (i + 1) + ": "
 						+ room.getPuzzlePiece(i).getName());
 		}//end for
@@ -21,7 +21,7 @@ public class Action extends Command{
 
 
 
-	//method to select a puzzlepiece
+	//method to select a puzzle piece
 	public void selectPuzzlePiece(Room room){
 
 		//declare and initialize variables
@@ -36,18 +36,42 @@ public class Action extends Command{
 
 
 
-	//method to manipulate a puzzlepiece
-	public void manipulatePuzzlePiece(Player player, PuzzlePiece piece, int selection){
-
-		//instantiate and initialize objects
-		Utility tool = new Utility();
+	//method to either manipulate a puzzle piece or see its clue
+	public void performAction(Player player, PuzzlePiece piece, int selection){
 		
+		//initiate if-else statement (1)
+		if(selection != 6) {
+			
+			if(piece.getStatus() == "Active")
+				//invoke interpretSelection method
+				this.manipulatePuzzlePiece(player, piece, selection);			
+			else
+				//invoke puzzlePieceInactiveMsg
+				this.puzzlePieceInactiveMsg(player);				
+			
+		} else {
+			
+				if(piece.getClueStatus() == "Unlocked")
+					//invokes revealClue method
+					this.revealClue(piece);
+				else
+					//invoke clueLockedMsg
+					this.clueLockedMsg(player);
+				
+		}//end if-else (1)
+	}//end performAction
+	
+	
+	
+	//method to manipulate a PuzzlePiece
+	private void manipulatePuzzlePiece(Player player, PuzzlePiece piece, int selection) {
+		
+		//instantiate and initialize objects
+		GeneralUtility tool = new GeneralUtility();
+				
 		//declare and initialize variables
 		String manipulation = "";
-		boolean manipulationIsCorrect = false;
-		boolean thereAreMoreManipulations = false;
 		
-
 		//invoke interpretSelection method
 		manipulation = this.interpretSelection(selection);
 		
@@ -56,10 +80,10 @@ public class Action extends Command{
 			
 			if(this.thereAreMoreManipulations(piece) == true)
 				//invoke informOfMoreManipulations method
-				this.informOfMoreManipulations();
+				this.informOfMoreManipulations(player, piece);
 			else
-				//invoke revealClue method
-				this.revealClue(piece);
+				//invoke unlockClue method
+				this.informClueHasBeenUnlocked(player, piece);
 				
 		} else {
 			
@@ -72,10 +96,41 @@ public class Action extends Command{
 				tool.gameOver();	
 			else
 				//invokes method
-				this.caretakerAdmonishes(player, caretaker);
+				this.theArchitectWarns(player);
 			
 		}//end if-else (1)
 	}//end manipulatePuzzlePiece
+	
+	
+	
+	//method to alert the user that the puzzle piece is inactive
+	private void puzzlePieceInactiveMsg(Player player) {
+		
+		//print message to the user
+		System.out.println("The Architect informs you -\n"
+				+ "	" + player.getName() + ", this Puzzle Piece is no longer active.\n"
+				+ "Please, stop wasting your time, and my time.\n");
+	}//end puzzlePieceInactiveMsg
+	
+	
+	
+	//method to reveal the puzzle piece's clue to the user
+	private void revealClue(PuzzlePiece piece) {
+		
+		//prints out clue to the user
+		System.out.println("Clue: " + piece.getClue() + "\n");
+	}//end revealClue
+	
+	
+	
+	//method to alert the user that the clue is locked
+	private void clueLockedMsg(Player player) {
+		
+		//prints message to the user
+		System.out.println("The Architect informs you -\n"
+				+ "	" + player.getName() + ", this Clue is still locked.\n"
+				+ "Manipulate the Puzzle in the correct order to unlock its clue.\n");
+	}//end clueLockedMsg
 
 
 
@@ -115,10 +170,64 @@ public class Action extends Command{
 	
 	
 	//method to check if the selected manipulation is correct
-	private boolean manipulationIsCorrect(String manip) {
+	private boolean manipulationIsCorrect(PuzzlePiece piece, String manip) {
 		
 		//initiate if-else statement
-		if(manip == )
-	}
+		if(manip == piece.getManipulation(piece.getCurrentLayer()))
+			return true;//returns boolean value true
+		else
+			return false;//returns boolean value false
+	}//end manipulationIsCorrect
+	
+	
+	
+	//method to check if their are more manipulations needed before clue is given
+	private boolean thereAreMoreManipulations(PuzzlePiece piece) {
+		
+		//initiate if-else statement
+		if((piece.getCurrentLayer() + 1) == piece.getLayers())
+			return false;//return boolean value false
+		else
+			return true;//returns boolean value true
+	}//end thereAreMoreManipulations
+	
+	
+	
+	//method to inform the player that there are more manipulations needed
+	private void informOfMoreManipulations(Player player, PuzzlePiece piece) {
+		
+		//invokes setCurrentLayer method
+		piece.incrementCurrentLayer();
+		
+		//prints message to the user
+		System.out.println("The Architect informs you -\n"
+				+ "	" + player.getName() + ", good job, but not so fast.\n"
+				+ "Keep manipulating this Puzzle Piece to get the Clue.\n");
+	}//end infromOfMoreManipulations
+	
+	
+	
+	//method to reveal the hidden clue
+	private void informClueHasBeenUnlocked(Player player, PuzzlePiece piece) {
+		
+		//invokes unlockClue method
+		piece.setClueStatus("Unlocked");
+		
+		//prints message to the user
+		System.out.println("The Architect informs you -\n"
+				+ "	" + player.getName() + ", you've unlocked the Clue.\n"
+				+ "It's about time, I was starting to get worried.\n"); 
+	}//end informClueHasBeenUnlocked
+	
+	
+	
+	//method to print out a message to the user when they fail a task
+	private void theArchitectWarns(Player player) {
+		
+		//prints message to the user
+		System.out.println("The Architect informs you -\n"
+				+ "	" + player.getName() + ", you've unlocked the Clue.\n"
+				+ "It's about time, I was starting to get worried.\n"); 
+	}//end theArchitectWarns
 	
 }//end class

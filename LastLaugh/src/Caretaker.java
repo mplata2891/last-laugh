@@ -45,18 +45,21 @@ public class Caretaker extends Item{
 
 		//invokes the parent class setType method
 		super.setType("Caretaker");
+		
+		//assigns the indicated value to the layers field
+		this.layers = 0;
+
+		//assigns the indicated value to the currentLayer field
+		this.currentLayer = 0;
+		
+		//assigns the given string to the greeting field
+		this.greeting = "";
 
 		//instantiates a new ArrayList of type String and stores it to the puzzles field
 		this.puzzles = new ArrayList<>();
 
 		//instantiates a new ArrayList of type String and stores it to the answers field
 		this.answers = new ArrayList<>();
-
-		//assigns the indicated value to the layers field
-		this.layers = 0;
-
-		//assigns the indicated value to the currentLayer field
-		this.currentLayer = 0;
 
 		//instantiates a new object of type Key and assigns it to the key field
 		this.key = new Key();

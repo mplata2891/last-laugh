@@ -1,0 +1,17 @@
+Notes:
+
+Rooms:
+-Each room has the same basic layout.
+-Two doors
+-one terminal
+-haven't yet decided if theres a correlation between
+the rooms and puzzles.
+
+The Architect:
+-likes riddles
+-needs things done in a certain way
+-possibly has OCD
+-seems to like even spaces
+-unknown gender
+-feels no emotion towards disrupting other people's lives
+

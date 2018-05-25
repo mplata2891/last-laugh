@@ -25,6 +25,7 @@ public class PuzzlePiece extends Item{
 	private int currentLayer;
 	private ArrayList<String> manipulatedBy;
 	private String clue;
+	private String clueStatus;
 	 
 		  
 	//default constructor
@@ -114,21 +115,39 @@ public class PuzzlePiece extends Item{
 	
 	
 	
-	//method to get a String stored in the clues field
+	//method to get the value of the clue field
 	public String getClue() {
 		
-		//returns a String stored in the specified index
+		//returns the value of the clue field
 		return this.clue;
 	}//end getClue
 	
 	
 	
-	//method to add a String into the ArraList stored in the clues field
-	public void addClue(String newClue) {
+	//method to set the value of the clue field
+	public void setClue(String newClue) {
 		
-		//adds a new String into the clue field
-		this.clues.add(newClue);
-	}
+		//assigns the value of newClue to the clue field
+		this.clue = newClue;
+	}//end setClue
+	
+	
+	
+	//method to get the value of the clueStatus field
+	public String getClueStatus() {
+		
+		//returns the value of the clueStatus field
+		return this.clueStatus;
+	}//end getClueStatus
+	
+	
+	
+	//method to set the value of the clueStatus field
+	public void setClueStatus(String newStatus) {
+		
+		//assigns the value of newSatus to the clueStatus field
+		this.clueStatus = newStatus;
+	}//end setClueStatus
 	
 	
 	

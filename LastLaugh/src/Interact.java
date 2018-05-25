@@ -59,7 +59,7 @@ public class Interact extends Command{
 	private void solveRiddle(Player player, Caretaker caretaker) {
 		
 		//instantiate and initialize objects
-		Utility tool = new Utility();
+		GeneralUtility tool = new GeneralUtility();
 		
 		//declare and initialize variables
 		String solution = "";
@@ -143,7 +143,7 @@ public class Interact extends Command{
 		
 		//prints congratulations from caretaker
 		System.out.println(caretaker.getName() + " congratulates you -\n"
-							+ "	" + player.getName() + caretaker.getFelicitation() + "\n");
+				+ "	" + player.getName() + caretaker.getFelicitation() + "\n");
 	}//end caretakerCongratulates
 	
 	
@@ -163,7 +163,7 @@ public class Interact extends Command{
 		
 		//prints message to the user
 		System.out.println("I'm sorry " + player.getName() + ", but\n"
-							+ caretaker.getName() + " is no longer active.");
+				+ caretaker.getName() + " is no longer active.");
 	}//end caretakerInactiveMsg
 	
 }//end class

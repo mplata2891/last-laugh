@@ -22,6 +22,7 @@ public class Player extends Person{
 	//the Player class has 3 class members/fields/properties
 	private ArrayList<Key> inventory;
 	private ArrayList<Note> notebook;
+	private int currentPage;
 	private ArrayList<Command> command;
 	private int attempts;
 	
@@ -37,6 +38,9 @@ public class Player extends Person{
 		
 		//instantiates a new ArrayList and stores it in the notebook field
 		this.notebook = new ArrayList<>();
+		
+		//assigns given value to the currentPage field
+		this.currentPage = 0;
 		
 		//instantiates a newArrayList and stores it in the command field
 		this.command = new ArrayList<>();
@@ -100,6 +104,24 @@ public class Player extends Person{
 		//returns the number of Notes stored in the notebook field
 		return this.notebook.size();
 	}//end getNumberOfNotes
+	
+	
+	
+	//method to get the value of the currentPage field
+	public int getCurrentPage() {
+		
+		//returns the value of the currentPage field
+		return this.currentPage;
+	}//end gerCurrentPage
+	
+	
+	
+	//method to set a note in the currentPage field
+	public void setCurrentPage(int newPage) {
+		
+		//assigns the value of newPage to the currentPage field
+		this.currentPage = newPage;
+	}//end setCurrentPage
 
 
 

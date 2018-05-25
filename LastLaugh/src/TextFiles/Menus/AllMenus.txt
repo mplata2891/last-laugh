@@ -31,7 +31,7 @@ Interact Menu
 	4. Back
 	
 Action SubMenu (1)
-	1. Select
+	1. Select Puzzle Piece
 	2. Back
 
 Action SubMenu (2)
@@ -40,10 +40,11 @@ Action SubMenu (2)
 	3. Turn
 	4. Slide
 	5. Push
-	6. Back
+	6. See Clue
+	7. Back
 
 Inventory Menu
-	1. Use
+	1. Use Key
 	2. Back
 	
 Notebook Menu

@@ -13,13 +13,15 @@ import java.util.ArrayList;
 //begin new class
 public class Room extends GamePiece{
 
-  //the Room class has 4 member fields/properties
+	//the Room class has 4 member fields/properties
 	private int roomId;
 	private String name;
-  private Door door;
-  private Caretaker caretaker;
-  private ArrayList<PuzzlePiece> contents;
-  private String description;
+	private Door door;
+	private Caretaker caretaker;
+	private ArrayList<PuzzlePiece> pieces;
+	private int numberOfPuzzlePieces;
+	private PuzzlePiece selectedPuzzlePiece;
+	private String description;
   
 
 
@@ -38,8 +40,14 @@ public class Room extends GamePiece{
     //instantiates an object of type caretaker and stores it in the caretaker field
     this.caretaker = new Caretaker();
 
-    //instantiates an ArrayList of type PuzzlePiece and stores it in the contents field
-    this.contents = new ArrayList<>();
+    //instantiates an ArrayList of type PuzzlePiece and stores it in the pieces field
+    this.pieces = new ArrayList<>();
+    
+    //assigns the given value to the numberOfPuzzlePieces field
+    this.numberOfPuzzlePieces = 0;
+    
+    //instantiates a new object of type PuzzlePiece and stores it in the selectedPuzzlePiece field
+    this.selectedPuzzlePiece = new PuzzlePiece();
     
     //assigns the given string to the description field
     this.description = "";
@@ -123,16 +131,16 @@ public class Room extends GamePiece{
   public PuzzlePiece getPuzzlePiece(int index){
 
     //returns PuzzlePiece located in specific index
-    return this.contents.get(index);
+    return this.pieces.get(index);
   }//end getPuzzlePiece
 
 
   
-  //method to add elements to the contents member field
+  //method to add elements to the pieces member field
   public void addPuzzlePiece(PuzzlePiece PuzzlePiece){
 
     //adds PuzzlePiece to an element in the ArrayList
-    this.contents.add(PuzzlePiece);
+    this.pieces.add(PuzzlePiece);
   }//end addPuzzlePiece
 
   
@@ -140,9 +148,36 @@ public class Room extends GamePiece{
   //method to get the number of puzzle pieces that are in the room
   public int getNumberOfPuzzlePieces(){
 
-	//returns the number of puzzle pieces stored in the contents field
-    return this.contents.size();
+	//returns the number of puzzle pieces stored in the pieces field
+    return this.numberOfPuzzlePieces;
   }//end getNumberOfPuzzlePieces
+  
+  
+  
+  //method to set the value of the numberOfPuzzlePieces field
+  public void setNumberOfPuzzlePieces(int newSize) {
+	  
+	  //assigns the value of newSize to the numberOfPuzzlePieces field
+	  this.numberOfPuzzlePieces = newSize;
+  }//end setNumberOfPuzzlePieces
+  
+  
+  
+  //method to return the object stored in the slectedPuzzlePiece field
+  public PuzzlePiece getSelectedPuzzlePiece() {
+	  
+	  //returns the object in the selectedPuzzlePiece field
+	  return this.selectedPuzzlePiece;
+  }//end getSelectedPuzzlePiece
+  
+  
+  
+  //method to assigns as object to the selectedPuzzlePiece field
+  public void setSelectedPuzzlePiece(PuzzlePiece piece) {
+	  
+	  //stores the piece object in the slectedPuzzlePiece field
+	  this.selectedPuzzlePiece = piece;
+  }//end setSelectedPuzzlePiece
   
   
   

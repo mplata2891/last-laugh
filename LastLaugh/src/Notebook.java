@@ -43,7 +43,7 @@ public class Notebook extends Command{
 
 
 
-	//mehtod to move to the next page in the notebook
+	//method to move to the next page in the notebook
 	private void moveToNextPage(Player player){
 
 		//initiate if-else statement

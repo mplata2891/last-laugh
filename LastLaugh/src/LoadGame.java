@@ -2,52 +2,23 @@ import java.util.ArrayList;
 
 public class LoadGame{
 
-	public void loadObjects(ArrayList<GamePiece> list){
+	public void loadObjects(CoreObjects gameStructure){
 		
-		this.loadFirstLayerObjects(list);
-		
-		this.loadSecondLayerObjects(list);
+		this.loadSecondLayerObjects(gameStructure);
 		
 		this.loadThirdLayerObjects(list.get(2));
 	}//end loadObjects
 
-
-	private void loadFirstLayerObjects(ArrayList<GamePiece> list){
-		
-		list.add(new Player());
-		
-		list.add(new Navigator());
-
-		list.add(new PositionTracker());
-	}//end loadFirstLayerObjects
 	
 	
-	private void loadSecondLayerObjects(ArrayList<GamePiece> list){
+	private void loadSecondLayerObjects(CoreObjects gameStructure){
 		
-		this.loadCommands(list.get(0));
-		
-		this.loadMenus(list.get(1));
+		this.loadMenus(gameStructure.getNavigator());
 		
 		this.loadRooms(list.get(2));
+		
+		this.loadCommands(list.get(3));
 	}//end loadSecondLayerObjects
-	
-	
-	private void loadCommands(Player player){
-		
-		player.addCommand(new Move());
-		
-		player.addCommand(new Sense());
-		
-		player.addCommand(new Examine());
-		
-		player.addCommand(new Interact());
-		
-		player.addCommand(new Action());
-		
-		player.addCommand(new Inventory());
-		
-		player.addCommand(new Notebook());
-	}//end loadCommands
 	
 	
 	private void loadMenus(Navigator navigator){
@@ -63,6 +34,25 @@ public class LoadGame{
 			for(int j = 0; j < 3; j++)
 				tracker.getMap()[i][j] = new Room();
 	}//end loadRooms
+	
+	
+	
+	private void loadCommands(Player player){
+			
+			player.addCommand(new Move());
+			
+			player.addCommand(new Sense());
+			
+			player.addCommand(new Examine());
+			
+			player.addCommand(new Interact());
+			
+			player.addCommand(new Action());
+			
+			player.addCommand(new Inventory());
+			
+			player.addCommand(new Notebook());
+		}//end loadCommands
 	
 	
 	

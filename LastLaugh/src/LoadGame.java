@@ -1,12 +1,36 @@
+/*
+ * Mike Plata
+ * CoSci 290
+ */
+
+//declare imports
 import java.util.ArrayList;
 
+//begin new class
 public class LoadGame{
 
+	//method to load all objects that will be used to create
 	public void loadObjects(CoreObjects gameStructure){
 		
+		//first layer objects are created upon CoreObjects instantiation
+			/*
+			 * Selector
+			 * Navigator
+			 * PositionTracker
+			 * Player
+			 */
+		
+		//invokes method to instantiate 
 		this.loadSecondLayerObjects(gameStructure);
 		
-		this.loadThirdLayerObjects(list.get(2));
+		this.loadThirdLayerObjects(gameStructure.getPositionTracker());
+		
+		//fourth layer objects are created upon instantiation of Door and Caretaker objects
+			/*
+			 * Note
+			 * Key
+			 */
+		
 	}//end loadObjects
 
 	
@@ -15,9 +39,9 @@ public class LoadGame{
 		
 		this.loadMenus(gameStructure.getNavigator());
 		
-		this.loadRooms(list.get(2));
+		this.loadRooms(gameStructure.getPositionTracker());
 		
-		this.loadCommands(list.get(3));
+		this.loadCommands(gameStructure.getPlayer());
 	}//end loadSecondLayerObjects
 	
 	
@@ -71,14 +95,6 @@ public class LoadGame{
 		for(int i = 0; i < room.getNumberOfPuzzlePieces(); i++)
 			room.addPuzzlePiece(new PuzzlePiece());
 	}//end loadPuzzlePieces
-	
-	
-	
-	private loadFourthLayerObjects(PositionTracker tracker) {
-		
-		for(int i = 0; i < (tracker.getMaxRows() * tracker.getMaxColumns()); i++)
-			loadNotes()
-			
-	}
+
 		
 }//end class

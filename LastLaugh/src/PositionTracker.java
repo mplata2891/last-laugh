@@ -135,6 +135,15 @@ public class PositionTracker extends GamePiece{
   
   
   
+  //method to get the array stored in the map field
+  public Room[][] getMap(){
+	  
+	  //returns the array stored in the map field
+	  return this.map;
+  }//end getMap
+  
+  
+  
   //method to return the Room object in the given index of the map field
   public Room getRoom(int row, int column){
 
@@ -144,7 +153,7 @@ public class PositionTracker extends GamePiece{
   
   
   
-  //method ot return the Room object the Player object is currently in
+  //method to return the Room object the Player object is currently in
   public Room getCurrentRoom() {
 	  
 	  //returns the object in the given index of the map field

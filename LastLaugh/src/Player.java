@@ -134,6 +134,15 @@ public class Player extends Person{
 	
 	
 	
+	//method to add a Command into the command field
+	public void addCommand(Command newCommand) {
+		
+		//adds newCommand to the list in the command field
+		this.command.add(newCommand);
+	}//end addCommand
+	
+	
+	
 	//method to get the value of the attempts field
 	public int getAttempts() {
 		

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Navigator extends GamePiece{
 	
 	private ArrayList<Menu> menus;
-	private int numberOfMenus;
+	private int numberOfMenus;//not sure if I need this
 	
 	
 	//default constructor

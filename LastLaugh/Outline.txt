@@ -6,7 +6,7 @@ Class Hierarchy
 	@ Navigator [is a GamePiece]
 		- has Menu(s)
 		
-	@ Menu [is a GamePiece]
+		@ Menu [is a GamePiece]
 
 	@ PositionTracker [is a GamePiece]
 		- has Room(s)

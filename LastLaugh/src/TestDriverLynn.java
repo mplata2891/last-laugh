@@ -5,9 +5,9 @@ public class TestDriverLynn{
   public static void main(String[] args){
     
     Scanner input = new Scanner(System.in);
-    GeneralUtility fileTool = new GeneralUtility();
+    FileUtility fileTool = new FileUtility();
     
-    fileTool.gameOver();
+    fileTool.splashPage("gameover");
 
   }//end main
   

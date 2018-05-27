@@ -4,14 +4,16 @@ import java.io.FileReader;
 
 public class TestDriverLynn{
 
+  
+  
   public static void main(String[] args){
     
     Scanner input = new Scanner(System.in);
-    FileUtility fileTool = new FileUtility();
+
     
     menuPrompt();
-    itemPrompt();
     
+    itemPrompt();
     
     /*
     public static menuSelect(String option){
@@ -23,11 +25,13 @@ public class TestDriverLynn{
   }//end main
   
   public static void menuPrompt(){
-      System.out.println("Select a menu type a number from 0-8 to make a selection.");
+      FileUtility fileTool = new FileUtility();
+      fileTool.readFile("TextFiles/Misc/MenuPrompt.txt");
     }
     
     public static void itemPrompt(){
-      System.out.println("Input the name of the item you wish to use.");  
+      FileUtility fileTool = new FileUtility();
+      fileTool.readFile("TextFiles/Misc/ItemPrompt.txt");  
     }
   
 }//end class

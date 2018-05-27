@@ -23,7 +23,7 @@ public class Player extends Person{
 	private ArrayList<Key> inventory;
 	private ArrayList<Note> notebook;
 	private int currentPage;
-	private ArrayList<Command> command;
+	private Command command;
 	private int attempts;
 	
 	
@@ -43,9 +43,7 @@ public class Player extends Person{
 		this.currentPage = 0;
 		
 		//instantiates a newArrayList and stores it in the command field
-		this.command = new ArrayList<>();
-		
-		//invokes the fillCommandList method
+		this.command = new Command();
 		
 		//assigns the given value to the attempts field
 		this.attempts = 0;
@@ -125,20 +123,20 @@ public class Player extends Person{
 
 
 
-	//method  to get a Command object stored in the command field
+	//method to get a Command object stored in the command field
 	public Command getCommand(int index){
 		
-		//returns the Command object in the indicated index of the command field
-		return this.command.get(index);
+		//returns the Command object stored in the command field
+		return this.command;
 	}//end getCommand
 	
 	
 	
-	//method to add a Command into the command field
-	public void addCommand(Command newCommand) {
+	//method to set a Command object into the command field
+	public void setCommand(Command newCommand) {
 		
-		//adds newCommand to the list in the command field
-		this.command.add(newCommand);
+		//sets a Command object to the command field
+		this.command = newCommand;
 	}//end addCommand
 	
 	

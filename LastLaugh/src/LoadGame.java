@@ -3,6 +3,9 @@
  * CoSci 290
  */
 
+//declare imports
+import java.util.ArrayList;
+
 //begin new class
 public class LoadGame{
 
@@ -17,11 +20,9 @@ public class LoadGame{
 			 * Player
 			 */
 		
-		//invokes method to instantiate Menu, Room, Door, Caretaker
-		//and Command objects
+		//invokes method to instantiate 
 		this.loadSecondLayerObjects(gameStructure);
 		
-		//invokes method to instantiate PuzzlePiece objects
 		this.loadThirdLayerObjects(gameStructure.getPositionTracker());
 		
 		//fourth layer objects are created upon instantiation of Door and Caretaker objects
@@ -53,9 +54,13 @@ public class LoadGame{
 	
 	private void loadRooms(PositionTracker tracker){
 		
-		for(int i = 0; i < 3; i++)
-			for(int j = 0; j < 3; j++)
-				tracker.getMap()[i][j] = new Room();
+		for(int i = 0; i < 3; i++){
+      for(int j = 0; j < 3; j++){
+        tracker.getMap()[i][j] = new Room();
+        //System.out.println("Row: " + i + "\tColumn: " + j);
+      }
+    }	
+				
 	}//end loadRooms
 	
 	
@@ -75,16 +80,18 @@ public class LoadGame{
 			player.addCommand(new Inventory());
 			
 			player.addCommand(new Notebook());
-		}//end loadCommands
+	}//end loadCommands
 	
 	
 	
 	private void loadThirdLayerObjects(PositionTracker tracker) {
 		
-		for(int i = 0; i < tracker.getMaxRows(); i++)
-			for(int j = 0; i < tracker.getMaxColumns(); j++)
-				this.loadPuzzlePieces(tracker.getRoom(i, j));
-				
+		for(int i = 0; i < tracker.getMaxRows(); i++){
+      for(int j = 0; j < tracker.getMaxColumns(); j++){
+        this.loadPuzzlePieces(tracker.getRoom(i, j));
+      }
+    }
+    
 	}//end loadThirdLayerObjects
 	
 	

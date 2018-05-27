@@ -7,7 +7,7 @@ public class TestDriverLynn{
     Scanner input = new Scanner(System.in);
     FileUtility fileTool = new FileUtility();
     
-    fileTool.splashPage("gameover");
+    fileTool.splashPage("beatGame");
 
   }//end main
   

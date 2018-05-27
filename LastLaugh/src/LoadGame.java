@@ -3,9 +3,6 @@
  * CoSci 290
  */
 
-//declare imports
-import java.util.ArrayList;
-
 //begin new class
 public class LoadGame{
 
@@ -20,9 +17,11 @@ public class LoadGame{
 			 * Player
 			 */
 		
-		//invokes method to instantiate 
+		//invokes method to instantiate Menu, Room, Door, Caretaker
+		//and Command objects
 		this.loadSecondLayerObjects(gameStructure);
 		
+		//invokes method to instantiate PuzzlePiece objects
 		this.loadThirdLayerObjects(gameStructure.getPositionTracker());
 		
 		//fourth layer objects are created upon instantiation of Door and Caretaker objects

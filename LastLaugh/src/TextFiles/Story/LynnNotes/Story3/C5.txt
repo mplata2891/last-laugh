@@ -1,6 +1,10 @@
-Notes:
+Name: Ja something 
+Occupation: Freelance Journalist
+Date: ---
 
-Rooms:
+General Notes:
+
+Rooms (Updated):
 -Each room has the same basic layout.
 -Two doors
 -one terminal

@@ -29,6 +29,7 @@ public class Menu{
   }//end constructor
 
 
+  
   //implicit constructor
   public Menu(String name, String filename){
 
@@ -41,6 +42,7 @@ public class Menu{
     //invokes the setOptions method
     this.setOptions(filename);
   }//end constructor
+  
 
 
   //method to return the value of the name field
@@ -49,6 +51,7 @@ public class Menu{
     //returns the value of the name field
     return this.name;
   }//end getName
+  
 
 
   //method to set the value of the name field
@@ -57,6 +60,14 @@ public class Menu{
     //assigns the value of newName to the name field
     this.name = newName;
   }//end setName
+  
+  
+  
+  public void addOption(String newOption) {
+	  
+	  this.options.add(newOption);
+  }
+  
 
 
   //method to assigns values to the ArrayList located in the options field

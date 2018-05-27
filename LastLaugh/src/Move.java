@@ -127,20 +127,7 @@ public class Move extends Command{
 	    else
 	  	 return false;//returns the value false
 	  }//end checkDoor
-	  
-	  
-	
-	 /* 
-	//method to check if a door is unlocked
-	  public boolean checkLock(Door door){
-
-	  	if(door.getLockStatus() == "Unlocked")//initiate if-else statement
-	  		return true;//returns the value true
-	  	else
-	  		return false;//returns the value false
-	  }//end isPathClear
-	  */
-	  
+	   
 	  
 	  
 	//method to move a player from one room to another adjacent room

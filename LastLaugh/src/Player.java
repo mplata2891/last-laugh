@@ -124,7 +124,7 @@ public class Player extends Person{
 
 
 	//method to get a Command object stored in the command field
-	public Command getCommand(int index){
+	public Command getCommand(){
 		
 		//returns the Command object stored in the command field
 		return this.command;

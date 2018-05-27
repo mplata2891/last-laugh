@@ -1,135 +1,279 @@
 /*
-  CoSci 290
-  Group Last Laugh
-    - Lynn
-    - Frank
-    - Mike
-
-  Our game starring you, try to escape.
-
-  A simple text adventure where the player must
-  solve puzzles in order to get through various rooms
-  of the game. Different actions taken during gameplay
-  can, and will effect the outcome of the game.
-
-  Contains multiple endings. Good Luck!
+	Mike Plata
+	CoSci 290
 */
 
-//import declarations
-import java.util.*;
-
-//begining of new class
+//begin new class
 public class GameDriver{
+	
+	//method to run the title screen sequence
+	public void runTitleScreen(CoreObjects gameStructure, FileUtility fileTool,
+								InputUtility ioTool) {
+		
+		//invokes splashPage method 
+		fileTool.splashPage("Title");
+		
+		//invokes displayMenu method
+		gameStructure.getNavigator().getMenu(0).displayMenu();
+		
+		//invokes promptForSelection method
+		//ioTool.promptForSelection();
+		
+		//invokes takeSelection method
+		gameStructure.getSelector().setTitleSelection(ioTool.takeSelection(3));	
+	}//end runTitleScreen
+	
+	
+	
+	//method to run the intro sequence of the game
+	public void runIntroSequence(CoreObjects gameStructure, FileUtility fileTool,
+									InputUtility ioTool) {
+		
+		//access the readFile member of the tool object to display the story's Prologue
+	    fileTool.readFile("TextFiles/Story/Prologue.txt");
+	    
+	    //need something to pause, then continue
 
-  //entry point of main application
-  public static void main(String[] args){
+	    //access the readFile member of the tool object to display the story's
+	    //first part of the intro
+	    fileTool.readFile("TextFiles/Story/Intro1.txt");
 
-    //object decclaration and instantiation
-    Scanner input = new Scanner(System.in);
-    FileUtility fileTool = new FileUtility();
-    GeneralUtility tool = new GeneralUtility();
-    //Room room1 = new Room("Room 1", 5, 5, 2, 2);
-    //Player player1 = new Player();
+	    //prompt user for input
+	    System.out.print("You've been passed out for 3 days.\n"
+	                    + "What's your name?: ");
 
-    //variable declaration and instantiation
-    String advance = "";
-    String playerName = "";
-    String catName = "";
-    String direction = "";
-    int numberOfSpaces = 0;
-    double clownLikeLevel = 0.0;
+	    //take user's input
+	    gameStructure.getPlayer().setName(ioTool.takeName());
 
-    //access the readFile member of the tool object to display the story's Prologue
-    fileTool.readFile("TextFiles/Story/Prologue.txt");
-
-    //access the splashPage member of the tool object to display the game's title
-    fileTool.splashPage("title");
-
-    //access the readFile member of the tool object to display the story's
-    //first part of the intro
-    fileTool.readFile("TextFiles/Story/Intro1.txt");
-
-    //prompt user for input
-    System.out.print("You've been passed out for 3 days.\n"
-                    + "What's your name?: ");
-
-    //take user's input
-    playerName = input.next();
-
-    //access the testWriteFile member of the tool object to write the value of
-    //playerName onto a file
-    fileTool.writeFile(playerName, "");
-
-    //access the readFile member of the tool object to ddisplay the story's
-    //second part of the intro
-    fileTool.readFile("TextFiles/Story/Intro2.txt");
-
-    //access the readFile member of the tool object to display the contents of
-    //the testWriting text file
-    fileTool.readFile("testWriting.txt"); //cool works
-
-    fileTool.readFile("TextFiles/Story/catIntro.txt");
-
-    //access the splashPage member of the tool object to display a cat
-    fileTool.splashPage("cat");
-
-    System.out.print("You decide to name them... ");
-    catName = input.next();
-    System.out.print("\nSo now it looks like it's you, " + "and " + catName + "\n"
-                    + "against wherever the heck you are. \n"
-                     +"You get unsteadily to your feet.");
-
-    //display information for user and prompt input
-    System.out.print("\nLooks like " + playerName + " and " + catName + " are ready!\n"
-                    + "Which direction do you head in? ");
-
-    //take user input
-    direction = input.next();
-
-    //prompt user for input
-    System.out.print("How many spaces would you like to move?: ");
-
-    //take user input
-    numberOfSpaces = input.nextInt();
-
-    /*working on moving in the map here - Mike
-    if(direction == "north"){
-
-      if((numberOfSpaces + room1.getExactRow()) !> (room1.getRows() - 1))
-    }
-    */
-
-    //confirm user input
-    System.out.print("Cool, " + numberOfSpaces + " spaces" + direction
-                    + " it is! Good luck!\n\n");
-
-    //First Event - displays info for user
-    System.out.println("There's a lot of dust.\n"
-                      + "Oh, you feel a sneeze coming on.\n"
-                      + "ahhh\n"
-                      + "ahhHHHHhh\n"
-                      + "CHUUUUU!");
-
-    //initiate if-else statement
-    if(tool.chance(1,100) >30){//access the chance member of the tool object
-
-      //display result of the first event
-      System.out.println("\nMEOW~\n" + catName
-                        + " got scared and ran out the room.");
-    }//end if
-    else{
-
-      //display result of the first event
-      System.out.println("\nIn the distance you hear a low whisper say..."
-                        + " bless you.");
-    }//end else
-
-
-
-
-
-    //access the splashPage member of the tool object to display 'gameover'
-    fileTool.splashPage("gameover");
-
-  } //end of main
-} //end of class
+	    //access the readFile member of the tool object to ddisplay the story's
+	    //second part of the intro
+	    fileTool.readFile("TextFiles/Story/Intro2.txt");
+	    
+	    //need something to pause and continue
+	}//end runIntro Sequence
+	
+	
+	
+	//method to run the main portion of the game
+	public void runMainGame(CoreObjects gameStructure, InputUtility ioTool) {
+		
+		//initiate do-while loop
+		do {
+			
+			//invoke the displayMenu method
+			gameStructure.getNavigator().getMenu(1).displayMenu();
+			
+			//invokes promptForSelection method
+			//ioTool.promptForSelection();
+			
+			//invokes takeSelection method
+			gameStructure.getSelector().setMainSelection(ioTool.takeSelection(8));
+			
+			switch(gameStructure.getSelector().getMainSelection()) {
+			
+				//enter case 1
+				case 1:	this.executeMoveOperation(gameStructure, ioTool);
+						break;//breaks out of switch
+						
+				//enter case 2
+				case 2:	this.executeSenseOperation(gameStructure.getPlayer().getCommand().getSense(),
+													gameStructure.getPositionTracker().getCurrentRoom());
+						break;//breaks out of switch
+				
+				//enter case 3
+				case 3:	this.executeExamineOperation(gameStructure, ioTool);
+						break;//breaks out of switch
+				
+				//enter case 4
+				case 4: this.executeInteractOperation(gameStructure, ioTool);
+						break;//breaks out of switch
+						
+				//enter case 5
+				case 5: this.executeActionOperation(gameStructure, ioTool);
+						break;//breaks out of switch
+						
+				//enter case 6
+				case 6: this.executeInventoryOperation(gameStructure, ioTool);
+						break;//breaks out of switch
+						
+				//enter case 7
+				case 7: this.executeNotebookOperation();
+						break;//breaks out of switch
+						
+				//enter default case
+				default:	this.confirmExitMainGame();	
+			}//end switch
+			
+		}while(gameStructure.getSelector().getMainSelection() != 8);
+		
+		//invoke setTitleSelection method
+		gameStructure.getSelector().setTitleSelection(0);
+		
+	}//end runMainGame
+	
+	
+	
+	//method to move player
+	private void executeMoveOperation(CoreObjects gameStructure, InputUtility ioTool) {
+		
+		//initiate do-while loop
+		do {
+			
+			gameStructure.getNavigator().getMenu(2).displayMenu();
+			
+			//invokes promptForSelection method
+			//ioTool.promptForSelection();
+			
+			//invokes takeSelection method
+			gameStructure.getSelector().setSubSelection(ioTool.takeSelection(3));
+			
+			if(gameStructure.getSelector().getSubSelection() != 3)
+				gameStructure.getPlayer().getCommand().getMove().
+					movePlayer(gameStructure.getPositionTracker(), 
+								gameStructure.getSelector().getSubSelection());
+		
+		}while(gameStructure.getSelector().getSubSelection() != 3);
+		
+		//invoke setMainSelection method
+		gameStructure.getSelector().setMainSelection(0);
+		
+	}//end executeMoveOperation
+	
+	
+	
+	//method to sense objects in room
+	private void executeSenseOperation(Sense sense, Room room) {
+		
+		//invoke senseSurroundings method
+		sense.senseSurroundings(room);
+	}//end executeSenseOperation
+	
+	
+	
+	//method to examine object in room
+	private void executeExamineOperation(CoreObjects gameStructure, InputUtility ioTool) {
+		
+		//initiate do-while loop
+		do {
+				
+				//invoke displayMenu method
+				gameStructure.getNavigator().getMenu(3).displayMenu();
+				
+				//invokes promptForSelection method
+				//ioTool.promptForSelection();
+				
+				//invokes takeSelection method
+				gameStructure.getSelector().setSubSelection(ioTool.takeSelection(4));
+				
+				gameStructure.getPlayer().getCommand().getExamine().
+					examineItem(gameStructure.getPositionTracker().getCurrentRoom(), 
+							gameStructure.getSelector().getSubSelection());
+			
+		}while(gameStructure.getSelector().getSubSelection() != 4);
+		
+		//invoke setMainSelection method
+		gameStructure.getSelector().setMainSelection(0);
+				
+	}//end executeExamineOperation
+	
+	
+	
+	//method to interact with caretaker
+	private void executeInteractOperation(CoreObjects gameStructure, InputUtility ioTool) {
+		
+		//initiate do-while loop
+		do {
+						
+				//invoke displayMenu method
+				gameStructure.getNavigator().getMenu(4).displayMenu();
+					
+				//invokes promptForSelection method
+				//ioTool.promptForSelection();
+						
+				//invokes takeSelection method
+				gameStructure.getSelector().setSubSelection(ioTool.takeSelection(4));
+						
+				gameStructure.getPlayer().getCommand().getInteract().
+					interactWithCaretaker(gameStructure.getPlayer(), 
+							gameStructure.getPositionTracker().getCurrentRoom().getCaretaker(), 
+								gameStructure.getSelector().getSubSelection());
+					
+		}while(gameStructure.getSelector().getSubSelection() != 4);
+				
+		//invoke setMainSelection method
+		gameStructure.getSelector().setMainSelection(0);
+		
+	}//end executeInteractOperation
+	
+	
+	
+	//method to select a puzzle piece and take an action on selected puzzle piece
+	public void executeActionOperation(CoreObjects gameStructure, InputUtility ioTool) {
+		
+		
+	}//end executeActionOperation
+	
+	
+	
+	//method to open inventory
+	public void executeInventoryOperation(CoreObjects gameStructure, InputUtility ioTool) {
+		
+		//initiate do-while loop
+		do {
+				
+				//invoke openInventory method
+				gameStructure.getPlayer().getCommand().getInventory().
+				openInventory(gameStructure.getPlayer());
+			
+				//invoke displayMenu method
+				gameStructure.getNavigator().getMenu(7).displayMenu();
+							
+				//invokes promptForSelection method
+				//ioTool.promptForSelection();
+								
+				//invokes takeSelection method
+				gameStructure.getSelector().setSubSelection(ioTool.takeSelection(2));
+								
+				gameStructure.getPlayer().getCommand().getInventory().
+					useKey(gameStructure.getPlayer(), gameStructure.getPositionTracker().
+							getCurrentRoom().getDoor());
+							
+		}while(gameStructure.getSelector().getSubSelection() != 2);
+					
+		//invoke setMainSelection method
+		gameStructure.getSelector().setMainSelection(0);
+		
+	}//end executeInventoryOperation
+	
+	
+	
+	//method to open notebook
+	public void executeNotebookOperation(CoreObjects gameStructure, InputUtility ioTool) {
+		
+		//initiate do-while loop
+		do {
+					
+			gameStructure.getPlayer().getCommand().getNotebook().openActivePage(gameStructure.getPlayer());
+			
+			//invoke displayMenu method
+			gameStructure.getNavigator().getMenu(8).displayMenu();
+					
+			//invokes promptForSelection method
+			//ioTool.promptForSelection();
+					
+			//invokes takeSelection method
+			gameStructure.getSelector().setSubSelection(ioTool.takeSelection(3));
+					
+			if(gameStructure.getSelector().getSubSelection() != 3)
+				gameStructure.getPlayer().getCommand().getNotebook().
+					changePage(gameStructure.getPlayer(), 
+								gameStructure.getSelector().getSubSelection());
+				
+		}while(gameStructure.getSelector().getSubSelection() != 3);
+				
+		//invoke setMainSelection method
+		gameStructure.getSelector().setMainSelection(0);
+		
+	}//end executeNotebookOperation
+	
+}//end class

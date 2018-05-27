@@ -121,7 +121,7 @@ public class InputUtility{
 
       for(int i = 0; i < value.length(); i++){
 
-        //check if the characcter is a letter or a number
+        //check if the character is a letter or a number
         if(Character.isLetterOrDigit(value.charAt(i))){
 
           validFlag = true;

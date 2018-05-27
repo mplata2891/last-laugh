@@ -27,7 +27,7 @@ public class GameDriver{
     //object decclaration and instantiation
     Scanner input = new Scanner(System.in);
     FileUtility fileTool = new FileUtility();
-    Utility tool = new Utility();
+    GeneralUtility tool = new GeneralUtility();
     //Room room1 = new Room("Room 1", 5, 5, 2, 2);
     //Player player1 = new Player();
 
@@ -58,7 +58,7 @@ public class GameDriver{
 
     //access the testWriteFile member of the tool object to write the value of
     //playerName onto a file
-    tool.testWriteFile(playerName);
+    fileTool.writeFile(playerName, "");
 
     //access the readFile member of the tool object to ddisplay the story's
     //second part of the intro

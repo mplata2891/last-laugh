@@ -47,4 +47,17 @@ public class GeneralUtility{
 	  System.exit(0);
   }//end gameOver
   
+  
+  public void beatGame() {
+    
+    //instantiate and initialize objects
+	  FileUtility fileTool = new FileUtility();
+    
+    fileTool.splashPage("beatGame");
+       
+    //terminates program
+	  System.exit(0);
+    
+  }//end of beatGame
+  
 }//end class

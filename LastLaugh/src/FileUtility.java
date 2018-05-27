@@ -74,6 +74,8 @@ public class FileUtility{
       //enters case gameover and invokes readFile method
       case "gameover" : this.readFile("src/TextFiles/SplashScreens/GameOver.txt");
                         break;//breaks out of switch
+      case"beatGame" : this.readFile("src/TextFiles/SplashScreens/beatGame.txt");
+                       break;//breaks out of switch
     }//end switch
   }//end splashPage
 

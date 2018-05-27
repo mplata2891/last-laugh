@@ -25,10 +25,10 @@ public class PositionTracker extends GamePiece{
   public PositionTracker(){
 
     //assigns the indicated value to the maxColumns field
-    this.maxColumns = 0;
+    this.maxColumns = 3;
 
     //assigns the indicated value to the maxRows field
-    this.maxRows = 0;
+    this.maxRows = 3;
 
     //assigns the indicated value to the exactColumn field
     this.exactColumn = 0;

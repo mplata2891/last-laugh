@@ -41,7 +41,6 @@ public class LoadGame{
 		
 		this.loadRooms(gameStructure.getPositionTracker());
 		
-		this.loadCommands(gameStructure.getPlayer());
 	}//end loadSecondLayerObjects
 	
 	
@@ -62,26 +61,6 @@ public class LoadGame{
     }	
 				
 	}//end loadRooms
-	
-	
-	
-	private void loadCommands(Player player){
-			
-			player.addCommand(new Move());
-			
-			player.addCommand(new Sense());
-			
-			player.addCommand(new Examine());
-			
-			player.addCommand(new Interact());
-			
-			player.addCommand(new Action());
-			
-			player.addCommand(new Inventory());
-			
-			player.addCommand(new Notebook());
-	}//end loadCommands
-	
 	
 	
 	private void loadThirdLayerObjects(PositionTracker tracker) {

@@ -1,6 +1,13 @@
+//declare imports
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class PopulateObjects{
 //This method opens a file and prints out each line
-  public void readNames(CoreObject coreObject, String filename){
+  public void readNames(CoreObjects coreObject, String filename){
 
     //declare and initialize variables
     int index = 0;
@@ -13,7 +20,7 @@ public class PopulateObjects{
       while((currentLine = br.readLine()) != null){
 
         //prints the value of currentLine to the screen
-       coreObject.getNavigtor().getMenu(index++).setName(currentLine);
+       coreObject.getNavigator().getMenu(index++).setName(currentLine);
         
       }//end while
 
@@ -24,22 +31,22 @@ public class PopulateObjects{
   }//end readFile
   
 //This method opens a file and prints out each line
-  public void readOptions(CoreObject coreObject){
+  public void readOptions(CoreObjects coreObject){
 
     //declare and initialize variables
-    int index = 0;
+    //int index = 0;
     String currentLine = "";
 
     for(int index = 0; index < 9; index++) {
 	    //trying to open a file to read from
-	    try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/Menus/MenuOptions/Menu" 
+        try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/Menus/MenuOptions/Menu" 
 	    															+ index + ".txt"))){
 	
 	      //read each line in the file until EOF
 	      while((currentLine = br.readLine()) != null){
 	
 	        //prints the value of currentLine to the screen
-	       coreObject.getNavigtor().getMenu(index).addOptions(currentLine);
+	       coreObject.getNavigator().getMenu(index).addOption(currentLine);
 	        
 	      }//end while
 	
@@ -48,7 +55,6 @@ public class PopulateObjects{
 	      e.printStackTrace();
 	    }//end catch
     
-    index++;
     }
   }//end readFile
 }//end class

@@ -1,0 +1,4 @@
+	1. Hear Greeting
+	2. Hear Riddle
+	3. Solve Riddle
+	4. Back

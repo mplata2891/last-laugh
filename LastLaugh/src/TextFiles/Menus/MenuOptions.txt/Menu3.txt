@@ -1,0 +1,4 @@
+	1. Examine Door
+	2. Examine Caretaker
+	3. Examine Puzzle Piece
+	4. Back

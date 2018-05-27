@@ -105,6 +105,7 @@ public class Menu{
       //invokes get method and prints the return value
       System.out.println(this.options.get(i));
     }//end for
+  System.out.print("\n");
   }//end displayMenu
 
 }//end of class

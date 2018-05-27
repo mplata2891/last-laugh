@@ -46,8 +46,8 @@ public class Door extends GamePiece{
     this.note = new Note();
   }//end constructor
 
-  
 
+  
   //method to get the value of the doorId field
   public int getDoorId(){
 

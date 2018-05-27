@@ -207,7 +207,8 @@ public class Room extends GamePiece{
 			  + "Room Name: " + this.name + "\n"
 			  + "Doors: 1\n"
 			  + "Caretaker: 1\n"
-			  + "Puzzle Pieces: " + this.getNumberOfPuzzlePieces() + "\n\n";
+			  + "Puzzle Pieces: " + this.getNumberOfPuzzlePieces() + "\n"
+        + "Description: " + this.getDescription() + "\n\n";
   }//end toString
   
 }//end class

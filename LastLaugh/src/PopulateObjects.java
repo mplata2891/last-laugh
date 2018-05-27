@@ -260,14 +260,91 @@ public class PopulateObjects{
     }//end catch
   }//end readDoorKeyName
 
-  ////////Caretaker////////////////////////////////////////////////////
+  ////////Caretaker//////////////////////////////////////////////////////////////
   public void readCaretaker(CoreObjects coreObject){
-      
+    
+      readCaretakerName(coreObject);
+      readCaretakerDescription(coreObject);
       readCaretakerLayers(coreObject);
       readCaretakerGreetings(coreObject);
       readCaretakerFelicitation(coreObject);
       readCaretakerAdmonishment(coreObject);
     }//end readCaretaker
+  
+    public void readCaretakerName(CoreObjects coreObject){
+  
+    //declare and initialize variables
+    String currentLine = "";
+    int row = 0;
+    int col = 0;
+
+    //trying to open a file to read from
+    try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/NewGame/Terminals/Names.txt"))){
+
+      //read each line in the file until EOF
+      while((currentLine = br.readLine()) != null){
+
+        //prints the value of currentLine to the screen
+       coreObject.getPositionTracker().getRoom(row,col).getCaretaker().setName(currentLine);
+       //room index
+       if(col < 2){
+         col++;
+       }
+       else{
+         col = 0;
+         row++;
+       }
+        
+      }//end while
+
+    //if there is no file to open, the exception will be caught
+    }catch(IOException e){
+      e.printStackTrace();
+    }//end catch
+    
+  }//end readCaretakerName
+  
+  public void readCaretakerDescription(CoreObjects coreObject){
+    //declare and initialize variables
+    
+    String currentLine = "";
+    String description = "";
+    int row = 0;
+    int col = 0;
+
+    for(int index = 1; index < 10; index++) {
+      
+	    //trying to open a file to read from
+        try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/NewGame/Terminals/Descriptions/Terminal" 
+	    															+ index + ".txt"))){
+	      //read each line in the file until EOF
+	      while((currentLine = br.readLine()) != null){
+          
+          //holds door description
+	        description += currentLine;
+	       	        
+	      }//end while
+        
+        //gives door the description
+        coreObject.getPositionTracker().getRoom(row,col).getCaretaker().setDescription(description);
+        
+        //for room index
+        if(col < 2){
+          col++;
+        }
+        else{
+          col = 0;
+          row++;
+        }
+        	    
+          //if there is no file to open, the exception will be caught
+	    }catch(IOException e){
+	      e.printStackTrace();
+	    }//end catch
+      //clear description for next 
+      description = "";
+    }//end for
+  }//end readCaretakerDescription
 
   public void readCaretakerLayers(CoreObjects coreObject){
 
@@ -424,6 +501,48 @@ public class PopulateObjects{
       description = "";
     }//end for
   }//end readCaretakerAdmonishment
+  
+
+  
+///////Key//////////////////////////////////////////////////////////////////
+  public void readKey(CoreObjects coreObject){
+    readKeyName(coreObject);
+    //readKeyDescription(coreObject);
+    
+  }//end readKey
+  
+  public void readKeyName(CoreObjects coreObject){
+  
+    //declare and initialize variables
+    String currentLine = "";
+    int row = 0;
+    int col = 0;
+
+    //trying to open a file to read from
+    try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/NewGame/Keys/Names.txt"))){
+
+      //read each line in the file until EOF
+      while((currentLine = br.readLine()) != null){
+
+        //prints the value of currentLine to the screen
+       coreObject.getPositionTracker().getRoom(row,col).getCaretaker().getKey().setName(currentLine);
+       //room index
+       if(col < 2){
+         col++;
+       }
+       else{
+         col = 0;
+         row++;
+       }
+        
+      }//end while
+
+    //if there is no file to open, the exception will be caught
+    }catch(IOException e){
+      e.printStackTrace();
+    }//end catch
+    
+  }//end readKeyName
   
   
   

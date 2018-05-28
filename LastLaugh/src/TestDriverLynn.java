@@ -8,7 +8,7 @@ public class TestDriverLynn{
   
   public static void main(String[] args){
     
-    Scanner input = new Scanner(System.in);
+    //Scanner input = new Scanner(System.in);
 
     
     menuPrompt();
@@ -26,12 +26,12 @@ public class TestDriverLynn{
   
   public static void menuPrompt(){
       FileUtility fileTool = new FileUtility();
-      fileTool.readFile("TextFiles/Misc/MenuPrompt.txt");
+      fileTool.readFile("/TextFiles/Misc/MenuPrompt.txt");
     }
     
     public static void itemPrompt(){
       FileUtility fileTool = new FileUtility();
-      fileTool.readFile("TextFiles/Misc/ItemPrompt.txt");  
+      fileTool.readFile("/TextFiles/Misc/ItemPrompt.txt");  
     }
   
 }//end class

@@ -54,11 +54,11 @@ public class LoadGame{
 	private void loadRooms(PositionTracker tracker){
 		
 		for(int i = 0; i < 3; i++){
-      for(int j = 0; j < 3; j++){
-        tracker.getMap()[i][j] = new Room();
-        //System.out.println("Row: " + i + "\tColumn: " + j);
-      }
-    }	
+			for(int j = 0; j < 3; j++){
+				tracker.getMap()[i][j] = new Room();
+				//System.out.println("Row: " + i + "\tColumn: " + j);
+			}
+		}	
 				
 	}//end loadRooms
 	

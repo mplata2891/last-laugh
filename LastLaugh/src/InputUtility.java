@@ -27,8 +27,7 @@ public class InputUtility{
       //invoke takeInteger method and assigns its return value to selection
       selection = this.takeInteger();
 
-      //invoke validateSelection method and assign
-      //its return value to selectionIsValid
+      //invoke validateSelection method
       selectionIsValid = this.validateSelection(selection, maxSelection);
 
   		if(selectionIsValid == false); //initiate if statement
@@ -40,6 +39,7 @@ public class InputUtility{
   }//end takeSelection
 
 
+  
   //method to take an integer input from the user
   public int takeInteger(){
 
@@ -56,25 +56,23 @@ public class InputUtility{
 
   	return number; //returns the value of number
   }//end takeInteger
+  
 
 
-  //method to validate if a user's selection if it's an integer greater
+  //method to validate if a user's selection is an integer greater
   //than zero and within the constraints of the selection range
   private boolean validateSelection(int input, int max){
-
-    //declare and initialize variables
-    //boolean validFlag = false;
 
   	if(input > 0 && input <= max)//enter if statement
   		return true;//assigns the value of true to validFlag
   	else
   		return false;//returns the value of validFlag
   }// isSelectionValid
+  
 
 
   //method to take a name from the user and confirm it is valid
   public String takeName(){
-        //takes numbers
 
     //declare and initialize variables
     boolean inputIsValid = false;
@@ -87,8 +85,7 @@ public class InputUtility{
       //invokes the takeString method and assigns its return value to input
       input = this.getString();
 
-      //invokes the isNameValid method and assigns
-      //its return value to inputIsValid
+      //invokes the isNameValid method
       inputIsValid = this.isNameValid(input);
 
       if(inputIsValid == false)//enters if statement
@@ -98,6 +95,7 @@ public class InputUtility{
 
     return input;//returns the value of input
   }//end getName
+  
 
 
   public String getString(){
@@ -111,6 +109,7 @@ public class InputUtility{
 
     return newString;
   }//end getInput
+  
 
 
   public boolean isNameValid(String value){
@@ -147,5 +146,24 @@ public class InputUtility{
 
     System.out.println();
   }//end nameErrorMsg
+  
+  
+  
+  public void menuPrompt(){
+	  
+      FileUtility fileTool = new FileUtility();
+      
+      fileTool.readFile("src/TextFiles/Misc/MenuPrompt.txt");
+    }//end menuPrompt
+  
+  
+  
+  public static void itemPrompt(){
+	  
+	  FileUtility fileTool = new FileUtility();
+	  
+      fileTool.readFile("src/TextFiles/Misc/ItemPrompt.txt");
+  }//end item prompt
+   
 
 }//end class

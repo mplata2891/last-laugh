@@ -30,10 +30,10 @@ public class Move extends Command{
 			    		if(moveIsValid == true)
 				    		this.makeMove(tracker, direction);//invoke the makeMove method
 				    	else
-				    		/*display error message*/;
+				    		/*this.displayNoRoomMsg()*/;
 			    		
 			    	}else
-			    		/*display error message*/;
+			    		/*this.displayLockedDoorMsg()*/;
 			    	
 	      			break;//break from switch
 
@@ -44,7 +44,7 @@ public class Move extends Command{
 			    	if(moveIsValid == true)//initiate if-else statement
 			    		this.makeMove(tracker, direction);//invoke the makeMove method
 			    	else
-			    		/*display error message*/;
+			    		/*this.displayNoRoomMsg()*/;
 			    	
 	      			break;//break from switch
 
@@ -187,5 +187,25 @@ public class Move extends Command{
 			  tracker.setExactColumn(tracker.getExactColumn() - 1);
 		  }//end if-else
 	  }//end moveNext
+	  
+	  
+	  
+	  //method to alert user that there is no room to move to
+	  private void displayNoRoomMsg() {
+		  
+		  //displays error message to user
+		  System.out.println("Unable to move in that direction.\n"
+				  				+ "There is no Room in that direction.\n");
+	  }
+	  
+	  
+	  
+	//method to alert user that a door is locked
+	  private void displayLockedDoorMsg() {
+		  
+		  //displays error message to user
+		  System.out.println("Unable to move in that direction.\n"
+				  				+ "There Door is Locked.\n");
+	  }
 
 }//end class

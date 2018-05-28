@@ -17,7 +17,7 @@ public class GameDriver{
 		gameStructure.getNavigator().getMenu(0).displayMenu();
 		
 		//invokes promptForSelection method
-		//ioTool.promptForSelection();
+		ioTool.menuPrompt();
 		
 		//invokes takeSelection method
 		gameStructure.getSelector().setTitleSelection(ioTool.takeSelection(3));	

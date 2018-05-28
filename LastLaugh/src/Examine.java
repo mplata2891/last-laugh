@@ -55,20 +55,25 @@ public class Examine extends Command{
   //method to print out the description of a puzzlepiece in the current room
   private void examinePuzzlePiece(Room currentRoom) {
 	  
+	  //instantiate and initialize objects
+	  InputUtility ioTool = new InputUtility();
+	  
 	  //declare and initialize variables
 	  String choice = "";
 	  boolean choiceExists = false;
 	  
 	  //prompt user for input
+	  ioTool.itemPrompt();
 	  
 	  //take user input
+	  choice = ioTool.takeName();
 	  
 	  choiceExists = this.checkChoice(currentRoom, choice);
 	  
 	  if(choiceExists == true)
 		  this.printChoiceDescription(currentRoom, choice);
 	  else
-		  /*print error message*/;
+		  this.displayNoItemMsg();
 			  
   }//end inspectPuzzlePiece
 	  
@@ -106,6 +111,15 @@ public class Examine extends Command{
 	    System.out.println("Description: " + currentRoom.getPuzzlePiece(i).toString());
 	}//end for
   }//end printChoiceDescription
+  
+  
+  
+  //method to alert user that the item they entered doesn't exist
+  private void displayNoItemMsg() {
+	  
+	  //print error message to user
+	  System.out.println("The Item you entered does not exist in this Room.\n");
+  }//end displayNotItemMsg
 
 }//end class
 

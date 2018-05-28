@@ -24,12 +24,17 @@ public class Action extends Command{
 	//method to select a puzzle piece
 	public void selectPuzzlePiece(Room room){
 
+		//instantiate and initialize objects
+		InputUtility ioTool = new InputUtility();
+		
 		//declare and initialize variables
 		int selection = 0;
 
 		//prompt user for selection
+		ioTool.menuPrompt();
 
 		//take user's selection
+		selection = ioTool.takeSelection(room.getNumberOfPuzzlePieces());
 
 		room.setSelectedPuzzlePiece(room.getPuzzlePiece(selection));
 	}//end selectPuzzlePiece

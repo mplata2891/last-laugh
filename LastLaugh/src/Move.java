@@ -30,10 +30,10 @@ public class Move extends Command{
 			    		if(moveIsValid == true)
 				    		this.makeMove(tracker, direction);//invoke the makeMove method
 				    	else
-				    		/*this.displayNoRoomMsg()*/;
+				    		this.displayNoRoomMsg();
 			    		
 			    	}else
-			    		/*this.displayLockedDoorMsg()*/;
+			    		this.displayLockedDoorMsg();
 			    	
 	      			break;//break from switch
 
@@ -44,7 +44,7 @@ public class Move extends Command{
 			    	if(moveIsValid == true)//initiate if-else statement
 			    		this.makeMove(tracker, direction);//invoke the makeMove method
 			    	else
-			    		/*this.displayNoRoomMsg()*/;
+			    		this.displayNoRoomMsg();
 			    	
 	      			break;//break from switch
 

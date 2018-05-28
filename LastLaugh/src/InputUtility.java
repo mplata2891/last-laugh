@@ -158,7 +158,7 @@ public class InputUtility{
   
   
   
-  public static void itemPrompt(){
+  public void itemPrompt(){
 	  
 	  FileUtility fileTool = new FileUtility();
 	  

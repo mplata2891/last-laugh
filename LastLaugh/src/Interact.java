@@ -59,14 +59,17 @@ public class Interact extends Command{
 	private void solveRiddle(Player player, Caretaker caretaker) {
 		
 		//instantiate and initialize objects
-		GeneralUtility tool = new GeneralUtility();
+		GeneralUtility generalTool = new GeneralUtility();
+		InputUtility ioTool = new InputUtility();
 		
 		//declare and initialize variables
 		String solution = "";
 		
 		//prompt user to enter a their solution
+		ioTool.itemPrompt();
 		
 		//take String from user
+		solution = ioTool.takeName();
 		
 		//initiate if-else statement (1)
 		if(this.solutionIsCorrect(caretaker, solution) == true) {
@@ -85,9 +88,9 @@ public class Interact extends Command{
 			player.incrementAttempts();
 			
 			//initiate if-else statement
-			if(tool.playerIsDead(player.getAttempts()) == true)
+			if(generalTool.playerIsDead(player.getAttempts()) == true)
 				//invokes gameOver method	
-				tool.gameOver();
+				generalTool.gameOver();
 			else
 				//invokes caretakerAdmonishes method	
 				this.caretakerAdmonishes(player, caretaker);

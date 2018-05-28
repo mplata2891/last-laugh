@@ -16,7 +16,7 @@ public class GameDriver{
 		//invokes displayMenu method
 		gameStructure.getNavigator().getMenu(0).displayMenu();
 		
-		//invokes promptForSelection method
+		//invokes menuPrompt method
 		ioTool.menuPrompt();
 		
 		//invokes takeSelection method
@@ -63,8 +63,8 @@ public class GameDriver{
 			//invoke the displayMenu method
 			gameStructure.getNavigator().getMenu(1).displayMenu();
 			
-			//invokes promptForSelection method
-			//ioTool.promptForSelection();
+			//invokes menuPrompt method
+			ioTool.menuPrompt();
 			
 			//invokes takeSelection method
 			gameStructure.getSelector().setMainSelection(ioTool.takeSelection(8));
@@ -97,11 +97,11 @@ public class GameDriver{
 						break;//breaks out of switch
 						
 				//enter case 7
-				case 7: this.executeNotebookOperation();
+				case 7: this.executeNotebookOperation(gameStructure, ioTool);
 						break;//breaks out of switch
 						
 				//enter default case
-				default:	this.confirmExitMainGame();	
+				//default:	this.confirmExitMainGame();	
 			}//end switch
 			
 		}while(gameStructure.getSelector().getMainSelection() != 8);
@@ -121,8 +121,8 @@ public class GameDriver{
 			
 			gameStructure.getNavigator().getMenu(2).displayMenu();
 			
-			//invokes promptForSelection method
-			//ioTool.promptForSelection();
+			//invokes menuPrompt method
+			ioTool.menuPrompt();
 			
 			//invokes takeSelection method
 			gameStructure.getSelector().setSubSelection(ioTool.takeSelection(3));
@@ -159,8 +159,8 @@ public class GameDriver{
 				//invoke displayMenu method
 				gameStructure.getNavigator().getMenu(3).displayMenu();
 				
-				//invokes promptForSelection method
-				//ioTool.promptForSelection();
+				//invokes menuPrompt method
+				ioTool.menuPrompt();
 				
 				//invokes takeSelection method
 				gameStructure.getSelector().setSubSelection(ioTool.takeSelection(4));
@@ -187,8 +187,8 @@ public class GameDriver{
 				//invoke displayMenu method
 				gameStructure.getNavigator().getMenu(4).displayMenu();
 					
-				//invokes promptForSelection method
-				//ioTool.promptForSelection();
+				//invokes menuPrompt method
+				ioTool.menuPrompt();
 						
 				//invokes takeSelection method
 				gameStructure.getSelector().setSubSelection(ioTool.takeSelection(4));
@@ -210,8 +210,61 @@ public class GameDriver{
 	//method to select a puzzle piece and take an action on selected puzzle piece
 	public void executeActionOperation(CoreObjects gameStructure, InputUtility ioTool) {
 		
-		
+		//initiate do-while loop
+		do {
+							
+			gameStructure.getPlayer().getCommand().getAction().
+				displayPuzzlePieces(gameStructure.getPositionTracker().getCurrentRoom());
+					
+			//invoke displayMenu method
+			gameStructure.getNavigator().getMenu(5).displayMenu();
+							
+			//invokes menuPrompt method
+			ioTool.menuPrompt();
+							
+			//invokes takeSelection method
+			gameStructure.getSelector().setSubSelection(ioTool.takeSelection(2));
+							
+			if(gameStructure.getSelector().getSubSelection() != 2)
+				this.executeActionSubOperation(gameStructure, ioTool);
+						
+			}while(gameStructure.getSelector().getSubSelection() != 2);
+						
+			//invoke setMainSelection method
+			gameStructure.getSelector().setMainSelection(0);
+			
 	}//end executeActionOperation
+	
+	
+	
+	//method to perform a manipulation on a puzzle piece
+	public void executeActionSubOperation(CoreObjects gameStructure, InputUtility ioTool) {
+		
+		//initiate do-while loop
+		do {
+							
+			//invoke displayMenu method
+			gameStructure.getNavigator().getMenu(6).displayMenu();
+									
+			//invokes menuPrompt method
+			ioTool.menuPrompt();
+									
+			//invokes takeSelection method
+			gameStructure.getSelector().setSubSelection(ioTool.takeSelection(7));
+									
+			if(gameStructure.getSelector().getSubSelection() != 7)
+				gameStructure.getPlayer().getCommand().getAction().
+					performAction(gameStructure.getPlayer(), 
+								gameStructure.getPositionTracker().getCurrentRoom().
+									getSelectedPuzzlePiece(),
+										gameStructure.getSelector().getSubSelection());
+								
+			}while(gameStructure.getSelector().getSubSelection() != 7);
+								
+			//invoke setMainSelection method
+			gameStructure.getSelector().setSubSelection(0);
+			
+	}//end executeActionSubOperation
 	
 	
 	
@@ -228,8 +281,8 @@ public class GameDriver{
 				//invoke displayMenu method
 				gameStructure.getNavigator().getMenu(7).displayMenu();
 							
-				//invokes promptForSelection method
-				//ioTool.promptForSelection();
+				//invokes menuPrompt method
+				ioTool.menuPrompt();
 								
 				//invokes takeSelection method
 				gameStructure.getSelector().setSubSelection(ioTool.takeSelection(2));
@@ -258,8 +311,8 @@ public class GameDriver{
 			//invoke displayMenu method
 			gameStructure.getNavigator().getMenu(8).displayMenu();
 					
-			//invokes promptForSelection method
-			//ioTool.promptForSelection();
+			//invokes menuPrompt method
+			ioTool.menuPrompt();
 					
 			//invokes takeSelection method
 			gameStructure.getSelector().setSubSelection(ioTool.takeSelection(3));

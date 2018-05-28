@@ -1,3 +1,5 @@
+/*FINALIZED*/
+
 /*
 	Mike Plata
 	CoSci 290
@@ -10,8 +12,7 @@
 //begin new class
 public class Command extends GamePiece{
 	
-	//the Command class has 1 class member/field/property
-	private int commandId;
+	//the Command class has 7 class member/field/property
 	private Move move;
 	private Sense sense;
 	private Examine examine;
@@ -23,9 +24,6 @@ public class Command extends GamePiece{
 	
 	//default constructor
 	public Command(){
-		
-		//assigns the given value to the commandId field
-		this.commandId  = 0;
 		
 		//instantiates object of type Move and stores it in the move property
 		this.move = new Move();
@@ -45,24 +43,6 @@ public class Command extends GamePiece{
 		//instantiates an object of type Notebook and stores it in the notebook property
 		this.notebook = new Notebook();
 	}//end constructor
-	
-	
-	
-	//method to get the value of the commandId field
-	public int getCommandId(){
-		
-		//returns the value of the commandId field
-		return this.commandId;
-	}//end getCommandId
-	
-	
-	
-	//method to set the value of the commandId field
-	public void setCommandId(int newId){
-		
-		//assigns the value of newId to the commandId field
-		this.commandId = newId;
-	}//end setCommandId
 	
 	
 	
@@ -126,5 +106,21 @@ public class Command extends GamePiece{
 		//returns the object stored in the notebook property
 		return this.notebook;
 	}//end getNotebook
+	
+	
+	
+	//method to return the class represented as a string
+	public String toString() {
+		
+		//returns the following string
+		return "Command - \n"
+				+ "List of Commands: Move\n"
+				+ "					 Sense\n"
+				+ "					 Examine\n"
+				+ "					 Interact\n"
+				+ "					 Action\n"
+				+ "					 Inventory\n"
+				+ "					 Notebook\n\n";
+	}//end toString
 	
 }//end class

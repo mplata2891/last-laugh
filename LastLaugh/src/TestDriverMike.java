@@ -31,11 +31,11 @@ public class TestDriverMike{
 	    	 		break;//break out of switch
 	    	 			
 	    	//enter case 2 
-    	 	case 2:	gameDriver.runUpdateObjects(gameStructure);
-	    			break;//break out of switch
+    	 	//case 2:	gameDriver.runUpdateObjects(gameStructure);
+	    			//break;//break out of switch
 	    			
     	 	//enter default case
-    	 	default:	ioTool.tauntPlayer();
+    	 	//default:	ioTool.tauntPlayer();
     	 }//end switch
     		
     	 

@@ -9,17 +9,23 @@
 */
 
 //begin new class
-public class Inventory extends Command{
+public class Inventory{
 
 	//method to display the player's inventory as a list
 	public void openInventory(Player player){
 
-		//initiate for loop to iterate through list
-		for(int i = 0; i < player.getNumberOfKeys(); i++){
+		//initiate if-else statement
+		if(player.getNumberOfKeys() == 0) {
+		
+			//initiate for loop to iterate through list
+			for(int i = 0; i < player.getNumberOfKeys(); i++){
+				
+				//print a string representation of each key in the List
+				System.out.println("Key " + (i + 1) + ": " + player.getKey(i).toString());
+			}//end for
+		}else 
+			this.displayNoInventoryMsg();
 			
-			//print a string representation of each key in the List
-			System.out.println("Key " + (i + 1) + ": " + player.getKey(i).toString());
-		}//end for
 	}//end openInventory
 
 
@@ -43,7 +49,7 @@ public class Inventory extends Command{
 		if(correctKey == true)
 			this.unlockDoor(player, door);//invoke unlockDoor method
 		else
-			/*display error message*/;
+			this.displayWrongKeyMsg();
 	}//end useKey
 
 
@@ -51,10 +57,17 @@ public class Inventory extends Command{
 	//method to selectKey for use
 	private Key selectKey(Player player){
 
+		//instantiate and initialize objects
+		InputUtility ioTool = new InputUtility();
+		
 		//declare and initialize variables
 		int selection = 0;
+		
+		//prompt user for selection
+		ioTool.menuPrompt();
 
 		//take user's selection
+		selection = ioTool.takeSelection(player.getNumberOfKeys() + 1);
 
 		//returns the Key object in the specific index
 		return player.getKey(selection - 1);
@@ -107,5 +120,23 @@ public class Inventory extends Command{
 		//alert user to new note
 		System.out.println("A new Note has been added to your Notebook.\n");
 	}//end givePlayerNote
+	
+	
+	
+	//method to alert user they have no inventory
+	private void displayNoInventoryMsg() {
+		
+		//prints error message to user
+		System.out.println("You have no Keys in your Inventory yet.");
+	}//end displayNoInventoryMsg
+	
+	
+	
+	//method to display alert that the selected key is the wrong one
+	private void displayWrongKeyMsg() {
+		
+		//displays error message
+		System.out.println("This isn't the right key for this door.");
+	}
 
 }//end of class

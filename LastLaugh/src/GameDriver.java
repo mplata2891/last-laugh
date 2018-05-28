@@ -11,7 +11,7 @@ public class GameDriver{
 								InputUtility ioTool) {
 		
 		//invokes splashPage method 
-		fileTool.splashPage("Title");
+		fileTool.splashPage("title");
 		
 		//invokes displayMenu method
 		gameStructure.getNavigator().getMenu(0).displayMenu();
@@ -30,24 +30,27 @@ public class GameDriver{
 									InputUtility ioTool) {
 		
 		//access the readFile member of the tool object to display the story's Prologue
-	    fileTool.readFile("TextFiles/Story/Prologue.txt");
+	    fileTool.readFile("src/TextFiles/Story/Prologue.txt");
 	    
-	    //need something to pause, then continue
+	    //need something to pause,1 then continue
 
 	    //access the readFile member of the tool object to display the story's
 	    //first part of the intro
-	    fileTool.readFile("TextFiles/Story/Intro1.txt");
+	    fileTool.readFile("src/TextFiles/Story/Intro1.txt");
 
 	    //prompt user for input
-	    System.out.print("You've been passed out for 3 days.\n"
-	                    + "What's your name?: ");
+	    System.out.print("\nYou've been passed out for 3 days."
+	                    + "What's your name?\n");
 
 	    //take user's input
 	    gameStructure.getPlayer().setName(ioTool.takeName());
+	    
+	    //skip to next line
+	    System.out.println();
 
 	    //access the readFile member of the tool object to ddisplay the story's
 	    //second part of the intro
-	    fileTool.readFile("TextFiles/Story/Intro2.txt");
+	    fileTool.readFile("src/TextFiles/Story/Intro2.txt");
 	    
 	    //need something to pause and continue
 	}//end runIntro Sequence

@@ -1,3 +1,5 @@
+/*FINALIZED*/
+
 /*
 	Mike Plata
 	CoSci 290
@@ -10,27 +12,26 @@
 */
 
 //begin new class
-public class Item extends GamePiece{
+public abstract class Item extends GamePiece{
 
-	//the Item class has  class members/fields/properties
+	//the Item class has 4 class members/fields/properties
 	private String type;
 	private String name;
 	private String description;
 	private String status;
 
 
-
 	//default constructor
 	public Item(){
 
 		//assigns the indicated String to the name property
-		this.name = "None";
+		this.name = "";
 
 		//assigns the indicated string to the type property
-		this.type = "None";
+		this.type = "";
 
 		//assigns the indicated string to the description property
-		this.description = "None";
+		this.description = "";
 		
 		//assigns the indicated string to the status property
 		this.status = "Active";
@@ -117,7 +118,7 @@ public class Item extends GamePiece{
 		//returns class members as a string
 		return this.type + " - \n"
 						+ "Name: " + this.name + "\n"
-						+ "Description: " + this.description + "\n\n";
+						+ "Description: " + this.description + "\n";
 	}//end toString
 
 }//end of class

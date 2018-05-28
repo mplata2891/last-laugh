@@ -4,7 +4,7 @@
 */
 
 //begin new class
-public class Interact extends Command{
+public class Interact{
 	
 	//method to interact with the caretaker of the current room
 	public void interactWithCaretaker(Player player, Caretaker caretaker, int selection) {

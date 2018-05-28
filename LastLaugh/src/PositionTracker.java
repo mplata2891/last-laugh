@@ -1,3 +1,5 @@
+/*FINALIZED*/
+
 /*
   Mike Plata
   CoSci 290
@@ -35,27 +37,6 @@ public class PositionTracker extends GamePiece{
 
     //assigns the indicated value to the exactRow field
     this.exactRow = 0;
-
-    //creates a new array and assigns it to the map field
-    this.map = new Room[this.maxRows][this.maxColumns];
-  }//end constructor
-  
-
-
-  //implicit constructor
-  public PositionTracker(int rows, int columns, int startRow, int startColumn){
-
-    //assigns the indicated value to the maxRows field
-    this.maxRows = rows;
-
-    //assigns the indicated value to the maxColumns field
-    this.maxColumns = columns;
-
-    //assigns the indicated value to the exactRow field
-    this.exactRow = startRow;
-
-    //assigns the indicated value to the exactColumn field
-    this.exactColumn = startColumn;
 
     //creates a new array and assigns it to the map field
     this.map = new Room[this.maxRows][this.maxColumns];
@@ -159,20 +140,5 @@ public class PositionTracker extends GamePiece{
 	  //returns the object in the given index of the map field
 	  return this.map[this.exactRow][this.exactColumn];
   }//end getCurrentRoom
-  
-
-
-  //method to fill the map field with Space objects
-  public void fillMap(Room[][] aMap, int rows, int columns){
-
-    for(int i = 0; i < rows; i++){ //initiate for loop (1)
-
-      for(int j = 0; j < columns; j++){ //initiate for loop (2)
-
-        //instantiate a Room object in the given index of the table array
-        aMap[i][j] = new Room();
-      }//end for (2)
-    }//end for (1)
-  }//end fillMap
 
 }//end class

@@ -2,12 +2,12 @@
   Mike Plata
   CoSci 290
 
-  The Terminal class is a representation of an in-game object
+  The Caretaker class is a representation of an in-game object
   that the player must interact with to make their way through
   the rooms of the game.
 
-  The Terminal class contains puzzles, or riddles that the player
-  must solve. Some Terminals have only one puzzle, but some can
+  The Caretaker class contains puzzles, or riddles that the player
+  must solve. Some Caretakers have only one puzzle, but some can
   contain multiple puzzles.
 
   Once the player solves all the puzzles have been completed
@@ -18,8 +18,6 @@
 */
 
 //declare imports
-
-
 import java.util.ArrayList;
 
 //beginning of a new Class
@@ -34,7 +32,6 @@ public class Caretaker extends Item{
 	private String felicitation;
 	private String admonishment;
 	private Key key;
-
 
 
 	//default constructor
@@ -224,7 +221,8 @@ public class Caretaker extends Item{
 	public String toString(){
 
 		//returns the value returned by the parent class toString method
-		return super.toString();
+		return super.toString()
+				+ "Status: " + super.getStatus() + "\n\n";
 	}//end toString method
 
 }//end of class

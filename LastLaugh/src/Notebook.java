@@ -9,7 +9,7 @@
 */
 
 //begin new class
-public class Notebook extends Command{
+public class Notebook{
 
 	public void openActivePage(Player player){
 
@@ -24,7 +24,7 @@ public class Notebook extends Command{
 
 		//initiate if-else statement
 		if(player.getNumberOfNotes() == 0)
-			/*display error message*/;
+			this.displayNoNotesMsg();
 		else{
 			
 			//initiate switch statement
@@ -48,7 +48,7 @@ public class Notebook extends Command{
 
 		//initiate if-else statement
 		if((player.getCurrentPage() + 1) == player.getNumberOfNotes())
-			/*display error message*/;
+			this.displayNoMorePagesMsg();
 		else
 			player.setCurrentPage(player.getCurrentPage() + 1);
 	}//end moveToNextPage
@@ -60,9 +60,27 @@ public class Notebook extends Command{
 
 		//initiate if-else statement
 		if(player.getCurrentPage() == 0)
-			/*display error message*/;
+			this.displayNoMorePagesMsg();
 		else
 			player.setCurrentPage(player.getCurrentPage() - 1);
-	}//end moveToPreviousPage	
+	}//end moveToPreviousPage
+	
+	
+	
+	//method to alert user that their notebook is empty
+	private void displayNoNotesMsg() {
+		
+		//prints error message to the user
+		System.out.println("You don't have any Notes in your Notebook yet.");
+	}//end displayNoNotesMsg
+	
+	
+	
+	//method to alert user that their are no more pages to turn to
+	private void displayNoMorePagesMsg() {
+		
+		//print error message to the user
+		System.out.println("There are no more pages in that direction.");
+	}//end displayNoMorePagesMsg
 
 }//end class

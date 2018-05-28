@@ -10,7 +10,7 @@
 */
 
 //begin new class
-public class Examine extends Command{
+public class Examine{
 
   //method to print the details of a specific Item in a Room
   public void examineItem(Room currentRoom, int selection){

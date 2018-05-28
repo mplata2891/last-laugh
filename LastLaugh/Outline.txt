@@ -2,7 +2,8 @@ Class Hierarchy
 
 *GamePiece (Highest Level Superclass)
 
-	//haven't written this yet
+	@ Selector [is a GamePiece]
+	
 	@ Navigator [is a GamePiece]
 		- has Menu(s)
 		
@@ -30,13 +31,20 @@ Class Hierarchy
 			- has Command(s)
 		
 			@ Command [is a GamePiece]
-				# Move [is a Command]
-				# Sense [is a Command]
-				# Examine [is a Command]
-				# Interact [is a Command]
-				# Action [is a Command]
-				# Inventory [is a Command]
-				# Notebook [is a Command]
+				- has move
+				- has sense
+				- has examine
+				- has interact
+				- has action
+				- has inventory
+				- has notebook
+				@ Move 
+				@ Sense 
+				@ Examine 
+				@ Interact 
+				@ Action 
+				@ Inventory 
+				@ Notebook 
 		
 
 

@@ -5,7 +5,7 @@
 */
 
 //begin new class
-public class Sense extends Command{
+public class Sense{
 
   //method that prints the name of the door, and names of the Items
   //located in the room that the player is currently in

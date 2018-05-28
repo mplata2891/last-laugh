@@ -1,3 +1,5 @@
+/*FINALIZED*/
+
 /*
 	Mike Plata
 	CoSci 290
@@ -12,7 +14,6 @@ public abstract class Person extends GamePiece{
 
 	//the Person class has 1 class member/field/property
 	private String name;
-
 
 	
 	//default constructor

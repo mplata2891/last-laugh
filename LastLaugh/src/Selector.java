@@ -1,6 +1,11 @@
+/*FINALIZED*/
+
 /*
 	Mike Plata
 	CoSci 290
+	
+	The selector class holds the players in game menu selections
+	for all three tiers of menus - title menu, main menu, and sub menu
 */
 
 //begin new class

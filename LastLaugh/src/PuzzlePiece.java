@@ -155,7 +155,8 @@ public class PuzzlePiece extends Item{
 	public String toString() {
 		
 		//returns the value returned by invoking the parent class toString method
-		return super.toString();
+		return super.toString()
+				+ "Status: " + super.getStatus() + "\n\n";
 	}//end toString
     
 }//end of Class

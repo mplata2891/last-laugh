@@ -1,6 +1,12 @@
+/*FINALIZED*/
+
 /*
 	Mike Plata
 	CoSci 290
+	
+	The Navigator class is a container for all the in game menus
+	that the user will interact with to navigate through the
+	game
 */
 
 import java.util.ArrayList;
@@ -8,8 +14,9 @@ import java.util.ArrayList;
 //begin new class
 public class Navigator extends GamePiece{
 	
+	//the Navigator class has 2 class members/fields/properties
+	private int numberOfMenus;
 	private ArrayList<Menu> menus;
-	private int numberOfMenus;//not sure if I need this
 	
 	
 	//default constructor
@@ -21,6 +28,24 @@ public class Navigator extends GamePiece{
 		//assigns the given value to the numberOfMenus field
 		this.numberOfMenus = 0;
 	}//end constructors
+	
+	
+	
+	//method to get the value of the numberOfMenus field
+	public int getNumberOfMenus() {
+			
+		//returns the value of the getNumberOfMenus field
+		return this.numberOfMenus;
+	}//end getNumberOfMenus
+		
+		
+		
+	//method to set the value of the numberOfMenus field
+	public void setNumberOfMenus(int newValue) {
+			
+		//assigns the value of newValue to the numberOfMenus field
+		this.numberOfMenus = newValue;
+	}//end setNumberOfMenus
 	
 	
 	
@@ -42,20 +67,12 @@ public class Navigator extends GamePiece{
 	
 	
 	
-	//method to get the value of the numberOfMenus field
-	public int getNumberOfMenus() {
+	//method to print class represented as a string
+	public String toString() {
 		
-		//returns the value of the getNumberOfMenus field
-		return this.numberOfMenus;
-	}//end getNumberOfMenus
-	
-	
-	
-	//method to set the value of the numberOfMenus field
-	public void setNumberOfMenus(int newValue) {
-		
-		//assigns the value of newValue to the numberOfMenus field
-		this.numberOfMenus = newValue;
-	}//end setNumberOfMenus
+		//returns the following string
+		return "Navigator - \n"
+				+ "Number Of Menus: " + this.numberOfMenus + "\n\n";
+	}//end toString
 	
 }//end class

@@ -5,7 +5,7 @@
 */
 
 //begin new class
-public class Action extends Command{
+public class Action{
 
 	//method to print out all puzzle pieces in the current room
 	public void displayPuzzlePieces(Room room){

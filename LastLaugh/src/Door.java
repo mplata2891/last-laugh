@@ -1,3 +1,5 @@
+/*FINALIZED*/
+
 /*
   Mike Plata
   CoSci 290
@@ -15,7 +17,6 @@
 public class Door extends GamePiece{
 
   //the Door class has 5 member fields/properties
-  private int doorId;
   private String name;
   private String description;
   private String status;
@@ -23,12 +24,8 @@ public class Door extends GamePiece{
   private Note note;
   
   
-  
   //default constructor
   public Door(){
-
-    //assigns the indicated value to the doorId field
-    this.doorId = 0;
     
     //assigns the indicated strong to the name field
     this.name = "";
@@ -46,24 +43,6 @@ public class Door extends GamePiece{
     this.note = new Note();
   }//end constructor
 
-
-  
-  //method to get the value of the doorId field
-  public int getDoorId(){
-
-    //returns the value of the doorId field
-    return this.doorId;
-  }//end getDoorId
-
-
-  
-  //method to set the value of the doorId field
-  public void setDoorId(int newId){
-
-    //assigns the value of newId to the doorId field
-    this.doorId = newId;
-  }//end setConnectionId
-  
   
   
   //method to get the value of the name field

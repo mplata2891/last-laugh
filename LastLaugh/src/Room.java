@@ -1,10 +1,13 @@
+/*FINALIZED*/
+
 /*
   Mike Plata
   CoSci 290
 
   The Room class is a representation of a physical in-game
   room that the player is inside of. Each room has its own
-  name, Id number, contains a variety of PuzzlePieces and doors.
+  name, description, contains a variety of PuzzlePieces,
+  a caretaker and a door.
 */
 
 //declare imports
@@ -13,63 +16,41 @@ import java.util.ArrayList;
 //begin new class
 public class Room extends GamePiece{
 
-	//the Room class has 4 member fields/properties
-	private int roomId;
+	//the Room class has 7 member fields/properties
 	private String name;
-	private Door door;
-	private Caretaker caretaker;
-	private ArrayList<PuzzlePiece> pieces;
-	private int numberOfPuzzlePieces;
-	private PuzzlePiece selectedPuzzlePiece;
 	private String description;
-  
-
-
+	private int numberOfPuzzlePieces;
+	private ArrayList<PuzzlePiece> pieces;
+	private PuzzlePiece selectedPuzzlePiece;
+	private Caretaker caretaker;
+	private Door door;
+	
+	
+	
   //default constructor
   public Room(){
-
-	//assigns the indicated value to the roomId field
-	this.roomId = 0;
 	
 	//assigns the value of the indicated string to the name field
     this.name = "";
-
-    //instantiates an object of type Door and stores it in the door field
-    this.door = new Door();
     
-    //instantiates an object of type caretaker and stores it in the caretaker field
-    this.caretaker = new Caretaker();
+    //assigns the given string to the description field
+    this.description = "";
+
+    //assigns the given value to the numberOfPuzzlePieces field
+    this.numberOfPuzzlePieces = 0;
 
     //instantiates an ArrayList of type PuzzlePiece and stores it in the pieces field
     this.pieces = new ArrayList<>();
     
-    //assigns the given value to the numberOfPuzzlePieces field
-    this.numberOfPuzzlePieces = 0;
-    
     //instantiates a new object of type PuzzlePiece and stores it in the selectedPuzzlePiece field
     this.selectedPuzzlePiece = new PuzzlePiece();
     
-    //assigns the given string to the description field
-    this.description = "";
+    //instantiates an object of type caretaker and stores it in the caretaker field
+    this.caretaker = new Caretaker();
+    
+    //instantiates an object of type Door and stores it in the door field
+    this.door = new Door();
   }//end constructor
-  
-
-
-  //method to get the value of the roomId field
-  public int getRoomId(){
-
-    //returns the value of the roomId field
-    return this.roomId;
-  }//end getRoomId
-
-
-  
-  //method to set the value of the roomId field
-  public void setRoomId(int newId){
-
-    //assigns the value of newId to the roomId field
-    this.roomId = newId;
-  }//end setRoomId
   
   
   
@@ -88,60 +69,24 @@ public class Room extends GamePiece{
     //assigns the value of newName to the name field
     this.name = newName;
   }//end setName
-
-
-  
-  //method to get the Door object located in the door field
-  public Door getDoor(){
-
-    //returns the Door object located in the door field
-    return this.door;
-  }//end getDoor
-  
-
-
-  //method to assign a door object in the door field
-  public void setDoor(Door newDoor){
-
-	//stores the newDoor object in the door field
-    this.door = newDoor;
-  }//end setDoor
   
   
   
-  //method to get the caretaker object in the caretaker field
-  public Caretaker getCaretaker() {
+  //method to get the value of the description field
+  public String getDescription() {
 	  
-	  //returns the Caretaker object that is stored in the caretaker field
-	  return this.caretaker;
-  }
+	  //returns the value of the description field
+	  return this.description;
+  }//end getDescription
   
   
   
-  //method to set the Caretaker object in to the caretaker field
-  public void setCaretaker(Caretaker newCaretaker) {
+  //method to set the value of the description field
+  public void setDescription(String newDescription) {
 	  
-	  //assigns the newCaretaker object into the caretaker field
-	  this.caretaker = newCaretaker;
-  }//end setCaretaker
-  
-  
-  
-  //method to return an PuzzlePiece in the list
-  public PuzzlePiece getPuzzlePiece(int index){
-
-    //returns PuzzlePiece located in specific index
-    return this.pieces.get(index);
-  }//end getPuzzlePiece
-
-
-  
-  //method to add elements to the pieces member field
-  public void addPuzzlePiece(PuzzlePiece PuzzlePiece){
-
-    //adds PuzzlePiece to an element in the ArrayList
-    this.pieces.add(PuzzlePiece);
-  }//end addPuzzlePiece
+	  //assigns the value of newDescription to the description field
+	  this.description = newDescription;
+  }//end setDescription
 
   
 
@@ -160,7 +105,25 @@ public class Room extends GamePiece{
 	  //assigns the value of newSize to the numberOfPuzzlePieces field
 	  this.numberOfPuzzlePieces = newSize;
   }//end setNumberOfPuzzlePieces
+
+
   
+  //method to add elements to the pieces member field
+  public void addPuzzlePiece(PuzzlePiece PuzzlePiece){
+
+    //adds PuzzlePiece to an element in the ArrayList
+    this.pieces.add(PuzzlePiece);
+  }//end addPuzzlePiece
+  
+  
+  
+  //method to return an PuzzlePiece in the list
+  public PuzzlePiece getPuzzlePiece(int index){
+
+    //returns PuzzlePiece located in specific index
+    return this.pieces.get(index);
+  }//end getPuzzlePiece
+
   
   
   //method to return the object stored in the slectedPuzzlePiece field
@@ -181,21 +144,39 @@ public class Room extends GamePiece{
   
   
   
-  //method to get the value of the description field
-  public String getDescription() {
+  //method to get the caretaker object in the caretaker field
+  public Caretaker getCaretaker() {
 	  
-	  //returns the value of the description field
-	  return this.description;
-  }//end getDescription
+	  //returns the Caretaker object that is stored in the caretaker field
+	  return this.caretaker;
+  }//end getCaretaker
   
   
   
-  //method to set the value of the description field
-  public void setDescription(String newDescription) {
+  //method to set the Caretaker object in to the caretaker field
+  public void setCaretaker(Caretaker newCaretaker) {
 	  
-	  //assigns the value of newDescription to the description field
-	  this.description = newDescription;
-  }//end setDescription
+	  //assigns the newCaretaker object into the caretaker field
+	  this.caretaker = newCaretaker;
+  }//end setCaretaker
+
+
+  
+  //method to get the Door object located in the door field
+  public Door getDoor(){
+
+    //returns the Door object located in the door field
+    return this.door;
+  }//end getDoor
+  
+
+
+  //method to assign a door object in the door field
+  public void setDoor(Door newDoor){
+
+	//stores the newDoor object in the door field
+    this.door = newDoor;
+  }//end setDoor
 
 
 
@@ -203,12 +184,11 @@ public class Room extends GamePiece{
   public String toString() {
 	  
 	  //returns the indicated String
-	  return "Room " + this.roomId + "-\n"
-			  + "Room Name: " + this.name + "\n"
-			  + "Doors: 1\n"
-			  + "Caretaker: 1\n"
+	  return "Room Name: " + this.name + "\n"
+			  + "Description: " + this.getDescription() + "\n"
 			  + "Puzzle Pieces: " + this.getNumberOfPuzzlePieces() + "\n"
-        + "Description: " + this.getDescription() + "\n\n";
+			  + "Caretaker: 1\n"
+			  + "Doors: 1\n\n";        
   }//end toString
   
 }//end class

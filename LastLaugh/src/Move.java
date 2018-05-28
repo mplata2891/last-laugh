@@ -8,7 +8,7 @@
  */
 
 //begin new class
-public class Move extends Command{
+public class Move {
 
 	//method to move a player from their current room in the map to a new room
 	  public void movePlayer(PositionTracker tracker, int direction){

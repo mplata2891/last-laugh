@@ -1,3 +1,3 @@
-A key that is recognized by other keys as key-like.
-A very legit key. No one would question whether or
+A key that is recognized by other keys as key-like. 
+A very legit key. No one would question whether or 
 not it is a key.

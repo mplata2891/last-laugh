@@ -50,6 +50,16 @@ public class TestDriverFrank{
         haven't done:
           private Note note;
       */
+    
+    populate.readNotes(gameGuts);
+      /*
+        done:
+                         
+        haven't done:
+          private String name;
+          private String title;
+          private String contents;
+      */
     populate.readCaretaker(gameGuts);
       /*
         done:
@@ -60,10 +70,10 @@ public class TestDriverFrank{
           private String felicitation;
           private String admonishment;
           private Key key; (below in readKey)
-        
-        haven't done:
           private ArrayList<String> puzzles;
 	        private ArrayList<String> answers;
+        haven't done:
+          
           private int currentLayer;	
 
       */
@@ -71,9 +81,8 @@ public class TestDriverFrank{
       /*
         done:
           private String name;
-        
-        haven't done:
           private String description;
+                  
       */
     
     
@@ -96,9 +105,11 @@ public class TestDriverFrank{
       //System.out.println(gameGuts.getPositionTracker().getRoom(row,col).getCaretaker().getGreeting());
       //System.out.println(gameGuts.getPositionTracker().getRoom(row,col).getCaretaker().getFelicitation());
       //System.out.println(gameGuts.getPositionTracker().getRoom(row,col).getCaretaker().getAdmonishment());
+        //puzzles and answer
+      //gameGuts.getPositionTracker().getRoom(row,col).getCaretaker().displayQA(); 
       
       //Key
-      //System.out.print(gameGuts.getPositionTracker().getRoom(row,col).getCaretaker().getKey().toString());
+      System.out.print(gameGuts.getPositionTracker().getRoom(row,col).getCaretaker().getKey().toString());
       
       //helps for loop work with room index
       if(col < 2) col++;
@@ -107,31 +118,9 @@ public class TestDriverFrank{
     
     /*
       Questions/Comments:
-      In Keys/Descriptions
-        - 12 keys? Not just 9? (there's 12 description txt files)
-        - Do we have key descriptions? Do we need them? Should we scrap that?
+      
         
-      Ids
-        - I didn't do any of them cause we're not using them?
-        
-      Caretaker
-        - For answers/puzzles, why ArrayList<String>  instead of String?
-          Not sure how to work with that, so haven't touched it yet. Should I just
-          make the memebers String?
-          
-      Rooms
-        - ArrayList<PuzzlePiece> pieces. Does this need populating? I'm sure how to 
-          handle this either.  
-          
-      Notes
-        - populate their contents with text files in Story/LynnNotes? 
-          but how to choose which story?
-        - title and name for notes where? Sure I make up some files? or they're somewhere?
-        
-      Empty text files
-        - In some of them I just commented genericall just to see it
-        
-      */
+    */
     
   }//end main
   

@@ -5,11 +5,11 @@ Date: ---
 General Notes:
 
 Rooms (Updated):
--Each room has the same basic layout.
+-Each room despite it's eccentricities has the same basic layout.
 -Two doors
 -one terminal
--haven't yet decided if theres a correlation between
-the rooms and puzzles.
+-haven't yet decided if theres a correlation between the rooms 
+and puzzles.
 
 The Architect:
 -likes riddles

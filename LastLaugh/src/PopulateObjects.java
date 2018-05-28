@@ -259,7 +259,15 @@ public class PopulateObjects{
       e.printStackTrace();
     }//end catch
   }//end readDoorKeyName
-
+  
+  ////////Notes//////////////////////////////////////////////////////////////////
+  public void readNotes(CoreObjects coreObject){
+    //readNoteContent(coreObject);
+    //readNoteName(coreObject);
+    //readNoteTitle(coreObject);
+  }
+  
+  
   ////////Caretaker//////////////////////////////////////////////////////////////
   public void readCaretaker(CoreObjects coreObject){
     
@@ -665,7 +673,7 @@ public class PopulateObjects{
       description = "";
     }//end for
   }//end readCaretakerKeyDescription
-  
+    
   
   
 }//end class

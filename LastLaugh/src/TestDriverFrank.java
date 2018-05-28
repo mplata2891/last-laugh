@@ -50,6 +50,16 @@ public class TestDriverFrank{
         haven't done:
           private Note note;
       */
+    
+    populate.readNotes(gameGuts);
+      /*
+        done:
+                         
+        haven't done:
+          private String name;
+          private String title;
+          private String contents;
+      */
     populate.readCaretaker(gameGuts);
       /*
         done:

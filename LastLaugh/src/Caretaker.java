@@ -218,7 +218,14 @@ public class Caretaker extends Item{
 		this.key = newKey;
 	}//end setKey
 
+  public void displayQA(){
+    for(int i = 0; i < this.answers.size(); i++){ //initiate for loop
 
+      //invokes get method and prints the return value
+      System.out.println("\nPuzzle: " + this.puzzles.get(i));
+      System.out.println("Answer: " + this.answers.get(i));
+    }//end for
+  }
 
 	//method to return class represented as a String
 	public String toString(){

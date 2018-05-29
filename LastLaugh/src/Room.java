@@ -31,10 +31,10 @@ public class Room extends GamePiece{
   public Room(){
 	
 	//assigns the value of the indicated string to the name field
-    this.name = "";
+    this.name = "Default Name";
     
     //assigns the given string to the description field
-    this.description = "";
+    this.description = "Default Description";
 
     //assigns the given value to the numberOfPuzzlePieces field
     this.numberOfPuzzlePieces = 0;

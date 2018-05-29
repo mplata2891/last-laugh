@@ -5,7 +5,7 @@ public class TestDriverMike{
   public static void main(String[] args){
 
       //instantiate and initialize objects
-	  GeneralUtility generalTool = new GeneralUtility();
+	  //GeneralUtility generalTool = new GeneralUtility();
 	  FileUtility fileTool = new FileUtility();
 	  InputUtility ioTool = new InputUtility();
 	  LoadGame gameTool = new LoadGame();

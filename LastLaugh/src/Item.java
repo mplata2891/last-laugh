@@ -25,13 +25,13 @@ public abstract class Item extends GamePiece{
 	public Item(){
 
 		//assigns the indicated String to the name property
-		this.name = "";
+		this.name = "Default Name";
 
 		//assigns the indicated string to the type property
-		this.type = "";
+		this.type = "Default Type";
 
 		//assigns the indicated string to the description property
-		this.description = "";
+		this.description = "Default Description";
 		
 		//assigns the indicated string to the status property
 		this.status = "Active";

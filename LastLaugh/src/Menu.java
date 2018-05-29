@@ -18,24 +18,13 @@ public class Menu{
   //the Menu class has 2 member fields/properties
   private String name;
   private ArrayList<String> options;
-
+  
+  
   //default constructor
   public Menu(){
 
     //assigns the indicated string to the name field
-    this.name = "";
-
-    //instantiates a new array and assigns it to the option field
-    this.options = new ArrayList<>();
-  }//end constructor
-
-
-  
-  //implicit constructor
-  public Menu(String name, String filename){
-
-    //assigns the value of name to the name field
-    this.name = name;
+    this.name = "Default Name";
 
     //instantiates a new array and assigns it to the option field
     this.options = new ArrayList<>();

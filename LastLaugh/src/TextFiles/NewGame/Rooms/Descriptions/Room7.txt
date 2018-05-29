@@ -12,8 +12,8 @@ ceiling.
 
 Shivering as you glide across the floor, you take note of the hole in the center
 of the room. A small pool of water sits there, undisturbed. Slightly past the
-pool are a (item), and a (item). This room doesn't seem to have a caretaker.
-You feel like there's something not quite right with this. Maybe there's
+pool are a (item), and a (item), and an igloo. This room doesn't seem to have a
+caretaker. You feel like there's something not quite right with this. Maybe there's
 something you're missing.
 
 With some trepidation, you make your way back towards the pool, and you hear, or

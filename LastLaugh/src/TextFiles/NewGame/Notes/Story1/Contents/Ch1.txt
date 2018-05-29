@@ -1,8 +1,14 @@
-A piece of paper is placed carefully in front of you.  You reach forward, and turn it over.  
-A note.
+  Welcome,
 
-	Dear (PlayerName),
-
-  I understand this may come as a shock to you.  Don’t worry.
-	Everything happens for a reason.  Just go through the door, 
-	and I promise all will be revealed in time.  
+  I suppose this may come as a surprise to you, after all 
+It's not everyday you get to be part of such a life-changing
+project.  
+    
+  I hope this note finds you... alive.  it would be such a shame
+for you to expire so early in the process.  In order to navigate 
+my little game I need you to solve a series of riddles.  Don't 
+worry you'll have so many options and lists of things to do.  
+  
+I truly do hope you enjoy all my hard work.
+    
+    -A

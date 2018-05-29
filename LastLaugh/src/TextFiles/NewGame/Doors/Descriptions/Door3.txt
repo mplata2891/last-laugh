@@ -1,1 +1,12 @@
-//door 3 description
+This door is set into a square depression in the  center of the
+floor and is made of iron. The door depression is square, and
+forms a set of steps that lead to the door, surrounding it on
+all sides.
+
+Each set of descending steps is carved with ornate symbols you
+do not recognize. The door itself is decorated with a grid, and
+in the center of each square is a fist sized iron sphere.
+
+At the center of the door, a carved head of a tiger with its
+mouth open and holding a ring. In its mount you also spy a
+keyhole, where the tongue should be.

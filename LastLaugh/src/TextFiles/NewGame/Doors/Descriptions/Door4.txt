@@ -1,1 +1,11 @@
-//door 4 description
+Clearly divided in two, this door extends from the floor
+to the ceiling and is half as wide as the room.
+
+Painted on the door's copper face are four horses, two
+horses, on each side of the door, each facing the center
+of the door. The horses depicted are a white horse, a
+black horse, a red horse, and a pale horse.
+
+At the very center of the door is a latch in the shape
+of a lamb, and at it's center a keyhole in the shape of
+an ornate letter 'A'.

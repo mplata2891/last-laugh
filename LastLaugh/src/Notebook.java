@@ -13,8 +13,12 @@ public class Notebook{
 
 	public void openActivePage(Player player){
 
+		//initiate if-else statement
+		if(player.getNumberOfNotes() > 0) {
 		//display the most recently accessed page of the player's notebook
 		System.out.println(player.getNote(player.getCurrentPage()).toString());
+		}else
+			this.displayNoNotesMsg();
 	}//end openActivePage
 
 	

@@ -1,7 +1,0 @@
-*Instantiate needed objects
-
-*Load Objects
-
-*Present Title Screen with Title Menu
-
-*Take User's choice from Title Screen

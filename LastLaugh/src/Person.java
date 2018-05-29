@@ -20,7 +20,7 @@ public abstract class Person extends GamePiece{
 	public Person(){
 
 		//assigns the indicated string to the name field
-		this.name = "";
+		this.name = "Default Name";
 	}//end constructor
 	
 	

@@ -1,3 +1,5 @@
+/*FINALIZED*/
+
 /*
   Mike Plata
   CoSci 290
@@ -23,7 +25,7 @@ import java.util.ArrayList;
 //beginning of a new Class
 public class Caretaker extends Item{
 
-	//the Terminal class has 6 class members/fields/properties
+	//the Terminal class has 8 class members/fields/properties
 	private int layers;
 	private int currentLayer;	
 	private String greeting;
@@ -50,7 +52,7 @@ public class Caretaker extends Item{
 		this.currentLayer = 0;
 		
 		//assigns the given string to the greeting field
-		this.greeting = "";
+		this.greeting = "Default Greeting";
 
 		//instantiates a new ArrayList of type String and stores it to the puzzles field
 		this.puzzles = new ArrayList<>();
@@ -112,7 +114,7 @@ public class Caretaker extends Item{
 	//method to get the value of the greeting field
 	public String getGreeting() {
 		
-		//returns the value fo the greeting field
+		//returns the value of the greeting field
 		return this.greeting;
 	}//end getGreeting
 	
@@ -214,16 +216,9 @@ public class Caretaker extends Item{
 		//stores the newKey Key object into the key field
 		this.key = newKey;
 	}//end setKey
+	
 
-  public void displayQA(){
-    for(int i = 0; i < this.answers.size(); i++){ //initiate for loop
-
-      //invokes get method and prints the return value
-      System.out.println("\nPuzzle: " + this.puzzles.get(i));
-      System.out.println("Answer: " + this.answers.get(i));
-    }//end for
-  }
-
+	
 	//method to return class represented as a String
 	public String toString(){
 

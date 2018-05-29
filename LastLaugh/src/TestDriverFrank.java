@@ -106,7 +106,12 @@ public class TestDriverFrank{
       //System.out.println(gameGuts.getPositionTracker().getRoom(row,col).getCaretaker().getFelicitation());
       //System.out.println(gameGuts.getPositionTracker().getRoom(row,col).getCaretaker().getAdmonishment());
         //puzzles and answer
-      //gameGuts.getPositionTracker().getRoom(row,col).getCaretaker().displayQA(); 
+     /*
+      * I've removed this method because I'm going through all of the classes, making sure that they 
+      * are complete and have the appropriate class members, and no unnecessary members.
+      * If you see the word finalized on top of a class it means I've checked it already.
+      * //gameGuts.getPositionTracker().getRoom(row,col).getCaretaker().displayQA(); 
+      */
       
       //Key
       System.out.print(gameGuts.getPositionTracker().getRoom(row,col).getCaretaker().getKey().toString());

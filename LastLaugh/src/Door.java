@@ -28,16 +28,16 @@ public class Door extends GamePiece{
   public Door(){
     
     //assigns the indicated strong to the name field
-    this.name = "";
+    this.name = "Default Name";
     
     //assigns the indicated string to the description field
-    this.description = "";
+    this.description = "Default Description";
 
     //assigns the indicated String to the lockStatus field
     this.status = "Locked";
     
     //assigns the indicated string to the keyName field
-    this.keyName = "";
+    this.keyName = "Default Key Name";
     
     //instantiates and initializes an object of type Note
     this.note = new Note();

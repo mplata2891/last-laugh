@@ -1,3 +1,5 @@
+/*FINALIZED*/
+
 /*
   Mike Plata
   CoSci 290
@@ -13,14 +15,12 @@
   */
 
 //declare imports
-
-
 import java.util.ArrayList;
 
 //beginning of new Class
 public class PuzzlePiece extends Item{
 
-	//the PuzzlePiece class has 2 class members/fields/properties
+	//the PuzzlePiece class has 5 class members/fields/properties
 	private int layers;
 	private int currentLayer;
 	private ArrayList<String> manipulatedBy;
@@ -47,7 +47,10 @@ public class PuzzlePiece extends Item{
 		this.manipulatedBy = new ArrayList<>();
 		
 		//assigns given string to the clue field
-		this.clue = "";
+		this.clue = "Default Clue";
+		
+		//assign the given string to the clueStatus field
+		this.clueStatus = "Locked";
 	}//end of constructor
 	
 	

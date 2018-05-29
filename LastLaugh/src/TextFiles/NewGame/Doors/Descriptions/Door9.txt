@@ -1,1 +1,5 @@
-//door 9 description
+This door... looks like a door.  It's completely 
+white, with a simple bronze door knob.  
+
+It looks so... unassuming, and yet you know that
+this door is your way out.  

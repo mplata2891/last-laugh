@@ -24,8 +24,7 @@ public class Room extends GamePiece{
 	private PuzzlePiece selectedPuzzlePiece;
 	private Caretaker caretaker;
 	private Door door;
-	
-	
+		
 	
   //default constructor
   public Room(){

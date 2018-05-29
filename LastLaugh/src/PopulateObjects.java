@@ -172,6 +172,7 @@ public class PopulateObjects{
   public void readRooms(CoreObjects coreObject){
     readRoomName(coreObject);
     readRoomDescription(coreObject);
+    readRoomNumberPuzzle(coreObject);
   }
   
   public void readRoomName(CoreObjects coreObject){
@@ -248,6 +249,37 @@ public class PopulateObjects{
       description = "";
     }//end for
   }//end readRoomDescription
+  
+   public void readRoomNumberPuzzle(CoreObjects coreObject){
+
+    //declare and initialize variables
+    int row = 0;
+    int col = 0;
+    String currentLine = "";
+
+    //trying to open a file to read from
+    try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/NewGame/Rooms/NumberOfPieces.txt"))){
+
+      //read each line in the file until EOF
+      while((currentLine = br.readLine()) != null){
+
+       coreObject.getPositionTracker().getRoom(row,col).setNumberOfPuzzlePieces(Integer.parseInt(currentLine));
+       //room index
+       if(col < 2){
+         col++;
+       }
+       else{
+         col = 0;
+         row++;
+       }    
+      }//end while
+
+    //if there is no file to open, the exception will be caught
+    }catch(IOException e){
+      e.printStackTrace();
+    }//end catch
+  }//end readRoomNumberPuzzle
+
   
   //////////Doors/////////////////////////////////////////////////////
   

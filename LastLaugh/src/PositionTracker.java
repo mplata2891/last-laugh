@@ -170,10 +170,10 @@ public class PositionTracker extends GamePiece{
   
   
   //method to set the value of the numberOfRooms field
-  public void setNumberOfRooms(int newNumber) {
+  public void updateNumberOfRooms() {
 	  
 	  //assigns the value of newNumber to the numberOfRooms field
-	  this.numberOfRooms = newNumber;
+	  this.numberOfRooms = this.maxRows * this.maxColumns;
   }//end setNumberOfRooms
   
   

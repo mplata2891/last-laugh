@@ -6,9 +6,104 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class PopulateObjects{
+	
+	//method to populate first layer objects
+	public void populateFirstLayerObjects(CoreObjects gameStructure) {
+		
+		//invoke populateNavigator method
+		this.populateNavigator(gameStructure.getNavigator());
+		
+		//invoke populatePositionTracker method
+		this.populatePositionTracker(gameStructure.getPositionTracker());
+	}//end populateFirstLayerObjects
+	
+	
+	
+	//method to populate the Navigator object
+	private void populateNavigator(Navigator navigator) {
+		
+		//invoke readNumberOfMenus method
+		this.readNumberOfMenus(navigator);
+		
+	}//end populateNavigator
+	
+	
+	
+	//method to readNumberOfMenus from a file
+	private void readNumberOfMenus(Navigator navigator) {
+		
+		//declare and initialize variables
+	    String currentLine = "";
+
+	    //trying to open a file to read from
+	    try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/Navigator/numberOfMenus.txt"))){
+
+	      //read each line in the file until EOF
+	      while((currentLine = br.readLine()) != null){
+
+		      //prints the value of currentLine to the screen
+		      navigator.setNumberOfMenus(Integer.parseInt(currentLine));
+	        
+	      }//end while
+
+	    //if there is no file to open, the exception will be caught
+	    }catch(IOException e){
+	      e.printStackTrace();
+	    }//end catch	
+	}//end readNumberOfMenus
+	
+	
+	
+	//method to populate the PositionTracker method
+	private void populatePositionTracker(PositionTracker tracker) {
+		
+		//invoke readDimensions method
+		this.readDimensions(tracker);
+		
+		//invoke updateNumberOfRoomsMethod
+		tracker.updateNumberOfRooms();
+	}//end populatePositionTracker
+	
+	
+	
+	//method to read maxRow and maxColumn from a file
+	private void readDimensions(PositionTracker tracker) {
+		
+		//declare and initialize variables
+		int dimension = 0;
+	    String currentLine = "";
+
+	    //trying to open a file to read from
+	    try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/Navigator/numberOfMenus.txt"))){
+
+	      //read each line in the file until EOF
+	      while((currentLine = br.readLine()) != null){
+
+		      //increment dimension
+	    	  dimension++;
+	    	  
+	    	  //initiate switch statement
+	    	  switch(dimension) {
+	    	  
+		    	  //enter case 1
+		    	  case 1:	tracker.setMaxRows(Integer.parseInt(currentLine));
+		    	  			break;//breaks out of switch
+		    	  			
+		    	  //enter case 2
+		    	  case 2:	tracker.setMaxColumns(Integer.parseInt(currentLine));
+		  					break;//breaks out of switch
+	    	  }//end switch
+	        
+	      }//end while
+
+	    //if there is no file to open, the exception will be caught
+	    }catch(IOException e){
+	      e.printStackTrace();
+	    }//end catch
+	}//end readDimensions
   
  ////////////////Menus//////////////////////////////////////////////////
-  public void readMenus(CoreObjects coreObject){
+  public void populateMenus(CoreObjects coreObject){
     readMenuNames(coreObject);
     readMenuOptions(coreObject);
   }
@@ -47,14 +142,16 @@ public class PopulateObjects{
 	    //trying to open a file to read from
         try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/Menus/MenuOptions/Menu" 
 	    															+ index + ".txt"))){
+        
 	
-	      //read each line in the file until EOF
-	      while((currentLine = br.readLine()) != null){
-	
-	        //prints the value of currentLine to the screen
-	       coreObject.getNavigator().getMenu(index).addOption(currentLine);
-	        
-	      }//end while
+		    //read each line in the file until EOF
+		    while((currentLine = br.readLine()) != null){
+		
+			    //prints the value of currentLine to the screen
+			    coreObject.getNavigator().getMenu(index).addOption(currentLine);
+		        
+		    }//end while
+        
 	
 	    //if there is no file to open, the exception will be caught
 	    }catch(IOException e){

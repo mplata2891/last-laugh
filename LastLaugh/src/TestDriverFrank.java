@@ -20,7 +20,7 @@ public class TestDriverFrank{
     //Below each read function has two categories:
       //done: has members that have been populated (no issues)
       //haven't done: I don't know how or don't know if it should
-    populate.readMenus(gameGuts);
+    populate.populateMenus(gameGuts);
       /*
       done:
         private String name;

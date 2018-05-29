@@ -22,7 +22,7 @@ public class TestDriverFrank{
       //haven't done: I don't know how or don't know if it should
     populate.populateMenus(gameGuts);
       /*
-      done:
+      All done:
         private String name;
         private ArrayList<String> options;
       */
@@ -30,25 +30,17 @@ public class TestDriverFrank{
       /*
         done:
           private String name;
-          private Door door; (below in readDoors)
-          private Caretaker caretaker; (below in readCaretaker)
           private String description;
         
         haven't done:
-          private int roomId;
-          private ArrayList<PuzzlePiece> pieces;
           private int numberOfPuzzlePieces;
-          private PuzzlePiece selectedPuzzlePiece;
       */
     populate.readDoors(gameGuts);
       /*
-        done:
+        All done:
           private String name;
           private String description;
           private String keyName; 
-        
-        haven't done:
-          private Note note;
       */
     
     populate.readNotes(gameGuts);
@@ -62,24 +54,19 @@ public class TestDriverFrank{
       */
     populate.readCaretaker(gameGuts);
       /*
-        done:
+        All done:
           private String name;
           private String description;
           private int layers;        	
           private String greeting;       
           private String felicitation;
           private String admonishment;
-          private Key key; (below in readKey)
           private ArrayList<String> puzzles;
-	        private ArrayList<String> answers;
-        haven't done:
-          
-          private int currentLayer;	
-
+	      private ArrayList<String> answers;	
       */
     populate.readKey(gameGuts);
       /*
-        done:
+        All done:
           private String name;
           private String description;
                   
@@ -94,10 +81,10 @@ public class TestDriverFrank{
       //gameGuts.getNavigator().getMenu(i).displayMenu(); //works, shows menu names and option
       
       //Room
-      //System.out.println(gameGuts.getPositionTracker().getRoom(row,col).toString()); 
+      System.out.println(gameGuts.getPositionTracker().getRoom(row,col).toString()); 
       
       //Door
-      //System.out.println(gameGuts.getPositionTracker().getRoom(row,col).getDoor().toString());
+      System.out.println(gameGuts.getPositionTracker().getRoom(row,col).getDoor().toString());
       
       //Caretaker
       //System.out.print(gameGuts.getPositionTracker().getRoom(row,col).getCaretaker().toString());
@@ -105,7 +92,7 @@ public class TestDriverFrank{
       //System.out.println(gameGuts.getPositionTracker().getRoom(row,col).getCaretaker().getGreeting());
       //System.out.println(gameGuts.getPositionTracker().getRoom(row,col).getCaretaker().getFelicitation());
       //System.out.println(gameGuts.getPositionTracker().getRoom(row,col).getCaretaker().getAdmonishment());
-        //puzzles and answer
+       //puzzles and answer
      /*
       * I've removed this method because I'm going through all of the classes, making sure that they 
       * are complete and have the appropriate class members, and no unnecessary members.

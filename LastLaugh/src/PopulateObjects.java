@@ -495,7 +495,7 @@ public class PopulateObjects{
     for(int index = 1; index < 10; index++) {
       
 	    //trying to open a file to read from
-        try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/NewGame/Terminals/Greetings/Terminal" 
+        try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Terminals/Greetings/Terminal" 
 	    															+ index + ".txt"))){
 	      //read each line in the file until EOF
 	      while((currentLine = br.readLine()) != null){

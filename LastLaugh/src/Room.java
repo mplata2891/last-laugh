@@ -185,10 +185,9 @@ public class Room extends GamePiece{
 	  
 	  //returns the indicated String
 	  return "Room Name: " + this.name + "\n"
-			  + "Description: " + this.getDescription() + "\n"
 			  + "Puzzle Pieces: " + this.getNumberOfPuzzlePieces() + "\n"
 			  + "Caretaker: 1\n"
-			  + "Doors: 1\n\n";        
+			  + "Doors: 1\n";        
   }//end toString
   
 }//end class

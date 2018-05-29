@@ -12,7 +12,7 @@ public class Sense{
   public void senseSurroundings(Room currentRoom){
 
 	//prints information about the current room
-	System.out.println(currentRoom.toString() + "\n");
+	System.out.println(currentRoom.toString());
 	  
 	//prints message to the user
     System.out.println("In the room you're in, you notice. . .\n");
@@ -28,6 +28,9 @@ public class Sense{
 
     //invokes the identifyContents method
     this.identifyPuzzlePieces(currentRoom);
+    
+    //go to next line
+    System.out.println();
     
   }//end SenseSurroundings
 

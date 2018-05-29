@@ -52,6 +52,9 @@ public class GameDriver{
 	    //second part of the intro
 	    fileTool.readFile("src/TextFiles/Story/Intro2.txt");
 	    
+	    //skip to next line
+	    System.out.println();
+	    
 	    //need something to pause and continue
 	}//end runIntro Sequence
 	

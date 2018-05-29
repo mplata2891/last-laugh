@@ -59,6 +59,12 @@ public class Caretaker extends Item{
 
 		//instantiates a new ArrayList of type String and stores it to the answers field
 		this.answers = new ArrayList<>();
+		
+		//assigns the given string to the felicitation field
+		this.felicitation = "Default Caretaker Felicitation";
+		
+		//assigns the given string to the admonishment field
+		this.admonishment = "Default Caretaker Admonishment";
 
 		//instantiates a new object of type Key and assigns it to the key field
 		this.key = new Key();

@@ -63,6 +63,9 @@ public class GameDriver{
 	//method to run the main portion of the game
 	public void runMainGame(CoreObjects gameStructure, InputUtility ioTool) {
 		
+		//update the current room
+		gameStructure.getPositionTracker().updateCurrentRoom();
+		
 		//initiate do-while loop
 		do {
 			

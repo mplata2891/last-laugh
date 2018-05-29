@@ -21,29 +21,33 @@ public class PositionTracker extends GamePiece{
   private int exactColumn;
   private Room[][] map;
   private Room currentRoom;
+  private int numberOfRooms;
 
 
 
   //default constructor
   public PositionTracker(){
+	  
+	//assigns the indicated value to the maxRows field
+	this.maxRows = 3;
 
     //assigns the indicated value to the maxColumns field
     this.maxColumns = 3;
 
-    //assigns the indicated value to the maxRows field
-    this.maxRows = 3;
+    //assigns the indicated value to the exactRow field
+    this.exactRow = 0;
 
     //assigns the indicated value to the exactColumn field
     this.exactColumn = 0;
-
-    //assigns the indicated value to the exactRow field
-    this.exactRow = 0;
 
     //creates a new array and assigns it to the map field
     this.map = new Room[this.maxRows][this.maxColumns];
     
     //instantiates a new Room and stores it in the currentRoom field
     this.currentRoom = new Room();
+    
+    //assigns the given value to the numberOfRooms field
+    this.numberOfRooms = this.maxRows * this.maxColumns;
   }//end constructor
   
 
@@ -153,5 +157,33 @@ public class PositionTracker extends GamePiece{
 	  //assigns the Room in the given index to the current room field
 	  this.currentRoom = this.map[this.exactRow][this.exactColumn];
   }//end setCurrentRoom
+  
+  
+  
+  //method to get the value of the numberOfRooms field
+  public int getNumberOfRooms() {
+	  
+	  //returns the value of the numberOfRooms field
+	  return this.numberOfRooms;
+  }//end getNumberOfRooms
+  
+  
+  
+  //method to set the value of the numberOfRooms field
+  public void setNumberOfRooms(int newNumber) {
+	  
+	  //assigns the value of newNumber to the numberOfRooms field
+	  this.numberOfRooms = newNumber;
+  }//end setNumberOfRooms
+  
+  
+  
+  //method to return class represented as a string
+  public String toString() {
+	  
+	  //returns the following string
+	  return "Position Tracker - \n"
+			  + "Map of " + this.getNumberOfRooms() + " Rooms\n";
+  }
 
 }//end class

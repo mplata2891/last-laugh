@@ -1,9 +1,0 @@
-  1. Move
-  2. Sense
-  3. Interact
-  4. Examine
-  5. Action
-  6. Inventory
-  7. Notebook
-  8. Save
-  9. Exit

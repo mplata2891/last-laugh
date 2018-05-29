@@ -1,0 +1,9 @@
+Title Menu
+Main Menu
+Move Menu
+Examine Menu
+Interact Menu
+Select Puzzle Piece Menu
+Select Action Menu
+Inventory Menu
+Notebook Menu

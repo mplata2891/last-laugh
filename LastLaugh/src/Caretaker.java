@@ -1,4 +1,4 @@
-/*FINALIZED*/
+/*CHECKED*/
 
 /*
   Mike Plata
@@ -52,7 +52,7 @@ public class Caretaker extends Item{
 		this.currentLayer = 0;
 		
 		//assigns the given string to the greeting field
-		this.greeting = "Default Greeting";
+		this.greeting = "Default Caretaker Greeting";
 
 		//instantiates a new ArrayList of type String and stores it to the puzzles field
 		this.puzzles = new ArrayList<>();

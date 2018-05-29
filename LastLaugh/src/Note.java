@@ -1,3 +1,5 @@
+/*CHECKED*/
+
 /*
   Mike Plata
   CoSci 290
@@ -33,13 +35,13 @@ public class Note{
 	public Note(){
 	
 		//assigns the indicated string to the name field
-		this.name = "";
+		this.name = "Default Note Name";
 		
 		//assigns the indicated string to the title field
-		this.title = "";
+		this.title = "Default Note Title";
 		
 		//assigns the indicated string to the contents field
-		this.contents = "";
+		this.contents = "Default Note Contents";
 	}//end constructor
 	
 	

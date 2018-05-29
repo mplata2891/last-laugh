@@ -1,4 +1,4 @@
-/*FINALIZED*/
+/*CHECKED*/
 
 /*
   Mike Plata
@@ -20,6 +20,7 @@ public class PositionTracker extends GamePiece{
   private int exactRow;
   private int exactColumn;
   private Room[][] map;
+  private Room currentRoom;
 
 
 
@@ -40,6 +41,9 @@ public class PositionTracker extends GamePiece{
 
     //creates a new array and assigns it to the map field
     this.map = new Room[this.maxRows][this.maxColumns];
+    
+    //instantiates a new Room and stores it in the currentRoom field
+    this.currentRoom = new Room();
   }//end constructor
   
 
@@ -138,7 +142,16 @@ public class PositionTracker extends GamePiece{
   public Room getCurrentRoom() {
 	  
 	  //returns the object in the given index of the map field
-	  return this.map[this.exactRow][this.exactColumn];
+	  return this.currentRoom;
   }//end getCurrentRoom
+  
+  
+  
+  //method to set a Room object in the current room field
+  public void updateCurrentRoom() {
+	  
+	  //assigns the Room in the given index to the current room field
+	  this.currentRoom = this.map[this.exactRow][this.exactColumn];
+  }//end setCurrentRoom
 
 }//end class

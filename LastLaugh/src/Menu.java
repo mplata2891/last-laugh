@@ -1,4 +1,4 @@
-/*FINALIZED*/
+/*CHECKED*/
 
 /*
   Mike Plata
@@ -24,7 +24,7 @@ public class Menu{
   public Menu(){
 
     //assigns the indicated string to the name field
-    this.name = "Default Name";
+    this.name = "Default Menu Name";
 
     //instantiates a new array and assigns it to the option field
     this.options = new ArrayList<>();

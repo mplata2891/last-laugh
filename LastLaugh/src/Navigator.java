@@ -1,4 +1,4 @@
-/*FINALIZED*/
+/*CHECKED*/
 
 /*
 	Mike Plata
@@ -9,6 +9,7 @@
 	game
 */
 
+//declare imports
 import java.util.ArrayList;
 
 //begin new class

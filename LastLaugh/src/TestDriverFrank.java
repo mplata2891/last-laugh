@@ -109,7 +109,7 @@ public class TestDriverFrank{
      /*
       * I've removed this method because I'm going through all of the classes, making sure that they 
       * are complete and have the appropriate class members, and no unnecessary members.
-      * If you see the word finalized on top of a class it means I've checked it already.
+      * If you see the word "Checked" on top of a class it means I've checked it already.
       * //gameGuts.getPositionTracker().getRoom(row,col).getCaretaker().displayQA(); 
       */
       

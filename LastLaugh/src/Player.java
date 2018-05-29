@@ -1,3 +1,5 @@
+/*CHECKED*/
+
 /*
   Mike Plata
   CoSci 290
@@ -33,6 +35,9 @@ public class Player extends Person{
 		//invokes the Person parent class constructor
 		super();
 		
+		//instantiates a newArrayList and stores it in the command field
+		this.command = new Command();
+		
 		//instantiates a new ArrayList and stores it in the inventory field
 		this.inventory = new ArrayList<>();
 		
@@ -42,12 +47,27 @@ public class Player extends Person{
 		//assigns given value to the currentPage field
 		this.currentPage = 0;
 		
-		//instantiates a newArrayList and stores it in the command field
-		this.command = new Command();
-		
 		//assigns the given value to the attempts field
 		this.attempts = 0;
 	}//end constructor
+
+
+
+	//method to get a Command object stored in the command field
+	public Command getCommand(){
+		
+		//returns the Command object stored in the command field
+		return this.command;
+	}//end getCommand
+	
+	
+	
+	//method to set a Command object into the command field
+	public void setCommand(Command newCommand) {
+		
+		//sets a Command object to the command field
+		this.command = newCommand;
+	}//end addCommand
 	
 	
 	
@@ -120,24 +140,6 @@ public class Player extends Person{
 		//assigns the value of newPage to the currentPage field
 		this.currentPage = newPage;
 	}//end setCurrentPage
-
-
-
-	//method to get a Command object stored in the command field
-	public Command getCommand(){
-		
-		//returns the Command object stored in the command field
-		return this.command;
-	}//end getCommand
-	
-	
-	
-	//method to set a Command object into the command field
-	public void setCommand(Command newCommand) {
-		
-		//sets a Command object to the command field
-		this.command = newCommand;
-	}//end addCommand
 	
 	
 	

@@ -1,4 +1,4 @@
-/*FINALIZED*/
+/*CHECKED*/
 
 /*
 	Mike Plata
@@ -25,13 +25,13 @@ public abstract class Item extends GamePiece{
 	public Item(){
 
 		//assigns the indicated String to the name property
-		this.name = "Default Name";
+		this.name = "Default Item Name";
 
 		//assigns the indicated string to the type property
-		this.type = "Default Type";
+		this.type = "Default Item Type";
 
 		//assigns the indicated string to the description property
-		this.description = "Default Description";
+		this.description = "Default Item Description";
 		
 		//assigns the indicated string to the status property
 		this.status = "Active";

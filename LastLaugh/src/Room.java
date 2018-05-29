@@ -1,4 +1,4 @@
-/*FINALIZED*/
+/*Checked*/
 
 /*
   Mike Plata
@@ -31,10 +31,10 @@ public class Room extends GamePiece{
   public Room(){
 	
 	//assigns the value of the indicated string to the name field
-    this.name = "Default Name";
+    this.name = "Default Room Name";
     
     //assigns the given string to the description field
-    this.description = "Default Description";
+    this.description = "Default Room Description";
 
     //assigns the given value to the numberOfPuzzlePieces field
     this.numberOfPuzzlePieces = 0;

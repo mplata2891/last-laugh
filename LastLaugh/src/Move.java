@@ -27,8 +27,12 @@ public class Move {
 			    	if(doorIsUnlocked == true) {
 			    		
 			    		//initiate if-else statement
-			    		if(moveIsValid == true)
+			    		if(moveIsValid == true) {
+			    			
 				    		this.makeMove(tracker, direction);//invoke the makeMove method
+				    		
+				    		tracker.updateCurrentRoom();
+			    		}
 				    	else
 				    		this.displayNoRoomMsg();
 			    		
@@ -41,8 +45,13 @@ public class Move {
 	      case 2:	//invoke the checkMove method
 			    	moveIsValid = this.checkMove(tracker, direction);
 			    	
-			    	if(moveIsValid == true)//initiate if-else statement
+			    	if(moveIsValid == true) {//initiate if-else statement
+			    		
 			    		this.makeMove(tracker, direction);//invoke the makeMove method
+			    		
+			    		tracker.updateCurrentRoom();
+			    		
+			    	}
 			    	else
 			    		this.displayNoRoomMsg();
 			    	

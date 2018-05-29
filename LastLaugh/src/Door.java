@@ -1,4 +1,4 @@
-/*FINALIZED*/
+/*CHECKED*/
 
 /*
   Mike Plata
@@ -28,10 +28,10 @@ public class Door extends GamePiece{
   public Door(){
     
     //assigns the indicated strong to the name field
-    this.name = "Default Name";
+    this.name = "Default Door Name";
     
     //assigns the indicated string to the description field
-    this.description = "Default Description";
+    this.description = "Default Door Description";
 
     //assigns the indicated String to the lockStatus field
     this.status = "Locked";

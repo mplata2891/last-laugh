@@ -1,4 +1,4 @@
 Box
-Hole in Ground
+Tablet
 Ball
-Shovel
+Rubix Cube

@@ -45,12 +45,10 @@ public class TestDriverFrank{
     
     populate.readNotes(gameGuts);
       /*
-        done:
-                         
-        haven't done:
+        All done:
           private String name;
           private String title;
-          private String contents;
+          private String contents;              
       */
     populate.readCaretaker(gameGuts);
       /*
@@ -62,7 +60,7 @@ public class TestDriverFrank{
           private String felicitation;
           private String admonishment;
           private ArrayList<String> puzzles;
-	      private ArrayList<String> answers;	
+	       private ArrayList<String> answers;	
       */
     populate.readKey(gameGuts);
       /*
@@ -81,10 +79,10 @@ public class TestDriverFrank{
       //gameGuts.getNavigator().getMenu(i).displayMenu(); //works, shows menu names and option
       
       //Room
-      System.out.println(gameGuts.getPositionTracker().getRoom(row,col).toString()); 
+      //System.out.println(gameGuts.getPositionTracker().getRoom(row,col).toString()); 
       
       //Door
-      System.out.println(gameGuts.getPositionTracker().getRoom(row,col).getDoor().toString());
+      //System.out.println(gameGuts.getPositionTracker().getRoom(row,col).getDoor().toString());
       
       //Caretaker
       //System.out.print(gameGuts.getPositionTracker().getRoom(row,col).getCaretaker().toString());
@@ -101,7 +99,10 @@ public class TestDriverFrank{
       */
       
       //Key
-      System.out.print(gameGuts.getPositionTracker().getRoom(row,col).getCaretaker().getKey().toString());
+      //System.out.print(gameGuts.getPositionTracker().getRoom(row,col).getCaretaker().getKey().toString());
+      
+      //Note
+      //System.out.print(gameGuts.getPositionTracker().getRoom(row,col).getDoor().getNote().toString());
       
       //helps for loop work with room index
       if(col < 2) col++;

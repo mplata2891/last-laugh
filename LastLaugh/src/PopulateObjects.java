@@ -107,9 +107,6 @@ public class PopulateObjects{
     readMenuNames(coreObject);
     readMenuOptions(coreObject);
   }
-  
-  
-  
 //This method opens a file and prints out each line
   public void readMenuNames(CoreObjects coreObject){
 
@@ -118,7 +115,7 @@ public class PopulateObjects{
     String currentLine = "";
 
     //trying to open a file to read from
-    try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/Menus/Names.txt"))){
+    try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Menus/Names.txt"))){
 
       //read each line in the file until EOF
       while((currentLine = br.readLine()) != null){
@@ -134,8 +131,6 @@ public class PopulateObjects{
     }//end catch
   }//end readMenuNames
   
-  
-  
 //This method opens a file and prints out each line
   public void readMenuOptions(CoreObjects coreObject){
 
@@ -145,7 +140,7 @@ public class PopulateObjects{
 
     for(int index = 0; index < 9; index++) {
 	    //trying to open a file to read from
-        try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/Menus/MenuOptions/Menu" 
+        try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles//NewGame/Menus/MenuOptions/Menu" 
 	    															+ index + ".txt"))){
         
 	
@@ -166,8 +161,6 @@ public class PopulateObjects{
     }
   }//end readMenuOptions
   
-  
-  
   //////////Rooms///////////////////////////////////////////////////////
   public void readRooms(CoreObjects coreObject){
     readRoomName(coreObject);
@@ -183,7 +176,7 @@ public class PopulateObjects{
     int col = 0;
 
     //trying to open a file to read from
-    try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/NewGame/Rooms/Names.txt"))){
+    try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Rooms/Names.txt"))){
 
       //read each line in the file until EOF
       while((currentLine = br.readLine()) != null){
@@ -219,7 +212,7 @@ public class PopulateObjects{
     for(int index = 1; index < 10; index++) {
       
 	    //trying to open a file to read from
-        try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/NewGame/Rooms/Descriptions/Room" 
+        try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Rooms/Descriptions/Room" 
 	    															+ index + ".txt"))){
 	      //read each line in the file until EOF
 	      while((currentLine = br.readLine()) != null){
@@ -258,7 +251,7 @@ public class PopulateObjects{
     String currentLine = "";
 
     //trying to open a file to read from
-    try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/NewGame/Rooms/NumberOfPieces.txt"))){
+    try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Rooms/NumberOfPieces.txt"))){
 
       //read each line in the file until EOF
       while((currentLine = br.readLine()) != null){
@@ -297,7 +290,7 @@ public class PopulateObjects{
     int col = 0;
 
     //trying to open a file to read from
-    try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/NewGame/Doors/Names.txt"))){
+    try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Doors/Names.txt"))){
 
       //read each line in the file until EOF
       while((currentLine = br.readLine()) != null){
@@ -333,7 +326,7 @@ public class PopulateObjects{
     for(int index = 1; index < 10; index++) {
       
 	    //trying to open a file to read from
-        try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/NewGame/Rooms/Descriptions/Room" 
+        try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Doors/Descriptions/Door" 
 	    															+ index + ".txt"))){
 	      //read each line in the file until EOF
 	      while((currentLine = br.readLine()) != null){
@@ -372,7 +365,7 @@ public class PopulateObjects{
     int col = 0;
 
     //trying to open a file to read from
-    try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/NewGame/Doors/Names.txt"))){
+    try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Doors/Keys.txt"))){
 
       //read each line in the file until EOF
       while((currentLine = br.readLine()) != null){
@@ -398,11 +391,118 @@ public class PopulateObjects{
   
   ////////Notes//////////////////////////////////////////////////////////////////
   public void readNotes(CoreObjects coreObject){
-    //readNoteContent(coreObject);
-    //readNoteName(coreObject);
-    //readNoteTitle(coreObject);
+    readNoteContent(coreObject);
+    readNoteName(coreObject);
+    readNoteTitle(coreObject);
   }
   
+  public int chance(int start, int end){
+      return start + (int)(Math.random() * (end - start));
+  }
+  
+  public void readNoteContent(CoreObjects coreObject){
+    
+    //declare and initialize variables
+    String currentLine = "";
+    String description = "";
+    int row = 0;
+    int col = 0;
+    
+    for(int index=1; index<10; index++){
+        //trying to open a file to read from
+      try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Notes/Story"
+                                                 + chance(1,4) + "/Contents/Ch" + index + ".txt"))){
+
+        //read each line in the file until EOF
+        while((currentLine = br.readLine()) != null){
+
+         description += currentLine;
+
+        }//end while
+         //prints the value of currentLine to the screen
+         coreObject.getPositionTracker().getRoom(row,col).getDoor().getNote().setContents(description);
+         //room index
+         if(col < 2){
+           col++;
+         }
+         else{
+           col = 0;
+           row++;
+         }
+
+      //if there is no file to open, the exception will be caught
+      }catch(IOException e){
+        e.printStackTrace();
+      }//end catch
+      description = "";
+    }//end for
+  }//end readNoteContent
+  
+  public void readNoteName(CoreObjects coreObject){
+  
+    //declare and initialize variables
+    String currentLine = "";
+    int row = 0;
+    int col = 0;
+
+    //trying to open a file to read from
+    try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Notes/Names.txt"))){
+
+      //read each line in the file until EOF
+      while((currentLine = br.readLine()) != null){
+
+        //prints the value of currentLine to the screen
+       coreObject.getPositionTracker().getRoom(row,col).getDoor().getNote().setName(currentLine);
+       //room index
+       if(col < 2){
+         col++;
+       }
+       else{
+         col = 0;
+         row++;
+       }
+        
+      }//end while
+
+    //if there is no file to open, the exception will be caught
+    }catch(IOException e){
+      e.printStackTrace();
+    }//end catch
+    
+  }//end readNoteName
+  
+  public void readNoteTitle(CoreObjects coreObject){
+    
+    //declare and initialize variables
+    String currentLine = "";
+    String description = "";
+    int row = 0;
+    int col = 0;
+    
+    
+    try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Notes/Story"
+                                                 + chance(1,4) + "/Titles.txt"))){
+
+        //read each line in the file until EOF
+        while((currentLine = br.readLine()) != null){
+     
+           coreObject.getPositionTracker().getRoom(row,col).getDoor().getNote().setTitle(currentLine);
+           //room index
+           if(col < 2){
+             col++;
+           }
+           else{
+             col = 0;
+             row++;
+           }
+
+        }//end while
+       
+      //if there is no file to open, the exception will be caught
+      }catch(IOException e){
+        e.printStackTrace();
+      }//end catch
+  }//end readNoteTitle
   
   ////////Caretaker//////////////////////////////////////////////////////////////
   public void readCaretaker(CoreObjects coreObject){
@@ -425,7 +525,7 @@ public class PopulateObjects{
     int col = 0;
 
     //trying to open a file to read from
-    try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/NewGame/Terminals/Names.txt"))){
+    try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Items/Caretakers/Names.txt"))){
 
       //read each line in the file until EOF
       while((currentLine = br.readLine()) != null){
@@ -461,7 +561,7 @@ public class PopulateObjects{
     for(int index = 1; index < 10; index++) {
       
 	    //trying to open a file to read from
-        try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/NewGame/Terminals/Descriptions/Terminal" 
+        try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Items/Caretakers/Descriptions/Terminal" 
 	    															+ index + ".txt"))){
 	      //read each line in the file until EOF
 	      while((currentLine = br.readLine()) != null){
@@ -500,7 +600,7 @@ public class PopulateObjects{
     String currentLine = "";
 
     //trying to open a file to read from
-    try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/NewGame/Terminals/Layers.txt"))){
+    try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Items/Caretakers/Layers.txt"))){
 
       //read each line in the file until EOF
       while((currentLine = br.readLine()) != null){
@@ -534,7 +634,7 @@ public class PopulateObjects{
     for(int index = 1; index < 10; index++) {
       
 	    //trying to open a file to read from
-        try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Terminals/Greetings/Terminal" 
+        try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Items/Caretakers/Greetings/Terminal" 
 	    															+ index + ".txt"))){
 	      //read each line in the file until EOF
 	      while((currentLine = br.readLine()) != null){
@@ -576,7 +676,7 @@ public class PopulateObjects{
     for(int index = 1; index < 10; index++) {
       
 	    //trying to open a file to read from
-        try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/NewGame/Terminals/Felicitations/Terminal" 
+        try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Items/Caretakers/Felicitations/Terminal" 
 	    															+ index + ".txt"))){
 	      //read each line in the file until EOF
 	      while((currentLine = br.readLine()) != null){
@@ -618,7 +718,7 @@ public class PopulateObjects{
     for(int index = 1; index < 10; index++) {
       
 	    //trying to open a file to read from
-        try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/NewGame/Terminals/Admonishments.txt"))){
+        try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Items/Caretakers/Admonishments.txt"))){
 	      //read each line in the file until EOF
 	      while((currentLine = br.readLine()) != null){
           
@@ -659,7 +759,7 @@ public class PopulateObjects{
 
     for(int index = 1; index < 10; index++) {
 	    //trying to open a file to read from
-        try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/NewGame/Terminals/Answers/Terminal" 
+        try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Items/Caretakers/Answers/Terminal" 
 	    															+ index + ".txt"))){
 	
 	      //read each line in the file until EOF
@@ -698,7 +798,7 @@ public class PopulateObjects{
 
     for(int index = 1; index < 10; index++) {
 	    //trying to open a file to read from
-        try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/NewGame/Terminals/Puzzles/Terminal" 
+        try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Items/Caretakers/Puzzles/Terminal" 
 	    															+ index + ".txt"))){
 	
 	      //read each line in the file until EOF
@@ -742,7 +842,7 @@ public class PopulateObjects{
     int col = 0;
 
     //trying to open a file to read from
-    try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/NewGame/Keys/Names.txt"))){
+    try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Items/Keys/Names.txt"))){
 
       //read each line in the file until EOF
       while((currentLine = br.readLine()) != null){
@@ -779,7 +879,7 @@ public class PopulateObjects{
     for(int index = 1; index < 10; index++) {
       
 	    //trying to open a file to read from
-        try(BufferedReader br = new BufferedReader(new FileReader("TextFiles/NewGame/Keys/Descriptions/Key" 
+        try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Items/Keys/Descriptions/Key" 
 	    															+ index + ".txt"))){
 	      //read each line in the file until EOF
 	      while((currentLine = br.readLine()) != null){
@@ -811,6 +911,6 @@ public class PopulateObjects{
   }//end readCaretakerKeyDescription
     
   
-  
 }//end class
+
 

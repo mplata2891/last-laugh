@@ -655,43 +655,33 @@ public class PopulateObjects{
   
      private void readCaretakerAdmonishment(CoreObjects coreObject){
     //declare and initialize variables
-    
     String currentLine = "";
-    String description = "";
     int row = 0;
     int col = 0;
 
-    for(int index = 1; index < 10; index++) {
-      
-	    //trying to open a file to read from
-        try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Items/Caretakers/Admonishments.txt"))){
-	      //read each line in the file until EOF
-	      while((currentLine = br.readLine()) != null){
-          
-          //holds description
-	        description += (currentLine + "\n");
-	       	        
-	      }//end while
+    //trying to open a file to read from
+    try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Items/Caretakers/Admonishments.txt"))){
+
+      //read each line in the file until EOF
+      while((currentLine = br.readLine()) != null){
+
+        //prints the value of currentLine to the screen
+       coreObject.getPositionTracker().getRoom(row,col).getCaretaker().setAdmonishment(currentLine);
+       //room index
+       if(col < 2){
+         col++;
+       }
+       else{
+         col = 0;
+         row++;
+       }
         
-        //givesthe description
-        coreObject.getPositionTracker().getRoom(row,col).getCaretaker().setAdmonishment(description);
-        
-        //for room index
-        if(col < 2){
-          col++;
-        }
-        else{
-          col = 0;
-          row++;
-        }
-        	    
-          //if there is no file to open, the exception will be caught
-	    }catch(IOException e){
-	      e.printStackTrace();
-	    }//end catch
-      //clear description for next
-      description = "";
-    }//end for
+      }//end while
+
+    //if there is no file to open, the exception will be caught
+    }catch(IOException e){
+      e.printStackTrace();
+    }//end catch
   }//end readCaretakerAdmonishment
   
   //This method loads answers

@@ -183,7 +183,10 @@ public class PositionTracker extends GamePiece{
 	  
 	  //returns the following string
 	  return "Position Tracker - \n"
-			  + "Map of " + this.getNumberOfRooms() + " Rooms\n";
+			  + "Max Rows: " + this.maxRows + "\n"
+			  + "Max Columns: " + this.maxColumns + "\n"
+			  + "Map of " + this.getNumberOfRooms() + " Rooms\n"
+			  + "Current Room: " + this.currentRoom.getName() + "\n";
   }
 
 }//end class

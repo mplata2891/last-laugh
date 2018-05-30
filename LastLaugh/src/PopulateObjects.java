@@ -779,8 +779,193 @@ public class PopulateObjects{
   //method to populate PuzzlePiece class members
   private void populatePuzzlePieces(PositionTracker tracker) {
 	  
+	  //invoke the readPuzzlePieceNames method
+	  this.readPuzzlePieceNames(tracker);
 	  
+	  //invoke the readPuzzlePieceLayers method
+	  this.readPuzzlePieceLayers(tracker);
+	  
+	  //invoke the readPuzzlePieceClues method
+	  this.readPuzzlePieceClues(tracker);
+	  
+	  //invoke the readPuzzlePieceDescriptions method
+	  this.readPuzzlePieceDescriptions(tracker);
+	  
+	  //invoke the readPuzzlePieceManipulations method
+	  this.readPuzzlePieceManipulations(tracker);	  
   }//end populatePuzzlePieces
+  
+  
+  
+  //method to read PuzzlePiece names from file
+  private void readPuzzlePieceNames(PositionTracker tracker) {
+		
+		//declare and initialize variables
+		int count = 1;
+		int k = 0;
+	    String currentLine = "";
+		
+		for(int i = 0; i < tracker.getMaxRows(); i++){
+			for(int j = 0; j < tracker.getMaxColumns(); j++){
+
+				//trying to open a file to read from
+				try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/Items/PuzzlePieces/"
+																			+ "PiecesRoom" + count + "/Names.txt"))){
+					
+					  //read each line in the file until EOF
+					  while((currentLine = br.readLine()) != null){
+	
+						  //prints the value of currentLine to the screen
+						  tracker.getRoom(i,j).getPuzzlePiece(k).setName(currentLine);
+						  
+						  if(k < tracker.getRoom(i, j).getNumberOfPuzzlePieces())
+							  k++;
+						
+					  }//end while
+					  
+					  //reset k
+					  k = 0;
+				  
+				  //increment count
+				  //if(count <= tracker.getNumberOfRooms())
+					  count++;
+
+				//if there is no file to open, the exception will be caught
+				}catch(IOException e){
+				  e.printStackTrace();
+				}//end catch
+			}
+		}
+	}//end readPuzzlePieceNames
+  
+  
+  
+  //method to read PuzzlePiece names from file
+  private void readPuzzlePieceLayers(PositionTracker tracker) {
+		
+		//declare and initialize variables
+		int count = 1;
+		int k = 0;
+	    String currentLine = "";
+		
+		for(int i = 0; i < tracker.getMaxRows(); i++){
+			for(int j = 0; j < tracker.getMaxColumns(); j++){
+
+				//trying to open a file to read from
+				try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/Items/PuzzlePieces/"
+																			+ "PiecesRoom" + count + "/Layers.txt"))){
+					
+					  //read each line in the file until EOF
+					  while((currentLine = br.readLine()) != null){
+	
+						  //prints the value of currentLine to the screen
+						  tracker.getRoom(i,j).getPuzzlePiece(k).setLayers(Integer.parseInt(currentLine));
+						  
+						  if(k < tracker.getRoom(i, j).getNumberOfPuzzlePieces())
+							  k++;
+						
+					  }//end while
+					  
+					  //reset k
+					  k = 0;
+				  
+					//increment count
+					//if(count <= tracker.getNumberOfRooms())
+						count++;
+
+				//if there is no file to open, the exception will be caught
+				}catch(IOException e){
+				  e.printStackTrace();
+				}//end catch
+			}
+		}
+	}//end readPuzzlePieceLayers
+  
+  
+  
+  //method to read PuzzlePiece names from file
+  private void readPuzzlePieceClues(PositionTracker tracker) {
+		
+		//declare and initialize variables
+		int count = 1;
+		int k = 0;
+	    String currentLine = "";
+		
+		for(int i = 0; i < tracker.getMaxRows(); i++){ //initiate for loop (1)
+			for(int j = 0; j < tracker.getMaxColumns(); j++){ //initiate for loop (2)
+
+				//trying to open a file to read from
+				try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/Items/PuzzlePieces/"
+																			+ "PiecesRoom" + count + "/Clues.txt"))){
+					
+					  //read each line in the file until EOF
+					  while((currentLine = br.readLine()) != null){
+	
+						  //prints the value of currentLine to the screen
+						  tracker.getRoom(i,j).getPuzzlePiece(k).setClue(currentLine);
+						  
+						  if(k < tracker.getRoom(i, j).getNumberOfPuzzlePieces())
+							  k++;
+						
+					  }//end while
+					  
+					//reset k
+					  k = 0;
+				  
+					//increment count
+					//if(count <= tracker.getNumberOfRooms())
+						count++;
+
+				//if there is no file to open, the exception will be caught
+				}catch(IOException e){
+				  e.printStackTrace();
+				}//end catch
+			}//end for loop (2)
+		}//end for loop (1)
+	}//end readPuzzlePieceLayers
+  
+  
+  
+//method to read PuzzlePiece names from file
+  private void readPuzzlePieceDescriptions(PositionTracker tracker) {
+		
+		//declare and initialize variables
+		int outerCount = 1;
+		int innerCount = 1;
+		int k = 0;
+	    String currentLine = "";
+		
+		for(int i = 0; i < tracker.getMaxRows(); i++){
+			for(int j = 0; j < tracker.getMaxColumns(); j++){
+
+				//trying to open a file to read from
+				try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/Items/PuzzlePieces/"
+																			+ "PiecesRoom" + outerCount + "/Descriptions/"
+																			+ "Item" + innerCount + ".txt"))){
+					
+					  //read each line in the file until EOF
+					  while((currentLine = br.readLine()) != null){
+	
+						  //prints the value of currentLine to the screen
+						  tracker.getRoom(i,j).getPuzzlePiece(k).setName(currentLine);
+						  
+						  if(k < tracker.getRoom(i, j).getNumberOfPuzzlePieces())
+							  k++;
+						
+					  }//end while
+				  
+				  //increment count
+				  count++;
+
+				//if there is no file to open, the exception will be caught
+				}catch(IOException e){
+				  e.printStackTrace();
+				}//end catch
+			}
+		}
+	}//end readPuzzlePieceNames
+  
+  
   
   
   

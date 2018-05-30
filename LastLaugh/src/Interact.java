@@ -50,7 +50,7 @@ public class Interact{
 		
 		//prints out caretaker's current riddle
 		System.out.println("Listen carefully " + player.getName() + ", here is my riddle:\n"
-							+ caretaker.getPuzzle(caretaker.getCurrentLayer()));
+							+ caretaker.getPuzzle(caretaker.getCurrentLayer()) + "\n");
 	}//end hearRiddle
 	
 	

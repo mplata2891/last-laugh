@@ -15,7 +15,7 @@ public class Inventory{
 	public void openInventory(Player player){
 
 		//initiate if-else statement
-		if(player.getNumberOfKeys() == 0) {
+		if(player.getNumberOfKeys() > 0) {
 		
 			//initiate for loop to iterate through list
 			for(int i = 0; i < player.getNumberOfKeys(); i++){
@@ -127,7 +127,7 @@ public class Inventory{
 	private void displayNoInventoryMsg() {
 		
 		//prints error message to user
-		System.out.println("You have no Keys in your Inventory yet.");
+		System.out.println("You have no Keys in your Inventory yet.\n");
 	}//end displayNoInventoryMsg
 	
 	
@@ -136,7 +136,7 @@ public class Inventory{
 	private void displayWrongKeyMsg() {
 		
 		//displays error message
-		System.out.println("This isn't the right key for this door.");
+		System.out.println("This isn't the right key for this door.\n");
 	}
 
 }//end of class

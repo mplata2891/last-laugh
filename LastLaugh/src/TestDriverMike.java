@@ -8,7 +8,7 @@ public class TestDriverMike{
 	  //GeneralUtility generalTool = new GeneralUtility();
 	  FileUtility fileTool = new FileUtility();
 	  InputUtility ioTool = new InputUtility();
-	  LoadGameALSO gameTool = new LoadGameALSO();
+	  LoadGame gameTool = new LoadGame();
 	  CoreObjects gameStructure = new CoreObjects();
 	  GameDriver gameDriver = new GameDriver();
 	  
@@ -17,32 +17,8 @@ public class TestDriverMike{
 	  gameTool.createAndPopulateAllObjects(gameStructure);
 	  
 	  
-	  //initiate do-while loop
-     do {
-    	 
-    	 //invoke runTitleScreen method
-    	 gameDriver.runTitleScreen(gameStructure, fileTool, ioTool);
-    	 
-    	 //initiate switch statement
-    	 switch(gameStructure.getSelector().getTitleSelection()) {
-    	 
-	    	//enter case 1 
-    	 	case 1:	gameDriver.runIntroSequence(gameStructure, fileTool, ioTool);
-	    	 		break;//break out of switch
-	    	 			
-	    	//enter case 2 
-    	 	//case 2:	gameDriver.runUpdateObjects(gameStructure);
-	    			//break;//break out of switch
-	    			
-    	 	//enter default case
-    	 	//default:	ioTool.tauntPlayer();
-    	 }//end switch
-    		
-    	 
-    	 if(gameStructure.getSelector().getTitleSelection() != 3)
-    		 gameDriver.runMainGame(gameStructure, ioTool);
-    	 
-     }while(gameStructure.getSelector().getTitleSelection() != 3);
+	  for(int i = 0; i < gameStructure.getNavigator().getNumberOfMenus(); i++)
+		  gameStructure.getNavigator().getMenu(i).toString();
 
   }//end main
 

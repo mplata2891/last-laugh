@@ -28,6 +28,9 @@ public class Examine{
 	    //enter case 3
 	    case 3:	this.examinePuzzlePiece(currentRoom);//invoke inspectPuzzlePiece method
 	    		break;//break out of switch
+	    		
+	    //enter default case
+	    default: break;
     		
     }//end switch 
   }//end examineItem

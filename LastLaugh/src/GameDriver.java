@@ -287,18 +287,23 @@ public class GameDriver{
 				gameStructure.getPlayer().getCommand().getInventory().
 				openInventory(gameStructure.getPlayer());
 			
-				//invoke displayMenu method
-				gameStructure.getNavigator().getMenu(7).displayMenu();
-							
-				//invokes menuPrompt method
-				ioTool.menuPrompt();
-								
-				//invokes takeSelection method
-				gameStructure.getSelector().setSubSelection(ioTool.takeSelection(2));
-								
-				gameStructure.getPlayer().getCommand().getInventory().
-					useKey(gameStructure.getPlayer(), gameStructure.getPositionTracker().
-							getCurrentRoom().getDoor());
+				//invoke if-else statement
+				if(gameStructure.getPlayer().getNumberOfKeys() > 0) {
+				
+					//invoke displayMenu method
+					gameStructure.getNavigator().getMenu(7).displayMenu();
+						
+					//invokes menuPrompt method
+					ioTool.menuPrompt();
+									
+					//invokes takeSelection method
+					gameStructure.getSelector().setSubSelection(ioTool.takeSelection(2));
+									
+					gameStructure.getPlayer().getCommand().getInventory().
+						useKey(gameStructure.getPlayer(), gameStructure.getPositionTracker().
+								getCurrentRoom().getDoor());
+				}else
+					gameStructure.getSelector().setSubSelection(2);
 							
 		}while(gameStructure.getSelector().getSubSelection() != 2);
 					
@@ -314,22 +319,28 @@ public class GameDriver{
 		
 		//initiate do-while loop
 		do {
-					
+			
+			//invoke openActivePage method
 			gameStructure.getPlayer().getCommand().getNotebook().openActivePage(gameStructure.getPlayer());
 			
-			//invoke displayMenu method
-			gameStructure.getNavigator().getMenu(8).displayMenu();
-					
-			//invokes menuPrompt method
-			ioTool.menuPrompt();
-					
-			//invokes takeSelection method
-			gameStructure.getSelector().setSubSelection(ioTool.takeSelection(3));
-					
-			if(gameStructure.getSelector().getSubSelection() != 3)
-				gameStructure.getPlayer().getCommand().getNotebook().
-					changePage(gameStructure.getPlayer(), 
-								gameStructure.getSelector().getSubSelection());
+			//initiate if-else statement
+			if(gameStructure.getPlayer().getNumberOfNotes() > 0) {
+			
+				//invoke displayMenu method
+				gameStructure.getNavigator().getMenu(8).displayMenu();
+						
+				//invokes menuPrompt method
+				ioTool.menuPrompt();
+						
+				//invokes takeSelection method
+				gameStructure.getSelector().setSubSelection(ioTool.takeSelection(3));
+						
+				if(gameStructure.getSelector().getSubSelection() != 3)
+					gameStructure.getPlayer().getCommand().getNotebook().
+						changePage(gameStructure.getPlayer(), 
+									gameStructure.getSelector().getSubSelection());
+			}else
+				gameStructure.getSelector().setSubSelection(3);
 				
 		}while(gameStructure.getSelector().getSubSelection() != 3);
 				

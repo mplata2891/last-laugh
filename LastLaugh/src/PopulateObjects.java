@@ -254,7 +254,7 @@ public class PopulateObjects{
 			while((currentLine = br.readLine()) != null){
 			          
 				//holds door description
-				description += currentLine;
+				description += (currentLine + "\n");
 				       	        
 			}//end while
 			        
@@ -390,7 +390,7 @@ public class PopulateObjects{
 	      while((currentLine = br.readLine()) != null){
           
           //holds door description
-	        description += currentLine;
+	        description += (currentLine + "\n");
 	       	        
 	      }//end while
         
@@ -514,7 +514,7 @@ public class PopulateObjects{
 	      while((currentLine = br.readLine()) != null){
           
           //holds door description
-	        description += currentLine;
+	        description += (currentLine + "\n");
 	       	        
 	      }//end while
         
@@ -586,7 +586,7 @@ public class PopulateObjects{
 	      while((currentLine = br.readLine()) != null){
           
           //holds description
-	        description += currentLine;
+	        description += (currentLine + "\n");
 	       	        
 	      }//end while
         
@@ -628,7 +628,7 @@ public class PopulateObjects{
 	      while((currentLine = br.readLine()) != null){
           
           //holds description
-	        description += currentLine;
+	        description += (currentLine + "\n");
 	       	        
 	      }//end while
         
@@ -669,7 +669,7 @@ public class PopulateObjects{
 	      while((currentLine = br.readLine()) != null){
           
           //holds description
-	        description += currentLine;
+	        description += (currentLine + "\n");
 	       	        
 	      }//end while
         
@@ -948,7 +948,7 @@ public class PopulateObjects{
 						//read each line in the file until EOF
 						while((currentLine = br.readLine()) != null){
 			
-							description += currentLine;
+							description += (currentLine + "\n");
 								
 						}//end while
 							  
@@ -1064,7 +1064,7 @@ public class PopulateObjects{
         //read each line in the file until EOF
         while((currentLine = br.readLine()) != null){
 
-         description += currentLine;
+         description += (currentLine + "\n");
 
         }//end while
          //prints the value of currentLine to the screen
@@ -1213,7 +1213,7 @@ public class PopulateObjects{
 	      while((currentLine = br.readLine()) != null){
           
           //holds door description
-	        description += currentLine;
+	        description += (currentLine + "\n");
 	       	        
 	      }//end while
         

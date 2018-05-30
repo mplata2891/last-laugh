@@ -716,6 +716,15 @@ public class PopulateObjects{
           coreObject.getPositionTracker().getRoom(row,col).getCaretaker().addAnswer(currentLine);
 
           }//end while
+          
+          //for room index
+          if(col < 2){
+            col++;
+          }
+          else{
+            col = 0;
+            row++;
+          }
 
         //if there is no file to open, the exception will be caught
         }catch(IOException e){
@@ -744,7 +753,7 @@ public class PopulateObjects{
 	        //prints the value of currentLine to the screen
 	       coreObject.getPositionTracker().getRoom(row,col).getCaretaker().addPuzzle(currentLine);
 	      
-        }
+        }//end while
         //for room index
         if(col < 2){
           col++;
@@ -753,7 +762,7 @@ public class PopulateObjects{
           col = 0;
           row++;
           
-	      }//end while
+	      }
 	
 	    //if there is no file to open, the exception will be caught
 	    }catch(IOException e){

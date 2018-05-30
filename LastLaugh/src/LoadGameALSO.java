@@ -31,11 +31,13 @@ public class LoadGameALSO{
 		
 		this.createObjects.createSecondLayerObjects(gameStructure);
 		
-		//this.populateObjects.populateSecondLayerObjects(gameStructure);
+		this.populateObjects.populateSecondLayerObjects(gameStructure);
 		
 		this.createObjects.createThirdLayerObjects(gameStructure.getPositionTracker());
 		
-		//this.populateObjects.populateThirdLayerObjects(gameStructure.getPositionTracker());	
+		//this.populateObjects.populateThirdLayerObjects(gameStructure);
+		
+		this.populateObjects.populateFourthLayerObjects(gameStructure);
 	}//end loadAndPopulateAllObjects
 	
 	

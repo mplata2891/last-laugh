@@ -11,4 +11,10 @@ Second Layer
 			Keys //Done
 			
 Third Layer
+	Doors
+	Caretakers
 	PuzzlePieces
+	
+Fourth Layer
+	Notes
+	Keys

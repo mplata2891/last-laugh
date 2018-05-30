@@ -102,187 +102,245 @@ public class PopulateObjects{
 	
 	
 	
- ////////////////Menus//////////////////////////////////////////////////
-  public void populateMenus(CoreObjects coreObject){
-    readMenuNames(coreObject);
-    readMenuOptions(coreObject);
-  }
-//This method opens a file and prints out each line
-  public void readMenuNames(CoreObjects coreObject){
-
-    //declare and initialize variables
-    int index = 0;
-    String currentLine = "";
-
-    //trying to open a file to read from
-    try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Menus/Names.txt"))){
-
-      //read each line in the file until EOF
-      while((currentLine = br.readLine()) != null){
-
-        //prints the value of currentLine to the screen
-       coreObject.getNavigator().getMenu(index++).setName(currentLine);
-        
-      }//end while
-
-    //if there is no file to open, the exception will be caught
-    }catch(IOException e){
-      e.printStackTrace();
-    }//end catch
-  }//end readMenuNames
-  
-//This method opens a file and prints out each line
-  public void readMenuOptions(CoreObjects coreObject){
-
-    //declare and initialize variables
-    //int index = 0;
-    String currentLine = "";
-
-    for(int index = 0; index < 9; index++) {
-	    //trying to open a file to read from
-        try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles//NewGame/Menus/MenuOptions/Menu" 
-	    															+ index + ".txt"))){
-        
+///////////////////////////////////////////////////////////////////////////////
 	
-		    //read each line in the file until EOF
-		    while((currentLine = br.readLine()) != null){
+	//method to populate second layer objects
+	public void populateSecondLayerObjects(CoreObjects gameStructure) {
 		
-			    //prints the value of currentLine to the screen
-			    coreObject.getNavigator().getMenu(index).addOption(currentLine);
-		        
-		    }//end while
-        
+		//invoke populateMenus method
+		this.populateMenus(gameStructure.getNavigator());
+		
+		//invoke populateRooms method
+		this.populateRooms(gameStructure.getPositionTracker());
+	}//end populateSecondLayerObjects
 	
-	    //if there is no file to open, the exception will be caught
-	    }catch(IOException e){
-	      e.printStackTrace();
-	    }//end catch
+		
+	
+								/*Menus*/
+	
+	//method to populate Menu class members
+	private void populateMenus(Navigator navigator){
     
-    }
-  }//end readMenuOptions
+		//invoke readMenuNames method
+		this.readMenuNames(navigator);
+		
+		//invoke readMenuOptions method
+		this.readMenuOptions(navigator);
+	}//end populateMenus
+	
+		
+	//This method opens a file and prints out each line
+	private void readMenuNames(Navigator navigator){
+	
+		//declare and initialize variables
+		int index = 0;
+		String currentLine = "";
+		
+		//trying to open a file to read from
+		try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Menus/Names.txt"))){
+		
+			//read each line in the file until EOF
+			while((currentLine = br.readLine()) != null){
+			
+			//prints the value of currentLine to the screen
+			navigator.getMenu(index++).setName(currentLine);
+			        
+			}//end while
+		
+		//if there is no file to open, the exception will be caught
+		}catch(IOException e){
+			e.printStackTrace();
+		}//end catch
+	}//end readMenuNames
   
-  //////////Rooms///////////////////////////////////////////////////////
-  public void readRooms(CoreObjects coreObject){
-    readRoomName(coreObject);
-    readRoomDescription(coreObject);
-    readRoomNumberPuzzle(coreObject);
-  }
+	
+	//This method opens a file and prints out each line
+	private void readMenuOptions(Navigator navigator){
+	
+		//declare and initialize variables
+		String currentLine = "";
+		
+		//initiate for loop
+		for(int index = 0; index < 9; index++) {
+			
+			//trying to open a file to read from
+			try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles//NewGame/Menus/MenuOptions/Menu" 
+				    															+ index + ".txt"))){
+			        
+				
+				//read each line in the file until EOF
+				while((currentLine = br.readLine()) != null){
+						
+				//prints the value of currentLine to the screen
+				navigator.getMenu(index).addOption(currentLine);
+						        
+				}//end while
+			        	
+			//if there is no file to open, the exception will be caught
+			}catch(IOException e){
+				e.printStackTrace();
+			}//end catch  
+		}//end for
+	}//end readMenuOptions
+	
+	
   
-  public void readRoomName(CoreObjects coreObject){
+								/*Rooms*/
+	
+	//method to populate Room class members	
+	private void populateRooms(PositionTracker tracker){
+		
+		//invoke readRoomName method
+		this.readRoomName(tracker);
+		
+		//invoke readRoomDescription method
+		this.readRoomDescription(tracker);
+		
+		//invoke readRoomNumberOfPuzzle method
+		this.readRoomNumberOfPuzzle(tracker);
+	}//end readRooms
+ 
+
+	//method to read Room names from a file
+	private void readRoomName(PositionTracker tracker){
+	  
+		//declare and initialize variables
+		String currentLine = "";
+		int row = 0;
+		int col = 0;
+		
+		//trying to open a file to read from
+		try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Rooms/Names.txt"))){
+		
+		//read each line in the file until EOF
+		while((currentLine = br.readLine()) != null){
+			
+			//invokes setName method
+			tracker.getRoom(row,col).setName(currentLine);
+			
+			//room index
+			if(col < 2){
+				col++;
+			}
+			else{
+				col = 0;
+				row++;
+			}//end if-else
+			        
+		}//end while
+		
+		//if there is no file to open, the exception will be caught
+		}catch(IOException e){
+			e.printStackTrace();
+		}//end catch 
+	}//end readRoomName
+	
   
-    //declare and initialize variables
-    String currentLine = "";
-    int row = 0;
-    int col = 0;
-
-    //trying to open a file to read from
-    try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Rooms/Names.txt"))){
-
-      //read each line in the file until EOF
-      while((currentLine = br.readLine()) != null){
-
-        //prints the value of currentLine to the screen
-       coreObject.getPositionTracker().getRoom(row,col).setName(currentLine);
-       //room index
-       if(col < 2){
-         col++;
-       }
-       else{
-         col = 0;
-         row++;
-       }
-        
-      }//end while
-
-    //if there is no file to open, the exception will be caught
-    }catch(IOException e){
-      e.printStackTrace();
-    }//end catch
-    
-  }//end readRoomName
-  
-  public void readRoomDescription(CoreObjects coreObject){
-    //declare and initialize variables
-    
-    String currentLine = "";
-    String description = "";
-    int row = 0;
-    int col = 0;
-
-    for(int index = 1; index < 10; index++) {
-      
-	    //trying to open a file to read from
-        try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Rooms/Descriptions/Room" 
-	    															+ index + ".txt"))){
-	      //read each line in the file until EOF
-	      while((currentLine = br.readLine()) != null){
-          
-          //holds door description
-	        description += currentLine;
-	       	        
-	      }//end while
-        
-        //gives door the description
-        coreObject.getPositionTracker().getRoom(row,col).setDescription(description);
-        
-        //for room index
-        if(col < 2){
-          col++;
-        }
-        else{
-          col = 0;
-          row++;
-        }
-        	    
-          //if there is no file to open, the exception will be caught
-	    }catch(IOException e){
-	      e.printStackTrace();
-	    }//end catch
-      //clear description for next door
-      description = "";
-    }//end for
-  }//end readRoomDescription
-  
-   public void readRoomNumberPuzzle(CoreObjects coreObject){
-
-    //declare and initialize variables
-    int row = 0;
-    int col = 0;
-    String currentLine = "";
-
-    //trying to open a file to read from
-    try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Rooms/NumberOfPieces.txt"))){
-
-      //read each line in the file until EOF
-      while((currentLine = br.readLine()) != null){
-
-       coreObject.getPositionTracker().getRoom(row,col).setNumberOfPuzzlePieces(Integer.parseInt(currentLine));
-       //room index
-       if(col < 2){
-         col++;
-       }
-       else{
-         col = 0;
-         row++;
-       }    
-      }//end while
-
-    //if there is no file to open, the exception will be caught
-    }catch(IOException e){
-      e.printStackTrace();
-    }//end catch
-  }//end readRoomNumberPuzzle
+	//method to read Room descriptions from a file
+	private void readRoomDescription(PositionTracker tracker){
+		
+		//declare and initialize variables  
+		String currentLine = "";
+		String description = "";
+		int row = 0;
+		int col = 0;
+		
+		for(int index = 1; index < 10; index++) {
+		      
+			//trying to open a file to read from
+			try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Rooms/Descriptions/Room" 
+				    															+ index + ".txt"))){
+			//read each line in the file until EOF
+			while((currentLine = br.readLine()) != null){
+			          
+				//holds door description
+				description += currentLine;
+				       	        
+			}//end while
+			        
+			//gives door the description
+			tracker.getRoom(row,col).setDescription(description);
+			        
+			//for room index
+			if(col < 2){
+				col++;
+			}
+			else{
+				col = 0;
+				row++;
+			}//end if-else
+			        	    
+			//if there is no file to open, the exception will be caught
+			}catch(IOException e){
+				e.printStackTrace();
+			}//end catch
+			
+			//clear description for next door
+			description = "";
+		}//end for
+	}//end readRoomDescription
+	
+	
+	//method to read Rooms number of puzzle pieces from file
+	private void readRoomNumberOfPuzzle(PositionTracker tracker){
+	
+		//declare and initialize variables
+		int row = 0;
+		int col = 0;
+		String currentLine = "";
+		
+		//trying to open a file to read from
+		try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Rooms/NumberOfPieces.txt"))){
+		
+		//read each line in the file until EOF
+		while((currentLine = br.readLine()) != null){
+		
+			tracker.getRoom(row,col).setNumberOfPuzzlePieces(Integer.parseInt(currentLine));
+			
+			//room index
+			if(col < 2){
+				col++;
+			}
+			else{
+				col = 0;
+				row++;
+			}//end if-else    
+		}//end while
+		
+		//if there is no file to open, the exception will be caught
+		}catch(IOException e){
+			e.printStackTrace();
+		}//end catch
+	}//end readRoomNumberPuzzle
+	
+	
+	
+///////////////////////////////////////////////////////////////////////////////
+	
+	//method to populate third layer objects
+	public void populateThirdLayerObjects(CoreObjects gameStructure) {
+		
+		//invoke populateDoors method
+		this.populateDoors(gameStructure.getPositionTracker());
+		
+		//invoke populateCaretakers method
+		this.populateCaretaker(gameStructure);
+		
+		//invoke populatePuzzlePieces
+		this.populatePuzzlePieces(gameStructure.getPositionTracker());
+	}//end populateThirdLayerObjects
 
   
-  //////////Doors/////////////////////////////////////////////////////
+	
+								/*Doors*/
   
-  public void readDoors(CoreObjects coreObject){
-    readDoorName(coreObject);
-    readDoorDescription(coreObject);
-    readDoorKeyName(coreObject);
+  private void populateDoors(PositionTracker tracker){
+    readDoorName(tracker);
+    readDoorDescription(tracker);
+    readDoorKeyName(tracker);
   }//end readDoors
   
-  public void readDoorName(CoreObjects coreObject){
+  private void readDoorName(PositionTracker tracker){
   
     //declare and initialize variables
     String currentLine = "";
@@ -296,7 +354,7 @@ public class PopulateObjects{
       while((currentLine = br.readLine()) != null){
 
         //prints the value of currentLine to the screen
-       coreObject.getPositionTracker().getRoom(row,col).getDoor().setName(currentLine);
+       tracker.getRoom(row,col).getDoor().setName(currentLine);
        //room index
        if(col < 2){
          col++;
@@ -315,7 +373,7 @@ public class PopulateObjects{
     
   }//end readDoorName
  
-  public void readDoorDescription(CoreObjects coreObject){
+  private void readDoorDescription(PositionTracker tracker){
     //declare and initialize variables
     
     String currentLine = "";
@@ -337,7 +395,7 @@ public class PopulateObjects{
 	      }//end while
         
         //gives door the description
-        coreObject.getPositionTracker().getRoom(row,col).getDoor().setDescription(description);
+        tracker.getRoom(row,col).getDoor().setDescription(description);
         
         //for room index
         if(col < 2){
@@ -357,7 +415,7 @@ public class PopulateObjects{
     }//end for
   }//end readDoorDescription
   
-  public void readDoorKeyName(CoreObjects coreObject){
+  private void readDoorKeyName(PositionTracker tracker){
   
     //declare and initialize variables
     String currentLine = "";
@@ -371,7 +429,7 @@ public class PopulateObjects{
       while((currentLine = br.readLine()) != null){
 
         //prints the value of currentLine to the screen
-       coreObject.getPositionTracker().getRoom(row,col).getDoor().setKeyName(currentLine);
+       tracker.getRoom(row,col).getDoor().setKeyName(currentLine);
        //room index
        if(col < 2){
          col++;
@@ -389,123 +447,12 @@ public class PopulateObjects{
     }//end catch
   }//end readDoorKeyName
   
-  ////////Notes//////////////////////////////////////////////////////////////////
-  public void readNotes(CoreObjects coreObject){
-    readNoteContent(coreObject);
-    readNoteName(coreObject);
-    readNoteTitle(coreObject);
-  }
   
-  public int chance(int start, int end){
-      return start + (int)(Math.random() * (end - start));
-  }
   
-  public void readNoteContent(CoreObjects coreObject){
-    
-    //declare and initialize variables
-    String currentLine = "";
-    String description = "";
-    int row = 0;
-    int col = 0;
-    
-    for(int index=1; index<10; index++){
-        //trying to open a file to read from
-      try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Notes/Story"
-                                                 + chance(1,4) + "/Contents/Ch" + index + ".txt"))){
-
-        //read each line in the file until EOF
-        while((currentLine = br.readLine()) != null){
-
-         description += currentLine;
-
-        }//end while
-         //prints the value of currentLine to the screen
-         coreObject.getPositionTracker().getRoom(row,col).getDoor().getNote().setContents(description);
-         //room index
-         if(col < 2){
-           col++;
-         }
-         else{
-           col = 0;
-           row++;
-         }
-
-      //if there is no file to open, the exception will be caught
-      }catch(IOException e){
-        e.printStackTrace();
-      }//end catch
-      description = "";
-    }//end for
-  }//end readNoteContent
+  								/*Caretaker*/
   
-  public void readNoteName(CoreObjects coreObject){
   
-    //declare and initialize variables
-    String currentLine = "";
-    int row = 0;
-    int col = 0;
-
-    //trying to open a file to read from
-    try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Notes/Names.txt"))){
-
-      //read each line in the file until EOF
-      while((currentLine = br.readLine()) != null){
-
-        //prints the value of currentLine to the screen
-       coreObject.getPositionTracker().getRoom(row,col).getDoor().getNote().setName(currentLine);
-       //room index
-       if(col < 2){
-         col++;
-       }
-       else{
-         col = 0;
-         row++;
-       }
-        
-      }//end while
-
-    //if there is no file to open, the exception will be caught
-    }catch(IOException e){
-      e.printStackTrace();
-    }//end catch
-    
-  }//end readNoteName
-  
-  public void readNoteTitle(CoreObjects coreObject){
-    
-    //declare and initialize variables
-    String currentLine = "";
-    String description = "";
-    int row = 0;
-    int col = 0;
-    
-    
-    try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Notes/Story"
-                                                 + chance(1,4) + "/Titles.txt"))){
-
-        //read each line in the file until EOF
-        while((currentLine = br.readLine()) != null){
-     
-           coreObject.getPositionTracker().getRoom(row,col).getDoor().getNote().setTitle(currentLine);
-           //room index
-           if(col < 2){
-             col++;
-           }
-           else{
-             col = 0;
-             row++;
-           }
-
-        }//end while
-       
-      //if there is no file to open, the exception will be caught
-      }catch(IOException e){
-        e.printStackTrace();
-      }//end catch
-  }//end readNoteTitle
-  
-  ////////Caretaker//////////////////////////////////////////////////////////////
-  public void readCaretaker(CoreObjects coreObject){
+  private void populateCaretaker(CoreObjects coreObject){
     
       readCaretakerName(coreObject);
       readCaretakerDescription(coreObject);
@@ -517,7 +464,7 @@ public class PopulateObjects{
       readCaretakerPuzzles(coreObject);
     }//end readCaretaker
   
-    public void readCaretakerName(CoreObjects coreObject){
+    private void readCaretakerName(CoreObjects coreObject){
   
     //declare and initialize variables
     String currentLine = "";
@@ -550,7 +497,7 @@ public class PopulateObjects{
     
   }//end readCaretakerName
   
-  public void readCaretakerDescription(CoreObjects coreObject){
+  private void readCaretakerDescription(CoreObjects coreObject){
     //declare and initialize variables
     
     String currentLine = "";
@@ -592,7 +539,7 @@ public class PopulateObjects{
     }//end for
   }//end readCaretakerDescription
 
-  public void readCaretakerLayers(CoreObjects coreObject){
+  private void readCaretakerLayers(CoreObjects coreObject){
 
     //declare and initialize variables
     int row = 0;
@@ -622,8 +569,7 @@ public class PopulateObjects{
     }//end catch
   }//end readCaretakerLayers
 
-  
- public void readCaretakerGreetings(CoreObjects coreObject){
+ private void readCaretakerGreetings(CoreObjects coreObject){
     //declare and initialize variables
     
     String currentLine = "";
@@ -665,7 +611,7 @@ public class PopulateObjects{
     }//end for
   }//end readCaretakerGreetings
   
-   public void readCaretakerFelicitation(CoreObjects coreObject){
+   private void readCaretakerFelicitation(CoreObjects coreObject){
     //declare and initialize variables
     
     String currentLine = "";
@@ -707,7 +653,7 @@ public class PopulateObjects{
     }//end for
   }//end readCaretakerFelicitation
   
-     public void readCaretakerAdmonishment(CoreObjects coreObject){
+     private void readCaretakerAdmonishment(CoreObjects coreObject){
     //declare and initialize variables
     
     String currentLine = "";
@@ -749,7 +695,7 @@ public class PopulateObjects{
   }//end readCaretakerAdmonishment
   
   //This method loads answers
-  public void readCaretakerAnswers(CoreObjects coreObject){
+  private void readCaretakerAnswers(CoreObjects coreObject){
 
     //declare and initialize variables
     //int index = 0;
@@ -788,7 +734,7 @@ public class PopulateObjects{
   }//end readCaretakerQA
   
     //This method loads Puzzles
-  public void readCaretakerPuzzles(CoreObjects coreObject){
+  private void readCaretakerPuzzles(CoreObjects coreObject){
 
     //declare and initialize variables
     //int index = 0;
@@ -824,17 +770,162 @@ public class PopulateObjects{
 	    }//end catch
     
     }
-  }//end readCaretakerPuzzles  
+  }//end readCaretakerPuzzles
   
   
-///////Key//////////////////////////////////////////////////////////////////
-  public void readKey(CoreObjects coreObject){
+  
+  								/*PuzzlePieces*/
+  
+  //method to populate PuzzlePiece class members
+  private void populatePuzzlePieces(PositionTracker tracker) {
+	  
+	  
+  }//end populatePuzzlePieces
+  
+  
+  
+///////////////////////////////////////////////////////////////////////////////
+  
+  //method to populate fourth layer objects
+  public void populateFourthLayerObjects(CoreObjects gameStructure) {
+	  
+	  //invoke the populateNotes method
+	  this.populateNotes(gameStructure);
+	  
+	  //invoke the populateKeys method
+	  this.populateKeys(gameStructure);
+  }//end loadFourthLayerObjects
+  
+  
+  
+  								/*Notes*/
+  
+  
+  private void populateNotes(CoreObjects coreObject){
+    readNoteContent(coreObject);
+    readNoteName(coreObject);
+    readNoteTitle(coreObject);
+  }
+  
+  private int chance(int start, int end){
+      return start + (int)(Math.random() * (end - start));
+  }
+  
+  private void readNoteContent(CoreObjects coreObject){
+    
+    //declare and initialize variables
+    String currentLine = "";
+    String description = "";
+    int row = 0;
+    int col = 0;
+    
+    for(int index=1; index<10; index++){
+        //trying to open a file to read from
+      try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Notes/Story"
+                                                 + chance(1,4) + "/Contents/Ch" + index + ".txt"))){
+
+        //read each line in the file until EOF
+        while((currentLine = br.readLine()) != null){
+
+         description += currentLine;
+
+        }//end while
+         //prints the value of currentLine to the screen
+         coreObject.getPositionTracker().getRoom(row,col).getDoor().getNote().setContents(description);
+         //room index
+         if(col < 2){
+           col++;
+         }
+         else{
+           col = 0;
+           row++;
+         }
+
+      //if there is no file to open, the exception will be caught
+      }catch(IOException e){
+        e.printStackTrace();
+      }//end catch
+      description = "";
+    }//end for
+  }//end readNoteContent
+  
+  private void readNoteName(CoreObjects coreObject){
+  
+    //declare and initialize variables
+    String currentLine = "";
+    int row = 0;
+    int col = 0;
+
+    //trying to open a file to read from
+    try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Notes/Names.txt"))){
+
+      //read each line in the file until EOF
+      while((currentLine = br.readLine()) != null){
+
+        //prints the value of currentLine to the screen
+       coreObject.getPositionTracker().getRoom(row,col).getDoor().getNote().setName(currentLine);
+       //room index
+       if(col < 2){
+         col++;
+       }
+       else{
+         col = 0;
+         row++;
+       }
+        
+      }//end while
+
+    //if there is no file to open, the exception will be caught
+    }catch(IOException e){
+      e.printStackTrace();
+    }//end catch
+    
+  }//end readNoteName
+  
+  private void readNoteTitle(CoreObjects coreObject){
+    
+    //declare and initialize variables
+    String currentLine = "";
+    int row = 0;
+    int col = 0;
+    
+    
+    try(BufferedReader br = new BufferedReader(new FileReader("src/TextFiles/NewGame/Notes/Story"
+                                                 + chance(1,4) + "/Titles.txt"))){
+
+        //read each line in the file until EOF
+        while((currentLine = br.readLine()) != null){
+     
+           coreObject.getPositionTracker().getRoom(row,col).getDoor().getNote().setTitle(currentLine);
+           //room index
+           if(col < 2){
+             col++;
+           }
+           else{
+             col = 0;
+             row++;
+           }
+
+        }//end while
+       
+      //if there is no file to open, the exception will be caught
+      }catch(IOException e){
+        e.printStackTrace();
+      }//end catch
+  }//end readNoteTitle  
+  
+  
+  
+  								/*Keys*/
+  
+  
+  private void populateKeys(CoreObjects coreObject){
     readKeyName(coreObject);
     readKeyDescription(coreObject);
     
   }//end readKey
   
-  public void readKeyName(CoreObjects coreObject){
+  private void readKeyName(CoreObjects coreObject){
   
     //declare and initialize variables
     String currentLine = "";
@@ -868,7 +959,7 @@ public class PopulateObjects{
     
   }//end readKeyName
   
-  public void readKeyDescription(CoreObjects coreObject){
+  private void readKeyDescription(CoreObjects coreObject){
     //declare and initialize variables
     
     String currentLine = "";

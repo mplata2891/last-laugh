@@ -35,7 +35,7 @@ public class LoadGameALSO{
 		
 		this.createObjects.createThirdLayerObjects(gameStructure.getPositionTracker());
 		
-		//this.populateObjects.populateThirdLayerObjects(gameStructure);
+		this.populateObjects.populateThirdLayerObjects(gameStructure);
 		
 		this.populateObjects.populateFourthLayerObjects(gameStructure);
 	}//end loadAndPopulateAllObjects

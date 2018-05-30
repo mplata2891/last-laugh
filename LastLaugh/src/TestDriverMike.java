@@ -8,13 +8,13 @@ public class TestDriverMike{
 	  //GeneralUtility generalTool = new GeneralUtility();
 	  FileUtility fileTool = new FileUtility();
 	  InputUtility ioTool = new InputUtility();
-	  LoadGame gameTool = new LoadGame();
+	  LoadGameALSO gameTool = new LoadGameALSO();
 	  CoreObjects gameStructure = new CoreObjects();
 	  GameDriver gameDriver = new GameDriver();
 	  
 	  
 	  //invoke loadObjects method to instantiate all needed objects
-	  gameTool.loadObjects(gameStructure);
+	  gameTool.createAndPopulateAllObjects(gameStructure);
 	  
 	  
 	  //initiate do-while loop

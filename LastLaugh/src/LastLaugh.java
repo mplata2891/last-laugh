@@ -5,7 +5,6 @@ public class LastLaugh{
   public static void main(String[] args){
 
       //instantiate and initialize objects
-	  //GeneralUtility generalTool = new GeneralUtility();
 	  FileUtility fileTool = new FileUtility();
 	  InputUtility ioTool = new InputUtility();
 	  LoadGame gameTool = new LoadGame();
@@ -35,7 +34,7 @@ public class LastLaugh{
 	    			//break;//break out of switch
 	    			
     	 	//enter default case
-    	 	//default:	ioTool.tauntPlayer();
+    	 	default:	ioTool.tauntPlayer();
     	 }//end switch
     		
     	 

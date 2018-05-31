@@ -164,6 +164,24 @@ public class InputUtility{
 	  
       fileTool.readFile("src/TextFiles/Misc/ItemPrompt.txt");
   }//end item prompt
+  
+  
+  
+  //method to prompt the user for solution to riddle
+  public void promptForSolution() {
+	  
+	  //prints message to user
+	  System.out.println("\nType the word that solves the riddle (You may ignore case): ");
+  }//end promptForSolution
+  
+  
+  
+  //method to taunt the player for exiting the game
+  public void tauntPlayer() {
+	  
+	  //prints message to user
+	  System.out.println("Afraid? You better be. . . HAHAHAHAHAHAHA!");
+  }//end tauntPlayer
    
 
 }//end class

@@ -21,7 +21,7 @@ public class Inventory{
 			for(int i = 0; i < player.getNumberOfKeys(); i++){
 				
 				//print a string representation of each key in the List
-				System.out.println("Key " + (i + 1) + ": " + player.getKey(i).toString());
+				System.out.println("\nKey " + (i + 1) + ": " + player.getKey(i).toString());
 			}//end for
 		}else 
 			this.displayNoInventoryMsg();
@@ -79,7 +79,7 @@ public class Inventory{
 	private	boolean checkKey(Key key, Door door){
 
 		//initiate if-else statement
-		if(key.getName() == door.getKeyName())
+		if(key.getName().equalsIgnoreCase(door.getKeyName()))
 			return true;//returns boolean value of true
 		else
 			return false;//returns boolean value of false

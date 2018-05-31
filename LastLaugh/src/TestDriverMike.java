@@ -75,7 +75,7 @@ public class TestDriverMike{
 			  
 			  
 			  						/*Puzzle Pieces*/
-			 //*
+			 /*
 			   for(int k = 0; k < gameStructure.getPositionTracker().getRoom(i, j).getNumberOfPuzzlePieces(); k++) {
 				  System.out.println(gameStructure.getPositionTracker().getRoom(i, j).getPuzzlePiece(k).toString() + "\n"
 						  			+ "Layers: " + gameStructure.getPositionTracker().getRoom(i, j).getPuzzlePiece(k).getLayers() + "\n"
@@ -84,7 +84,7 @@ public class TestDriverMike{
 				  for(int l = 0; l < gameStructure.getPositionTracker().getRoom(i, j).getPuzzlePiece(k).getLayers(); l++)
 						System.out.println("Manipulation: " + gameStructure.getPositionTracker().getRoom(i, j).getPuzzlePiece(k).getManipulation(l));
 			   }
-			  //*/
+			  */
 			  
 			  
 			//System.out.println(gameStructure.getPositionTracker().getRoom(i, j).getDoor().getNote().toString());

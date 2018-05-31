@@ -131,7 +131,7 @@ public class Move {
 	//method that checks whether a door exists and is unlocked
 	  private boolean checkDoor(Door door){
 
-	  	if(door.getStatus() == "Unlocked")//initiate if-else statement
+	  	if(door.getStatus().equalsIgnoreCase("Unlocked"))//initiate if-else statement
 	  		return true;//returns the value true
 	    else
 	  	 return false;//returns the value false

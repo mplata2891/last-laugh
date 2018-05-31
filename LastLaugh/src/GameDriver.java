@@ -162,6 +162,8 @@ public class GameDriver{
 	//method to examine object in room
 	private void executeExamineOperation(CoreObjects gameStructure, InputUtility ioTool) {
 		
+		//gameStructure.getPositionTracker().updateCurrentRoom();
+		
 		//initiate do-while loop
 		do {
 				
@@ -174,9 +176,11 @@ public class GameDriver{
 				//invokes takeSelection method
 				gameStructure.getSelector().setSubSelection(ioTool.takeSelection(4));
 				
-				gameStructure.getPlayer().getCommand().getExamine().
-					examineItem(gameStructure.getPositionTracker().getCurrentRoom(), 
-							gameStructure.getSelector().getSubSelection());
+				if(gameStructure.getSelector().getSubSelection() != 4) {
+					gameStructure.getPlayer().getCommand().getExamine().
+						examineItem(gameStructure.getPositionTracker().getCurrentRoom(), 
+										gameStructure.getSelector().getSubSelection());
+				}
 			
 		}while(gameStructure.getSelector().getSubSelection() != 4);
 		
@@ -302,9 +306,11 @@ public class GameDriver{
 					//invokes takeSelection method
 					gameStructure.getSelector().setSubSelection(ioTool.takeSelection(2));
 									
-					gameStructure.getPlayer().getCommand().getInventory().
-						useKey(gameStructure.getPlayer(), gameStructure.getPositionTracker().
-								getCurrentRoom().getDoor());
+					if(gameStructure.getSelector().getSubSelection() != 2) {
+						gameStructure.getPlayer().getCommand().getInventory().
+							useKey(gameStructure.getPlayer(), gameStructure.getPositionTracker().
+									getCurrentRoom().getDoor());
+					}
 				}else
 					gameStructure.getSelector().setSubSelection(2);
 							

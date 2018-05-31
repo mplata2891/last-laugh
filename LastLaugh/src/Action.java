@@ -59,7 +59,7 @@ public class Action{
 		//initiate if-else statement (1)
 		if(selection != 6) {
 			
-			if(piece.getStatus() == "Active")
+			if(piece.getStatus().equalsIgnoreCase("Active"))
 				//invoke interpretSelection method
 				this.manipulatePuzzlePiece(player, piece, selection);			
 			else
@@ -68,7 +68,7 @@ public class Action{
 			
 		} else {
 			
-				if(piece.getClueStatus() == "Unlocked")
+				if(piece.getClueStatus().equalsIgnoreCase("Unlocked"))
 					//invokes revealClue method
 					this.revealClue(piece);
 				else
@@ -190,7 +190,7 @@ public class Action{
 	private boolean manipulationIsCorrect(PuzzlePiece piece, String manip) {
 		
 		//initiate if-else statement
-		if(manip == piece.getManipulation(piece.getCurrentLayer()))
+		if(piece.getManipulation(piece.getCurrentLayer()).equalsIgnoreCase(manip))
 			return true;//returns boolean value true
 		else
 			return false;//returns boolean value false
@@ -229,6 +229,9 @@ public class Action{
 		
 		//invokes unlockClue method
 		piece.setClueStatus("Unlocked");
+		
+		//invokes setStatua method
+		piece.setStatus("Inactive");
 		
 		//prints message to the user
 		System.out.println("The Architect informs you -\n"

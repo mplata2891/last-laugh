@@ -33,7 +33,7 @@ public class Key extends Item{
 	public String toString(){
 	
 	    //returns the value returned by the parent class toString method
-		return super.toString() + "\n";
+		return super.toString();
 	}//end toString method
 	
 }//end of class

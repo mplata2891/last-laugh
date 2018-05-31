@@ -49,7 +49,7 @@ public class Interact{
 	private void hearRiddle(Player player, Caretaker caretaker) {
 		
 		//prints out caretaker's current riddle
-		System.out.println("Listen carefully " + player.getName() + ", here is my riddle:\n"
+		System.out.println("\nListen carefully " + player.getName() + ", here is my riddle:\n"
 							+ caretaker.getPuzzle(caretaker.getCurrentLayer()) + "\n");
 	}//end hearRiddle
 	
@@ -66,10 +66,10 @@ public class Interact{
 		String solution = "";
 		
 		//prompt user to enter a their solution
-		ioTool.itemPrompt();
+		ioTool.promptForSolution();
 		
 		//take String from user
-		solution = ioTool.takeName();
+		solution = ioTool.getString();
 		
 		//initiate if-else statement (1)
 		if(this.solutionIsCorrect(caretaker, solution) == true) {
@@ -78,10 +78,16 @@ public class Interact{
 				//invoke caretakerInformsOfMoreRiddles method
 				this.caretakerInformsOfMoreRiddles(player, caretaker);
 			
-			else 				
+			else {				
 				//invokes caretakerCongratulates method
 				this.caretakerCongratulates(player, caretaker);
 			
+				//invokes playerReceivesKey method
+				this.playerReceivesKey(player, caretaker);
+				
+				//invokes playerInfomedOfNewKey
+				this.playerInformedOfNewKey();
+			}
 		}else {
 			
 			//update attempts by invoking incrementAttempts method
@@ -104,7 +110,7 @@ public class Interact{
 	private boolean solutionIsCorrect(Caretaker caretaker, String solution) {
 		
 		//initiate if-else statement
-		if(solution == caretaker.getAnswer(caretaker.getCurrentLayer()))
+		if(caretaker.getAnswer(caretaker.getCurrentLayer()).equalsIgnoreCase(solution))
 			return true;//returns boolean value of true
 		else
 			return false;//returns boolean value of false
@@ -145,9 +151,27 @@ public class Interact{
 		caretaker.setStatus("Inactive");
 		
 		//prints congratulations from caretaker
-		System.out.println(caretaker.getName() + " congratulates you -\n"
-				+ "	" + player.getName() + caretaker.getFelicitation() + "\n");
+		System.out.println("\n" + caretaker.getName() + " congratulates you -\n"
+				+ "	" + player.getName() + caretaker.getFelicitation());
 	}//end caretakerCongratulates
+	
+	
+	
+	//method to give player a key
+	private void playerReceivesKey(Player player, Caretaker caretaker) {
+		
+		//invokes addKey method
+		player.addKey(caretaker.getKey());
+	}//end playerReceivesKey
+	
+	
+	
+	//method to alert the user that they have received a new key
+	private void playerInformedOfNewKey() {
+		
+		//prints message to the user
+		System.out.println("A new Key has been added to your Inventory\n");
+	}//end playerInformedOfNewKey
 	
 	
 	
@@ -156,7 +180,7 @@ public class Interact{
 		
 		//prints an admonishment to the player
 		System.out.println(caretaker.getName() + " admonsihes you -\n"
-				+ "	" + player.getName() + caretaker.getAdmonishment() + "\n");
+				+ "	" + player.getName() + caretaker.getAdmonishment());
 	}//end caretakerAdmonishes
 	
 	
@@ -165,7 +189,7 @@ public class Interact{
 	private void caretakerInactiveMsg(Player player, Caretaker caretaker) {
 		
 		//prints message to the user
-		System.out.println("I'm sorry " + player.getName() + ", but\n"
+		System.out.println("\nI'm sorry " + player.getName() + ", but. . .\n"
 				+ caretaker.getName() + " is no longer active.");
 	}//end caretakerInactiveMsg
 	

@@ -249,6 +249,9 @@ public class GameDriver{
 	//method to perform a manipulation on a puzzle piece
 	public void executeActionSubOperation(CoreObjects gameStructure, InputUtility ioTool) {
 		
+		gameStructure.getPlayer().getCommand().getAction().
+			selectPuzzlePiece(gameStructure.getPositionTracker().getCurrentRoom());
+		
 		//initiate do-while loop
 		do {
 							

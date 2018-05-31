@@ -943,6 +943,9 @@ public class PopulateObjects{
 						}//end while
 							  
 						tracker.getRoom(i, j).getPuzzlePiece(k).setDescription(description);
+						
+						//reset description
+						description = "";
 							
 						if(k < tracker.getRoom(i, j).getNumberOfPuzzlePieces())
 							k++;	
@@ -968,7 +971,6 @@ public class PopulateObjects{
 	    
 	  //declare and initialize variables 
 	    String currentLine = "";
-	    //String description = "";
 		int count = 1;
 		int k = 0;
 		

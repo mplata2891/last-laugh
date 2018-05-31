@@ -36,8 +36,20 @@ public class Action{
 		//take user's selection
 		selection = ioTool.takeSelection(room.getNumberOfPuzzlePieces());
 
-		room.setSelectedPuzzlePiece(room.getPuzzlePiece(selection));
+		//invoke setSelectedPuzzlePiece method
+		room.setSelectedPuzzlePiece(room.getPuzzlePiece(selection - 1));
+		
+		//invoke confirmSelectedPuzzlePiece
+		this.confirmSelectedPuzzlePiece(room.getSelectedPuzzlePiece());
 	}//end selectPuzzlePiece
+	
+	
+	
+	//method to confirm user's selction
+	private void confirmSelectedPuzzlePiece(PuzzlePiece piece) {
+		
+		System.out.println("You selected " + piece.getName() + "\n");
+	}//end confirmSelectedPuzzlePiece
 
 
 

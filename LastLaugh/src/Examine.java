@@ -18,7 +18,7 @@ public class Examine{
     switch(selection) {
     
     	//enter case 1
-	    case 1: this.examineDoor(currentRoom.getDoor());//invoke inspectDoor method
+	    case 1: this.examineDoor(currentRoom);//invoke inspectDoor method
 	    		break;//break out of switch
 	    
 	    //enter case 2
@@ -27,21 +27,17 @@ public class Examine{
 	    
 	    //enter case 3
 	    case 3:	this.examinePuzzlePiece(currentRoom);//invoke inspectPuzzlePiece method
-	    		break;//break out of switch
-	    		
-	    //enter default case
-	    default: break;
-    		
+	    		break;//break out of switch		
     }//end switch 
   }//end examineItem
   
   
   
   //method to print out the description of the door in the current room
-  private void examineDoor(Door door) {
+  private void examineDoor(Room room) {
 	  
 	  //prints out description of door
-	  System.out.println(door.toString());
+	  System.out.println(room.getDoor().toString());
   }//end inspectDoor
   
   

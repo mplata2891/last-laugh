@@ -75,7 +75,7 @@ public class Notebook{
 	private void displayNoNotesMsg() {
 		
 		//prints error message to the user
-		System.out.println("You don't have any Notes in your Notebook yet.\n");
+		System.out.println("\nYou don't have any Notes in your Notebook yet.\n");
 	}//end displayNoNotesMsg
 	
 	
@@ -84,7 +84,7 @@ public class Notebook{
 	private void displayNoMorePagesMsg() {
 		
 		//print error message to the user
-		System.out.println("There are no more pages in that direction.\n");
+		System.out.println("\nThere are no more pages in that direction.\n");
 	}//end displayNoMorePagesMsg
 
 }//end class

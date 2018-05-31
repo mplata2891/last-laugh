@@ -166,7 +166,10 @@ public class GameDriver{
 		
 		//initiate do-while loop
 		do {
-				
+			//System.out.println(gameStructure.getPositionTracker().getCurrentRoom().getDoor().toString());
+			
+			 //System.out.println(gameStructure.getPositionTracker().getCurrentRoom().getCaretaker().toString());
+			 
 				//invoke displayMenu method
 				gameStructure.getNavigator().getMenu(3).displayMenu();
 				
@@ -177,6 +180,7 @@ public class GameDriver{
 				gameStructure.getSelector().setSubSelection(ioTool.takeSelection(4));
 				
 				if(gameStructure.getSelector().getSubSelection() != 4) {
+					gameStructure.getPositionTracker().updateCurrentRoom();
 					gameStructure.getPlayer().getCommand().getExamine().
 						examineItem(gameStructure.getPositionTracker().getCurrentRoom(), 
 										gameStructure.getSelector().getSubSelection());
@@ -206,10 +210,12 @@ public class GameDriver{
 				//invokes takeSelection method
 				gameStructure.getSelector().setSubSelection(ioTool.takeSelection(4));
 						
-				gameStructure.getPlayer().getCommand().getInteract().
-					interactWithCaretaker(gameStructure.getPlayer(), 
-							gameStructure.getPositionTracker().getCurrentRoom().getCaretaker(), 
-								gameStructure.getSelector().getSubSelection());
+				if(gameStructure.getSelector().getSubSelection() != 4) {
+					gameStructure.getPlayer().getCommand().getInteract().
+						interactWithCaretaker(gameStructure.getPlayer(), 
+								gameStructure.getPositionTracker().getCurrentRoom().getCaretaker(), 
+									gameStructure.getSelector().getSubSelection());
+				}
 					
 		}while(gameStructure.getSelector().getSubSelection() != 4);
 				

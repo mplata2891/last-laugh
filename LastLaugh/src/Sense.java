@@ -12,13 +12,13 @@ public class Sense{
   public void senseSurroundings(Room currentRoom){
 
 	//prints information about the current room
-	System.out.println(currentRoom.toString());
+	System.out.println("\n" + currentRoom.toString());
 	  
 	//prints message to the user
     System.out.println("In the room you're in, you notice. . .\n");
     
     //prints a description of the current room
-    System.out.println(currentRoom.getDescription() + "\n");
+    System.out.println(currentRoom.getDescription());
 
     //invokes the identifyDoor method
     this.identifyDoor(currentRoom.getDoor());
@@ -60,12 +60,16 @@ public class Sense{
   private void identifyPuzzlePieces(Room currentRoom){
 
     //prints Item label
-    System.out.println("Puzzle Pieces:");
+    System.out.print("Puzzle Pieces: ");
 
     //initiate for loop to iterate through ArrayList
-    for(int i = 0; i < currentRoom.getNumberOfPuzzlePieces(); i++)
-      //prints the name of the item located in the current index
-      System.out.println(currentRoom.getPuzzlePiece(i).getName());
+    for(int i = 0; i < currentRoom.getNumberOfPuzzlePieces(); i++) {
+      
+    	if(i == 0)
+    		System.out.println(currentRoom.getPuzzlePiece(i).getName());
+    	else
+    		System.out.println("				 " + currentRoom.getPuzzlePiece(i).getName());
+    }//end for
     
   }//end identifyPuzzlePieces
 

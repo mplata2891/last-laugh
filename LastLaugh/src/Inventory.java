@@ -33,23 +33,29 @@ public class Inventory{
 	//method to use an Key in the Player's inventory
 	public void useKey(Player player, Door door){
 		
+		
+		
 		//instantiate and initialize objects
 		Key tempKey = new Key();
-
+	
 		//declare and initialize variables
 		boolean correctKey = true;
-
+	
 		//invoke selectKey method and assigns its return value to tempKey
 		tempKey = this.selectKey(player);
-
+	
 		//invoke checkKey method and assign its return value to correctKey
 		correctKey = this.checkKey(tempKey, door);
-
-		//initiate if-else statement
-		if(correctKey == true)
-			this.unlockDoor(player, door);//invoke unlockDoor method
-		else
-			this.displayWrongKeyMsg();
+			
+		if(door.getStatus().equalsIgnoreCase("Locked")) {
+	
+			//initiate if-else statement
+			if(correctKey == true)
+				this.unlockDoor(player, door);//invoke unlockDoor method
+			else
+				this.displayWrongKeyMsg();
+		}else 
+			this.displayKeyUsedMsg();
 	}//end useKey
 
 
@@ -79,10 +85,10 @@ public class Inventory{
 	private	boolean checkKey(Key key, Door door){
 
 		//initiate if-else statement
-		if(key.getName().equalsIgnoreCase(door.getKeyName()))
-			return true;//returns boolean value of true
-		else
-			return false;//returns boolean value of false
+		return(key.getName().equalsIgnoreCase(door.getKeyName()));
+			//return true;//returns boolean value of true
+		//else
+			//return false;//returns boolean value of false
 	}//end checkKey
 
 
@@ -106,7 +112,7 @@ public class Inventory{
 		door.setStatus("Unlocked");
 
 		//alerts user that the door has been unlocked
-		System.out.println("The " + door.getName() + " has been successfully unlocked.\n");
+		System.out.println("\nThe " + door.getName() + " has been successfully unlocked.\n");
 	}//end unlock
 
 
@@ -127,7 +133,7 @@ public class Inventory{
 	private void displayNoInventoryMsg() {
 		
 		//prints error message to user
-		System.out.println("You have no Keys in your Inventory yet.\n");
+		System.out.println("\nYou have no Keys in your Inventory yet.\n");
 	}//end displayNoInventoryMsg
 	
 	
@@ -136,7 +142,16 @@ public class Inventory{
 	private void displayWrongKeyMsg() {
 		
 		//displays error message
-		System.out.println("This isn't the right key for this door.\n");
+		System.out.println("\nThis isn't the right key for this door.\n");
 	}
+	
+	
+	
+	//method to display alert that the selected key has already been used
+	private void displayKeyUsedMsg() {
+			
+			//displays error message
+			System.out.println("\nThis Key has already been used.\n");
+		}
 
 }//end of class

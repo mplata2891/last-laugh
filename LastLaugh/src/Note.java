@@ -106,7 +106,7 @@ public class Note{
 		//returns the following string
 		return this.name + "\n\n"
 				+ this.title + "\n\n"
-				+ this.contents + "\n\n";
+				+ this.contents + "\n";
 	}//end toString
   
 }//end of class

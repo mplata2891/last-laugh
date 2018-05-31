@@ -26,10 +26,15 @@ public class Move {
 			    	//initiate if-else statement
 			    	if(doorIsUnlocked == true) {
 			    		
+			    		//invoke the checkMove method
+				    	moveIsValid = this.checkMove(tracker, direction);
+			    		
 			    		//initiate if-else statement
 			    		if(moveIsValid == true) {
 			    			
 				    		this.makeMove(tracker, direction);//invoke the makeMove method
+				    		
+				    		this.displayConfirmMove(direction);
 				    		
 				    		tracker.updateCurrentRoom();
 			    		}
@@ -48,6 +53,8 @@ public class Move {
 			    	if(moveIsValid == true) {//initiate if-else statement
 			    		
 			    		this.makeMove(tracker, direction);//invoke the makeMove method
+			    		
+			    		this.displayConfirmMove(direction);
 			    		
 			    		tracker.updateCurrentRoom();
 			    		
@@ -131,10 +138,10 @@ public class Move {
 	//method that checks whether a door exists and is unlocked
 	  private boolean checkDoor(Door door){
 
-	  	if(door.getStatus().equalsIgnoreCase("Unlocked"))//initiate if-else statement
-	  		return true;//returns the value true
-	    else
-	  	 return false;//returns the value false
+	  	return(door.getStatus().equalsIgnoreCase("Unlocked"));
+	  		//return true;//returns the value true
+	    //else
+	  	 //return false;//returns the value false
 	  }//end checkDoor
 	   
 	  
@@ -196,6 +203,23 @@ public class Move {
 			  tracker.setExactColumn(tracker.getExactColumn() - 1);
 		  }//end if-else
 	  }//end moveNext
+	  
+	  
+	  
+	  //method to alert the user that they moved to a different room
+	  private void displayConfirmMove(int direction) {
+		  
+		  switch(direction) {
+		  
+			  //enter case 1
+			  case 1:	System.out.println("\nYou've successfully moved to the next Room.\n");
+			  			break;
+			  			
+			  //enter case 2
+			  case 2:	System.out.println("\nYou've successfully moved to the previous Room.\n");
+			  			break;
+		  }//end switch
+	  }//end displayConfirmMove
 	  
 	  
 	  

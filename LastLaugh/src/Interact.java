@@ -9,7 +9,7 @@ public class Interact{
 	//method to interact with the caretaker of the current room
 	public void interactWithCaretaker(Player player, Caretaker caretaker, int selection) {
 		
-		if(caretaker.getStatus() == "Active") {
+		if(caretaker.getStatus().equalsIgnoreCase("Active")) {
 			
 			//initiate switch statement
 			switch(selection) {
@@ -40,7 +40,7 @@ public class Interact{
 		
 		//prints out caretaker's greeting
 		System.out.println(caretaker.getName() + " speaks to you:\n"
-							+ caretaker.getGreeting() + "\n");		
+							+ caretaker.getGreeting());		
 	}//end hearGreeting
 	
 	
@@ -110,10 +110,10 @@ public class Interact{
 	private boolean solutionIsCorrect(Caretaker caretaker, String solution) {
 		
 		//initiate if-else statement
-		if(caretaker.getAnswer(caretaker.getCurrentLayer()).equalsIgnoreCase(solution))
-			return true;//returns boolean value of true
-		else
-			return false;//returns boolean value of false
+		return(caretaker.getAnswer(caretaker.getCurrentLayer()).equalsIgnoreCase(solution));
+			//return true;//returns boolean value of true
+		//else
+			//return false;//returns boolean value of false
 	}//end solutionIsCorrect
 	
 	
@@ -179,8 +179,8 @@ public class Interact{
 	private void caretakerAdmonishes(Player player, Caretaker caretaker) {
 		
 		//prints an admonishment to the player
-		System.out.println(caretaker.getName() + " admonsihes you -\n"
-				+ "	" + player.getName() + caretaker.getAdmonishment());
+		System.out.println("\n" + caretaker.getName() + " admonsihes you -\n"
+				+ "	" + player.getName() + caretaker.getAdmonishment() + "\n");
 	}//end caretakerAdmonishes
 	
 	
@@ -190,7 +190,7 @@ public class Interact{
 		
 		//prints message to the user
 		System.out.println("\nI'm sorry " + player.getName() + ", but. . .\n"
-				+ caretaker.getName() + " is no longer active.");
+				+ caretaker.getName() + " is no longer active.\n");
 	}//end caretakerInactiveMsg
 	
 }//end class

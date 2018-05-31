@@ -17,6 +17,8 @@ public class Action{
 			System.out.println("Puzzle Piece " + (i + 1) + ": "
 						+ room.getPuzzlePiece(i).getName());
 		}//end for
+		
+		System.out.println();
 	}//end diaplayPuzzlePieces
 
 

@@ -112,9 +112,11 @@ public class Move {
 	  //method to check if moving to the next room is a valid move
 	  private boolean checkMoveNext(PositionTracker tracker) {
 		  
+		  GeneralUtility generalTool = new GeneralTool();
+		  
 		  if((tracker.getExactRow() + 1) == tracker.getMaxRows()) { //initiate if statement
 			  if((tracker.getExactColumn() + 1) == tracker.getMaxColumns()) //initiate if statement
-				  return false; //returns the boolean value false
+				  generalTool.beatGame();
 		  }
 		 
 		  return true; //returns the value true	

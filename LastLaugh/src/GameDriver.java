@@ -110,7 +110,7 @@ public class GameDriver{
 						break;//breaks out of switch
 						
 				//enter default case
-				//default:	this.confirmExitMainGame();	
+				default:	this.confirmExitMainGame(gameStructure.getSelector(), ioTool);	
 			}//end switch
 			
 		}while(gameStructure.getSelector().getMainSelection() != 8);
@@ -180,10 +180,23 @@ public class GameDriver{
 				gameStructure.getSelector().setSubSelection(ioTool.takeSelection(4));
 				
 				if(gameStructure.getSelector().getSubSelection() != 4) {
-					gameStructure.getPositionTracker().updateCurrentRoom();
+					
+					switch(gameStructure.getSelector().getSubSelection()) {
+					
+						case 1:	System.out.println("\n" + gameStructure.getPositionTracker().getCurrentRoom().getDoor().toString());
+								break;
+							
+						case 2: System.out.println("\n" + gameStructure.getPositionTracker().getCurrentRoom().getCaretaker().toString());
+								break;
+								
+						case 3: this.examinePuzzlePiece(gameStructure.getPositionTracker().getCurrentRoom());
+					}
+					/*
+					//gameStructure.getPositionTracker().updateCurrentRoom();
 					gameStructure.getPlayer().getCommand().getExamine().
-						examineItem(gameStructure.getPositionTracker().getCurrentRoom(), 
-										gameStructure.getSelector().getSubSelection());
+						examineItem(gameStructure.getPositionTracker().getCurrentRoom(),
+								gameStructure.getSelector().getSubSelection());
+					*/
 				}
 			
 		}while(gameStructure.getSelector().getSubSelection() != 4);
@@ -315,7 +328,7 @@ public class GameDriver{
 					if(gameStructure.getSelector().getSubSelection() != 2) {
 						gameStructure.getPlayer().getCommand().getInventory().
 							useKey(gameStructure.getPlayer(), gameStructure.getPositionTracker().
-									getCurrentRoom().getDoor());
+									getCurrentRoom().getDoor(), gameStructure.getPositionTracker());
 					}
 				}else
 					gameStructure.getSelector().setSubSelection(2);
@@ -363,5 +376,102 @@ public class GameDriver{
 		gameStructure.getSelector().setMainSelection(0);
 		
 	}//end executeNotebookOperation
+	
+	
+	
+	//to confirm the player wants to exit the game
+	private void confirmExitMainGame(Selector selector, InputUtility ioTool) {
+		
+		int selection = 0;
+		
+		System.out.println("\nAre you sure you want to exit the game?\n"
+							+ "Press 1 for yes or 2 for no: ");
+		
+		selection = ioTool.takeSelection(2);
+		
+		if(selection == 1) {
+			System.out.println();
+			ioTool.tauntPlayer();
+			System.out.println();
+		}else
+			selector.setMainSelection(0);
+	}//end confirmExitMainGame
+	
+/////////////////////////////////////////////////////////////////////////////////////////
+//			quick fix to java.lang.Null.Pointer.Exception I explained in email         //
+////////////////////////////////////////////////////////////////////////////////////////
+	
+	//method to print out the description of a puzzlepiece in the current room
+	  private void examinePuzzlePiece(Room currentRoom) {
+		  
+		  //instantiate and initialize objects
+		  InputUtility ioTool = new InputUtility();
+		  
+		  //declare and initialize variables
+		  String choice = "";
+		  boolean choiceExists = false;
+		  
+		  System.out.println();
+		  
+		  //prompt user for input
+		  ioTool.itemPrompt();
+		  
+		  //take user input
+		  choice = ioTool.takeName();
+		  
+		  choiceExists = this.checkChoice(currentRoom, choice);
+		  
+		  if(choiceExists == true)
+			  this.printChoiceDescription(currentRoom, choice);
+		  else
+			  this.displayNoItemMsg();
+				  
+	  }//end inspectPuzzlePiece
+	  
+	  
+	
+	//method to check if the user's choice exists in the current room
+	  private boolean checkChoice(Room currentRoom, String choice) {
+
+		//declare and initialize variables
+		boolean validFlag = false;
+		  
+		//initiate for loop to iterate through list
+	    for(int i = 0; i < currentRoom.getNumberOfPuzzlePieces(); i++){
+
+	      //initiate if-else statement
+	      if(currentRoom.getPuzzlePiece(i).getName().equalsIgnoreCase(choice) == true)
+	        validFlag = true;//assigns a boolean value of true to validFlag
+	      else
+	    	  validFlag = false;//assigns a boolean value of false to validFlag
+	    }//end for
+	    
+	    return validFlag;//returns the value of validFlag
+	  }//end checkChoice
+	  
+	  
+	  
+	  //method to print out the description of the user's choice
+	  private void printChoiceDescription(Room currentRoom, String choice) {
+		  
+		//initiate for loop to iterate through list
+		for(int i = 0; i < currentRoom.getNumberOfPuzzlePieces(); i++){
+
+		  //initiate if-else statement
+		  if(currentRoom.getPuzzlePiece(i).getName().equalsIgnoreCase(choice) == true)
+		    System.out.println("\nDescription: " + currentRoom.getPuzzlePiece(i).toString());
+		}//end for
+	  }//end printChoiceDescription
+	  
+	  
+	  
+	  //method to alert user that the item they entered doesn't exist
+	  private void displayNoItemMsg() {
+		  
+		  //print error message to user
+		  System.out.println("The Item you entered does not exist in this Room.\n");
+	  }//end displayNotItemMsg
+	  
+/////////////////////////////////////////////////////////////////////////////////////////	  
 	
 }//end class

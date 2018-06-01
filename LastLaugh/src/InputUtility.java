@@ -48,7 +48,12 @@ public class InputUtility{
 
     //declare and initialize variables
     int number = 0;
-
+    
+    while (!input.hasNextInt()) {
+    	input.next();
+    	System.out.println("Please only enter an integer\n");
+    }
+    
     //invoke the nextInt method and assigns its return value to number
     number = input.nextInt();
     
@@ -142,7 +147,7 @@ public class InputUtility{
 
     FileUtility fileTool = new FileUtility();
 
-    fileTool.readFile("TextFiles/Misc/InvalidName.txt");
+    fileTool.readFile("src/TextFiles/Misc/InvalidName.txt");
 
     System.out.println();
   }//end nameErrorMsg
@@ -182,6 +187,14 @@ public class InputUtility{
 	  //prints message to user
 	  System.out.println("Afraid? You better be. . . HAHAHAHAHAHAHA!");
   }//end tauntPlayer
+  
+  
+  
+  //method to prompt user to select a key
+  public void promptKeySelection() {
+	  
+	  System.out.println("Type in the number of the Key, you wish to select for use:\n");
+  }//end promptKeySelection
    
 
 }//end class

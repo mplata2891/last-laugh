@@ -1,0 +1,39 @@
+Game Synopsis/Directions
+
+You find yourself in an unknown location and need to escape
+through a series of rooms.
+
+To complete this task you will need to identify your surroundings
+by using the Sense menu option
+
+You will then need to talk to the Room's caretaker by using the
+Interact Menu option.
+
+The caretaker will have one or more riddles for you to solve.
+
+You can get details of the objects in the room by using the Examine
+option.
+
+If you need a hint to solve the riddle, hints are obtainable my
+manipualating Puzzle Pieces, accessed through the Action menu.
+If you manipulate the item in the correct order, the hint is 
+unlocked.
+
+If you fail to manipulate the item in the correct order or
+enter a wrong solution to a riddle, your character may die
+
+The more attempts you have accumulated, the greater the chance
+you die.
+
+Once you have solved the caretaker's riddles, the caretaker will
+give you the key to the room's door. It will be located in your
+inventory
+
+Via the Inventory menu, you can select a key and use it to unlock
+the rooms door.
+
+once the door has been unlocked you will have a new Note in your
+notebook which futher's the narrative. Notes can be accessed through
+the Notebook option.
+
+Using the move option, you can move through all the rooms you have unlocked

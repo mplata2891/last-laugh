@@ -15,10 +15,15 @@ public class Examine{
   //method to print the details of a specific Item in a Room
   public void examineItem(Room currentRoom, int selection){
 
-    switch(selection) {
+    Door tempDoor = new Door();
+    
+	tempDoor = currentRoom.getDoor(); 
+	  
+	  
+	switch(selection) {
     
     	//enter case 1
-	    case 1: this.examineDoor(currentRoom);//invoke inspectDoor method
+	    case 1: this.examineDoor(tempDoor);//invoke inspectDoor method
 	    		break;//break out of switch
 	    
 	    //enter case 2
@@ -34,10 +39,10 @@ public class Examine{
   
   
   //method to print out the description of the door in the current room
-  private void examineDoor(Room room) {
+  private void examineDoor(Door door) {
 	  
 	  //prints out description of door
-	  System.out.println(room.getDoor().toString());
+	  System.out.println(door.toString());
   }//end inspectDoor
   
   

@@ -1,0 +1,38 @@
+These are the answers to all the riddles in order
+
+Room 1
+	Rope
+	
+Room 2
+	Fire
+	
+Room 3
+	Five
+	
+Room 4
+	Breath
+	Clock
+	
+Room 5
+	Shoe
+	Friendship
+	
+Room 6
+	Six
+	Palindrome
+	
+Room 7
+	Stairs
+	Tomorrow
+	Cloud
+	
+Room 8
+	All
+	Promise
+	Or
+	
+Room 9
+	Darkness
+	Truth
+	Aunt
+	ENT

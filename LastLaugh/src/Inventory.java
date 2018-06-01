@@ -31,9 +31,7 @@ public class Inventory{
 
 
 	//method to use an Key in the Player's inventory
-	public void useKey(Player player, Door door){
-		
-		
+	public void useKey(Player player, Door door, PositionTracker tracker){	
 		
 		//instantiate and initialize objects
 		Key tempKey = new Key();
@@ -51,7 +49,7 @@ public class Inventory{
 	
 			//initiate if-else statement
 			if(correctKey == true)
-				this.unlockDoor(player, door);//invoke unlockDoor method
+				this.unlockDoor(player, door, tracker);//invoke unlockDoor method
 			else
 				this.displayWrongKeyMsg();
 		}else 
@@ -70,7 +68,7 @@ public class Inventory{
 		int selection = 0;
 		
 		//prompt user for selection
-		ioTool.menuPrompt();
+		ioTool.promptKeySelection();
 
 		//take user's selection
 		selection = ioTool.takeSelection(player.getNumberOfKeys() + 1);
@@ -94,13 +92,18 @@ public class Inventory{
 
 
 	//method to unlock door with chosen key and give player a new note
-	private void unlockDoor(Player player, Door door){
+	private void unlockDoor(Player player, Door door, PositionTracker tracker){
 
+		GeneralUtility generalTool = new GeneralUtility();
+		
 		//invokes unlock method
 		this.unlock(door);
 
 		//invokes givePlayerNote method
 		this.givePlayerNote(player, door);
+		
+		generalTool.saveGame(player, tracker);
+		
 	}//end unlockDoor
 
 

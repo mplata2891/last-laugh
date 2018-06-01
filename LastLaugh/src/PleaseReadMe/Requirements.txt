@@ -1,0 +1,76 @@
+REQUIREMENTS - /*Our Implementation*/:
+
+
+Program must compile! (or automatic 30 points off!)
+	/*
+	*Main method found in LastLaugh.java
+	*Program Compiles
+	*/
+	
+At least an opening and a closing splash screen
+	/*
+	*One Splash page upon Title Screen
+	*One Splash page upon Completion of the game
+	*One Splash page if player death within game
+	*/
+	
+A strong storyline (for groups 2&3&4 that is outlined in a text file and read using file I/O)
+	/*
+	*Storyline begins at the start of a 'New Game'
+	*Story is supported within game through the collection of 'Notes'
+	*/
+	
+User input interaction with the story
+	/*
+	*When the game address the player, it uses the player's name entered
+	*	at the beginning of the game
+	*/
+	
+User input saved to a file
+	/*
+	*User name entered at the beginning of the game is saved when the first
+	*	door is unlocked, as well as player's position in the game at the
+	*	time the door is unlocked, and at every subsequent door unlocking
+	*/
+	 
+Saved user info read from a file
+	/*
+	*Saved user info is read when 'Continue Game' is selected at title screen
+	*/
+	
+Using Math.random() for scenarios that require a probability/decision
+	/*
+	*Everytime the user fails to manipulate a puzzle piece in the correct
+	*	order, their 'attempts' is increased. Using a math.random method
+	*	the game then determines whether the player has died. Essentially
+	*	1 attempt means that the player has a 10% chance of death, 2 attempts
+	*	mean a 20% chance of death, and so on, and so on.
+	*The above scenario also applies to failing the answering of riddles
+	*We also used Math.random method to determine which notes get loaded
+	*	to create a unique experience everytime game is loaded
+	*/
+	
+A utility/tool class that holds support methods unrelated to objects
+	/*
+	*Various utility classes created (in alphabetical order)
+	*	-CreateObjects
+	*	-FileUtility
+	*	-GameDriver
+	*	-GeneralUtility
+	*	-InputUtility
+	*	-LoadGame
+	*	-PopulateObjects
+	*
+	*	-TestDriver (used to test loading and populating of objects)
+	*/
+
+
+Custom classes that holds data of of your objects in your text adventure
+	/*
+	*All classes found in src folder
+	*/
+	
+A multidimensional array that acts as a map
+	/*
+	*Multidimensional array found as a class member in PositionTracker.java
+	*/ 

@@ -49,7 +49,7 @@ public class FileUtility{
       bw.write(content);
 
       //prints done when file has been written to
-      System.out.println("Done");
+      //System.out.println("Done");
 
   	} catch(IOException e){
 

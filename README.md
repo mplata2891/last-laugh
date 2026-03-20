@@ -1,7 +1,8 @@
 # Last Laugh
 
-**Course:** CoSci 290 — Introduction to Programming  
-**Institution:** Cal Poly Pomona  
+**Course:** CoSci 290 — Introduction to Java Programming  
+**Institution:** East Los Angeles College
+**Professor:** Prof. Sina Tuy
 **Project:** Text Adventure Game  
 
 ---
